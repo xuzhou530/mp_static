@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>
+        <%block name="title"></%block>${ins.get_session('project_name')}分布式认证系统
+    </title>
+    <link rel="stylesheet" href="/static/css/jqueryui.css" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <script type="text/javascript" src="/static/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/main.min.js"></script>
+    <%block name="jscode"></%block>
+</head>
+
+<body>
+    <div class="header">
+        <div class="wrapper">
+            <a href="/index.html" title="${ins.get_session('project_name')}分布式认证系统" class="logo">${ins.get_session('project_name')}分布式认证系统</a>
+            <div class="admin">
+                <img src="../static/images/logo_bidong.png" />
+                <span class="username">${ins.get_session('user')}</span>
+                <span class="cutofline"><i></i></span>
+                <a href="/logout" class="logout">退出</a>
+            </div>
+            <div class="search">
+                <input type="text" />
+                <button><i class="searchIco"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        ${self.body()}
+    </div>
+    <div class="footer">
+        <div class="wrapper">
+            <p>广州中国科学院计算机网络信息中心</p>
+            <p>电话：020-22992549<span></span>邮箱：gd-xub@chinaunicom.cn</p>
+        </div>
+    </div>
+    <%block name="aside"></%block>
+</body>
+</html>

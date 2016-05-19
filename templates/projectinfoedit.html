@@ -1,0 +1,215 @@
+## projectInfo.html
+<%inherit file="base.html" />
+
+<div class="wrapper nsWrapper">
+    <input type="hidden" value="${location}" id="location" />
+    <!--导航-->
+    <%include file="nav.html" />
+    <!--右侧功能栏-->
+    <div class="projects">
+        <%include file="bread_nav.html" />
+        <div class="tabbox nopdg ns_form">
+            <h4 class="formInfo">
+                <em>项目基本信息</em>
+                <a href="/projectinfo.html?location=${location}">返回</a>
+            </h4>
+            <div class="areabox">
+                <ul class="vertical">
+                     <li>
+                        <label><i>*</i>项目名称：</label>
+                        <span class="veright"><input type="text" name="name" class="matchVerify" value="${project.name}" /></span>
+                    </li>
+                    <li>
+                        <label>项目类型：</label>
+                        <span class="veright">
+                            <select id="projectTypeId">
+                                % for type in project_types:
+                                    % if project.type == type:
+                                    <option value="${type.id}" selected>${type.title}</option>
+                                    % else:
+                                    <option value="${type.id}">${type.title}</option>
+                                    % endif
+                                % endfor
+                            </select>
+                        </span>
+                    </li>
+                    <li>
+                        <label>项目说明：</label>
+                        <span class="veright"><textarea name="note" id="note">${project.note}</textarea></span>
+                    </li>
+                    <li>
+                        <label>营业执照：</label>
+                        <span class="veright">
+                            <div class="file">
+                                <input type="hidden" name="license" value="${project.license}" />
+                                <input type="file" class="uploadImg proImg" id="license" imgElementId="imgLicense" name="uploadImg" />
+                                <button type="button" class="btnGreen">选择图片</button>
+                                <div class="loading"></div>
+                            </div>
+                            % if project.license is None or project.license == 'None' or project.license == '':
+                            <div class="showImg">
+                            % else:
+                            <div class="showImg" style="display: block;">
+                            % endif
+                                <img src="${project.license}" id="imgLicense" />
+                                <i class="deluploadImg"></i>
+                            </div>
+                        </span>
+                    </li>
+                    <li>
+                        <label>企业LOGO：</label>
+                        <span class="veright">
+                            <div class="file">
+                                <input type="hidden" name="logo" value="${project.logo}" />
+                                <input type="file" class="uploadImg proImg" id="logo" imgElementId="imgLogo" name="uploadImg" />
+                                <button type="button" class="btnGreen">选择图片</button>
+                                <div class="loading"></div>
+                            </div>
+                            % if project.logo is None or project.logo == 'None' or project.logo == '':
+                            <div class="showImg">
+                            % else:
+                            <div class="showImg" style="display: block;">
+                            % endif
+                                <img src="${project.logo}" id="imgLogo" />
+                                <i class="deluploadImg"></i>
+                            </div>
+                        </span>
+                    </li>
+                    <li>
+                        <label><i>*</i>相关企业或楼房地址：</label>
+                        <span class="veright"><input type="text" name="building" class="matchVerify" value="${project.building}" /></span>
+                    </li>
+                    <li>
+                        <label><i>*</i>联系人：</label>
+                        <span class="veright"><input type="text" name="contact" class="matchVerify" value="${project.contact}" /></span>
+                    </li>
+                    <li>
+                        <label><i>*</i>电话：</label>
+                        <span class="veright"><input type="text" name="mobile" class="matchVerify checkPhone" value="${project.mobile}" /></span>
+                    </li>
+                    <li>
+                        <label><i>*</i>地址：</label>
+                        <span class="veright"><input type="text" name="address" class="matchVerify" value="${project.address}" /></span>
+                    </li>
+                    <!--<li>-->
+                        <!--<label>项目所属AC：</label>-->
+                        <!--<span class="veright">-->
+                            <!--<div class="innerTable">-->
+                                <!--<table>-->
+                                    <!--<tr>-->
+                                        <!--<th>&nbsp;&nbsp;</th>-->
+                                        <!--<th>名称</th>-->
+                                        <!--<th>品牌</th>-->
+                                        <!--<th>账户</th>-->
+                                        <!--<th>密码</th>-->
+                                        <!--<th width="160">安装设置</th>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<th>AC1</th>-->
+                                        <!--<td></td>-->
+                                        <!--<td></td>-->
+                                        <!--<td></td>-->
+                                        <!--<td></td>-->
+                                        <!--<td></td>-->
+                                    <!--</tr>-->
+                                <!--</table>-->
+                            <!--</div>-->
+                        <!--</span>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<label>项目所属AP：</label>-->
+                        <!--<span class="veright">-->
+                            <!--<div class="innerTable">-->
+                                <!--<table>-->
+                                    <!--<tr>-->
+                                        <!--<th>&nbsp;&nbsp;</th>-->
+                                        <!--<th>名称</th>-->
+                                        <!--<th>品牌</th>-->
+                                        <!--<th>账户</th>-->
+                                        <!--<th>密码</th>-->
+                                        <!--<th width="160">安装设置</th>-->
+                                    <!--</tr>-->
+                                    <!--<tr>-->
+                                        <!--<th>AC1</th>-->
+                                        <!--<td></td>-->
+                                        <!--<td></td>-->
+                                        <!--<td></td>-->
+                                        <!--<td></td>-->
+                                        <!--<td></td>-->
+                                    <!--</tr>-->
+                                <!--</table>-->
+                            <!--</div>-->
+                        <!--</span>-->
+                    <!--</li>-->
+                    <li>
+                        <label>项目拓扑图：</label>
+                        <span class="veright">
+                            <div class="file">
+                                <input type="hidden" name="topology" value="${project.topology}" />
+                                <input type="file" class="uploadImg proImg" id="topology" imgElementId="imgTopology" name="uploadImg" />
+                                <button type="button" class="btnGreen">选择图片</button>
+                                <div class="loading"></div>
+                            </div>
+                            % if project.topology is None or project.topology == 'None' or project.topology == '':
+                            <div class="showImg">
+                            % else:
+                            <div class="showImg" style="display: block;">
+                            % endif
+                                <img src="${project.topology}" id="imgTopology" />
+                                <i class="deluploadImg"></i>
+                            </div>
+                        </span>
+                    </li>
+                    <li>
+                        <label>项目地图位置描点图：</label>
+                        <span class="veright">
+                            <div class="file">
+                                <input type="hidden" name="tracepoint" value="${project.tracepoint}" />
+                                <input type="file" class="uploadImg proImg" id="tracePoint" imgElementId="imgTracePoint" name="uploadImg" />
+                                <button type="button" class="btnGreen">选择图片</button>
+                                <div class="loading"></div>
+                            </div>
+                            % if project.tracepoint is None or project.tracepoint == 'None' or project.tracepoint == '':
+                            <div class="showImg">
+                            % else:
+                            <div class="showImg" style="display: block;">
+                            % endif
+                                <img src="${project.tracepoint}" id="imgTracePoint" />
+                                <i class="deluploadImg"></i>
+                            </div>
+                        </span>
+                    </li>
+                    <li>
+                        <label>实地照片：</label>
+                        <span class="veright">
+                            <div class="file">
+                                <input type="hidden" name="fieldphoto" value="${project.fieldphoto}" />
+                                <input type="file" class="uploadImg proImg" id="fieldPhoto" imgElementId="imgFieldPhoto" name="uploadImg" />
+                                <button type="button" class="btnGreen">选择图片</button>
+                                <div class="loading"></div>
+                            </div>
+                            % if project.fieldphoto is None or project.fieldphoto == 'None' or project.fieldphoto == '':
+                            <div class="showImg">
+                            % else:
+                            <div class="showImg" style="display: block;">
+                            % endif
+                                <img src="${project.fieldphoto}" id="imgFieldPhoto" />
+                                <i class="deluploadImg"></i>
+                            </div>
+                        </span>
+                    </li>
+                </ul>
+                <p class="btnSub pdg60"><button type="button" class="btnBlue" id="editproject">保存</button></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%block name="jscode">
+    <script type="text/javascript" src="/static/js/lib/ajaxfileupload.js"></script>
+</%block>
+
+##<%block name="aside">
+##    <%include file="imgModal.html" />
+##    <%include file="modal.html" />
+##</%block>

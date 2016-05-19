@@ -1,0 +1,53 @@
+<tr>
+  <th>MAC地址</th>
+  <th>所属</th>
+  <th>状态</th>
+  <th>AP名称</th>
+  <th>设备型号</th>
+  <th>品牌</th>
+  <th>位置</th>
+  <th>SSID</th>
+  % if ins.is_allowed('update', 'ap'):
+  <th>操作</th>
+  % endif
+</tr>
+% for ap in aps:
+<tr>
+  <td>${ap.get('mac', '')}</td>
+  % if ap['resource']:
+  <td data-value="${ap['resource']['_location']}" data-title="${ap['resource']['name']}">
+  % else:
+  <td data-value="" data-title="">
+  % endif
+      % if ap['resource']:
+      ${ap['resource']['name']}
+      % endif
+  </td>
+  <td>
+    % if ap['online'] == '1':
+    <span style="color:#27b600">在线</span>
+    % else:
+    <span style="color:#f74646;">离线</span>
+    % endif
+  </td>
+  <td class="wb">${ap.get('name', '')}</td>
+  <td class="wb">${ap.get('model', '')}</td>
+  <td>
+    <i class="vendor ${ap['vendor'].lower()}"></i>
+    <input type="hidden" value="${ap['vendor'].lower()}" />
+  </td>
+  <td>${ap.get('location', '')}</td>
+  <td>${ap['ssid']}</td>
+  % if ins.is_allowed('update', 'ap'):
+  <td>
+    <span class="edit">编辑</span>
+    <button type="button" class="btnGrayAutoMin save">保存</button>
+    <button type="button" class="btnGrayAutoMin cancel">取消</button>
+    % if not ap['resource']:
+    <span class="error">(*待绑定)</span>
+    % endif
+    <input type="hidden" value="${str(ap['_id'])}" />
+  </td>
+  % endif
+</tr>
+% endfor

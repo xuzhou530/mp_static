@@ -1,0 +1,181 @@
+## addproject.html
+<%inherit file="base.html" />
+
+<div class="wrapper">
+    <div class="tabbox nopdg ns_form noradius">
+        <h3>新增项目</h3>
+        <p class="notice"><em>注</em>：所有项目栏都为必填项，所有上传图片格式可支持jpg/gif/png格式，（图片宽>300，高>200，图片大小<5M，最多上传一张）</p>
+        <div class="areabox">
+            <ul class="vertical">
+                <li>
+                    <label><i>*</i>项目名称：</label>
+                    <span class="veright"><div class="verify"><input type="text" name="name" class="matchVerify shouldVerify" /></div></span>
+                </li>
+                <li>
+                    <label><i>*</i>项目类型：</label>
+                    <span class="veright">
+                        <select id="projectTypeId">
+                          % for type in project_types:
+                          <option value="${type.id}">${type.title}</option>
+                          % endfor
+                        </select>
+                    </span>
+                </li>
+                <li>
+                    <label>项目说明：</label>
+                    <span class="veright"><textarea name="note" id="note"></textarea></span>
+                </li>
+                <li>
+                    <label>营业执照：</label>
+                    <span class="veright">
+                        <div class="file">
+                            <input type="hidden" name="license" />
+                            <input type="file" class="uploadImg proImg" id="license" imgElementId="imgLicense" name="uploadImg" />
+                            <button type="button" class="btnGreen">选择图片</button>
+                            <div class="loading"></div>
+                        </div>
+                        <div class="showImg">
+                            <img src="" id="imgLicense" />
+                            <i class="deluploadImg"></i>
+                        </div>
+                    </span>
+                </li>
+                <li>
+                    <label>企业LOGO：</label>
+                    <span class="veright">
+                        <div class="file">
+                            <input type="hidden" name="logo" />
+                            <input type="file" class="uploadImg proImg" id="logo" imgElementId="imgLogo" name="uploadImg" />
+                            <button type="button" class="btnGreen">选择图片</button>
+                            <div class="loading"></div>
+                        </div>
+                        <div class="showImg">
+                            <img src="" id="imgLogo" />
+                            <i class="deluploadImg"></i>
+                        </div>
+                    </span>
+                </li>
+                <li>
+                    <label><i>*</i>相关企业或楼房地址：</label>
+                    <span class="veright"><div class="verify"><input type="text" name="building" class="matchVerify shouldVerify" /></div></span>
+                </li>
+                <li>
+                    <label><i>*</i>联系人：</label>
+                    <span class="veright"><div class="verify"><input type="text" name="contact" class="matchVerify shouldVerify" /></div></span>
+                </li>
+                <li>
+                    <label><i>*</i>电话：</label>
+                    <span class="veright"><div class="verify"><input type="text" name="mobile" class="matchVerify shouldVerify checkPhone" /></div></span>
+                </li>
+                <li>
+                    <label><i>*</i>地址：</label>
+                    <span class="veright"><div class="verify"><input type="text" name="address" class="matchVerify shouldVerify" /></div></span>
+                </li>
+                <!--<li>-->
+                    <!--<label>项目所属AC：<div><input type="button" value="新增AC" class="btnGrayMin" /></div></label>-->
+                    <!--<span class="veright">-->
+                        <!--<div class="innerTable">-->
+                            <!--<table>-->
+                                <!--<tr>-->
+                                    <!--<th>&nbsp;&nbsp;</th>-->
+                                    <!--<th>名称</th>-->
+                                    <!--<th>品牌</th>-->
+                                    <!--<th>账户</th>-->
+                                    <!--<th>密码</th>-->
+                                    <!--<th width="160">安装设置</th>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<th>AC1</th>-->
+                                    <!--<td><input type="text" /></td>-->
+                                    <!--<td><input type="text" /></td>-->
+                                    <!--<td><input type="text" /></td>-->
+                                    <!--<td><input type="text" /></td>-->
+                                    <!--<td><input type="text" class="wdx155" /></td>-->
+                                <!--</tr>-->
+                            <!--</table>-->
+                        <!--</div>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<label>项目所属AP：<div><input type="button" value="新增AP" class="btnGrayMin" /></div></label>-->
+                    <!--<span class="veright">-->
+                        <!--<div class="innerTable">-->
+                            <!--<table>-->
+                                <!--<tr>-->
+                                    <!--<th>&nbsp;&nbsp;</th>-->
+                                    <!--<th>名称</th>-->
+                                    <!--<th>品牌</th>-->
+                                    <!--<th>账户</th>-->
+                                    <!--<th>密码</th>-->
+                                    <!--<th width="160">安装设置</th>-->
+                                <!--</tr>-->
+                                <!--<tr>-->
+                                    <!--<th>AC1</th>-->
+                                    <!--<td></td>-->
+                                    <!--<td></td>-->
+                                    <!--<td></td>-->
+                                    <!--<td></td>-->
+                                    <!--<td></td>-->
+                                <!--</tr>-->
+                            <!--</table>-->
+                        <!--</div>-->
+                    <!--</span>-->
+                <!--</li>-->
+                <li>
+                    <label>项目拓扑图：</label>
+                    <span class="veright">
+                        <div class="file">
+                            <input type="hidden" name="topology" />
+                            <input type="file" class="uploadImg proImg" id="topology" imgElementId="imgTopology" name="uploadImg" />
+                            <button type="button" class="btnGreen">选择图片</button>
+                            <div class="loading"></div>
+                        </div>
+                        <div class="showImg">
+                            <img src="" id="imgTopology" />
+                            <i class="deluploadImg"></i>
+                        </div>
+                    </span>
+                </li>
+                <li>
+                    <label>项目地图位置描点图：</label>
+                    <span class="veright">
+                        <div class="file">
+                            <input type="hidden" name="tracepoint" />
+                            <input type="file" class="uploadImg proImg" id="tracePoint" imgElementId="imgTracePoint" name="uploadImg" />
+                            <button type="button" class="btnGreen">选择图片</button>
+                            <div class="loading"></div>
+                        </div>
+                        <div class="showImg">
+                            <img src="" id="imgTracePoint" />
+                            <i class="deluploadImg"></i>
+                        </div>
+                    </span>
+                </li>
+                <li>
+                    <label>实地照片：</label>
+                    <span class="veright">
+                        <div class="file">
+                            <input type="hidden" name="fieldphoto" />
+                            <input type="file" class="uploadImg proImg" id="fieldPhoto" imgElementId="imgFieldPhoto" name="uploadImg" />
+                            <button type="button" class="btnGreen">选择图片</button>
+                            <div class="loading"></div>
+                        </div>
+                        <div class="showImg">
+                            <img src="" id="imgFieldPhoto" />
+                            <i class="deluploadImg"></i>
+                        </div>
+                    </span>
+                </li>
+                <!--<li>-->
+                    <!--<label>项目设备列表：</label>-->
+                    <!--<span class="veright"><input type="button" value="查看" class="btnGraySmall" /><input type="button" value="设置" class="btnGraySmall" /></span>-->
+                <!--</li>-->
+            </ul>
+            <p class="btnSub pdg60"><button type="button" class="btnBlue" id="addproject">确定</button></p>
+        </div>
+    </div>
+</div>
+
+<%block name="jscode">
+    <script type="text/javascript" src="/static/js/lib/ajaxfileupload.js"></script>
+</%block>
