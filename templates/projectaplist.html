@@ -55,13 +55,11 @@
                 <table>
                     <tr>
                         <th>MAC地址</th>
-                        <th>所属</th>
+                        <th>响应时间</th>
                         <th>状态</th>
-                        <th>AP名称</th>
-                        <th>设备型号</th>
                         <th>品牌</th>
                         <th>位置</th>
-                        <th>SSID</th>
+                        <th>最后连接数</th>
                         % if ins.is_allowed('update', 'ap'):
                         <th>操作</th>
                         % endif
@@ -69,15 +67,7 @@
                     % for ap in aps:
                     <tr>
                         <td data-value="${ap.get('mac', '')}">${ap.get('mac', '')}</td>
-                        % if ap['resource']:
-                        <td data-value="${ap['resource']['_location']}" data-title="${ap['resource']['name']}">
-                        % else:
-                        <td data-value="" data-title="">
-                        % endif
-                            % if ap['resource']:
-                            ${ap['resource']['name']}
-                            % endif
-                        </td>
+                        <td data-value=""></td>
                         <td>
                           % if ap['online'] == '1':
                           <span style="color:#27b600">在线</span>
@@ -85,8 +75,6 @@
                           <span style="color:#f74646;">离线</span>
                           % endif
                         </td>
-                        <td data-value="{ap.get('name', '')}" class="wb">${ap.get('name', '')}</td>
-                        <td data-value="${ap.get('model', '')}" class="wb">${ap.get('model', '')}</td>
                         <td data-value="${ap.get('vendor', '').strip()}">
                             % if ap.get('vendor', '').strip()== 'hanming' or ap.get('vendor', '').strip() == 'Hanming':
                             <i class="vendor hanming"></i>
@@ -104,7 +92,7 @@
                             <input type="hidden" value="${ap['vendor']}" />
                         </td>
                         <td data-value="${ap.get('location', '')}">${ap.get('location', '')}</td>
-                        <td>${ap['ssid']}</td>
+                        <td data-value=""></td>
                         % if ins.is_allowed('update', 'ap'):
                         <td>
                             <span class="edit">编辑</span>

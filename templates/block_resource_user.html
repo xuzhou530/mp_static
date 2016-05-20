@@ -18,19 +18,16 @@
     % endif
   % endfor
   % if mask == 1:
-  <td><span class="edit">编辑</span><span class="forbin">禁用</span><span class="delete">删除</span>
-  % else:
+  <td><span class="edit">编辑</span><span class="forbin">禁用</span><span class="delete">删除</span><input type="hidden" value="${row.id}"/></td>
+  % elif mask == 2 or mask == 4:
   <td><span class="edit">编辑</span><span class="forbin">禁用</span>
     % if row.user != str(row.holder):
     <span class="delete">删除</span>
     % endif
-  % endif
-  % if mask == 1:
-  <input type="hidden" value="${row.id}"/></td>
-  % elif mask == 2 and row.user == str(row.holder):
-  <input type="hidden" value="${row.user}" holder/></td>
-  % else:
-  <input type="hidden" value="${row.user}"/></td>
+    <input type="hidden" value="${row.user}" holder/>
+  </td>
+  % elif mask == 8:
+  <td><span class="unforbin">启用</span><span class="forbin">禁用</span><input type="hidden" class="enabd" value="0" /></td>
   % endif
 </tr>
 % endfor

@@ -95,6 +95,7 @@ button:focus {
   vertical-align: middle;
   color: #666;
   font-size: 14px;
+  font-style: normal;
 }
 .lg_banner form ul li label i {
   background: url("../images/login_icon.png") no-repeat;

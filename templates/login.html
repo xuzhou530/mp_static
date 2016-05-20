@@ -9,7 +9,17 @@
     <link rel="stylesheet" href="/static/css/login.css" />
     <script type="text/javascript" src="/static/js/lib/jquery.min.js"></script>
     <script type="text/javascript" src="/static/js/atagscloud.min.js"></script>
-    <script type="text/javascript">$(function(){$('#atagscloud').activiTag();});</script>
+    <script type="text/javascript">
+        $(function(){
+            $('#atagscloud').activiTag();
+            // login
+            $('.lg_submit').click(function(){
+                if($('input[name=name]').val()==''){$('form h2 i').text('请输入用户名！'); return false;}
+                if($('input[name=password]').val()==''){$('form h2 i').text('请输入密码！'); return false;}
+                $('form').submit();
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -35,10 +45,10 @@
         <div class="lg_wrapper">
             <form action="/login" method="post">
                 ${xsrf_form_html()}
-                <h2>登录
+                <h2>登录<i>
                     % if msg.get('error', None):
-                    <i>${msg['error']}</i>
-                    % endif
+                    ${msg['error']}
+                    % endif</i>
                 </h2>
                 <ul>
                     <li><label><i class="userIco"></i>账号：</label><input type="text" name="name" /></li>
@@ -64,7 +74,7 @@
     </div>
     <div class="lg_wrapper lg_footer">
         <p>版权所有：广州中国科学院计算机网络信息中心</p>
-        <p>电话：020-39393309        邮箱：iot_support@ni</p>
+        <p>电话：020-39393309        邮箱：iot_support@niot.cn</p>
     </div>
 </body>
 </html>

@@ -1358,6 +1358,9 @@ select.sel {
 .content .projects .ns_table table tr:first-child:hover {
   background: none;
 }
+.content .projects .ns_table table tr.dab {
+  background: #d5d5d5;
+}
 .content .projects .ns_table table tr th {
   height: 43px;
   color: #444;
@@ -1858,6 +1861,10 @@ select.sel {
   font-size: 14px;
   line-height: 32px;
   color: #555;
+}
+.content .projects .ns_bill .bill_charge li div button {
+  width: 64px;
+  margin-left: 10px;
 }
 .content .projects .ns_bill .bill_charge li .vertical {
   overflow: hidden;
@@ -2473,11 +2480,11 @@ select.sel {
 }
 .toolnav .toolbox button {
   float: right;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 .toolnav .toolbox a {
   color: #08c3e5;
-  margin-left: 15px;
+  margin-left: 10px;
   text-decoration: underline;
   line-height: 32px;
   font-size: 14px;
@@ -2561,6 +2568,31 @@ select.sel {
 .toolnav .toolbox .search button:focus {
   background: #08c3e5;
 }
+.toolnav .toolLeft {
+  float: left;
+}
+.toolnav .toolLeft .time {
+  background: #f4f4f4;
+  border: 1px solid #e1e1e1;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  width: 256px;
+  text-align: center;
+  float: left;
+}
+.toolnav .toolLeft .time input {
+  border: none;
+  width: 88px;
+  background: none;
+  font-size: 14px;
+}
+.toolnav .toolLeft button {
+  width: 56px;
+  margin-left: 5px;
+}
 .toolnav .chargeDate {
   font-size: 12px;
   color: #929292;
@@ -2596,12 +2628,12 @@ select.sel {
   background-position: 0 -120px;
 }
 .adsnav {
-  margin-left: 20px;
+  margin-left: 18px;
   overflow: hidden;
   margin-bottom: 20px;
 }
 .adsnav li {
-  width: 146px;
+  width: 125px;
   height: 40px;
   line-height: 40px;
   border: 1px solid #d5d5d5;
@@ -2878,7 +2910,8 @@ select.sel {
 .modal_sens,
 .modal_ap,
 .modal_room,
-.modal_ac {
+.modal_ac,
+.modal_pay {
   background: #fff;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -2893,6 +2926,35 @@ select.sel {
   -o-transform: translate(0, -25%);
   transform: translate(0, -25%);
 }
+.modal_project .adsnav,
+.modal_user .adsnav,
+.modal_pn .adsnav,
+.modal_user_type .adsnav,
+.modal_package_type .adsnav,
+.modal_custom .adsnav,
+.modal_sens .adsnav,
+.modal_ap .adsnav,
+.modal_room .adsnav,
+.modal_ac .adsnav,
+.modal_pay .adsnav {
+  margin: 0;
+}
+.modal_project .adsnav li,
+.modal_user .adsnav li,
+.modal_pn .adsnav li,
+.modal_user_type .adsnav li,
+.modal_package_type .adsnav li,
+.modal_custom .adsnav li,
+.modal_sens .adsnav li,
+.modal_ap .adsnav li,
+.modal_room .adsnav li,
+.modal_ac .adsnav li,
+.modal_pay .adsnav li {
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
+  width: 100px;
+}
 .modal_project h3,
 .modal_user h3,
 .modal_pn h3,
@@ -2902,7 +2964,8 @@ select.sel {
 .modal_sens h3,
 .modal_ap h3,
 .modal_room h3,
-.modal_ac h3 {
+.modal_ac h3,
+.modal_pay h3 {
   background: url("../images/modal_h_bg.png") no-repeat;
   height: 82px;
   line-height: 82px;
@@ -2919,7 +2982,8 @@ select.sel {
 .modal_sens .notice,
 .modal_ap .notice,
 .modal_room .notice,
-.modal_ac .notice {
+.modal_ac .notice,
+.modal_pay .notice {
   margin-bottom: -20px;
 }
 .modal_project ul,
@@ -2931,7 +2995,8 @@ select.sel {
 .modal_sens ul,
 .modal_ap ul,
 .modal_room ul,
-.modal_ac ul {
+.modal_ac ul,
+.modal_pay ul {
   margin-top: 40px;
 }
 .modal_project ul label,
@@ -2943,7 +3008,8 @@ select.sel {
 .modal_sens ul label,
 .modal_ap ul label,
 .modal_room ul label,
-.modal_ac ul label {
+.modal_ac ul label,
+.modal_pay ul label {
   width: 25%;
   padding-right: 10px;
 }
@@ -2956,7 +3022,8 @@ select.sel {
 .modal_sens ul .veright select,
 .modal_ap ul .veright select,
 .modal_room ul .veright select,
-.modal_ac ul .veright select {
+.modal_ac ul .veright select,
+.modal_pay ul .veright select {
   width: 100px;
   text-indent: 5px;
 }
@@ -2969,7 +3036,8 @@ select.sel {
 .modal_sens ul .veright .verify,
 .modal_ap ul .veright .verify,
 .modal_room ul .veright .verify,
-.modal_ac ul .veright .verify {
+.modal_ac ul .veright .verify,
+.modal_pay ul .veright .verify {
   width: 400px;
 }
 .modal_project .btngroups,
@@ -2981,7 +3049,8 @@ select.sel {
 .modal_sens .btngroups,
 .modal_ap .btngroups,
 .modal_room .btngroups,
-.modal_ac .btngroups {
+.modal_ac .btngroups,
+.modal_pay .btngroups {
   margin: 20px 0 10px;
   text-align: center;
 }
@@ -2994,7 +3063,8 @@ select.sel {
 .modal_sens .msg,
 .modal_ap .msg,
 .modal_room .msg,
-.modal_ac .msg {
+.modal_ac .msg,
+.modal_pay .msg {
   color: #d9534f;
   font-size: 14px;
   display: block;
