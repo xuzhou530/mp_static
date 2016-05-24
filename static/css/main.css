@@ -382,7 +382,7 @@ select.sel {
   margin-right: 5px;
   font-size: 20px;
 }
-.vertical li label div input {
+.vertical li label div button {
   margin-top: 10px;
 }
 .vertical li .veright {

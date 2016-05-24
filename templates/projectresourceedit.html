@@ -25,7 +25,7 @@
                             </select>
                         </span>
                     </li>
-                    <li class="normalVerify">
+                    <li>
                         <label><i>*</i>名称：</label>
                       <span class="veright"><div class="verify"><input type="text" name="resName" class="matchVerify shouldVerify" /></div></span>
                     </li>
@@ -33,9 +33,17 @@
                     <label>简要说明：</label>
                         <span class="veright"><textarea name="note" id="note"></textarea></span>
                     </li>
-                    <li class="normalVerify">
+                    <li>
                         <label><i>*</i>楼房/店铺地址：</label>
                         <span class="veright"><div class="verify"><input type="text" name="resAddress" class="matchVerify shouldVerify" /></div></span>
+                    </li>
+                    <li>
+                        <label><i>*</i>责任人：</label>
+                        <span class="veright"><div class="verify"><input type="text" name="resOwner" class="matchVerify shouldVerify" /></div></span>
+                    </li>
+                    <li>
+                        <label><i>*</i>联系电话：</label>
+                        <span class="veright"><div class="verify"><input type="text" name="resMobile" class="matchVerify shouldVerify checkPhone" /></div></span>
                     </li>
                     <li>
                         <label>Logo：</label>
@@ -51,18 +59,6 @@
                                 <i class="deluploadImg"></i>
                             </div>
                         </span>
-                    </li>
-                    <li class="normalVerify">
-                        <label><i>*</i>责任人：</label>
-                        <span class="veright"><div class="verify"><input type="text" name="resOwner" class="matchVerify shouldVerify" /></div></span>
-                    </li>
-                    <li class="normalVerify">
-                        <label><i>*</i>联系电话：</label>
-                        <span class="veright"><div class="verify"><input type="text" name="resMobile" class="matchVerify shouldVerify checkPhone" /></div></span>
-                    </li>
-                    <li>
-                        <label>责任人地址：</label>
-                        <span class="veright"><div class="verify"><input type="text" name="address" /></div></span>
                     </li>
                     <li>
                         <label>营业执照：</label>
@@ -125,7 +121,7 @@
                         </span>
                     </li>
                     <li class="exfields">
-                        <label>附加字段：<div><input type="button" value="新增字段" class="btnGrayMin" id="addFields" /></div></label>
+                        <label>附加字段：<div><button type="button" class="btnGrayMin" id="addFields">新增字段</button></div></label>
                         <span class="veright">
                             <div class="innerTable">
                                 <table>

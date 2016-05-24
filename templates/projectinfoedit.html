@@ -15,12 +15,8 @@
             </h4>
             <div class="areabox">
                 <ul class="vertical">
-                     <li>
-                        <label><i>*</i>项目名称：</label>
-                        <span class="veright"><input type="text" name="name" class="matchVerify" value="${project.name}" /></span>
-                    </li>
                     <li>
-                        <label>项目类型：</label>
+                        <label>属性：</label>
                         <span class="veright">
                             <select id="projectTypeId">
                                 % for type in project_types:
@@ -34,8 +30,43 @@
                         </span>
                     </li>
                     <li>
-                        <label>项目说明：</label>
+                        <label><i>*</i>名称：</label>
+                        <span class="veright"><input type="text" name="name" class="matchVerify" value="${project.name}" /></span>
+                    </li>
+                    <li>
+                        <label>简要说明：</label>
                         <span class="veright"><textarea name="note" id="note">${project.note}</textarea></span>
+                    </li>
+                    <li>
+                        <label><i>*</i>相关企业或楼房地址：</label>
+                        <span class="veright"><input type="text" name="building" class="matchVerify" value="${project.building}" /></span>
+                    </li>
+                    <li>
+                        <label><i>*</i>联系人：</label>
+                        <span class="veright"><input type="text" name="contact" class="matchVerify" value="${project.contact}" /></span>
+                    </li>
+                    <li>
+                        <label><i>*</i>电话：</label>
+                        <span class="veright"><input type="text" name="mobile" class="matchVerify checkPhone" value="${project.mobile}" /></span>
+                    </li>
+                    <li>
+                        <label>LOGO：</label>
+                        <span class="veright">
+                            <div class="file">
+                                <input type="hidden" name="logo" value="${project.logo}" />
+                                <input type="file" class="uploadImg proImg" id="logo" imgElementId="imgLogo" name="uploadImg" />
+                                <button type="button" class="btnGreen">选择图片</button>
+                                <div class="loading"></div>
+                            </div>
+                            % if project.logo is None or project.logo == 'None' or project.logo == '':
+                            <div class="showImg">
+                            % else:
+                            <div class="showImg" style="display: block;">
+                            % endif
+                                <img src="${project.logo}" id="imgLogo" />
+                                <i class="deluploadImg"></i>
+                            </div>
+                        </span>
                     </li>
                     <li>
                         <label>营业执照：</label>
@@ -57,92 +88,7 @@
                         </span>
                     </li>
                     <li>
-                        <label>企业LOGO：</label>
-                        <span class="veright">
-                            <div class="file">
-                                <input type="hidden" name="logo" value="${project.logo}" />
-                                <input type="file" class="uploadImg proImg" id="logo" imgElementId="imgLogo" name="uploadImg" />
-                                <button type="button" class="btnGreen">选择图片</button>
-                                <div class="loading"></div>
-                            </div>
-                            % if project.logo is None or project.logo == 'None' or project.logo == '':
-                            <div class="showImg">
-                            % else:
-                            <div class="showImg" style="display: block;">
-                            % endif
-                                <img src="${project.logo}" id="imgLogo" />
-                                <i class="deluploadImg"></i>
-                            </div>
-                        </span>
-                    </li>
-                    <li>
-                        <label><i>*</i>相关企业或楼房地址：</label>
-                        <span class="veright"><input type="text" name="building" class="matchVerify" value="${project.building}" /></span>
-                    </li>
-                    <li>
-                        <label><i>*</i>联系人：</label>
-                        <span class="veright"><input type="text" name="contact" class="matchVerify" value="${project.contact}" /></span>
-                    </li>
-                    <li>
-                        <label><i>*</i>电话：</label>
-                        <span class="veright"><input type="text" name="mobile" class="matchVerify checkPhone" value="${project.mobile}" /></span>
-                    </li>
-                    <li>
-                        <label><i>*</i>地址：</label>
-                        <span class="veright"><input type="text" name="address" class="matchVerify" value="${project.address}" /></span>
-                    </li>
-                    <!--<li>-->
-                        <!--<label>项目所属AC：</label>-->
-                        <!--<span class="veright">-->
-                            <!--<div class="innerTable">-->
-                                <!--<table>-->
-                                    <!--<tr>-->
-                                        <!--<th>&nbsp;&nbsp;</th>-->
-                                        <!--<th>名称</th>-->
-                                        <!--<th>品牌</th>-->
-                                        <!--<th>账户</th>-->
-                                        <!--<th>密码</th>-->
-                                        <!--<th width="160">安装设置</th>-->
-                                    <!--</tr>-->
-                                    <!--<tr>-->
-                                        <!--<th>AC1</th>-->
-                                        <!--<td></td>-->
-                                        <!--<td></td>-->
-                                        <!--<td></td>-->
-                                        <!--<td></td>-->
-                                        <!--<td></td>-->
-                                    <!--</tr>-->
-                                <!--</table>-->
-                            <!--</div>-->
-                        <!--</span>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<label>项目所属AP：</label>-->
-                        <!--<span class="veright">-->
-                            <!--<div class="innerTable">-->
-                                <!--<table>-->
-                                    <!--<tr>-->
-                                        <!--<th>&nbsp;&nbsp;</th>-->
-                                        <!--<th>名称</th>-->
-                                        <!--<th>品牌</th>-->
-                                        <!--<th>账户</th>-->
-                                        <!--<th>密码</th>-->
-                                        <!--<th width="160">安装设置</th>-->
-                                    <!--</tr>-->
-                                    <!--<tr>-->
-                                        <!--<th>AC1</th>-->
-                                        <!--<td></td>-->
-                                        <!--<td></td>-->
-                                        <!--<td></td>-->
-                                        <!--<td></td>-->
-                                        <!--<td></td>-->
-                                    <!--</tr>-->
-                                <!--</table>-->
-                            <!--</div>-->
-                        <!--</span>-->
-                    <!--</li>-->
-                    <li>
-                        <label>项目拓扑图：</label>
+                        <label>拓扑图：</label>
                         <span class="veright">
                             <div class="file">
                                 <input type="hidden" name="topology" value="${project.topology}" />
@@ -161,7 +107,7 @@
                         </span>
                     </li>
                     <li>
-                        <label>项目地图位置描点图：</label>
+                        <label>地图位置描点图：</label>
                         <span class="veright">
                             <div class="file">
                                 <input type="hidden" name="tracepoint" value="${project.tracepoint}" />
@@ -199,17 +145,16 @@
                         </span>
                     </li>
                 </ul>
-                <p class="btnSub pdg60"><button type="button" class="btnBlue" id="editproject">保存</button></p>
+                <p class="btnSub pdg60"><button type="button" class="btnBlue" id="editRes">保存</button></p>
             </div>
         </div>
     </div>
 </div>
 
+<%block name="aside">
+    <%include file="imgModal.html" />
+</%block>
+
 <%block name="jscode">
     <script type="text/javascript" src="/static/js/lib/ajaxfileupload.js"></script>
 </%block>
-
-##<%block name="aside">
-##    <%include file="imgModal.html" />
-##    <%include file="modal.html" />
-##</%block>

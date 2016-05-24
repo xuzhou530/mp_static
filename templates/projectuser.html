@@ -52,7 +52,7 @@
                         <th>操作</th>
                     </tr>
                     % for online, bd_account in rows:
-                    % if bd_account.mask & (1 << 30) > 0:
+                    % if bd_account.mask & (1 << 30) <= 0:
                     <tr>
                     % else:
                     <tr class="dab">
@@ -68,10 +68,10 @@
                         % endfor
                         <td>${bd_account.mobile}</td>
                         <td>
-                            % if bd_account.mask & (1 << 30) > 0:
-                            <span class="unforbin" style="display: none;">启用</span><span class="forbin">禁用</span>
+                            % if bd_account.mask & (1 << 30) <= 0:
+                            <span class="unforbin" style="display: none;">启用</span><span class="forbin">停用</span>
                             % else:
-                            <span class="unforbin">启用</span><span class="forbin" style="display: none;">禁用</span>
+                            <span class="unforbin">启用</span><span class="forbin" style="display: none;">停用</span>
                             % endif
                             <input type="hidden" value="${bd_account.user}"/>
                         </td>

@@ -16,37 +16,17 @@
             </h4>
             <div class="areabox">
                 <ul class="vertical">
-                     <li>
-                        <label>项目名称：</label>
-                        <span class="veright">${project.name}</span>
-                    </li>
                     <li>
-                        <label>项目类型：</label>
+                        <label>属性：</label>
                         <span class="veright">${project.type.title}</span>
                     </li>
                     <li>
-                        <label>项目说明：</label>
+                        <label>名称：</label>
+                        <span class="veright">${project.name}</span>
+                    </li>
+                    <li>
+                        <label>简要说明：</label>
                         <span class="veright">${project.note}</span>
-                    </li>
-                    <li>
-                        <label>营业执照：</label>
-                        <span class="veright">
-                            % if project.license=='' or project.license==null:
-                            <img src="${project.license}" style="display: none;" />
-                            % else:
-                            <img src="${project.license}" />
-                            % endif
-                        </span>
-                    </li>
-                    <li>
-                        <label>企业LOGO：</label>
-                        <span class="veright">
-                            % if project.logo=='' or project.logo==null:
-                            <img src="${project.logo}" style="display: none;" />
-                            % else:
-                            <img src="${project.logo}" />
-                            % endif
-                        </span>
                     </li>
                     <li>
                         <label>相关企业或楼房地址：</label>
@@ -61,13 +41,29 @@
                         <span class="veright">${project.mobile}</span>
                     </li>
                     <li>
-                        <label>地址：</label>
-                        <span class="veright">${project.address}</span>
+                        <label>LOGO：</label>
+                        <span class="veright">
+                            % if project.logo is None or project.logo == 'None' or project.logo == '':
+                            <img src="${project.logo}" style="display: none;" />
+                            % else:
+                            <img src="${project.logo}" />
+                            % endif
+                        </span>
                     </li>
                     <li>
-                        <label>项目拓扑图：</label>
+                        <label>营业执照：</label>
                         <span class="veright">
-                            % if project.topology=='' or project.topology==null:
+                            % if project.license is None or project.license == 'None' or project.license == '':
+                            <img src="${project.license}" style="display: none;" />
+                            % else:
+                            <img src="${project.license}" />
+                            % endif
+                        </span>
+                    </li>
+                    <li>
+                        <label>拓扑图：</label>
+                        <span class="veright">
+                            % if project.topology is None or project.topology == 'None' or project.topology == '':
                             <img src="${project.topology}" style="display: none;" />
                             % else:
                             <img src="${project.topology}" />
@@ -75,9 +71,9 @@
                         </span>
                     </li>
                     <li>
-                        <label>项目地图位置描点图：</label>
+                        <label>地图位置描点图：</label>
                         <span class="veright">
-                            % if project.tracepoint=='' or project.tracepoint==null:
+                            % if project.tracepoint is None or project.tracepoint == 'None' or project.tracepoint == '':
                             <img src="${project.tracepoint}" style="display: none;" />
                             % else:
                             <img src="${project.tracepoint}" />
@@ -87,7 +83,7 @@
                     <li>
                         <label>实地照片：</label>
                         <span class="veright">
-                            % if project.fieldphoto=='' or project.fieldphoto==null:
+                            % if project.fieldphoto is None or project.fieldphoto == 'None' or project.fieldphoto == '':
                             <img src="${project.fieldphoto}" style="display: none;" />
                             % else:
                             <img src="${project.fieldphoto}" />
@@ -100,10 +96,9 @@
     </div>
 </div>
 
-##<%block name="aside">
-##    <%include file="imgModal.html" />
-##    <%include file="modal.html" />
-##</%block>
+<%block name="aside">
+    <%include file="imgModal.html" />
+</%block>
 
 <%block name="jscode">
     <script type="text/javascript" src="/static/js/lib/ajaxfileupload.js"></script>

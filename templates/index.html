@@ -116,22 +116,22 @@
             </div>
             <span class="forkIco">X</span>
             <div class="areabox">
-                % for project in projects:
-                <a class="protab" href="/projectcard.html?location=${project.id}">
+                % for r in resources:
+                <a class="protab" href="/projectcard.html?location=${r._location}">
                     <div class="tabimg">
-                        % if project.logo:
-                        <img src="${project.logo}"/>
+                        % if r.logo:
+                        <img src="${r.logo}"/>
                         % else:
                         <img src="/static/images/cover/defaultImg.jpg"/>
                         % endif
                     </div>
                     <div class="tabinfo">
-                        <h6>${project.name}</h6>
+                        <h6>${r.name}</h6>
                         <ul>
-                            <li><span><label>运行：</label><em>${project.onlines}</em></span><span><label>在线：</label><em>${project.conns}</em></span></li>
-                            <li><span><label>故障：</label><em class="ns_red">${project.offlines}</em></span><span><label>管理员：</label><em title="${project.contact}">${project.contact}</em></span></li>
+                            <li><span><label>运行：</label><em>${r.onlines}</em></span><span><label>在线：</label><em>${r.conns}</em></span></li>
+                            <li><span><label>故障：</label><em class="ns_red">${r.offlines}</em></span><span><label>管理员：</label><em title="${r.owner}">${r.owner}</em></span></li>
                         </ul>
-                        <p>开通日期：${project.ctime.strftime('%Y-%m-%d')}</p>
+                        <p>开通日期：${r.ctime.strftime('%Y-%m-%d')}</p>
                     </div>
                 </a>
                 % endfor

@@ -1,6 +1,6 @@
 ## addproject.html
 <%inherit file="base.html" />
-
+<input type="hidden" value="" id="location" />
 <div class="wrapper">
     <div class="tabbox nopdg ns_form noradius">
         <h3>新增资源</h3>
@@ -19,42 +19,38 @@
                 </li>
                 <li>
                     <label><i>*</i>名称：</label>
-                    <span class="veright"><div class="verify"><input type="text" name="name" class="matchVerify shouldVerify" /></div></span>
+                    <span class="veright"><div class="verify"><input type="text" name="resName" class="matchVerify shouldVerify" /></div></span>
                 </li>
                 <li>
                     <label>简要说明：</label>
                     <span class="veright"><textarea name="note" id="note"></textarea></span>
                 </li>
-                <li class="normalVerify">
+                <li>
                     <label><i>*</i>楼房/店铺地址：</label>
                     <span class="veright"><div class="verify"><input type="text" name="resAddress" class="matchVerify shouldVerify" /></div></span>
+                </li>
+                <li>
+                    <label><i>*</i>责任人：</label>
+                    <span class="veright"><div class="verify"><input type="text" name="resOwner" class="matchVerify shouldVerify" /></div></span>
+                </li>
+                <li>
+                    <label><i>*</i>联系电话：</label>
+                    <span class="veright"><div class="verify"><input type="text" name="resMobile" class="matchVerify shouldVerify checkPhone" /></div></span>
                 </li>
                 <li>
                     <label>LOGO：</label>
                     <span class="veright">
                         <div class="file">
-                            <input type="hidden" name="logo" />
-                            <input type="file" class="uploadImg proImg" id="logo" imgElementId="imgLogo" name="uploadImg" />
+                            <input type="hidden" name="resLogo" />
+                            <input type="file" class="uploadImg proImg" id="resLogo" imgElementId="imgResLogo" name="uploadImg" />
                             <button type="button" class="btnGreen">选择图片</button>
                             <div class="loading"></div>
                         </div>
                         <div class="showImg">
-                            <img src="" id="imgLogo" />
+                            <img src="" id="imgResLogo" />
                             <i class="deluploadImg"></i>
                         </div>
                     </span>
-                </li>
-                <li class="normalVerify">
-                    <label><i>*</i>责任人：</label>
-                    <span class="veright"><div class="verify"><input type="text" name="resOwner" class="matchVerify shouldVerify" /></div></span>
-                </li>
-                <li class="normalVerify">
-                    <label><i>*</i>联系电话：</label>
-                    <span class="veright"><div class="verify"><input type="text" name="resMobile" class="matchVerify shouldVerify checkPhone" /></div></span>
-                </li>
-                <li>
-                    <label>责任人地址：</label>
-                    <span class="veright"><div class="verify"><input type="text" name="address" /></div></span>
                 </li>
                 <li>
                     <label>营业执照：</label>
@@ -117,7 +113,7 @@
                     </span>
                 </li>
                 <li class="exfields">
-                    <label>附加字段：<div><input type="button" value="新增字段" class="btnGrayMin" id="addFields" /></div></label>
+                    <label>附加字段：<div><button type="button" class="btnGrayMin" id="addFields">新增字段</button></div></label>
                     <span class="veright">
                         <div class="innerTable">
                             <table>
@@ -133,25 +129,19 @@
                                     <td>mobile</td>
                                     <td>字符串(String)</td>
                                 </tr>
-                                <!--<tr>-->
-                                    <!--<td><i class="uncheck_s on"></i></td>-->
-                                    <!--<td><input type="text" class="title" /></td>-->
-                                    <!--<td><input type="text" class="column checkEng" /></td>-->
-                                    <!--<td><select class="extype"><option value="string">字符串(String)</option><option value="int">整型(Int)</option><option value="float">浮点型(Float)</option><option value="datetime">日期(Date)</option><option value="password">密码(Password)</option><option value="img">图片(Img)</option></select></td>-->
-                                <!--</tr>-->
                             </table>
                         </div>
                     </span>
                 </li>
-                <!--<li>-->
-                    <!--<label>项目设备列表：</label>-->
-                    <!--<span class="veright"><input type="button" value="查看" class="btnGraySmall" /><input type="button" value="设置" class="btnGraySmall" /></span>-->
-                <!--</li>-->
             </ul>
-            <p class="btnSub pdg60"><button type="button" class="btnBlue" id="addproject">确定</button></p>
+            <p class="btnSub pdg60"><button type="button" class="btnBlue" id="addRes">确定</button></p>
         </div>
     </div>
 </div>
+
+<%block name="aside">
+    <%include file="imgModal.html" />
+</%block>
 
 <%block name="jscode">
     <script type="text/javascript" src="/static/js/lib/ajaxfileupload.js"></script>
