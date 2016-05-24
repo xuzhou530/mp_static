@@ -26,23 +26,19 @@
                         </span>
                     </li>
                     <li class="normalVerify">
-                        <label><i>*</i>资源名称：</label>
+                        <label><i>*</i>名称：</label>
                       <span class="veright"><div class="verify"><input type="text" name="resName" class="matchVerify shouldVerify" /></div></span>
                     </li>
-                    <li class="normalVerify">
-                        <label><i>*</i>责任人：</label>
-                        <span class="veright"><div class="verify"><input type="text" name="resOwner" class="matchVerify shouldVerify" /></div></span>
-                    </li>
-                    <li class="normalVerify">
-                        <label><i>*</i>联系电话：</label>
-                        <span class="veright"><div class="verify"><input type="text" name="resMobile" class="matchVerify shouldVerify checkPhone" /></div></span>
+                    <li>
+                    <label>简要说明：</label>
+                        <span class="veright"><textarea name="note" id="note"></textarea></span>
                     </li>
                     <li class="normalVerify">
                         <label><i>*</i>楼房/店铺地址：</label>
                         <span class="veright"><div class="verify"><input type="text" name="resAddress" class="matchVerify shouldVerify" /></div></span>
                     </li>
                     <li>
-                    <label>照片/Logo：</label>
+                        <label>Logo：</label>
                         <span class="veright">
                             <div class="file">
                                 <input type="hidden" name="resLogo" />
@@ -52,6 +48,78 @@
                             </div>
                             <div class="showImg">
                                 <img src="" id="imgResLogo" />
+                                <i class="deluploadImg"></i>
+                            </div>
+                        </span>
+                    </li>
+                    <li class="normalVerify">
+                        <label><i>*</i>责任人：</label>
+                        <span class="veright"><div class="verify"><input type="text" name="resOwner" class="matchVerify shouldVerify" /></div></span>
+                    </li>
+                    <li class="normalVerify">
+                        <label><i>*</i>联系电话：</label>
+                        <span class="veright"><div class="verify"><input type="text" name="resMobile" class="matchVerify shouldVerify checkPhone" /></div></span>
+                    </li>
+                    <li>
+                        <label>责任人地址：</label>
+                        <span class="veright"><div class="verify"><input type="text" name="address" /></div></span>
+                    </li>
+                    <li>
+                        <label>营业执照：</label>
+                        <span class="veright">
+                            <div class="file">
+                                <input type="hidden" name="license" />
+                                <input type="file" class="uploadImg proImg" id="license" imgElementId="imgLicense" name="uploadImg" />
+                                <button type="button" class="btnGreen">选择图片</button>
+                                <div class="loading"></div>
+                            </div>
+                            <div class="showImg">
+                                <img src="" id="imgLicense" />
+                                <i class="deluploadImg"></i>
+                            </div>
+                        </span>
+                    </li>
+                    <li>
+                        <label>拓扑图：</label>
+                        <span class="veright">
+                            <div class="file">
+                                <input type="hidden" name="topology" />
+                                <input type="file" class="uploadImg proImg" id="topology" imgElementId="imgTopology" name="uploadImg" />
+                                <button type="button" class="btnGreen">选择图片</button>
+                                <div class="loading"></div>
+                            </div>
+                            <div class="showImg">
+                                <img src="" id="imgTopology" />
+                                <i class="deluploadImg"></i>
+                            </div>
+                        </span>
+                    </li>
+                    <li>
+                        <label>地图位置描点图：</label>
+                        <span class="veright">
+                            <div class="file">
+                                <input type="hidden" name="tracepoint" />
+                                <input type="file" class="uploadImg proImg" id="tracePoint" imgElementId="imgTracePoint" name="uploadImg" />
+                                <button type="button" class="btnGreen">选择图片</button>
+                                <div class="loading"></div>
+                            </div>
+                            <div class="showImg">
+                                <img src="" id="imgTracePoint" />
+                                <i class="deluploadImg"></i>
+                            </div>
+                        </span>
+                    </li>
+                    <li>
+                        <label>实地照片：</label>
+                        <span class="veright">
+                            <div class="file">
+                                <input type="hidden" name="fieldphoto" />
+                                <input type="file" class="uploadImg proImg" id="fieldPhoto" imgElementId="imgFieldPhoto" name="uploadImg" />
+                                <button type="button" class="btnGreen">选择图片</button>
+                                <div class="loading"></div>
+                            </div>
+                            <div class="showImg">
+                                <img src="" id="imgFieldPhoto" />
                                 <i class="deluploadImg"></i>
                             </div>
                         </span>

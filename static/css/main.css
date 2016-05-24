@@ -258,6 +258,12 @@ select.sel {
   height: 48px;
   text-indent: -9999px;
 }
+.header .logo.school {
+  background: url("../images/logo_school.png") no-repeat;
+  width: 448px;
+  height: 58px;
+  margin-top: -29px;
+}
 .header .logo span {
   font-size: 20px;
 }
@@ -1415,6 +1421,10 @@ select.sel {
 .content .projects .ns_table table tr td span.edit:hover,
 .content .projects .ns_table table tr td span.unforbin:hover {
   text-decoration: underline;
+}
+.content .projects .ns_table table tr td span.forbin,
+.content .projects .ns_table table tr td span.delete {
+  color: #f36144;
 }
 .content .projects .ns_table table tr td span.smore i {
   margin-left: 5px;

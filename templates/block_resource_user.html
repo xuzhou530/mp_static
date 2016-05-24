@@ -4,30 +4,70 @@
     <th column="${h['column']}" sort="${sort.get(h['column'], -1)}">${h['title']}</th>
     % endif
   % endfor
+  % if mask == 8:
+  <th>手机号</th>
+  % endif
   <th>操作</th>
 </tr>
-% for row in rows:
-<tr>
-  % for h in headers:
-    % if h['is_profile']:
-      % if h['type']=='password':
-      <td type="${h['type']}" data-value="${getattr(row, h['column'])}" data-tip="${getattr(row, h['column'])}" class="pwdtip">***</td>
-      % else:
-      <td type="${h['type']}" data-value="${getattr(row, h['column'])}">${getattr(row, h['column'])}</td>
-      % endif
-    % endif
-  % endfor
-  % if mask == 1:
-  <td><span class="edit">编辑</span><span class="forbin">禁用</span><span class="delete">删除</span><input type="hidden" value="${row.id}"/></td>
-  % elif mask == 2 or mask == 4:
-  <td><span class="edit">编辑</span><span class="forbin">禁用</span>
-    % if row.user != str(row.holder):
-    <span class="delete">删除</span>
-    % endif
-    <input type="hidden" value="${row.user}" holder/>
-  </td>
-  % elif mask == 8:
-  <td><span class="unforbin">启用</span><span class="forbin">禁用</span><input type="hidden" class="enabd" value="0" /></td>
+% if mask != 8:
+  % for row in rows:
+  % if row.mask & (1 << 30) > 0:
+  <tr>
+  % else:
+  <tr class="dab">
   % endif
-</tr>
-% endfor
+    % for h in headers:
+      % if h['is_profile']:
+        % if h['type']=='password':
+        <td type="${h['type']}" data-value="${getattr(row, h['column'])}" data-tip="${getattr(row, h['column'])}" class="pwdtip">***</td>
+        % else:
+        <td type="${h['type']}" data-value="${getattr(row, h['column'])}">${getattr(row, h['column'])}</td>
+        % endif
+      % endif
+    % endfor
+    <td><span class="edit">编辑</span>
+      % if mask == 1:
+      <input type="hidden" value="${row.id}"/>
+      % endif
+      % if mask in [2, 4]:
+      <input type="hidden" value="${row.user}" holder/>
+      % endif
+      % if row.mask & (1 << 30) > 0:
+      <span class="unforbin" style="display: none;">启用</span><span class="forbin">停用</span>
+      % else:
+      <span class="unforbin">启用</span><span class="forbin" style="display: none;">停用</span>
+      % endif
+      % if not (mask in [2, 4] and row.user == str(row.holder)):
+      <span class="delete">删除</span>
+      % endif
+    </td>
+  </tr>
+  % endfor
+% else:
+  % for online, bd_account in rows:
+  % if bd_account.mask & (1 << 30) > 0:
+  <tr>
+  % else:
+  <tr class="dab">
+  % endif
+    % for h in headers:
+      % if h['is_profile']:
+        % if h['type']=='password':
+        <td type="${h['type']}" data-value="${getattr(online, h['column'])}" data-tip="${getattr(online, h['column'])}" class="pwdtip">***</td>
+        % else:
+        <td type="${h['type']}" data-value="${getattr(online, h['column'])}">${getattr(online, h['column'])}</td>
+        % endif
+      % endif
+    % endfor
+    <td>${bd_account.mobile}</td>
+    <td>
+      % if bd_account.mask & (1 << 30) > 0:
+      <span class="unforbin" style="display: none;">启用</span><span class="forbin">停用</span>
+      % else:
+      <span class="unforbin">启用</span><span class="forbin" style="display: none;">停用</span>
+      % endif
+      <input type="hidden" value="${bd_account.user}"/>
+    </td>
+  </tr>
+  % endfor
+% endif

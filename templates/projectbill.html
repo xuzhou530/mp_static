@@ -80,37 +80,9 @@
                             <div data-platform="wechat"><input type="text" style="width: 280px; margin-right: 5px;" /><button type="button" class="btnBlueSmall" style="width: 64px;">保存</button></div>
                         </li>
                         <li id="alipay">
-                            <input type="hidden" id="alipayHid" value="alipay" />
                             <h4><i class="ali"></i>支付宝支付</h4>
-                            <!--<p>请输入支付宝账号</p>-->
-                            <ul class="vertical">
-                                % if alipay_account:
-                                <li><label>商户支付宝(ID)：</label><span class="veright"><div class="verify"><input type="text" class="matchVerify shouldVerify" name="id" value="${alipay_account['seller_id']}"/></div></span></li>
-                                <li><label>合作者身份(PID)：</label><span class="veright"><div class="verify"><input type="text" class="matchVerify shouldVerify" name="pid" value="${alipay_account['partner']}"/></div></span></li>
-                                <li><label>安全校验码：</label><span class="veright"><div class="verify"><input type="text" class="matchVerify shouldVerify" name="skey" value="${alipay_account['key']}"/></div></span></li>
-                                <li><label>商家私钥：</label><span class="veright">
-                                    <div class="file">
-                                      <input type="file" class="uploadImg matchVerify shouldVerify checkFile profile" id="rsakey" name="file" value="${alipay_account['rsa_private_key_url']}"/>
-                                        <button type="button" class="btnGreen">上传私钥文件</button>
-                                        <div class="loading"></div>
-                                        <em>${alipay_account['rsa_private_key_url']}</em>
-                                    </div></span>
-                                </li>
-                                % else:
-                                <li><label>商户支付宝(ID)：</label><span class="veright"><div class="verify"><input type="text" class="matchVerify shouldVerify" name="id" value=""/></div></span></li>
-                                <li><label>合作者身份(PID)：</label><span class="veright"><div class="verify"><input type="text" class="matchVerify shouldVerify" name="pid" value=""/></div></span></li>
-                                <li><label>安全校验码：</label><span class="veright"><div class="verify"><input type="text" class="matchVerify shouldVerify" name="skey" value=""/></div></span></li>
-                                <li><label>商家私钥：</label><span class="veright">
-                                    <div class="file">
-                                      <input type="file" class="uploadImg matchVerify shouldVerify checkFile profile" id="rsakey" name="file" value=""/>
-                                        <button type="button" class="btnGreen">上传私钥文件</button>
-                                        <div class="loading"></div>
-                                        <em></em>
-                                    </div></span>
-                                </li>
-                                % endif
-                            </ul>
-                            <p class="btnSub"><button type="button" class="btnBlueSmall">保存</button></p>
+                            <p>支付宝账号</p>
+                            <div><span>${alipay_account['seller_id']}</span><button type="button" class="btnBlueSmall">编辑</button></div>
                         </li>
                     </ul>
                 </div>
@@ -209,6 +181,30 @@
             <div class="btngroups"><button type="button" class="btnBlue add">确定</button></div>
             <i class="msg"></i>
             <span class="closed">X</span>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalpay">
+        <div class="modal_pay modal_body">
+            <h3>支付宝设置</h3>
+            <ul class="vertical">
+                <li><label>商户支付宝(ID)：</label><span class="veright" data-value="${alipay_account['seller_id']}"><div class="verify"><input type="text" class="matchVerify shouldVerify" name="id" /></div></span></li>
+                <li><label>合作者身份(PID)：</label><span class="veright" data-value="${alipay_account['partner']}"><div class="verify"><input type="text" class="matchVerify shouldVerify" name="pid" /></div></span></li>
+                <li><label>安全校验码：</label><span class="veright" data-value="${alipay_account['key']}"><div class="verify"><input type="text" class="matchVerify shouldVerify" name="skey" /></div></span></li>
+                <li><label>商家私钥：</label><span class="veright" data-value="${alipay_account['rsa_private_key_url']}">
+                    <div class="file">
+                        <input type="hidden" class="matchVerify shouldVerify checkFile" name="rsa" />
+                        <input type="file" class="uploadImg profile" id="rsakey" name="file" />
+                        <button type="button" class="btnGreen">上传私钥文件</button>
+                        <div class="loading"></div>
+                        <em>${alipay_account['rsa_private_key_url']}</em>
+                    </div></span>
+                </li>
+            </ul>
+            <div class="btngroups"><button type="button" class="btnBlue edit">确定</button></div>
+            <i class="msg"></i>
+            <span class="closed">X</span>
+            <input type="hidden" id="payHid" />
         </div>
     </div>
 </%block>

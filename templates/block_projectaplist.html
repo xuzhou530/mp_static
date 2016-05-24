@@ -1,6 +1,6 @@
 <tr>
   <th>MAC地址</th>
-  <th>所属</th>
+  <th>响应时间</th>
   <th>状态</th>
   <th>品牌</th>
   <th>位置</th>
@@ -11,16 +11,8 @@
 </tr>
 % for ap in aps:
 <tr>
-  <td data-value="${ap.get('mac', '')}">${ap.get('mac', '')}</td>
-  % if ap['resource']:
-  <td data-value="${ap['resource']['_location']}" data-title="${ap['resource']['name']}">
-  % else:
-  <td data-value="" data-title="">
-  % endif
-      % if ap['resource']:
-      ${ap['resource']['name']}
-      % endif
-  </td>
+  <td>${ap.get('mac', '')}</td>
+  <td data-value="${ap.get('rtime', '')}">${ap.get('rtime', '')}</td>
   <td>
     % if ap['online'] == '1':
     <span style="color:#27b600">在线</span>
@@ -32,8 +24,8 @@
     <i class="vendor ${ap['vendor'].lower()}"></i>
     <input type="hidden" value="${ap['vendor'].lower()}" />
   </td>
-  <td data-value="${ap.get('postion', '')}">${ap.get('postion', '')}</td>
-  <td>${ap.get('conns', 0)}</td>
+  <td data-value="${ap.get('position', '')}">${ap.get('position', '')}</td>
+  <td>${ap.get('connected', 0)}</td>
   % if ins.is_allowed('update', 'ap'):
   <td>
     <span class="edit">编辑</span>

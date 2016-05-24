@@ -12,8 +12,8 @@
     <div class="projects">
         <%include file="bread_nav.html" />
         <div class="widget">
-            <span class="widinfo bg_green">上网总用户数：${pn_count + general_count}</span>
-            <span class="widinfo bg_red">昨日新增：${0}</span>
+            <span class="widinfo bg_green">总人数：${count}</span>
+            <span class="widinfo bg_red">总流量：${0}</span>
         </div>
         <div class="tabbox ns_table" id="userlist">
             <ul class="adsnav">
@@ -27,14 +27,15 @@
             </ul>
             <div class="toolnav">
                 <div class="toolLeft">
-                    <div class="time">日期：<input type="text" value="2016-05-06" id="dateStart" />--<input type="text" value="2016-05-16" id="dateEnd" /></div>
+                    <input type="hidden" value="${datetime.now().strftime('%Y-%m-%d')}" />
+                    <div class="time">日期：<input type="text" value="${datetime.now().strftime('%Y-%m-%d')}" id="dateStart" />--<input type="text" value="${datetime.now().strftime('%Y-%m-%d')}" id="dateEnd" /></div>
                     <button type="buton" class="btnGraySmall timeSearch">查询</button>
                 </div>
                 <div class="toolbox">
+                    <button type="button" class="btnGraySmall add" style="display: none;">新增</button>
                     <a href="/user_template.xls?location=${location}" class="btnGraySmall" id="downloadTmp" style="display: none;">下载模板</a>
                     <button type="button" class="btnGraySmall" id="uploadfile" style="display: none;">导入用户</button>
                     <input type="file" class="xlsfile" id="xlsfile" name="uploadfile" />
-                    <button type="button" class="btnGraySmall add" style="display: none;">新增</button>
                     <a href="javascript:;" class="btnGraySmall" id="export">导出报表</a>
                     <div class="search"><input type="text" placeholder="输入搜索内容" /><button type="button"><i class="searchIcoGray"></i></button></div>
                 </div>
@@ -47,20 +48,33 @@
                           <th column="${h['column']}" sort="-1">${h['title']}</th>
                           % endif
                         % endfor
+                        <th>手机号</th>
                         <th>操作</th>
                     </tr>
-                    % for row in rows:
+                    % for online, bd_account in rows:
+                    % if bd_account.mask & (1 << 30) > 0:
                     <tr>
+                    % else:
+                    <tr class="dab">
+                    % endif
                         % for h in online_headers:
                           % if h['is_profile']:
                             % if h['type']=='password':
-                            <td type="${h['type']}" data-value="${getattr(row, h['column'])}" data-tip="${getattr(row, h['column'])}" class="pwdtip">***</td>
+                            <td type="${h['type']}" data-value="${getattr(online, h['column'])}" data-tip="${getattr(online, h['column'])}" class="pwdtip">***</td>
                             % else:
-                            <td type="${h['type']}" data-value="${getattr(row, h['column'])}">${getattr(row, h['column'])}</td>
+                            <td type="${h['type']}" data-value="${getattr(online, h['column'])}">${getattr(online, h['column'])}</td>
                             % endif
                           % endif
                         % endfor
-                        <td><span class="unforbin">启用</span><span class="forbin">禁用</span><input type="hidden" class="enabd" value="0" /></td>
+                        <td>${bd_account.mobile}</td>
+                        <td>
+                            % if bd_account.mask & (1 << 30) > 0:
+                            <span class="unforbin" style="display: none;">启用</span><span class="forbin">禁用</span>
+                            % else:
+                            <span class="unforbin">启用</span><span class="forbin" style="display: none;">禁用</span>
+                            % endif
+                            <input type="hidden" value="${bd_account.user}"/>
+                        </td>
                     </tr>
                     % endfor
                 </table>
@@ -87,82 +101,82 @@
 
 <%block name="aside">
     <%include file="imgModal.html" />
-    ##<div class="modal fade" id="modalRoom">
-    ##    <div class="modal_room modal_body">
-    ##        <h3>新增用户</h3>
-    ##        <ul class="vertical" style="display: none;"></ul>
-    ##        <ul class="vertical" style="display: none;">
-    ##            % for h in headers:
-    ##              % if h['is_profile']:
-    ##              <li><label>${h['title']}：</label><span class="veright">
-    ##                  % if h['type'] == 'datetime':
-    ##                  <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}" class="datepicker"/></div>
-    ##                  % elif h['type'] == 'password':
-    ##                  <div class="verify"><input type="password" name="${h['column']}" data-type="${h['type']}"/></div>
-    ##                  % else:
-    ##                  <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
-    ##                  % endif
-    ##              </span></li>
-    ##              % endif
-    ##            % endfor
-    ##        </ul>
-    ##        <ul class="vertical" style="display: none;">
-    ##            % for h in default_headers:
-    ##              % if h['is_profile']:
-    ##              <li><label>${h['title']}：</label><span class="veright">
-    ##                  % if h['column'] == 'ends':
-    ##                  <div class="amount">
-    ##                      <button type="button" class="btnWhiteSmall reduceOne">-</button>
-    ##                      <input type="text" name="ends" value="2" data-type="int" />
-    ##                      <button type="button" class="btnWhiteSmall addOne">+</button>
-    ##                  </div>
-    ##                  % elif h['column'] == 'mobile':
-    ##                  <div class="verify"><input type="text" name="${h['column']}" class="matchVerify checkPhone" data-type="${h['type']}" /></div>
-    ##                  % elif h['column'] == 'user':
-    ##                  <em style="float: left; line-height: 32px;">${location.split(',')[-1]}</em><div class="verify normalVerify" style="width: 158px; float: left;"><input type="text" name="${h['column']}" class="matchVerify shouldVerify" data-type="${h['type']}" style="width: 158px; margin-right: 0;" /></div>
-    ##                  % elif h['type'] == 'datetime':
-    ##                  <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}" class="datepicker"/></div>
-    ##                  % elif h['type'] == 'password':
-    ##                  <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
-    ##                  % else:
-    ##                  <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
-    ##                  % endif
-    ##              </span></li>
-    ##              % endif
-    ##            % endfor
-    ##        </ul>
-    ##        <ul class="vertical" style="display: none;">
-    ##            % for h in default_headers:
-    ##              % if h['is_profile']:
-    ##              <li><label>${h['title']}：</label><span class="veright">
-    ##                  % if h['column'] == 'ends':
-    ##                  <div class="amount">
-    ##                      <button type="button" class="btnWhiteSmall reduceOne">-</button>
-    ##                      <input type="text" name="ends" value="2" data-type="int" />
-    ##                      <button type="button" class="btnWhiteSmall addOne">+</button>
-    ##                  </div>
-    ##                  % elif h['column'] == 'mobile':
-    ##                  <div class="verify"><input type="text" name="${h['column']}" class="matchVerify checkPhone" data-type="${h['type']}" /></div>
-    ##                  % elif h['column'] == 'user':
-    ##                  <em style="float: left; line-height: 32px;">${location.split(',')[-1]}</em><div class="verify normalVerify" style="width: 158px; float: left;"><input type="text" name="${h['column']}" class="matchVerify shouldVerify" data-type="${h['type']}" style="width: 158px; margin-right: 0;" /></div>
-    ##                  % elif h['type'] == 'datetime':
-    ##                  <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}" class="datepicker"/></div>
-    ##                  % elif h['type'] == 'password':
-    ##                  <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
-    ##                  % else:
-    ##                  <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
-    ##                  % endif
-    ##              </span></li>
-    ##              % endif
-    ##            % endfor
-    ##        </ul>
-    ##        <div class="btngroups"><button type="button" class="btnBlue add">确定</button></div>
-    ##        <i class="msg"></i>
-    ##        <span class="closed">X</span>
-    ##        <input type="hidden" id="idx" />
-    ##        <input type="hidden" id="pid" />
-    ##    </div>
-    ##</div>
+    <div class="modal fade" id="modalRoom">
+        <div class="modal_room modal_body">
+            <h3>新增用户</h3>
+            <ul class="vertical" style="display: none;"></ul>
+            <ul class="vertical" style="display: none;">
+                % for h in pn_headers:
+                  % if h['is_profile']:
+                  <li><label>${h['title']}：</label><span class="veright">
+                      % if h['type'] == 'datetime':
+                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}" class="datepicker"/></div>
+                      % elif h['type'] == 'password':
+                      <div class="verify"><input type="password" name="${h['column']}" data-type="${h['type']}"/></div>
+                      % else:
+                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
+                      % endif
+                  </span></li>
+                  % endif
+                % endfor
+            </ul>
+            <ul class="vertical" style="display: none;">
+                % for h in bd_headers:
+                  % if h['is_profile']:
+                  <li><label>${h['title']}：</label><span class="veright">
+                      % if h['column'] == 'ends':
+                      <div class="amount">
+                          <button type="button" class="btnWhiteSmall reduceOne">-</button>
+                          <input type="text" name="ends" value="2" data-type="int" />
+                          <button type="button" class="btnWhiteSmall addOne">+</button>
+                      </div>
+                      % elif h['column'] == 'mobile':
+                      <div class="verify"><input type="text" name="${h['column']}" class="matchVerify checkPhone" data-type="${h['type']}" /></div>
+                      % elif h['column'] == 'user':
+                      <em style="float: left; line-height: 32px;">${location.split(',')[-1]}</em><div class="verify normalVerify" style="width: 158px; float: left;"><input type="text" name="${h['column']}" class="matchVerify shouldVerify" data-type="${h['type']}" style="width: 158px; margin-right: 0;" /></div>
+                      % elif h['type'] == 'datetime':
+                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}" class="datepicker"/></div>
+                      % elif h['type'] == 'password':
+                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
+                      % else:
+                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
+                      % endif
+                  </span></li>
+                  % endif
+                % endfor
+            </ul>
+            <ul class="vertical" style="display: none;">
+                % for h in bd_headers:
+                  % if h['is_profile']:
+                  <li><label>${h['title']}：</label><span class="veright">
+                      % if h['column'] == 'ends':
+                      <div class="amount">
+                          <button type="button" class="btnWhiteSmall reduceOne">-</button>
+                          <input type="text" name="ends" value="2" data-type="int" />
+                          <button type="button" class="btnWhiteSmall addOne">+</button>
+                      </div>
+                      % elif h['column'] == 'mobile':
+                      <div class="verify"><input type="text" name="${h['column']}" class="matchVerify checkPhone" data-type="${h['type']}" /></div>
+                      % elif h['column'] == 'user':
+                      <em style="float: left; line-height: 32px;">${location.split(',')[-1]}</em><div class="verify normalVerify" style="width: 158px; float: left;"><input type="text" name="${h['column']}" class="matchVerify shouldVerify" data-type="${h['type']}" style="width: 158px; margin-right: 0;" /></div>
+                      % elif h['type'] == 'datetime':
+                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}" class="datepicker"/></div>
+                      % elif h['type'] == 'password':
+                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
+                      % else:
+                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
+                      % endif
+                  </span></li>
+                  % endif
+                % endfor
+            </ul>
+            <div class="btngroups"><button type="button" class="btnBlue add">确定</button></div>
+            <i class="msg"></i>
+            <span class="closed">X</span>
+            <input type="hidden" id="idx" />
+            <input type="hidden" id="pid" />
+        </div>
+    </div>
 </%block>
 
 <%block name="jscode">

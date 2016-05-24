@@ -47,6 +47,9 @@ button:focus {
   background: url("../images/login_banner.jpg") top center no-repeat;
   height: 538px;
 }
+.lg_banner.lg_school {
+  background: url("../images/login_banner_school.jpg") top center no-repeat;
+}
 .lg_banner .lg_wrapper {
   position: relative;
 }
@@ -123,6 +126,7 @@ button:focus {
   font-size: 14px;
   color: #666;
   margin-top: 10px;
+  font-style: normal;
 }
 .lg_banner form p input {
   width: 18px;
@@ -197,6 +201,7 @@ button:focus {
   text-align: center;
   float: left;
   margin-right: 96px;
+  font-style: normal;
 }
 .lg_services ul li:last-child {
   float: right;

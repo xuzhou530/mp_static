@@ -67,7 +67,7 @@
                     % for ap in aps:
                     <tr>
                         <td data-value="${ap.get('mac', '')}">${ap.get('mac', '')}</td>
-                        <td data-value=""></td>
+                        <td data-value="">${ap.get('rtime', '')}</td>
                         <td>
                           % if ap['online'] == '1':
                           <span style="color:#27b600">在线</span>
@@ -91,8 +91,8 @@
                             % endif
                             <input type="hidden" value="${ap['vendor']}" />
                         </td>
-                        <td data-value="${ap.get('location', '')}">${ap.get('location', '')}</td>
-                        <td data-value=""></td>
+                        <td data-value="${ap.get('position', '')}">${ap.get('position', '')}</td>
+                        <td data-value="">${ap.get('conns', 0)}</td>
                         % if ins.is_allowed('update', 'ap'):
                         <td>
                             <span class="edit">编辑</span>
@@ -101,7 +101,6 @@
                             % if ap['resource'] is None:
                             <span class="error">(*待绑定)</span>
                             % endif
-                            <input type="hidden" value="${str(ap['_id'])}" />
                         </td>
                         % endif
                     </tr>
