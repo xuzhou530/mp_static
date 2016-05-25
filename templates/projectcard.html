@@ -20,7 +20,7 @@
                     <li><label>责任人：</label><span>${resource.owner}</span></li>
                     <li><label>地址：</label><span>${resource.address}</span></li>
                     <li><label>电话：</label><span>${resource.mobile}</span></li>
-                    <li><label>属性：</label><span></span></li>
+                    <li><label>属性：</label><span>${resource.type.title}</span></li>
                     <li><label>ID：</label><span>${resource._location.split(',')[-1]}</span></li>
                     <li><label>开通日期：</label><span>${resource.ctime.strftime('%Y-%m-%d')}</span></li>
                 </ul>

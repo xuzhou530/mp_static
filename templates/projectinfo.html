@@ -11,82 +11,82 @@
             <h4 class="formInfo">
                 <em>项目基本信息</em>
                 % if ins.is_allowed('update', 'project'):
-                <a href="/projectinfoedit.html?location=${project.id}">编辑</a>
+                <a href="/projectinfoedit.html?location=${location}">编辑</a>
                 % endif
             </h4>
             <div class="areabox">
                 <ul class="vertical">
                     <li>
                         <label>属性：</label>
-                        <span class="veright">${project.type.title}</span>
+                        <span class="veright">${resource.type.title}</span>
                     </li>
                     <li>
                         <label>名称：</label>
-                        <span class="veright">${project.name}</span>
+                        <span class="veright">${resource.name}</span>
                     </li>
                     <li>
                         <label>简要说明：</label>
-                        <span class="veright">${project.note}</span>
+                        <span class="veright">${resource.note}</span>
                     </li>
                     <li>
                         <label>相关企业或楼房地址：</label>
-                        <span class="veright">${project.building}</span>
+                        <span class="veright">${resource.address}</span>
                     </li>
                     <li>
                         <label>联系人：</label>
-                        <span class="veright">${project.contact}</span>
+                        <span class="veright">${resource.owner}</span>
                     </li>
                     <li>
                         <label>电话：</label>
-                        <span class="veright">${project.mobile}</span>
+                        <span class="veright">${resource.mobile}</span>
                     </li>
                     <li>
                         <label>LOGO：</label>
                         <span class="veright">
-                            % if project.logo is None or project.logo == 'None' or project.logo == '':
-                            <img src="${project.logo}" style="display: none;" />
+                            % if resource.logo is None or resource.logo == 'None' or resource.logo == '':
+                            <img src="${resource.logo}" style="display: none;" />
                             % else:
-                            <img src="${project.logo}" />
+                            <img src="${resource.logo}" />
                             % endif
                         </span>
                     </li>
                     <li>
                         <label>营业执照：</label>
                         <span class="veright">
-                            % if project.license is None or project.license == 'None' or project.license == '':
-                            <img src="${project.license}" style="display: none;" />
+                            % if resource.license is None or resource.license == 'None' or resource.license == '':
+                            <img src="${resource.license}" style="display: none;" />
                             % else:
-                            <img src="${project.license}" />
+                            <img src="${resource.license}" />
                             % endif
                         </span>
                     </li>
                     <li>
                         <label>拓扑图：</label>
                         <span class="veright">
-                            % if project.topology is None or project.topology == 'None' or project.topology == '':
-                            <img src="${project.topology}" style="display: none;" />
+                            % if resource.topology is None or resource.topology == 'None' or resource.topology == '':
+                            <img src="${resource.topology}" style="display: none;" />
                             % else:
-                            <img src="${project.topology}" />
+                            <img src="${resource.topology}" />
                             % endif
                         </span>
                     </li>
                     <li>
                         <label>地图位置描点图：</label>
                         <span class="veright">
-                            % if project.tracepoint is None or project.tracepoint == 'None' or project.tracepoint == '':
-                            <img src="${project.tracepoint}" style="display: none;" />
+                            % if resource.tracepoint is None or resource.tracepoint == 'None' or resource.tracepoint == '':
+                            <img src="${resource.tracepoint}" style="display: none;" />
                             % else:
-                            <img src="${project.tracepoint}" />
+                            <img src="${resource.tracepoint}" />
                             % endif
                         </span>
                     </li>
                     <li>
                         <label>实地照片：</label>
                         <span class="veright">
-                            % if project.fieldphoto is None or project.fieldphoto == 'None' or project.fieldphoto == '':
-                            <img src="${project.fieldphoto}" style="display: none;" />
+                            % if resource.fieldphoto is None or resource.fieldphoto == 'None' or resource.fieldphoto == '':
+                            <img src="${resource.fieldphoto}" style="display: none;" />
                             % else:
-                            <img src="${project.fieldphoto}" />
+                            <img src="${resource.fieldphoto}" />
                             % endif
                         </span>
                     </li>

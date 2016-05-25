@@ -18,9 +18,9 @@
                     <li>
                         <label>属性：</label>
                         <span class="veright">
-                            <select id="projectTypeId">
-                                % for type in project_types:
-                                    % if project.type == type:
+                            <select id="resId">
+                                % for type in resource_types:
+                                    % if resource.type == type:
                                     <option value="${type.id}" selected>${type.title}</option>
                                     % else:
                                     <option value="${type.id}">${type.title}</option>
@@ -31,39 +31,39 @@
                     </li>
                     <li>
                         <label><i>*</i>名称：</label>
-                        <span class="veright"><input type="text" name="name" class="matchVerify" value="${project.name}" /></span>
+                        <span class="veright"><input type="text" name="resName" class="matchVerify shouldVerify" value="${resource.name}" /></span>
                     </li>
                     <li>
                         <label>简要说明：</label>
-                        <span class="veright"><textarea name="note" id="note">${project.note}</textarea></span>
+                        <span class="veright"><textarea name="note" id="note">${resource.note}</textarea></span>
                     </li>
                     <li>
                         <label><i>*</i>相关企业或楼房地址：</label>
-                        <span class="veright"><input type="text" name="building" class="matchVerify" value="${project.building}" /></span>
+                        <span class="veright"><input type="text" name="resAddress" class="matchVerify shouldVerify" value="${resource.address}" /></span>
                     </li>
                     <li>
                         <label><i>*</i>联系人：</label>
-                        <span class="veright"><input type="text" name="contact" class="matchVerify" value="${project.contact}" /></span>
+                        <span class="veright"><input type="text" name="resOwner" class="matchVerify shouldVerify" value="${resource.owner}" /></span>
                     </li>
                     <li>
                         <label><i>*</i>电话：</label>
-                        <span class="veright"><input type="text" name="mobile" class="matchVerify checkPhone" value="${project.mobile}" /></span>
+                        <span class="veright"><input type="text" name="resMobile" class="matchVerify shouldVerify checkPhone" value="${resource.mobile}" /></span>
                     </li>
                     <li>
                         <label>LOGO：</label>
                         <span class="veright">
                             <div class="file">
-                                <input type="hidden" name="logo" value="${project.logo}" />
-                                <input type="file" class="uploadImg proImg" id="logo" imgElementId="imgLogo" name="uploadImg" />
+                                <input type="hidden" name="resLogo" value="${resource.logo}" />
+                                <input type="file" class="uploadImg proImg" id="resLogo" imgElementId="imgResLogo" name="uploadImg" />
                                 <button type="button" class="btnGreen">选择图片</button>
                                 <div class="loading"></div>
                             </div>
-                            % if project.logo is None or project.logo == 'None' or project.logo == '':
+                            % if resource.logo is None or resource.logo == 'None' or resource.logo == '':
                             <div class="showImg">
                             % else:
                             <div class="showImg" style="display: block;">
                             % endif
-                                <img src="${project.logo}" id="imgLogo" />
+                                <img src="${resource.logo}" id="imgResLogo" />
                                 <i class="deluploadImg"></i>
                             </div>
                         </span>
@@ -72,17 +72,17 @@
                         <label>营业执照：</label>
                         <span class="veright">
                             <div class="file">
-                                <input type="hidden" name="license" value="${project.license}" />
+                                <input type="hidden" name="license" value="${resource.license}" />
                                 <input type="file" class="uploadImg proImg" id="license" imgElementId="imgLicense" name="uploadImg" />
                                 <button type="button" class="btnGreen">选择图片</button>
                                 <div class="loading"></div>
                             </div>
-                            % if project.license is None or project.license == 'None' or project.license == '':
+                            % if resource.license is None or resource.license == 'None' or resource.license == '':
                             <div class="showImg">
                             % else:
                             <div class="showImg" style="display: block;">
                             % endif
-                                <img src="${project.license}" id="imgLicense" />
+                                <img src="${resource.license}" id="imgLicense" />
                                 <i class="deluploadImg"></i>
                             </div>
                         </span>
@@ -91,17 +91,17 @@
                         <label>拓扑图：</label>
                         <span class="veright">
                             <div class="file">
-                                <input type="hidden" name="topology" value="${project.topology}" />
+                                <input type="hidden" name="topology" value="${resource.topology}" />
                                 <input type="file" class="uploadImg proImg" id="topology" imgElementId="imgTopology" name="uploadImg" />
                                 <button type="button" class="btnGreen">选择图片</button>
                                 <div class="loading"></div>
                             </div>
-                            % if project.topology is None or project.topology == 'None' or project.topology == '':
+                            % if resource.topology is None or resource.topology == 'None' or resource.topology == '':
                             <div class="showImg">
                             % else:
                             <div class="showImg" style="display: block;">
                             % endif
-                                <img src="${project.topology}" id="imgTopology" />
+                                <img src="${resource.topology}" id="imgTopology" />
                                 <i class="deluploadImg"></i>
                             </div>
                         </span>
@@ -110,17 +110,17 @@
                         <label>地图位置描点图：</label>
                         <span class="veright">
                             <div class="file">
-                                <input type="hidden" name="tracepoint" value="${project.tracepoint}" />
+                                <input type="hidden" name="tracepoint" value="${resource.tracepoint}" />
                                 <input type="file" class="uploadImg proImg" id="tracePoint" imgElementId="imgTracePoint" name="uploadImg" />
                                 <button type="button" class="btnGreen">选择图片</button>
                                 <div class="loading"></div>
                             </div>
-                            % if project.tracepoint is None or project.tracepoint == 'None' or project.tracepoint == '':
+                            % if resource.tracepoint is None or resource.tracepoint == 'None' or resource.tracepoint == '':
                             <div class="showImg">
                             % else:
                             <div class="showImg" style="display: block;">
                             % endif
-                                <img src="${project.tracepoint}" id="imgTracePoint" />
+                                <img src="${resource.tracepoint}" id="imgTracePoint" />
                                 <i class="deluploadImg"></i>
                             </div>
                         </span>
@@ -129,17 +129,17 @@
                         <label>实地照片：</label>
                         <span class="veright">
                             <div class="file">
-                                <input type="hidden" name="fieldphoto" value="${project.fieldphoto}" />
+                                <input type="hidden" name="fieldphoto" value="${resource.fieldphoto}" />
                                 <input type="file" class="uploadImg proImg" id="fieldPhoto" imgElementId="imgFieldPhoto" name="uploadImg" />
                                 <button type="button" class="btnGreen">选择图片</button>
                                 <div class="loading"></div>
                             </div>
-                            % if project.fieldphoto is None or project.fieldphoto == 'None' or project.fieldphoto == '':
+                            % if resource.fieldphoto is None or resource.fieldphoto == 'None' or resource.fieldphoto == '':
                             <div class="showImg">
                             % else:
                             <div class="showImg" style="display: block;">
                             % endif
-                                <img src="${project.fieldphoto}" id="imgFieldPhoto" />
+                                <img src="${resource.fieldphoto}" id="imgFieldPhoto" />
                                 <i class="deluploadImg"></i>
                             </div>
                         </span>

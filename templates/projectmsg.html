@@ -71,7 +71,7 @@
                         <li><label>发布区域：</label><span class="veright">
                             <select class="area">
                               % for r in resources:
-                              <option value="${r['_location'].split(',')[-1]}">${r['name']}</option>
+                              <option value="${r._location.split(',')[-1]}">${r.name}</option>
                               % endfor
                             </select>
                         </span></li>
@@ -297,8 +297,4 @@
         });
     });
 </script>
-</%block>
-
-<%block name="aside">
-    <%include file="modal.html" />
 </%block>
