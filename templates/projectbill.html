@@ -49,7 +49,7 @@
             </div>
             <div class="areabox">
                 <div class="bill bill_settings userType">
-                    <h3><em>上网类型设置</em></h3>
+                    <h3><em>上网类型</em></h3>
                     <div class="btngroups"><button type="button" class="btnGraySmall addbtn">新增</button></div>
                     <input type="hidden" id="userTypeLen" value="${len(web_types)}" />
                     <div class="bill_tab">
@@ -185,11 +185,17 @@
                 </li>
                 <li>
                     <label>终端<em>（数）</em>：</label>
-                    <span class="veright"><input type="text" name="ends" placeholder="2" /></span>
+                    <span class="veright">
+                        <div class="amount">
+                            <button type="button" class="btnWhiteSmall reduceOne">-</button>
+                            <input type="text" name="ends" value="2" data-type="int" />
+                            <button type="button" class="btnWhiteSmall addOne">+</button>
+                        </div>
+                    </span>
                 </li>
                 <li>
                     <label>到期时间：</label>
-                    <span class="veright"><input type="text" name="expired" class="datepicker" placeholder="长期" /></span>
+                    <span class="veright"><div class="verify"><input type="text" name="expired" class="datepicker" placeholder="长期" /></div></span>
                 </li>
                 <li>
                     <label>套餐名称：</label>

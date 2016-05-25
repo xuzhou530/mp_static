@@ -22,12 +22,12 @@
                         <th>开通时间</th>
                         <th>&nbsp;&nbsp;</th>
                     </tr>
-                    % for project in projects:
+                    % for k, v in resources.iteritems():
                     <tr class="ousideTable">
-                        <td>${project.name}</td>
-                        <td>${project.contact}</td>
-                        <td>${project.building}</td>
-                        <td>${project.ctime.strftime('%Y-%m-%d')}</td>
+                        <td>${k.name}</td>
+                        <td>${k.owner}</td>
+                        <td>${k.address}</td>
+                        <td>${k.ctime.strftime('%Y-%m-%d')}</td>
                         <td><!--<span class="forbin">冻结</span><span class="delete">删除</span>--><span class="smore">展开<i class="aDwn"></i></span></td>
                     </tr>
                     <tr class="insideTable">
@@ -45,7 +45,7 @@
                                    <th width="15%">操作</th>
                                    % endif
                                </tr>
-                               % for coll in project.policys:
+                               % for coll in v:
                                <tr>
                                    <td>${coll._location.split(',')[-1]}</td>
                                    <td>
