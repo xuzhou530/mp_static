@@ -82,7 +82,11 @@
                         <li id="alipay">
                             <h4><i class="ali"></i>支付宝支付</h4>
                             <p>支付宝账号</p>
+                            % if alipay_account:
                             <div><span>${alipay_account['seller_id']}</span><button type="button" class="btnBlueSmall">编辑</button></div>
+                            % else:
+                            <div><span></span><button type="button" class="btnBlueSmall">编辑</button></div>
+                            % endif
                         </li>
                     </ul>
                 </div>
@@ -162,12 +166,22 @@
             <h3>新增套餐类型</h3>
             <ul class="vertical">
                 <li>
-                    <label><i>*</i>金额<em>（元）</em>：</label>
-                    <span class="veright"><div class="verify"><input type="text" class="matchVerify shouldVerify checkFloat" name="price" placeholder="支持两位小数，例如：1.52" /></div></span>
+                    <label>&nbsp;</label>
+                    <span class="veright">
+                        <ul class="adsnav">
+                            <li class="on">小时</li>
+                            <li>包月</li>
+                            <li>包年</li>
+                        </ul>
+                    </span>
                 </li>
                 <li>
                     <label><i>*</i>时间<em>（小时）</em>：</label>
                     <span class="veright"><div class="verify"><input type="text" class="matchVerify shouldVerify checkFloat" name="time" placeholder="支持两位小数，例如：1.52" /></div></span>
+                </li>
+                <li class="vtime">
+                    <label><i>*</i>金额<em>（元）</em>：</label>
+                    <span class="veright"><div class="verify"><input type="text" class="matchVerify shouldVerify checkFloat" name="price" placeholder="支持两位小数，例如：1.52" /></div></span>
                 </li>
                 <li>
                     <label>终端<em>（数）</em>：</label>
@@ -176,6 +190,10 @@
                 <li>
                     <label>到期时间：</label>
                     <span class="veright"><input type="text" name="expired" class="datepicker" placeholder="长期" /></span>
+                </li>
+                <li>
+                    <label>套餐名称：</label>
+                    <span class="veright"><div class="verify"><input type="text" name="label" /></div></span>
                 </li>
             </ul>
             <div class="btngroups"><button type="button" class="btnBlue add">确定</button></div>
@@ -188,6 +206,7 @@
         <div class="modal_pay modal_body">
             <h3>支付宝设置</h3>
             <ul class="vertical">
+                % if alipay_account:
                 <li><label>商户支付宝(ID)：</label><span class="veright" data-value="${alipay_account['seller_id']}"><div class="verify"><input type="text" class="matchVerify shouldVerify" name="id" /></div></span></li>
                 <li><label>合作者身份(PID)：</label><span class="veright" data-value="${alipay_account['partner']}"><div class="verify"><input type="text" class="matchVerify shouldVerify" name="pid" /></div></span></li>
                 <li><label>安全校验码：</label><span class="veright" data-value="${alipay_account['key']}"><div class="verify"><input type="text" class="matchVerify shouldVerify" name="skey" /></div></span></li>
@@ -200,6 +219,20 @@
                         <em>${alipay_account['rsa_private_key_url']}</em>
                     </div></span>
                 </li>
+                % else:
+                <li><label>商户支付宝(ID)：</label><span class="veright" data-value=""><div class="verify"><input type="text" class="matchVerify shouldVerify" name="id" /></div></span></li>
+                <li><label>合作者身份(PID)：</label><span class="veright" data-value=""><div class="verify"><input type="text" class="matchVerify shouldVerify" name="pid" /></div></span></li>
+                <li><label>安全校验码：</label><span class="veright" data-value=""><div class="verify"><input type="text" class="matchVerify shouldVerify" name="skey" /></div></span></li>
+                <li><label>商家私钥：</label><span class="veright" data-value="">
+                    <div class="file">
+                        <input type="hidden" class="matchVerify shouldVerify checkFile" name="rsa" />
+                        <input type="file" class="uploadImg profile" id="rsakey" name="file" />
+                        <button type="button" class="btnGreen">上传私钥文件</button>
+                        <div class="loading"></div>
+                        <em></em>
+                    </div></span>
+                </li>
+                % endif
             </ul>
             <div class="btngroups"><button type="button" class="btnBlue edit">确定</button></div>
             <i class="msg"></i>

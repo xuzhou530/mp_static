@@ -12,164 +12,164 @@
             <a href="javascript:;" class="btnBlueSmall" id="custom">自定义</a>
         </div>
         <div class="tabbox ns_form">
-          <div class="toolnav">
-            <h4>基本信息：</h4>
-          </div>
-          <div class="areabox">
-            <ul class="horizon">
-              <li><label>责任人：${resource.owner}</label></li>
-              <li><label>地址：${resource.address}</label></li>
-              <li><label>电话：${resource.mobile}</label></li>
-              <li><label>属性：</label></li>
-              <li><label>ID：${resource._location.split(',')[-1]}</label></li>
-              <li><label>开通日期：${resource.ctime.strftime('%Y-%m-%d')}</label></li>
-            </ul>
-          </div>
-          <div class="toolnav">
-            <h4>基本数据统计：</h4>
-          </div>
-          <div class="areabox">
-            <ul class="horizon">
-              <li><label>总用户数：</label><span>${total_user}</span></li>
-              <li><label>在线人数：</label><span>${total.get('conns', 0)}</span></li>
-              <li><label>管理员：</label><span>${manager_num}</span></li>
-              <li><label>AP总数：</label><span>${total.get('total', 0)}</span></li>
-              <li><label>设备故障：</label><span>${total.get('offlines', 0)}</span></li>
-              <li><label>应用：</label><span></span></li>
-              <li><label>项目数：</label><span>${len(resources)}</span></li>
-            </ul>
-          </div>
+            <div class="toolnav">
+                <h4>基本信息：</h4>
+            </div>
+            <div class="areabox">
+                <ul class="horizon">
+                    <li><label>责任人：</label><span>${resource.owner}</span></li>
+                    <li><label>地址：</label><span>${resource.address}</span></li>
+                    <li><label>电话：</label><span>${resource.mobile}</span></li>
+                    <li><label>属性：</label><span></span></li>
+                    <li><label>ID：</label><span>${resource._location.split(',')[-1]}</span></li>
+                    <li><label>开通日期：</label><span>${resource.ctime.strftime('%Y-%m-%d')}</span></li>
+                </ul>
+            </div>
+            <div class="toolnav" style="margin-top: 20px;">
+                <h4>基本数据统计：</h4>
+            </div>
+            <div class="areabox">
+                <ul class="horizon">
+                    <li><label>总用户数：</label><span>${total_user}</span></li>
+                    <li><label>在线人数：</label><span>${total.get('conns', 0)}</span></li>
+                    <li><label>管理员：</label><span>${manager_num}</span></li>
+                    <li><label>AP总数：</label><span>${total.get('total', 0)}</span></li>
+                    <li><label>设备故障：</label><span>${total.get('offlines', 0)}</span></li>
+                    <li><label>应用：</label><span></span></li>
+                    <li><label>项目数：</label><span>${len(resources)}</span></li>
+                </ul>
+            </div>
         </div>
         % if resources:
         <div class="tabbox ns_subtab">
-          <div class="toolnav">
-            <h4>子项目列表</h4>
-            <div class="toolbox">
-              <a type="button" class="btnGraySmall addac" href="/projectresourceedit.html?location=${location}">新增</a>
-              <div class="search"><input type="text" placeholder="输入搜索内容" /><button type="button"><i class="searchIcoGray"></i></button></div>
+            <div class="toolnav">
+                <h4>子项目列表</h4>
+                <div class="toolbox">
+                    <a type="button" class="btnGraySmall addac" href="/projectresourceedit.html?location=${location}">新增</a>
+                    <div class="search"><input type="text" placeholder="输入搜索内容" /><button type="button"><i class="searchIcoGray"></i></button></div>
+                </div>
             </div>
-          </div>
-          <div class="areabox">
-            % for r in resources:
-            % if r.offlines > 0:
-            <a href="/projectcard.html?location=${r._location}" class="magnet error">
-              % else:
-              <a href="/projectcard.html?location=${r._location}" class="magnet">
+            <div class="areabox">
+                % for r in resources:
+                % if r.offlines > 0:
+                <a href="/projectcard.html?location=${r._location}" class="magnet error">
+                % else:
+                <a href="/projectcard.html?location=${r._location}" class="magnet">
                 % endif
                 <div class="name">${r.name}</div><div class="ap">AP：${r.ap_count}</div></a>
-              % endfor
+                 % endfor
             </div>
             % if len(resources) > 4:
             <div style="overflow: hidden;">
-              <span class="more">更多<i class="aDwn"></i></span>
+                <span class="more">更多<i class="aDwn"></i></span>
             </div>
             % endif
-          </div>
-          % endif
-          <div class="tabbox ns_card">
+        </div>
+        % endif
+        <div class="tabbox ns_card">
             <div class="areabox">
-              % if not resource:
-              <a href="/projectresource.html?location=${location}">
-                <h6 class="blue">代理商管理</h6>
-                <p>(免费)</p>
-                <ul>
-                  <li><label>启动时间：</label><span>2016-02-06</span></li>
-                  <li><label>简介：</label><span>管理项目名下所有附属子项目；项目整体信息概况 。</span></li>
-                </ul>
-              </a>
-              % endif
-              % if resource:
-              <a href="/projectuser.html?location=${location}">
-                <h6 class="green">用户列表</h6>
-                <p>(免费)</p>
-                <ul>
-                  <li><label>启动时间：</label><span>2016-02-06</span></li>
-                  <li><label>简介：</label><span>收集用户通过微信、短信等方式认证上网的微信号和手机号码，为后期定向精准的广告投放提供数据基础 。</span></li>
-                </ul>
-              </a>
-              % endif
-              <a href="/projectaplist.html?location=${location}">
-                <h6 class="yellow">AP列表</h6>
-                <p>(免费)</p>
-                <ul>
-                  <li><label>启动时间：</label><span>2016-02-06</span></li>
-                  <li><label>简介：</label><span>管理项目名下接入的所有无线设备信息，AC信息，及接入光纤情况 。</span></li>
-                </ul>
-              </a>
-              % if resource:
-              <a href="/projectpn.html?location=${location}">
-                <h6 class="green">网络配置</h6>
-                <p>(免费)</p>
-                <ul>
-                  <li><label>启动时间：</label><span>2016-02-06</span></li>
-                  <li><label>简介：</label><span></span></li>
-                </ul>
-              </a>
-              % endif
-              % if resource:
-              <a href="/projectbill.html?location=${location}">
-                <h6 class="purple">计费模块</h6>
-                <p>(200/年)</p>
-                <ul>
-                  <li><label>启动时间：</label><span>2016-02-06</span></li>
-                  <li><label>简介：</label><span>统计管理项目名下收支、缴费信息；并附有自定义的收费设定模块，满足管理需要。</span></li>
-                </ul>
-              </a>
-              % endif
-              % if resource:
-              <a href="/projectmsg.html?location=${location}">
-                <h6 class="blue">新闻公告</h6>
-                <p>(200/年)</p>
-                <ul>
-                  <li><label>启动时间：</label><span>2016-02-06</span></li>
-                  <li><label>简介：</label><span>信息传播渠道；平台发布信息，涵盖无线网下所有用户。</span></li>
-                </ul>
-              </a>
-              % endif
-              <a href="/projectsens.html?location=${location}">
-                <h6 class="purple">感知分析</h6>
-                <p>(200/年)</p>
-                <ul>
-                  <li><label>启动时间：</label><span>2016-02-06</span></li>
-                  <li><label>简介：</label><span>提供终端接入人数、终端类型、驻留时间等数据统计；分析人流数、反店率等功能，WiFi大数据建立。</span></li>
-                </ul>
-              </a>
-              ##<a href="/projectaccess.html?location=${location}" class="preventUrl">
-                ##    <h6 class="yellow">访问数据</h6>
-                ##    <p>(200/年)</p>
-                ##    <ul>
-                  ##        <li><label>启动时间：</label><span>2016-02-06</span></li>
-                  ##        <li><label>简介：</label><span>对接入无线网络的用户上网习惯和上网行为进行分析和记录，统计用户搜索关键词进行排行，了解用户偏好。</span></li>
-                  ##    </ul>
+                % if not resource:
+                <a href="/projectresource.html?location=${location}">
+                    <h6 class="blue">代理商管理</h6>
+                    <p>(免费)</p>
+                    <ul>
+                        <li><label>启动时间：</label><span>2016-02-06</span></li>
+                        <li><label>简介：</label><span>管理项目名下所有附属子项目；项目整体信息概况 。</span></li>
+                    </ul>
+                </a>
+                % endif
+                % if resource:
+                <a href="/projectuser.html?location=${location}">
+                    <h6 class="green">用户列表</h6>
+                    <p>(免费)</p>
+                    <ul>
+                        <li><label>启动时间：</label><span>2016-02-06</span></li>
+                        <li><label>简介：</label><span>收集用户通过微信、短信等方式认证上网的微信号和手机号码，为后期定向精准的广告投放提供数据基础 。</span></li>
+                    </ul>
+                </a>
+                % endif
+                <a href="/projectaplist.html?location=${location}">
+                    <h6 class="yellow">AP列表</h6>
+                    <p>(免费)</p>
+                    <ul>
+                        <li><label>启动时间：</label><span>2016-02-06</span></li>
+                        <li><label>简介：</label><span>管理项目名下接入的所有无线设备信息，AC信息，及接入光纤情况 。</span></li>
+                    </ul>
+                </a>
+                % if resource:
+                <a href="/projectpn.html?location=${location}">
+                    <h6 class="green">网络配置</h6>
+                    <p>(免费)</p>
+                    <ul>
+                        <li><label>启动时间：</label><span>2016-02-06</span></li>
+                        <li><label>简介：</label><span></span></li>
+                    </ul>
+                </a>
+                % endif
+                % if resource:
+                <a href="/projectbill.html?location=${location}">
+                    <h6 class="purple">计费模块</h6>
+                    <p>(200/年)</p>
+                    <ul>
+                        <li><label>启动时间：</label><span>2016-02-06</span></li>
+                        <li><label>简介：</label><span>统计管理项目名下收支、缴费信息；并附有自定义的收费设定模块，满足管理需要。</span></li>
+                    </ul>
+                </a>
+                % endif
+                % if resource:
+                <a href="/projectmsg.html?location=${location}">
+                    <h6 class="blue">新闻公告</h6>
+                    <p>(200/年)</p>
+                    <ul>
+                        <li><label>启动时间：</label><span>2016-02-06</span></li>
+                        <li><label>简介：</label><span>信息传播渠道；平台发布信息，涵盖无线网下所有用户。</span></li>
+                    </ul>
+                </a>
+                % endif
+                <a href="/projectsens.html?location=${location}">
+                    <h6 class="purple">感知分析</h6>
+                    <p>(200/年)</p>
+                    <ul>
+                        <li><label>启动时间：</label><span>2016-02-06</span></li>
+                        <li><label>简介：</label><span>提供终端接入人数、终端类型、驻留时间等数据统计；分析人流数、反店率等功能，WiFi大数据建立。</span></li>
+                    </ul>
+                </a>
+                ##<a href="/projectaccess.html?location=${location}" class="preventUrl">
+                    ##<h6 class="yellow">访问数据</h6>
+                    ##<p>(200/年)</p>
+                    ##<ul>
+                        ##<li><label>启动时间：</label><span>2016-02-06</span></li>
+                        ##<li><label>简介：</label><span>对接入无线网络的用户上网习惯和上网行为进行分析和记录，统计用户搜索关键词进行排行，了解用户偏好。</span></li>
+                    ##</ul>
                 ##</a>
-              ##<a href="/projectads.html?location=${location}">
-                ##    <h6 class="green">广告推送</h6>
-                ##    <p>(200/年)</p>
-                ##    <ul>
-                  ##        <li><label>启动时间：</label><span>2016-02-06</span></li>
-                  ##        <li><label>简介：</label><span>根据不同身份、不同终端等进行定向、精准的广告营销；支持短信、微信、APP信息等多种方式。</span></li>
-                  ##    </ul>
+                ##<a href="/projectads.html?location=${location}">
+                    ##<h6 class="yellow">广告推送</h6>
+                    ##<p>(200/年)</p>
+                    ##<ul>
+                        ##<li><label>启动时间：</label><span>2016-02-06</span></li>
+                        ##<li><label>简介：</label><span>根据不同身份、不同终端等进行定向、精准的广告营销；支持短信、微信、APP信息等多种方式。</span></li>
+                    ##</ul>
                 ##</a>
-              ##<a href="/projecth5page.html?location=${location}" class="preventUrl">
-                ##    <h6 class="blue">H5页面管理</h6>
-                ##    <p>(免费)</p>
-                ##    <ul>
-                  ##        <li><label>启动时间：</label><span>2016-02-06</span></li>
-                  ##        <li><label>简介：</label><span></span></li>
-                  ##    </ul>
+                ##<a href="/projecth5page.html?location=${location}" class="preventUrl">
+                    ##<h6 class="yellow">H5页面管理</h6>
+                    ##<p>(免费)</p>
+                    ##<ul>
+                        ##<li><label>启动时间：</label><span>2016-02-06</span></li>
+                        ##<li><label>简介：</label><span></span></li>
+                    ##</ul>
                 ##</a>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
 
-      <%block name="aside">
-      <div class="modal fade" id="modalCustom">
-        <div class="modal_custom modal_body">
-          <img src="../static/images/projects/bui16.png" style="display: block;" />
-          <img src="../static/images/projects/bui17.png" style="display: block;" />
-          <img src="../static/images/projects/bui18.png" style="display: block;" />
-          <span class="closed">X</span>
-        </div>
-      </div>
-      </%block>
+<%block name="aside">
+<div class="modal fade" id="modalCustom">
+    <div class="modal_custom modal_body">
+        <img src="../static/images/projects/bui16.png" style="display: block;" />
+        <img src="../static/images/projects/bui17.png" style="display: block;" />
+        <img src="../static/images/projects/bui18.png" style="display: block;" />
+        <span class="closed">X</span>
+    </div>
+</div>
+</%block>
