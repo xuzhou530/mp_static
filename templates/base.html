@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>
-        % if ins.get_session('_location').startswith('118'):
+        % if ins.get_session('_location').startswith('59924'):
         广州女子职业技术学院办公楼后台管理系统
         % else:
         ${ins.get_session('project_name')}分布式认证系统
@@ -22,7 +22,7 @@
 <body>
     <div class="header">
         <div class="wrapper">
-            % if ins.get_session('_location').startswith('118'):
+            % if ins.get_session('_location').startswith('59924'):
             <a href="/index.html" title="广州女子职业技术学院办公楼后台管理系统" class="logo school">广州女子职业技术学院办公楼后台管理系统</a>
             % else:
             <a href="/index.html" title="${ins.get_session('project_name')}分布式认证系统" class="logo">${ins.get_session('project_name')}分布式认证系统</a>
