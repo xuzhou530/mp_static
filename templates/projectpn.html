@@ -1,16 +1,20 @@
 ## projectpn.html
 <%inherit file="base.html" />
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <input type="hidden" value="${location}" id="location" />
     <!--导航-->
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <%include file="bread_nav.html" />
+        <div class="tabbox">
+            <div class="bread">
+                <%include file="bread_nav.html" />
+            </div>
+        </div>
         <div class="tabbox ns_table" id="pnlist">
             <div class="toolnav">
-                <h4>网络配置</h4>
+                <h3>网络配置</h3>
                 <div class="toolbox">
                     % if ins.is_allowed('create', 'policy'):
                     <button class="btnGraySmall addbtn">新增</button>

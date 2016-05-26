@@ -1,7 +1,7 @@
 ## projectuserinfo.html
 <%inherit file="base.html" />
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <input type="hidden" id="location" value="${location}" />
     <input type="hidden" id="mask" value="${mask}" />
     <input type="hidden" id="userId" value="${user_id}" />
@@ -9,7 +9,11 @@
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <%include file="bread_nav.html" />
+        <div class="tabbox">
+            <div class="bread">
+                <%include file="bread_nav.html" />
+            </div>
+        </div>
         <div class="tabbox ns_infouser" id="userinfo">
             <div class="areabox">
                 <ul class="vertical">

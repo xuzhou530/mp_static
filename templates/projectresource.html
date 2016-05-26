@@ -1,15 +1,19 @@
 ## projectresource.html
 <%inherit file="base.html" />
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <input type="hidden" value="${location}" id="location" />
     <!--导航-->
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <%include file="bread_nav.html" />
-        <div class="widget">
-          <a href="/projectresourceedit.html?location=${location}" class="btnBlueSmall">新增资源</a>
+        <div class="tabbox">
+            <div class="bread">
+                <%include file="bread_nav.html" />
+                <div class="widget">
+                    <a href="/projectresourceedit.html?location=${location}" class="btnBlueSmall">新增资源</a>
+                </div>
+            </div>
         </div>
         <div class="tabbox ns_prolist">
             <div class="areabox">

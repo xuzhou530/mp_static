@@ -1,14 +1,18 @@
 ## projectsens.html
 <%inherit file="base.html" />
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <input type="hidden" value="${location}" id="location" />
     <input type="hidden" value="${group_id}" id="groupId" />
     <!--导航-->
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <%include file="bread_nav.html" />
+        <div class="tabbox">
+            <div class="bread">
+                <%include file="bread_nav.html" />
+            </div>
+        </div>
         <div class="tabbox ns_table" id="sensRoom">
             <div class="sensroom">
                 <div class="sensHeader">
@@ -16,16 +20,18 @@
                     <span>总感知人数：<em>${len(clients)}</em></span>
                 </div>
                 <div class="sensContent">
-                    <button type="button" class="btnGraySmall addbtn">新增AP</button>
-                    % for ap in aps:
-                    <div class="sensap">
-                        <div>
-                            <label>AP名称：</label>
-                            <span>${ap['name']}</span>
+                    <div class="mw880">
+                        <button type="button" class="btnGraySmall addbtn">新增AP</button>
+                        % for ap in aps:
+                        <div class="sensap">
+                            <div>
+                                <label>AP名称：</label>
+                                <span>${ap['name']}</span>
+                            </div>
+                            <em data-ap-id="${str(ap['_id'])}">删除</em>
                         </div>
-                        <em data-ap-id="${str(ap['_id'])}">删除</em>
+                        % endfor
                     </div>
-                    % endfor
                 </div>
             </div>
             <div class="toolnav">

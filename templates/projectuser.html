@@ -1,7 +1,7 @@
 ## projectuser.html
 <%inherit file="base.html" />
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <input type="hidden" name="" id="pms-create-policy" value="${ins.is_allowed('create', 'policy')}">
     <input type="hidden" name="" id="pms-update-policy" value="${ins.is_allowed('update', 'policy')}">
     <input type="hidden" name="" id="pms-delete-policy" value="${ins.is_allowed('delete', 'policy')}">
@@ -10,10 +10,14 @@
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <%include file="bread_nav.html" />
-        <div class="widget">
-            <span class="widinfo bg_green">总人数：${count}</span>
-            <span class="widinfo bg_red">总流量：${0}</span>
+        <div class="tabbox">
+            <div class="bread">
+                <%include file="bread_nav.html" />
+                <div class="widget">
+                    <span class="widinfo bg_green">总人数：${count}</span>
+                    <span class="widinfo bg_red">总流量：${0}</span>
+                </div>
+            </div>
         </div>
         <div class="tabbox ns_table" id="userlist">
             <ul class="adsnav">

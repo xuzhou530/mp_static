@@ -1,15 +1,19 @@
 ## projectadsedit.html
 <%inherit file="base.html" />
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <!--导航-->
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <%include file="bread_nav.html" />
+        <div class="tabbox">
+            <div class="bread">
+                <%include file="bread_nav.html" />
+            </div>
+        </div>
         <div class="tabbox ns_adver">
             <div class="toolnav">
-                <h4>新增：</h4>
+                <h3>新增</h3>
             </div>
             <div class="areabox">
                 <ul class="vertical">
@@ -31,7 +35,9 @@
                 </ul>
                 <div class="adskpi">
                     <i></i>
-                    <span class="on">南沙无线城市</span><span class="on">白云无线城市</span><span>羊城创意产业园</span><span>十二道大酒店</span>
+                    <div class="mw880">
+                        <span class="on">南沙无线城市</span><span class="on">白云无线城市</span><span>羊城创意产业园</span><span>十二道大酒店</span>
+                    </div>
                 </div>
                 <ul class="vertical">
                     <li>

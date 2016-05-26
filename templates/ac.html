@@ -1,17 +1,19 @@
 ## ac.html
 <%inherit file="base.html" />
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <!--导航-->
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <div class="bread">
-            <h2>AC管理</h2>
+        <div class="tabbox">
+            <div class="bread">
+                <h2>AC管理</h2>
+            </div>
         </div>
         <div class="tabbox ns_table" id="aclist">
             <div class="toolnav">
-                <h4>AC列表</h4>
+                <h3>AC列表</h3>
                 <div class="toolbox">
                     % if ins.is_allowed('create', 'ac'):
                     <button type="button" class="btnGraySmall add">新增</button>

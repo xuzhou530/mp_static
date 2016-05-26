@@ -3,35 +3,37 @@
 
 <%def name="timeNow()">${datetime.now().strftime('%Y-%m-%d')}</%def>
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <!--导航-->
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <div class="bread">
-            <h2>所有项目</h2>
-        </div>
-        <div class="widget">
-            <%include file="button.html" />
-            <a href="javascript:;" class="btnBlueSmall" id="custom">自定义</a>
+        <div class="tabbox">
+            <div class="bread">
+                <h2>所有项目</h2>
+                <div class="widget">
+                    <%include file="button.html" />
+                    <a href="javascript:;" class="btnBlueSmall" id="custom">自定义</a>
+                </div>
+            </div>
         </div>
         <div class="tabbox ns_total">
+            <!--<span class="forkIco">X</span>-->
             <div class="toolnav">
                 <h3>数据统计</h3>
             </div>
-            <span class="forkIco">X</span>
             <div class="areabox">
                 <a href="/user.html" class="ns_onlines">
-                    <span class="tx"><i class="userHoverIco"></i></span>
-                    <span class="num">在线人数：<em>${total.get('conns', '')}</em></span>
+                    <i class="dataTotalIco"></i>
+                    <span>在线人数：<em>${total.get('conns', '')}</em></span>
                 </a>
                 <a href="/ap.html" class="ns_ap">
-                    <span class="tx"><i class="navAPIco"></i></span>
-                    <span class="num">热点总数：<em>${total.get('onlines', '')}</em></span>
+                    <i class="dataHotsIco"></i>
+                    <span>热点总数：<em>${total.get('onlines', '')}</em></span>
                 </a>
-                <a href="javascript:;" class="ns_apps">
-                    <span class="tx"><i class="appsHoverIco"></i></span>
-                    <span class="num">APP安装总数：<em></em></span>
+                <a href="javascript:;" class="ns_apps" style="margin-right: 0;">
+                    <i class="dataAppIco"></i>
+                    <span>APP安装总数：<em></em></span>
                 </a>
             </div>
         </div>
@@ -107,24 +109,16 @@
         <!--</div>-->
         <div class="tabbox ns_prolist" id="apsxx">
             <div class="toolnav">
-                <h3>
-                    <span class="ns_bread">项目列表</span>
-                </h3>
+                <h3>项目列表</h3>
                 <!--<div class="toolbox">-->
                     <!--<span class="ns_sort">排序：<a href="javascript:;" class="on">按设备数</a> | <a href="javascript:;">按总在线数</a></span>-->
                 <!--</div>-->
             </div>
-            <span class="forkIco">X</span>
+            <!--<span class="forkIco">X</span>-->
             <div class="areabox">
                 % for r in resources:
                 <a class="protab" href="/projectcard.html?location=${r._location}">
-                    <div class="tabimg">
-                        % if r.logo:
-                        <img src="${r.logo}"/>
-                        % else:
-                        <img src="/static/images/cover/defaultImg.jpg"/>
-                        % endif
-                    </div>
+                    <div class="tabimg"></div>
                     <div class="tabinfo">
                         <h6>${r.name}</h6>
                         <ul>

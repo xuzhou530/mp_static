@@ -1,7 +1,7 @@
 ## ap.html
 <%inherit file="base.html" />
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <input type="hidden" name="" id="pms-create-ap" value="${ins.is_allowed('create', 'ap')}">
     <input type="hidden" name="" id="pms-update-ap" value="${ins.is_allowed('update', 'ap')}">
     <input type="hidden" name="" id="pms-delete-ap" value="${ins.is_allowed('delete', 'ap')}">
@@ -9,15 +9,17 @@
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <div class="bread">
-            <h2>AP管理</h2>
-        </div>
-        <div class="widget">
-            <a href="javascript:;" class="btnBlueSmall">一键报修</a>
+        <div class="tabbox">
+            <div class="bread">
+                <h2>AP管理</h2>
+                <div class="widget">
+                    <a href="javascript:;" class="btnBlueSmall">一键报修</a>
+                </div>
+            </div>
         </div>
         <div class="tabbox ns_table" id="aplist">
             <div class="toolnav">
-                <h4>AP列表</h4>
+                <h3>AP列表</h3>
             </div>
             <div class="areabox">
                 <table>

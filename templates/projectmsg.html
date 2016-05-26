@@ -1,7 +1,7 @@
 ## projectmsg.html
 <%inherit file="base.html" />
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <input type="hidden" name="" id="pms-create-message" value="${ins.is_allowed('create', 'ap')}">
     <input type="hidden" name="" id="pms-delete-message" value="${ins.is_allowed('delete', 'ap')}">
     <input type="hidden" name="" id="pms-update-message" value="${ins.is_allowed('update', 'ap')}">
@@ -10,10 +10,14 @@
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <%include file="bread_nav.html" />
+        <div class="tabbox">
+            <div class="bread">
+                <%include file="bread_nav.html" />
+            </div>
+        </div>
         <div class="tabbox ns_message">
             <div class="toolnav">
-                <h4>选择人群</h4>
+                <h3>选择人群</h3>
             </div>
             <div class="areabox">
                 <button type="button" class="btnGrayImg proUserCls on"><i class="allUserIco"></i>全体</button>
@@ -27,7 +31,7 @@
             <a name="newsPD"></a>
             <div class="news">
                 <div class="toolnav">
-                    <h4>新闻列表</h4>
+                    <h3>新闻列表</h3>
                     <div class="toolbox">
                         % if ins.is_allowed('create', 'message'):
                         <button type="button" class="btnGraySmall" id="addnews"><i class="addGrayIco"></i>新增</button>
@@ -50,7 +54,7 @@
             </div>
             <div class="news handleNews">
                 <div class="toolnav">
-                    <h4>编辑消息</h4>
+                    <h3>编辑消息</h3>
                 </div>
                 <div class="areabox">
                     <textarea></textarea>
@@ -59,7 +63,7 @@
             </div>
             <div class="news handleNews">
                 <div class="toolnav">
-                    <h4><em>新增</em>消息</h4>
+                    <h3><em>新增</em>消息</h3>
                     <div class="toolbox">
                         <button type="button" class="btnGraySmall reback">返回</button>
                     </div>

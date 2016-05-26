@@ -1,100 +1,108 @@
 ## bill.html
 <%inherit file="base.html" />
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <input type="hidden" value="${location}" id="location" />
     <!--导航-->
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <%include file="bread_nav.html" />
-        <div class="tabbox ns_bill">
-            <div class="toolnav">
-                <h4>查询统计</h4>
-            </div>
-            <div class="areabox">
-                <div class="bill_check">
-                  <div><label>时间：</label><span class="bill_em"><input type="text" id="dateStart" value="${datetime.now().strftime('%Y-%m-%d')}" />--<input type="text" id="dateEnd" value="${datetime.now().strftime('%Y-%m-%d')}" /></span></div>
-                    <div><label>按账户类型：</label><span id="webType"><em class="on">全部</em>
-                        % for wt in web_types:
-                        <em data-value="${wt.id}">${wt.name}</em>
-                        % endfor
-                    </span></div>
-                    <div><label>按套餐类型：</label><span id="fee"><em class="on">全部</em>
-                        % for p in policys:
-                        <em data-value="${p}">${p}元</em>
-                        % endfor
-                        <em data-value="0">免费</em></span></div>
-                    <div><label>按支付方式：</label><span id="platform"><em class="on">全部</em>
-                        <em data-value="wechat">微信</em>
-                        <em data-value="alipay">支付宝</em>
-                    </span></div>
-                    <div><label>模式：</label><span id="mode"><em class="on">全部</em><em>消费</em><em>收款</em></span></div>
-                </div>
-                <button type="button" class="btnBlueSmall" id="billSearch">查询</button>
-                <div class="bill bill_total">
-                    <h3><em>收款统计</em></h3>
-                    <p>
-                      <span>本期：<em class="green">${receipt['current']}</em>元</span>
-                      <span>上期：<em class="blue">${receipt['last']}</em>元</span>
-                      <span>总计：<em class="red">${receipt['total']}</em>元</span>
-                    </p>
-                    <div class="btngroups"><button type="button" class="btnGraySmall mouthExport">按月财务统计表导出</button><button type="button" class="btnGraySmall">导出报表</button></div>
-                </div>
+        <div class="tabbox">
+            <div class="bread">
+                <%include file="bread_nav.html" />
             </div>
         </div>
         <div class="tabbox ns_bill">
             <div class="toolnav">
-                <h4>设置</h4>
+                <h3>查询统计</h3>
             </div>
-            <div class="areabox">
-                <div class="bill bill_settings userType">
-                    <h3><em>上网类型</em></h3>
-                    <div class="btngroups"><button type="button" class="btnGraySmall addbtn">新增</button></div>
-                    <input type="hidden" id="userTypeLen" value="${len(web_types)}" />
-                    <div class="bill_tab">
-                        % for wt in web_types:
-                        % if loop.first:
-                        <span class="on" data-user-type-id="${wt.id}">类型${loop.index + 1}：${wt.name}<i></i></span>
+            <div class="bill_check">
+                <div><label>时间：</label><span class="bill_em"><input type="text" id="dateStart" value="${datetime.now().strftime('%Y-%m-%d')}" />--<input type="text" id="dateEnd" value="${datetime.now().strftime('%Y-%m-%d')}" /></span></div>
+                <div><label>按账户类型：</label><span id="webType"><em class="on">全部</em>
+                    % for wt in web_types:
+                    <em data-value="${wt.id}">${wt.name}</em>
+                    % endfor
+                </span></div>
+                <div><label>按套餐类型：</label><span id="fee"><em class="on">全部</em>
+                    % for p in policys:
+                    <em data-value="${p}">${p}元</em>
+                    % endfor
+                    <em data-value="0">免费</em></span></div>
+                <div><label>按支付方式：</label><span id="platform"><em class="on">全部</em>
+                    <em data-value="wechat">微信</em>
+                    <em data-value="alipay">支付宝</em>
+                </span></div>
+                <div><label>模式：</label><span id="mode"><em class="on">全部</em><em>消费</em><em>收款</em></span></div>
+                <button type="button" class="btnBlueSmall" id="billSearch">查询</button>
+            </div>
+            <div class="toolnav">
+                <h4>收款统计</h4>
+            </div>
+            <div class="bill_total">
+                <p class="mw880">
+                  <span>本期：<em class="green">${receipt['current']}</em>元</span>
+                  <span>上期：<em class="blue">${receipt['last']}</em>元</span>
+                  <span>总计：<em class="red">${receipt['total']}</em>元</span>
+                </p>
+            </div>
+            <div class="btngroups"><button type="button" class="btnGraySmall mouthExport">按月财务统计表导出</button><button type="button" class="btnGraySmall">导出报表</button></div>
+        </div>
+        <div class="tabbox ns_bill">
+            <div class="toolnav">
+                <h3>设置</h3>
+            </div>
+            <div class="toolnav">
+                <h4>上网类型</h4>
+            </div>
+            <div class="bill_settings userType">
+                <div class="btngroups"><button type="button" class="btnGraySmall addbtn">新增</button></div>
+                <input type="hidden" id="userTypeLen" value="${len(web_types)}" />
+                <div class="bill_tab">
+                    % for wt in web_types:
+                    % if loop.first:
+                    <span class="on" data-user-type-id="${wt.id}">类型${loop.index + 1}：${wt.name}<i></i></span>
+                    % else:
+                    <span data-user-type-id="${wt.id}">类型${loop.index + 1}：${wt.name}<i></i></span>
+                    % endif
+                    % endfor
+                </div>
+            </div>
+            <div class="toolnav">
+                <h4>可用套餐类型选择</h4>
+            </div>
+            <div class="bill_settings packageType">
+                <div class="btngroups"><button type="button" class="btnGraySmall addbtn">新增</button></div>
+                <div class="bill_tab">
+                    % for policy in pay_policys:
+                    <span data-pay-id="${policy.id}">${policy.price}元 = ${policy.time}小时<i></i></span>
+                    % endfor
+                </div>
+            </div>
+            <div class="toolnav">
+                <h4>收款账户设置</h4>
+            </div>
+            <div class="bill bill_settings">
+                <ul class="bill_charge" id="billCharge">
+                    <li>
+                        <h4><i class="wx"></i>微信支付</h4>
+                        <p>请输入微信账号</p>
+                        <div data-platform="wechat"><input type="text" style="width: 280px; margin-right: 5px;" /><button type="button" class="btnBlueSmall" style="width: 64px;">保存</button></div>
+                    </li>
+                    <li id="alipay">
+                        <h4><i class="ali"></i>支付宝支付</h4>
+                        <p>支付宝账号</p>
+                        % if alipay_account:
+                        <div><span>${alipay_account['seller_id']}</span><button type="button" class="btnBlueSmall">编辑</button></div>
                         % else:
-                        <span data-user-type-id="${wt.id}">类型${loop.index + 1}：${wt.name}<i></i></span>
+                        <div><span></span><button type="button" class="btnBlueSmall">编辑</button></div>
                         % endif
-                        % endfor
-                    </div>
-                </div>
-                <div class="bill bill_settings packageType">
-                    <h3><em>可用套餐类型选择</em></h3>
-                    <div class="btngroups"><button type="button" class="btnGraySmall addbtn">新增</button></div>
-                    <div class="bill_tab">
-                        % for policy in pay_policys:
-                        <span data-pay-id="${policy.id}">${policy.price}元 = ${policy.time}小时<i></i></span>
-                        % endfor
-                    </div>
-                </div>
-                <div class="bill bill_settings">
-                    <h3><em>收款账户设置</em></h3>
-                    <ul class="bill_charge" id="billCharge">
-                        <li>
-                            <h4><i class="wx"></i>微信支付</h4>
-                            <p>请输入微信账号</p>
-                            <div data-platform="wechat"><input type="text" style="width: 280px; margin-right: 5px;" /><button type="button" class="btnBlueSmall" style="width: 64px;">保存</button></div>
-                        </li>
-                        <li id="alipay">
-                            <h4><i class="ali"></i>支付宝支付</h4>
-                            <p>支付宝账号</p>
-                            % if alipay_account:
-                            <div><span>${alipay_account['seller_id']}</span><button type="button" class="btnBlueSmall">编辑</button></div>
-                            % else:
-                            <div><span></span><button type="button" class="btnBlueSmall">编辑</button></div>
-                            % endif
-                        </li>
-                    </ul>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="tabbox ns_table" id="billlist">
             <div class="toolnav">
-                <h4>收款纪录</h4>
+                <h3>收款纪录</h3>
                 <div class="toolbox">
                     <div class="search"><input type="text" placeholder="按用户账号搜索" /><button type="button"><i class="searchIcoGray"></i></button></div>
                 </div>

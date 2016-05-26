@@ -1,19 +1,23 @@
 ## projectsens.html
 <%inherit file="base.html" />
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <input type="hidden" value="${location}" id="location" />
     <!--导航-->
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <%include file="bread_nav.html" />
-        <div class="widget">
-            <a href="javascript:;" class="btnBlueSmall">导出</a>
+        <div class="tabbox">
+            <div class="bread">
+                <%include file="bread_nav.html" />
+                <div class="widget">
+                    <a href="javascript:;" class="btnBlueSmall">导出</a>
+                </div>
+            </div>
         </div>
         <div class="tabbox ns_table" id="sens">
             <div class="toolnav">
-                <h4>监视组列表</h4>
+                <h3>监视组列表</h3>
                 <div class="toolbox">
                     <button type="button" class="btnGraySmall addbtn">新增监视</button>
                     <div class="search"><input type="text" placeholder="输入AP地址/AP名/MAC" /><button type="button"><i class="searchIcoGray"></i></button></div>

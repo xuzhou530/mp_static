@@ -1,19 +1,23 @@
 ## projectcard.html
 <%inherit file="base.html" />
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <!--导航-->
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <%include file="bread_nav.html" />
-        <div class="widget">
-            <a href="/projectinfo.html?location=${location}" class="btnBlueSmall simbtn">查看项目信息</a>
-            <a href="javascript:;" class="btnBlueSmall" id="custom">自定义</a>
+        <div class="tabbox">
+            <div class="bread">
+                <%include file="bread_nav.html" />
+                <div class="widget">
+                    <a href="/projectinfo.html?location=${location}" class="btnBlueSmall simbtn">查看项目信息</a>
+                    <a href="javascript:;" class="btnBlueSmall" id="custom">自定义</a>
+                </div>
+            </div>
         </div>
         <div class="tabbox ns_form">
             <div class="toolnav">
-                <h4>基本信息：</h4>
+                <h3>基本信息：</h3>
             </div>
             <div class="areabox">
                 <ul class="horizon">
@@ -26,7 +30,7 @@
                 </ul>
             </div>
             <div class="toolnav" style="margin-top: 20px;">
-                <h4>基本数据统计：</h4>
+                <h3>基本数据统计：</h3>
             </div>
             <div class="areabox">
                 <ul class="horizon">
@@ -43,7 +47,7 @@
         % if resources:
         <div class="tabbox ns_subtab">
             <div class="toolnav">
-                <h4>子项目列表</h4>
+                <h3>子项目列表</h3>
                 <div class="toolbox">
                     <a type="button" class="btnGraySmall addac" href="/projectresourceedit.html?location=${location}">新增</a>
                     <div class="search"><input type="text" placeholder="输入搜索内容" /><button type="button"><i class="searchIcoGray"></i></button></div>
@@ -60,7 +64,7 @@
                  % endfor
             </div>
             % if len(resources) > 4:
-            <div style="overflow: hidden;">
+            <div class="mw880" style="overflow: hidden;">
                 <span class="more">更多<i class="aDwn"></i></span>
             </div>
             % endif

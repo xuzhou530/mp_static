@@ -1,7 +1,7 @@
 ## user.html
 <%inherit file="base.html" />
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <input type="hidden" name="" id="pms-create-user" value="${ins.is_allowed('create', 'user')}">
     <input type="hidden" name="" id="pms-update-user" value="${ins.is_allowed('update', 'user')}">
     <input type="hidden" name="" id="pms-delete-user" value="${ins.is_allowed('delete', 'user')}">
@@ -9,35 +9,14 @@
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <div class="bread">
-            <h2>总用户管理</h2>
+        <div class="tabbox">
+            <div class="bread">
+                <h2>总用户管理</h2>
+            </div>
         </div>
-        <!--<div class="tabbox ns_charge">-->
-            <!--<h6>计费统计&lt;!&ndash;<span class="chargeDate">2015-12-12</span>&ndash;&gt;</h6>-->
-            <!--<div class="areabox">-->
-                <!--<ul>-->
-                    <!--<li>-->
-                        <!--<h6>在线缴费总额</h6>-->
-                        <!--<a href="javascript:;"><span><em>1456</em>元</span></a>-->
-                        <!--<div id="chartPieContent01"></div>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<h6>昨日收入</h6>-->
-                        <!--<a href="javascript:;"><span><em>1456</em>元</span></a>-->
-                        <!--<div id="chartPieContent02"></div>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<h6>今日收入</h6>-->
-                        <!--<a href="javascript:;"><span><em>1456</em>元</span></a>-->
-                        <!--<div id="chartPieContent03"></div>-->
-                    <!--</li>-->
-                <!--</ul>-->
-            <!--</div>-->
-            <!--<script type="text/javascript" src="/static/js/chartPie.js"></script>-->
-        <!--</div>-->
         <div class="tabbox ns_table" id="totallist">
             <div class="toolnav">
-                <h4>用户管理</h4>
+                <h3>用户列表</h3>
                 <div class="toolbox">
                     % if ins.is_allowed('create', 'user'):
                     <button type="button" class="btnGraySmall addbtn">新增</button>
@@ -103,6 +82,7 @@
     </div>
 </div>
 
+<%block name="aside">
 <div class="modal fade" id="modalUser">
     <div class="modal_user modal_body">
         <h3>新增用户</h3>
@@ -124,6 +104,7 @@
         <span class="closed">X</span>
     </div>
 </div>
+</%block>
 
 <%block name="jscode">
     <script src="/static/js/lib/jqueryui.min.js"></script>

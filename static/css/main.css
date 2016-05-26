@@ -7,7 +7,7 @@ body {
   font-family: "microsoft yahei", "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
   font-size: 16px;
   color: #333;
-  background: #f4f4f4;
+  background: #efefef;
   position: relative;
 }
 li {
@@ -236,9 +236,22 @@ select.sel {
   float: left;
 }
 /**styles.css**/
+.mw880 {
+  width: 880px;
+  margin: 0 auto;
+  position: relative;
+}
 .header {
   height: 81px;
-  background: #08c3e5;
+  background: #11a6e6;
+  background: -webkit-linear-gradient(left, #149ae3, #08cff3);
+  /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #149ae3, #08cff3);
+  /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right, #149ae3, #08cff3);
+  /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #149ae3, #08cff3);
+  /* 标准的语法 */
 }
 .header .wrapper {
   position: relative;
@@ -270,21 +283,21 @@ select.sel {
 .header .search {
   font-size: 12px;
   color: #fff;
-  margin-top: 24px;
+  margin-top: 25px;
   -webkit-border-radius: 17px;
   -moz-border-radius: 17px;
   -o-border-radius: 17px;
   border-radius: 17px;
   float: right;
   overflow: hidden;
-  margin-right: 33px;
+  margin-right: 20px;
   position: relative;
 }
 .header .search input {
   color: #fff;
   width: 230px;
-  height: 34px;
-  background: #63d3e0;
+  height: 32px;
+  background: #0faee5;
   text-indent: 20px;
   border: none;
   -webkit-box-sizing: border-box;
@@ -311,20 +324,26 @@ select.sel {
 }
 .header .admin {
   float: right;
-  background: #07afcd;
+  background: #0faee5;
   height: 40px;
   line-height: 40px;
   margin-top: 21px;
   color: #fff;
   font-size: 14px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
   overflow: hidden;
 }
 .header .admin img {
   float: left;
+  width: 40px;
+  height: 40px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
 }
 .header .admin .username,
 .header .admin .cutofline,
@@ -332,10 +351,11 @@ select.sel {
   float: left;
 }
 .header .admin .username {
-  padding: 0 16px;
+  padding: 0 18px 0 6px;
+  color: #d8eaee;
 }
 .header .admin .cutofline {
-  background: #77bcc4;
+  background: #0ea0d2;
   width: 1px;
   height: 28px;
   margin-top: 6px;
@@ -343,7 +363,7 @@ select.sel {
 }
 .header .admin .logout {
   color: #fff;
-  margin: 0 10px;
+  margin: 0 17px;
 }
 .header .admin .logout:hover {
   text-decoration: underline;
@@ -477,13 +497,6 @@ select.sel {
 .vertical li .veright .checktabs dd:last-child {
   border-right: 0;
 }
-.vertical li .veright .ipu140 {
-  width: 142px;
-  float: left;
-}
-.vertical li .veright .ipu140 input {
-  width: 140px;
-}
 .vertical li .veright .errormsg {
   color: #f36144;
   position: absolute;
@@ -501,6 +514,10 @@ select.sel {
 .vertical li .veright .verify input {
   width: 100%;
 }
+.vertical li .veright .verify.ipu140 {
+  width: 142px;
+  float: left;
+}
 .vertical li .veright input {
   margin-right: 10px;
   width: 450px;
@@ -509,7 +526,7 @@ select.sel {
   border: 1px solid #f36144;
 }
 .vertical li .veright textarea {
-  width: 600px;
+  width: 580px;
   height: 180px;
 }
 .vertical li .veright img {
@@ -603,39 +620,50 @@ select.sel {
 }
 .content {
   padding-bottom: 90px;
+  background: #efefef;
+  padding-top: 30px;
 }
-.content .nsWrapper {
-  background: #467999;
+.content .wrapper {
+  background: #fff;
   min-height: 900px;
 }
 .content .nav {
-  width: 230px;
-  padding-top: 60px;
+  width: 209px;
   float: left;
-  background: #467999;
 }
 .content .nav h3 {
-  color: #fff;
   font-size: 16px;
-  height: 54px;
-  line-height: 54px;
+  height: 60px;
+  line-height: 60px;
   cursor: pointer;
+  font-weight: normal;
+  border-bottom: 1px solid #efefef;
+}
+.content .nav h3:last-child {
+  border-bottom: none;
 }
 .content .nav h3.on {
-  background: #305978;
+  background: #f9f9f9;
 }
-.content .nav h3.on:hover {
-  background: #305978;
+.content .nav h3.on a {
+  border-left: 6px solid #0faee5;
+}
+.content .nav h3.on:hover a {
+  border-left: 6px solid #0faee5;
 }
 .content .nav h3:hover {
-  background: #427392;
+  background: #f9f9f9;
+}
+.content .nav h3:hover a {
+  border-left: 6px solid #f9f9f9;
+}
+.content .nav h3 a {
+  color: #444;
+  display: block;
+  border-left: 6px solid #fff;
 }
 .content .nav h3 i {
   margin: 0 15px 0 30px;
-}
-.content .nav h3 a {
-  color: #fff;
-  display: block;
 }
 .content .nav ul {
   overflow: hidden;
@@ -666,10 +694,6 @@ select.sel {
 }
 .content .tabbox {
   background: #fff;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
@@ -692,10 +716,6 @@ select.sel {
 }
 .content .nopdg .areabox {
   padding: 50px 0;
-}
-.content .noradius {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 .content .ns_info {
   margin-top: 60px;
@@ -754,9 +774,6 @@ select.sel {
   width: 160px;
   height: 26px;
 }
-.content .ns_card .areabox {
-  margin: 0 0 0 20px;
-}
 .content .ns_card a {
   width: 280px;
   height: 212px;
@@ -773,6 +790,9 @@ select.sel {
   position: relative;
   margin-right: 16px;
   margin-bottom: 16px;
+}
+.content .ns_card a:nth-child(3n) {
+  margin-right: 0;
 }
 .content .ns_card a:hover {
   box-shadow: 0 2px 2px #e1e1e1;
@@ -831,7 +851,7 @@ select.sel {
   right: 7px;
   top: 7px;
 }
-.content .ns_form h3 {
+.content .ns_form h2 {
   text-align: center;
   font-size: 22px;
   padding: 40px 0 30px;
@@ -863,11 +883,9 @@ select.sel {
 .content .ns_form .btnSub {
   text-align: center;
 }
-.content .ns_prolist .areabox {
-  margin: 0 0 0 20px;
-}
 .content .ns_prolist .protab {
-  width: 286px;
+  width: 280px;
+  height: 176px;
   border: 1px solid #e1e1e1;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -878,46 +896,34 @@ select.sel {
   float: left;
   overflow: hidden;
   cursor: pointer;
-  padding-bottom: 20px;
-  margin-right: 8px;
-  margin-bottom: 8px;
+  margin-right: 16px;
+  margin-bottom: 16px;
 }
 .content .ns_prolist .protab:hover {
   box-shadow: 0 2px 2px #e1e1e1;
 }
+.content .ns_prolist .protab:nth-child(3n) {
+  margin-right: 0;
+}
+.content .ns_prolist .protab:nth-child(3n) .tabimg {
+  background: #f6aa96;
+}
+.content .ns_prolist .protab:nth-child(3n-1) .tabimg {
+  background: #91e8ad;
+}
+.content .ns_prolist .protab:nth-child(3n-2) .tabimg {
+  background: #5ccff5;
+}
 .content .ns_prolist .protab .tabimg {
-  background: #fff;
-  height: 92px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  overflow: hidden;
-  text-align: center;
-  line-height: 92px;
-}
-.content .ns_prolist .protab .tabimg:before {
-  content: '.';
-  margin-left: -5px;
-  font-size: 10px;
-  /* 修复居中的小BUG */
-  visibility: hidden;
-  /*设置成隐藏元素*/
-  float: left;
-}
-.content .ns_prolist .protab .tabimg img {
-  max-height: 92px;
-  vertical-align: middle;
-  margin: -4px 0 0 0;
+  height: 6px;
 }
 .content .ns_prolist .protab .tabinfo {
-  padding: 0 24px;
+  padding: 0 16px;
 }
 .content .ns_prolist .protab .tabinfo h6 {
-  text-align: center;
   font-size: 16px;
-  height: 40px;
-  line-height: 40px;
+  height: 60px;
+  line-height: 60px;
   color: #333;
   visibility: visible;
   margin-bottom: 0;
@@ -1025,28 +1031,20 @@ select.sel {
   cursor: pointer;
 }
 .content .projects {
-  width: 940px;
-  background: #f4f4f4;
+  width: 960px;
   position: relative;
   min-height: 900px;
-  float: right;
+  float: left;
+  border-left: 1px solid #dfdfdf;
 }
 .content .projects .bread {
-  margin: 36px 0 0 20px;
-  padding-bottom: 4px;
+  width: 880px;
+  position: relative;
+  margin: 0 auto;
 }
 .content .projects .bread h2 {
+  padding: 4px 0;
   font-size: 16px;
-}
-.content .projects .bread h2:before {
-  content: ' ';
-  background: #aaa;
-  width: 4px;
-  height: 17px;
-  display: inline-block;
-  float: left;
-  margin-top: 2px;
-  margin-right: 16px;
 }
 .content .projects .bread h2 span {
   color: #07afcd;
@@ -1059,7 +1057,7 @@ select.sel {
 }
 .content .projects .widget {
   position: absolute;
-  top: 24px;
+  top: 4px;
   right: 0;
 }
 .content .projects .widget a {
@@ -1067,7 +1065,7 @@ select.sel {
   -moz-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  margin-left: 20px;
+  margin-left: 10px;
   float: left;
   text-align: center;
   height: 32px;
@@ -1098,9 +1096,11 @@ select.sel {
   background: #f38d74;
 }
 .content .projects .tabbox {
-  margin-left: 20px;
-  margin-top: 6px;
   padding: 20px 0;
+  border-bottom: 1px solid #dfdfdf;
+}
+.content .projects .tabbox:last-child {
+  border-bottom: none;
 }
 .content .projects .ns_form .vertical li label {
   width: 25%;
@@ -1148,10 +1148,11 @@ select.sel {
   margin-right: 10px;
 }
 .content .projects .ns_adver .areabox {
-  margin: 0;
+  width: auto;
 }
 .content .projects .ns_adver .vertical {
-  padding: 0 50px;
+  width: 880px;
+  margin: 0 auto;
 }
 .content .projects .ns_adver .vertical li {
   padding-bottom: 16px;
@@ -1164,7 +1165,7 @@ select.sel {
   line-height: 30px;
 }
 .content .projects .ns_adver .adsnav {
-  margin: 0 0 0 50px;
+  margin-bottom: 0;
 }
 .content .projects .ns_adver .adsnav li {
   width: 90px;
@@ -1182,7 +1183,7 @@ select.sel {
 }
 .content .projects .ns_adver .adskpi {
   background: #f4f4f4;
-  padding: 10px 50px;
+  padding: 10px 0;
   margin: 10px 0 16px;
   position: relative;
 }
@@ -1215,7 +1216,7 @@ select.sel {
   display: block;
   position: absolute;
   top: -10px;
-  left: 85px;
+  left: 75px;
 }
 .content .projects .ns_adver .btnSub {
   margin-left: 130px;
@@ -1225,10 +1226,10 @@ select.sel {
   margin-right: 30px;
 }
 .content .projects .ns_table .sensroom .sensHeader {
-  padding: 0 20px;
+  width: 880px;
   height: 56px;
   line-height: 56px;
-  margin-top: -20px;
+  margin: -20px auto 0;
 }
 .content .projects .ns_table .sensroom .sensHeader input {
   background: no-repeat;
@@ -1256,7 +1257,8 @@ select.sel {
 .content .projects .ns_table .sensroom .sensContent .sensap {
   height: 30px;
   line-height: 30px;
-  padding: 4px 0 4px 40px;
+  padding: 4px 0;
+  margin-right: 40px;
   border-right: 1px solid #e8e8e8;
   width: 330px;
   float: left;
@@ -1280,15 +1282,13 @@ select.sel {
 }
 .content .projects .ns_table .sensroom .sensContent button {
   position: absolute;
-  top: 10px;
-  right: 20px;
-}
-.content .projects .ns_table .page {
-  padding-right: 20px;
+  top: 0;
+  right: 0;
 }
 .content .projects .ns_table .tabnav {
   overflow: hidden;
-  margin: 15px 20px;
+  width: 880px;
+  margin: 0 auto 20px;
 }
 .content .projects .ns_table .tabnav li {
   font-size: 14px;
@@ -1329,9 +1329,6 @@ select.sel {
 .content .projects .ns_table .tabnav li.on:hover {
   background: #07afcd;
 }
-.content .projects .ns_table .areabox {
-  margin: 0;
-}
 .content .projects .ns_table .areabox .moDetail {
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
   margin: 14px 0;
@@ -1347,12 +1344,12 @@ select.sel {
   left: 237px;
 }
 .content .projects .ns_table table {
-  border-bottom: 1px solid #e7e7e7;
+  border: 1px solid #dfdfdf;
 }
 .content .projects .ns_table table tr {
   font-size: 14px;
 }
-.content .projects .ns_table table tr:nth-child(even) {
+.content .projects .ns_table table tr:nth-child(odd) {
   background: #eff8f9;
 }
 .content .projects .ns_table table tr:hover {
@@ -1361,18 +1358,16 @@ select.sel {
 .content .projects .ns_table table tr:first-child {
   border-bottom: 1px solid #e7e7e7;
 }
-.content .projects .ns_table table tr:first-child:hover {
-  background: none;
-}
 .content .projects .ns_table table tr.dab {
   background: #d5d5d5;
 }
 .content .projects .ns_table table tr th {
-  height: 43px;
-  color: #444;
+  height: 39px;
   text-align: left;
   padding-right: 5px;
   cursor: pointer;
+  background: #eff8f9;
+  color: #222;
 }
 .content .projects .ns_table table tr th:first-child {
   padding-left: 20px;
@@ -1382,7 +1377,7 @@ select.sel {
 }
 .content .projects .ns_table table tr td {
   height: 40px;
-  color: #444;
+  color: #333;
   padding-right: 5px;
   position: relative;
   cursor: default;
@@ -1462,28 +1457,27 @@ select.sel {
   display: block;
   position: absolute;
   top: -12px;
-  left: 50px;
+  left: 20px;
 }
 .content .projects .ns_table table tr.insideTable td table {
   text-align: left;
-  border-bottom: none;
+  border: none;
   margin-bottom: 20px;
 }
 .content .projects .ns_table table tr.insideTable td table tr {
   background: #e0f6fd;
 }
 .content .projects .ns_table table tr.insideTable td table tr:first-child {
-  background: #c0e7f9;
   border-bottom: none;
 }
-.content .projects .ns_table table tr.insideTable td table tr:first-child:hover {
+.content .projects .ns_table table tr.insideTable td table tr th {
   background: #c0e7f9;
 }
 .content .projects .ns_table table tr.insideTable td table tr td {
   height: 40px;
 }
 .content .projects .ns_table table tr.insideTable td table tr td:first-child {
-  padding-left: 50px;
+  padding-left: 20px;
 }
 .content .projects .ns_table table tr.insideTable td table tr td:last-child {
   padding-right: 5px;
@@ -1585,88 +1579,21 @@ select.sel {
 .content .projects .ns_table .mo_yesterday a {
   color: #12ba39;
 }
-.content .projects .ns_userinfo p {
-  font-size: 18px;
-  margin-left: 50px;
-  background: url("../images/line_bg.png") left center repeat-x;
-}
-.content .projects .ns_userinfo p b {
-  background: #fff;
-  padding-right: 15px;
-}
-.content .projects .ns_userinfo ul {
-  padding: 15px 0 50px;
-}
-.content .projects .ns_userinfo ul li {
-  padding-bottom: 15px;
-}
-.content .projects .ns_userinfo ul li label {
-  text-align: left;
-  width: 20%;
-  display: inline-block;
-  padding-right: 0;
-}
-.content .projects .ns_userinfo ul li label:first-child {
-  padding-left: 172px;
-}
-.content .projects .ns_userinfo ul li .veright {
-  display: inline-block;
-  width: 30%;
-  font-size: 16px;
-}
-.content .projects .ns_userinfo ul li .veright img {
-  width: 98px;
-  height: 98px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  display: block;
-}
-.content .projects .ns_userinfo ul li dl {
-  font-size: 14px;
-  background: #eff8f9;
-}
-.content .projects .ns_userinfo ul li dl dt,
-.content .projects .ns_userinfo ul li dl dd {
-  padding-left: 172px;
-  line-height: 30px;
-  color: #444;
-}
-.content .projects .ns_userinfo ul li dl.dlone span {
-  display: inline-block;
-}
-.content .projects .ns_userinfo ul li dl.dlone span:nth-child(1) {
-  width: 100px;
-}
-.content .projects .ns_userinfo ul li dl.dlone span:nth-child(2) {
-  width: 60px;
-}
-.content .projects .ns_userinfo ul li dl.dlone span:nth-child(3) {
-  width: 130px;
-}
-.content .projects .ns_userinfo ul li dl.dltwo span {
-  display: inline-block;
-  width: 190px;
-}
-.content .projects .ns_userinfo ul.doubleTab li label {
-  width: 14%;
-}
-.content .projects .ns_userinfo ul.doubleTab li .veright {
-  width: 25%;
-  height: 22px;
+.content .projects .ns_infouser .vertical {
+  margin-top: 10px;
 }
 .content .projects .ns_infouser .vertical li {
   padding-bottom: 10px;
 }
 .content .projects .ns_infouser .vertical li label {
-  font-weight: bold;
-  font-size: 14px;
-  padding-right: 5px;
+  padding-right: 8px;
   width: 100px;
+  color: #666;
 }
 .content .projects .ns_infouser .vertical li .veright {
   width: 87%;
+  font-size: 16px;
+  color: #222;
 }
 .content .projects .ns_infouser .vertical li .veright .account {
   display: inline-block;
@@ -1691,17 +1618,19 @@ select.sel {
   width: 65%;
 }
 .content .projects .ns_infouser .btnSub {
-  text-align: center;
+  margin-left: 108px;
 }
 .content .projects .ns_infouser .btnSub button {
-  margin: 0 10px;
+  margin-right: 20px;
 }
 .content .projects .ns_bill .areabox {
-  margin: 0;
+  width: auto;
 }
 .content .projects .ns_bill .bill_check {
-  padding: 0 20px;
   font-size: 14px;
+  position: relative;
+  width: 880px;
+  margin: 0 auto;
 }
 .content .projects .ns_bill .bill_check div {
   margin-bottom: 10px;
@@ -1751,49 +1680,45 @@ select.sel {
 }
 .content .projects .ns_bill #billSearch {
   position: absolute;
-  top: 211px;
-  right: 20px;
+  bottom: 0;
+  right: 0;
 }
-.content .projects .ns_bill .bill h3 {
-  background: url("../images/line_bg.png") 0 11px repeat-x;
-  color: #555;
-  font-size: 16px;
-  font-weight: normal;
-}
-.content .projects .ns_bill .bill h3 em {
-  background: #fff;
-  padding: 5px 10px;
-  margin-left: 40px;
-}
-.content .projects .ns_bill .bill .btngroups {
+.content .projects .ns_bill .btngroups {
+  width: 880px;
+  margin: 0 auto;
   text-align: right;
 }
-.content .projects .ns_bill .bill .btngroups .btnGraySmall {
-  margin-right: 20px;
+.content .projects .ns_bill .btngroups .btnGraySmall {
+  margin-left: 20px;
 }
-.content .projects .ns_bill .bill .btngroups .mouthExport {
+.content .projects .ns_bill .btngroups .mouthExport {
   width: 150px;
 }
-.content .projects .ns_bill .bill_total p {
+.content .projects .ns_bill .bill_total {
   background: #f0f0f0;
   height: 54px;
   line-height: 54px;
-  margin: 20px 0 10px;
+  margin-bottom: 10px;
+}
+.content .projects .ns_bill .bill_total p {
   display: table;
-  width: 100%;
 }
 .content .projects .ns_bill .bill_total p span {
   display: table-cell;
-  padding-left: 50px;
+  padding-left: 38px;
 }
 .content .projects .ns_bill .bill_total p span em {
   font-size: 18px;
   font-weight: bold;
   margin-right: 4px;
 }
+.content .projects .ns_bill .bill_settings {
+  width: 880px;
+  margin: 0 auto;
+}
 .content .projects .ns_bill .bill_settings .bill_tab {
   overflow: hidden;
-  margin: 15px 20px 20px 50px;
+  margin: 20px 0 15px 38px;
 }
 .content .projects .ns_bill .bill_settings .bill_tab span {
   font-size: 14px;
@@ -1801,7 +1726,7 @@ select.sel {
   height: 40px;
   line-height: 40px;
   margin-bottom: 12px;
-  margin-right: 14px;
+  margin-right: 11px;
   float: left;
   vertical-align: middle;
   text-align: center;
@@ -1841,7 +1766,8 @@ select.sel {
   color: #fff;
 }
 .content .projects .ns_bill .bill_charge {
-  margin: 20px 20px 0;
+  margin-left: 38px;
+  padding-bottom: 20px;
   overflow: hidden;
 }
 .content .projects .ns_bill .bill_charge li {
@@ -1970,7 +1896,6 @@ select.sel {
   margin-left: 355px;
 }
 .content .projects .ns_message .areabox li {
-  margin-bottom: 15px;
   padding-left: 20px;
   overflow: hidden;
 }
@@ -2094,64 +2019,41 @@ select.sel {
   width: 75px;
 }
 .content .projects .ns_total .areabox {
-  padding-bottom: 5px;
+  padding-bottom: 6px;
 }
 .content .projects .ns_total a {
-  width: 265px;
-  border: 1px solid #e1e1e1;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  height: 59px;
-  line-height: 59px;
-  color: #444;
-  margin-left: 25px;
+  width: 280px;
+  height: 60px;
+  line-height: 60px;
+  color: #fff;
+  margin-right: 20px;
   display: block;
   float: left;
   overflow: hidden;
 }
-.content .projects .ns_total a:hover {
-  box-shadow: 0 2px 2px #e1e1e1;
-}
 .content .projects .ns_total a em {
-  font-size: 20px;
+  font-size: 18px;
 }
-.content .projects .ns_total a .num {
-  padding: 0 22px;
+.content .projects .ns_total a i {
+  margin: -5px 20px 0 20px;
 }
-.content .projects .ns_total a .tx {
-  width: 59px;
-  height: 59px;
-  display: block;
-  float: left;
-}
-.content .projects .ns_total a.ns_onlines .tx {
+.content .projects .ns_total a.ns_onlines {
   background: #68d58f;
 }
-.content .projects .ns_total a.ns_onlines .tx i {
-  margin-left: 18px;
+.content .projects .ns_total a.ns_onlines:hover {
+  box-shadow: 0 4px 6px rgba(104, 213, 143, 0.3);
 }
-.content .projects .ns_total a.ns_onlines em {
-  color: #3da966;
-}
-.content .projects .ns_total a.ns_ap .tx {
+.content .projects .ns_total a.ns_ap {
   background: #f38e73;
 }
-.content .projects .ns_total a.ns_ap .tx i {
-  margin-left: 13px;
+.content .projects .ns_total a.ns_ap:hover {
+  box-shadow: 0 4px 6px rgba(243, 142, 115, 0.3);
 }
-.content .projects .ns_total a.ns_ap em {
-  color: #dd6e51;
-}
-.content .projects .ns_total a.ns_apps .tx {
+.content .projects .ns_total a.ns_apps {
   background: #55d3ee;
 }
-.content .projects .ns_total a.ns_apps .tx i {
-  margin-left: 18px;
-}
-.content .projects .ns_total a.ns_apps em {
-  color: #33c2e6;
+.content .projects .ns_total a.ns_apps:hover {
+  box-shadow: 0 4px 6px rgba(85, 211, 238, 0.3);
 }
 .content .projects .ns_charge .areabox {
   border-top: 1px dashed #e3e3e3;
@@ -2386,7 +2288,6 @@ select.sel {
   border-radius: 5px;
 }
 .ns_subtab .areabox {
-  margin: 0 0 0 20px;
   height: 63px;
   transition: all 0.5s ease;
 }
@@ -2404,6 +2305,9 @@ select.sel {
   margin-right: 13px;
   margin-bottom: 13px;
   color: #333;
+}
+.ns_subtab .magnet:nth-child(4n) {
+  margin-right: 0;
 }
 .ns_subtab .magnet:hover {
   box-shadow: 0 2px 2px #e1e1e1;
@@ -2438,7 +2342,6 @@ select.sel {
 .ns_subtab .more {
   font-size: 14px;
   float: right;
-  margin-right: 20px;
   color: #999;
   border-bottom: 1px solid #999;
   cursor: pointer;
@@ -2452,14 +2355,17 @@ select.sel {
 }
 .toolnav {
   position: relative;
-  padding: 0 20px 15px;
+  padding-bottom: 15px;
   font-size: 16px;
   overflow: hidden;
+  margin: 0 auto;
+  width: 880px;
 }
 .toolnav .formInfo {
   float: none;
 }
 .toolnav h3 {
+  color: #111;
   font-size: 16px;
   font-weight: normal;
   position: relative;
@@ -2469,24 +2375,14 @@ select.sel {
 .toolnav h3 i {
   margin-left: 10px;
 }
-.toolnav h3 .ns_bread a {
-  color: #666;
-}
-.toolnav h3 .ns_bread a:hover {
-  color: #333;
-}
-.toolnav h3 .ns_bread i {
-  color: #666;
-}
 .toolnav h4 {
   font-size: 16px;
   font-weight: normal;
-  color: #07afcd;
+  color: #666;
   float: left;
 }
 .toolnav .toolbox {
   float: right;
-  margin-bottom: -5px;
 }
 .toolnav .toolbox button {
   float: right;
@@ -2609,7 +2505,8 @@ select.sel {
 }
 .areabox {
   overflow: hidden;
-  margin: 0 20px;
+  width: 880px;
+  margin: 0 auto;
 }
 .vendor {
   background: url("../images/vendor.png") no-repeat;
@@ -2638,12 +2535,12 @@ select.sel {
   background-position: 0 -120px;
 }
 .adsnav {
-  margin-left: 18px;
   overflow: hidden;
-  margin-bottom: 20px;
+  width: 880px;
+  margin: 0 auto 20px;
 }
 .adsnav li {
-  width: 125px;
+  width: 14%;
   height: 40px;
   line-height: 40px;
   border: 1px solid #d5d5d5;
@@ -2653,6 +2550,9 @@ select.sel {
   font-size: 14px;
   float: left;
   background: #f4f4f4;
+}
+.adsnav li:last-child {
+  width: 15%;
 }
 .adsnav li:hover {
   background: #d4f2f8;
@@ -2671,10 +2571,15 @@ select.sel {
   border-bottom-right-radius: 5px;
   border-right: 1px solid #e1e1e1;
 }
+.adsnav.ns_fiber li {
+  width: 90px;
+  height: 34px;
+  line-height: 34px;
+}
 .ns_ads {
   overflow: hidden;
-  padding: 0 20px;
-  margin-bottom: 20px;
+  width: 880px;
+  margin: 0 auto 20px;
 }
 .ns_ads li {
   float: left;
@@ -3234,20 +3139,20 @@ select.sel {
 button:hover .searchIcoGray,
 button:focus .searchIcoGray {
   background: no-repeat;
-  background-position: 0 -408px;
+  background-position: 0 -524px;
   width: 22px;
   height: 22px;
 }
 .searchIcoGray {
   background: no-repeat;
-  background-position: 0 -384px;
+  background-position: 0 -500px;
   width: 22px;
   height: 22px;
 }
 button:hover .searchIco,
 button:focus .searchIco {
   background: no-repeat;
-  background-position: 0 -360px;
+  background-position: 0 -452px;
   width: 22px;
   height: 22px;
 }
@@ -3261,37 +3166,37 @@ button:hover .addGrayIco,
 }
 .customIco {
   background: no-repeat;
-  background-position: 0 -457px;
+  background-position: 0 -548px;
   width: 24px;
   height: 23px;
 }
 .custom:hover .customIco {
   background: no-repeat;
-  background-position: 0 -432px;
+  background-position: 0 -573px;
   width: 24px;
   height: 23px;
 }
 .forkIco {
   background: no-repeat;
-  background-position: 0 -48px;
+  background-position: 0 -63px;
   width: 13px;
   height: 13px;
 }
 .forkIco:hover {
   background: no-repeat;
-  background-position: 0 -63px;
+  background-position: 0 -78px;
   width: 13px;
   height: 13px;
 }
 .tipsIco {
   background: no-repeat;
-  background-position: 0 -195px;
+  background-position: 0 -177px;
   width: 16px;
   height: 16px;
 }
 .userIco {
   background: no-repeat;
-  background-position: 0 -508px;
+  background-position: 0 -598px;
   width: 22px;
   height: 24px;
 }
@@ -3299,13 +3204,13 @@ button:hover .addGrayIco,
 button:hover .userIco,
 button.on .userIco {
   background: no-repeat;
-  background-position: 0 -482px;
+  background-position: 0 -754px;
   width: 22px;
   height: 24px;
 }
 .appsIco {
   background: no-repeat;
-  background-position: 0 -638px;
+  background-position: 0 -780px;
   width: 24px;
   height: 24px;
 }
@@ -3313,75 +3218,135 @@ button.on .userIco {
 button:hover .appsIco,
 button.on .appsIco {
   background: no-repeat;
-  background-position: 0 -534px;
+  background-position: 0 -676px;
   width: 24px;
   height: 24px;
 }
+.navH5pageIco {
+  background: no-repeat;
+  background-position: 0 -1086px;
+  width: 32px;
+  height: 27px;
+}
 .navProjectIco {
   background: no-repeat;
-  background-position: 0 -612px;
-  width: 34px;
-  height: 24px;
+  background-position: 0 -890px;
+  width: 32px;
+  height: 26px;
+}
+.on .navProjectIco {
+  background: no-repeat;
+  background-position: 0 -1058px;
+  width: 32px;
+  height: 26px;
 }
 .navPolicyIco {
   background: no-repeat;
-  background-position: 0 -1038px;
-  width: 34px;
-  height: 32px;
+  background-position: 0 -1115px;
+  width: 32px;
+  height: 30px;
 }
-.navH5pageIco {
+.on .navPolicyIco {
   background: no-repeat;
-  background-position: 0 -881px;
-  width: 34px;
-  height: 27px;
+  background-position: 0 -1147px;
+  width: 32px;
+  height: 30px;
 }
 .navWareIco {
   background: no-repeat;
   background-position: 0 -233px;
-  width: 34px;
+  width: 32px;
+  height: 18px;
+}
+.on .navWareIco {
+  background: no-repeat;
+  background-position: 0 -253px;
+  width: 32px;
   height: 18px;
 }
 .navACIco {
   background: no-repeat;
-  background-position: 0 -1006px;
-  width: 34px;
-  height: 30px;
+  background-position: 0 -1030px;
+  width: 32px;
+  height: 26px;
+}
+.on .navACIco {
+  background: no-repeat;
+  background-position: 0 -1002px;
+  width: 32px;
+  height: 26px;
 }
 .navAPIco {
   background: no-repeat;
-  background-position: 0 -664px;
-  width: 34px;
-  height: 24px;
+  background-position: 0 -380px;
+  width: 32px;
+  height: 22px;
+}
+.on .navAPIco {
+  background: no-repeat;
+  background-position: 0 -476px;
+  width: 32px;
+  height: 22px;
 }
 .navFiberIco {
   background: no-repeat;
-  background-position: 0 -1145px;
-  width: 34px;
-  height: 36px;
+  background-position: 0 -1341px;
+  width: 32px;
+  height: 32px;
+}
+.on .navFiberIco {
+  background: no-repeat;
+  background-position: 0 -1307px;
+  width: 32px;
+  height: 32px;
 }
 .navUsersIco {
   background: no-repeat;
-  background-position: 0 -742px;
-  width: 34px;
-  height: 25px;
+  background-position: 0 -404px;
+  width: 32px;
+  height: 22px;
+}
+.on .navUsersIco {
+  background: no-repeat;
+  background-position: 0 -428px;
+  width: 32px;
+  height: 22px;
 }
 .navManagerIco {
   background: no-repeat;
-  background-position: 0 -1108px;
-  width: 34px;
-  height: 35px;
+  background-position: 0 -1445px;
+  width: 32px;
+  height: 34px;
+}
+.on .navManagerIco {
+  background: no-repeat;
+  background-position: 0 -1409px;
+  width: 32px;
+  height: 34px;
 }
 .navBedataIco {
   background: no-repeat;
-  background-position: 0 -1072px;
-  width: 34px;
-  height: 34px;
+  background-position: 0 -1179px;
+  width: 32px;
+  height: 30px;
+}
+.on .navBedataIco {
+  background: no-repeat;
+  background-position: 0 -1275px;
+  width: 32px;
+  height: 30px;
 }
 .navUserdataIco {
   background: no-repeat;
-  background-position: 0 -910px;
-  width: 34px;
-  height: 30px;
+  background-position: 0 -974px;
+  width: 32px;
+  height: 26px;
+}
+.on .navUserdataIco {
+  background: no-repeat;
+  background-position: 0 -862px;
+  width: 32px;
+  height: 26px;
 }
 .arrowDownIco,
 .ico_arrowDown:after {
@@ -3413,94 +3378,94 @@ button.on .appsIco {
 }
 .deluploadImg {
   background: no-repeat;
-  background-position: 0 -337px;
+  background-position: 0 -357px;
   width: 21px;
   height: 21px;
 }
 .allUserIco {
   background: no-repeat;
-  background-position: 0 -560px;
+  background-position: 0 -624px;
   width: 32px;
   height: 24px;
 }
 button:hover .allUserIco,
 button.on .allUserIco {
   background: no-repeat;
-  background-position: 0 -586px;
+  background-position: 0 -650px;
   width: 32px;
   height: 24px;
 }
 .mobileIco {
   background: no-repeat;
-  background-position: 0 -797px;
+  background-position: 0 -918px;
   width: 18px;
   height: 26px;
 }
 button:hover .mobileIco,
 button.on .mobileIco {
   background: no-repeat;
-  background-position: 0 -853px;
+  background-position: 0 -946px;
   width: 18px;
   height: 26px;
 }
 .uncheck {
   background: no-repeat;
-  background-position: 0 -825px;
+  background-position: 0 -806px;
   width: 26px;
   height: 26px;
 }
 .check {
   background: no-repeat;
-  background-position: 0 -769px;
+  background-position: 0 -834px;
   width: 26px;
   height: 26px;
 }
 .uncheck_s {
   background: no-repeat;
-  background-position: 0 -716px;
+  background-position: 0 -702px;
   width: 24px;
   height: 24px;
 }
 .uncheck_s.on {
   background: no-repeat;
-  background-position: 0 -690px;
+  background-position: 0 -728px;
   width: 24px;
   height: 24px;
 }
 .modalClose {
   background: no-repeat;
-  background-position: 0 -942px;
+  background-position: 0 -1211px;
   width: 30px;
   height: 30px;
 }
 .modalClose:hover {
   background: no-repeat;
-  background-position: 0 -974px;
+  background-position: 0 -1243px;
   width: 30px;
   height: 30px;
 }
 .addGrayIco {
   background: no-repeat;
-  background-position: 0 -177px;
+  background-position: 0 -195px;
   width: 16px;
   height: 16px;
   margin-right: 8px;
 }
 .delIco {
   background: no-repeat;
-  background-position: 0 -315px;
+  background-position: 0 -335px;
   width: 24px;
   height: 20px;
 }
 a:hover .delIco {
   background: no-repeat;
-  background-position: 0 -293px;
+  background-position: 0 -313px;
   width: 24px;
   height: 20px;
 }
 .editIco {
   background: no-repeat;
-  background-position: 0 -253px;
+  background-position: 0 -293px;
   width: 18px;
   height: 18px;
 }
@@ -3513,7 +3478,7 @@ a:hover .editIco {
 .bill_tab span i,
 .ns_card a i {
   background: no-repeat;
-  background-position: 0 -78px;
+  background-position: 0 -48px;
   width: 13px;
   height: 13px;
 }
@@ -3526,13 +3491,13 @@ a:hover .editIco {
 }
 .aDwn {
   background: no-repeat;
-  background-position: 0 -109px;
+  background-position: 0 -126px;
   width: 14px;
   height: 15px;
 }
 .aUp {
   background: no-repeat;
-  background-position: 0 -160px;
+  background-position: 0 -109px;
   width: 16px;
   height: 15px;
 }
@@ -3548,9 +3513,27 @@ span.on .aUp,
 span:hover .aUp,
 .smore .aUp {
   background: no-repeat;
-  background-position: 0 -126px;
+  background-position: 0 -160px;
   width: 16px;
   height: 15px;
+}
+.dataTotalIco {
+  background: no-repeat;
+  background-position: 0 -1481px;
+  width: 44px;
+  height: 36px;
+}
+.dataHotsIco {
+  background: no-repeat;
+  background-position: 0 -1375px;
+  width: 44px;
+  height: 32px;
+}
+.dataAppIco {
+  background: no-repeat;
+  background-position: 0 -1519px;
+  width: 44px;
+  height: 36px;
 }
 .searchIco,
 .addIco,
@@ -3598,7 +3581,10 @@ span:hover .aDwn,
 span.on .aUp,
 span:hover .aUp,
 .smore .aDwn,
-.smore .aUp {
+.smore .aUp,
+.dataTotalIco,
+.dataHotsIco,
+.dataAppIco {
   display: inline-block;
   vertical-align: middle;
   margin-top: -2px;
@@ -3630,7 +3616,7 @@ span:hover .aUp,
   top: 13px;
   left: 15px;
 }
-/* ../images/sprites.png?20160509130427 */
+/* ../images/sprites.png?20160525163526 */
 .searchIco,
 button:hover .searchIcoGray,
 button:focus .searchIcoGray,
@@ -3653,17 +3639,27 @@ button.on .userIco,
 .appsHoverIco,
 button:hover .appsIco,
 button.on .appsIco,
-.navProjectIco,
-.navPolicyIco,
 .navH5pageIco,
+.navProjectIco,
+.on .navProjectIco,
+.navPolicyIco,
+.on .navPolicyIco,
 .navWareIco,
+.on .navWareIco,
 .navACIco,
+.on .navACIco,
 .navAPIco,
+.on .navAPIco,
 .navFiberIco,
+.on .navFiberIco,
 .navUsersIco,
+.on .navUsersIco,
 .navManagerIco,
+.on .navManagerIco,
 .navBedataIco,
+.on .navBedataIco,
 .navUserdataIco,
+.on .navUserdataIco,
 .arrowDownIco,
 .ico_arrowDown:after,
 .arrowGrayIco,
@@ -3701,9 +3697,12 @@ span:hover .aDwn,
 .smore .aDwn,
 span.on .aUp,
 span:hover .aUp,
-.smore .aUp {
-  background-image: url(../images/sprites.png?20160509130427);
+.smore .aUp,
+.dataTotalIco,
+.dataHotsIco,
+.dataAppIco {
+  background-image: url(../images/sprites.png?20160525163526);
 }
 .css_stamp {
-  content: "20160509130427";
+  content: "20160525163526";
 }

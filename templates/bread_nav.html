@@ -1,8 +1,9 @@
-<div class="bread">
-  <h2>
-    % for k, v in ins.navigate[:-1]:
-    <a href="${k}">${v}</a> >
-    % endfor
-    <span>${ins.navigate[-1][1]}</span>
-  </h2>
-</div>
+<h2>
+% for k, v in ins.navigate[:-1]:
+<a href="${k}">${v}</a> >
+% endfor
+<span>${ins.navigate[-1][1]}</span>
+</h2>
+
+
+

@@ -1,12 +1,16 @@
 ## projectads.html
 <%inherit file="base.html" />
 
-<div class="wrapper nsWrapper">
+<div class="wrapper">
     <!--导航-->
     <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
-        <%include file="bread_nav.html" />
+        <div class="tabbox">
+            <div class="bread">
+                <%include file="bread_nav.html" />
+            </div>
+        </div>
         <div class="tabbox ns_table">
             <ul class="ns_ads">
                 <li><span>余额：<em>20548</em>元</span><span>昨日消费：<em>20548</em>元</span><button type="button" class="btnBlueSmall">充值</button></li>
