@@ -24,12 +24,12 @@
                     % endif
                 </div>
             </div>
-            <ul class="tabnav">
+            <ul class="adsnav ns_fiber">
                 % for fibertype in fiber_types:
                     % if fibertype.id==type_id:
-                    <li class="pro on">${fibertype.name}<input type="hidden" value="${fibertype.id}" /></li><li class="line"><span></span></li>
+                    <li class="on">${fibertype.name}<input type="hidden" value="${fibertype.id}" /></li>
                     % else:
-                    <li class="pro">${fibertype.name}<input type="hidden" value="${fibertype.id}" /></li><li class="line"><span></span></li>
+                    <li>${fibertype.name}<input type="hidden" value="${fibertype.id}" /></li>
                     % endif
                 % endfor
             </ul>

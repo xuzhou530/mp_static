@@ -43,26 +43,24 @@
                                    <th width="15%">SSID</th>
                                    <th width="20%">备注</th>
                                    <th width="15%">portal</th>
-                                   % if ins.is_allowed('update', 'policy') or ins.is_allowed('delete', 'policy'):
                                    <th width="15%">操作</th>
-                                   % endif
-                               </tr>
-                               % for coll in v:
-                               <tr>
+                                 </tr>
+                                 % for coll in v:
+                                 <tr>
                                    <td>${coll._location.split(',')[-1]}</td>
                                    <td>
-                                       % if coll.ispri == 1:
-                                       是<input type="hidden" value="1" />
-                                       % else:
-                                       否<input type="hidden" value="0" />
-                                       % endif
+                                     % if coll.ispri == 1:
+                                     是<input type="hidden" value="1" />
+                                     % else:
+                                     否<input type="hidden" value="0" />
+                                     % endif
                                    </td>
                                    <td>
-                                       % if coll.policy==1:
-                                       免费<input type="hidden" value="1" />
-                                       % else:
-                                       收费<input type="hidden" value="0" />
-                                       % endif
+                                     % if coll.policy==1:
+                                     免费<input type="hidden" value="1" />
+                                     % else:
+                                     收费<input type="hidden" value="0" />
+                                     % endif
                                    </td>
                                    <td>${coll.ssid}</td>
                                    <td>${coll.note}</td>
@@ -75,74 +73,74 @@
                                      <span class="delete">删除</span>
                                      % endif
                                      <input type="hidden" value="${coll.appid}" class="appid" /><input type="hidden" value="${coll.shopid}" class="shopid" /><input type="hidden" value="${coll.secret}" class="secret" /><input type="hidden" value="${coll.id}" class="id" /></td>
-                               </tr>
-                               % endfor
-                           </table>
-                           </div>
-                       </td>
-                    </tr>
-                    % endfor
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+                                 </tr>
+                                 % endfor
+                               </table>
+                             </div>
+                           </td>
+                         </tr>
+                         % endfor
+                       </table>
+                     </div>
+                   </div>
+                 </div>
+               </div>
 
-<%block name="aside">
-    <div class="modal fade" id="modalPn">
-        <div class="modal_pn modal_body">
-            <h3>新增网络配置</h3>
-            <p class="notice"><em>注：</em>同一个专网只能有唯一的SSID</p>
-            <ul class="vertical">
-                <li>
-                    <label><i>*</i>私有网络：</label>
-                    <span class="veright">
-                        <select id="pri">
-                            <option value="0">否</option>
-                            <option value="1">是</option>
-                        </select>
-                    </span>
-                </li>
-                <li>
-                    <label><i>*</i>收费方式：</label>
-                    <span class="veright">
-                        <select id="policy">
-                            <option value="0">收费</option>
-                            <option value="1">免费</option>
-                        </select>
-                    </span>
-                </li>
-                <li>
-                    <label><i>*</i>SSID：</label>
-                    <span class="veright"><div class="verify"><input type="text" class="matchVerify" name="ssid" /></div></span>
-                </li>
-                <li>
-                    <label>备注：</label>
-                    <span class="veright"><input type="text" name="note" /></span>
-                </li>
-                <li>
-                    <label><i>*</i>Portal：</label>
-                    <span class="veright"><div class="verify"><input type="text" class="matchVerify" name="portal" /></div></span>
-                </li>
-                <li>
-                    <label>AppId：</label>
-                    <span class="veright"><input type="text" name="appid" /></span>
-                </li>
-                <li>
-                    <label>ShopId：</label>
-                    <span class="veright"><input type="text" name="shopid" /></span>
-                </li>
-                <li>
-                    <label>Secret：</label>
-                    <span class="veright"><input type="text" name="secret" /></span>
-                </li>
-            </ul>
-            <div class="btngroups"><button type="button" class="btnBlue" id="add">确定</button></div>
-            <i class="msg"></i>
-            <span class="closed">X</span>
-            <input type="hidden" id="pid" />
-            <input type="hidden" id="idx" />
-            <input type="hidden" id="iidx" />
-        </div>
-    </div>
-</%block>
+               <%block name="aside">
+               <div class="modal fade" id="modalPn">
+                 <div class="modal_pn modal_body">
+                   <h3>新增网络配置</h3>
+                   <p class="notice"><em>注：</em>同一个专网只能有唯一的SSID</p>
+                   <ul class="vertical">
+                     <li>
+                       <label><i>*</i>私有网络：</label>
+                       <span class="veright">
+                         <select id="pri">
+                           <option value="0">否</option>
+                           <option value="1">是</option>
+                         </select>
+                       </span>
+                     </li>
+                     <li>
+                       <label><i>*</i>收费方式：</label>
+                       <span class="veright">
+                         <select id="policy">
+                           <option value="0">收费</option>
+                           <option value="1">免费</option>
+                         </select>
+                       </span>
+                     </li>
+                     <li>
+                       <label><i>*</i>SSID：</label>
+                       <span class="veright"><div class="verify"><input type="text" class="matchVerify" name="ssid" /></div></span>
+                     </li>
+                     <li>
+                       <label>备注：</label>
+                       <span class="veright"><input type="text" name="note" /></span>
+                     </li>
+                     <li>
+                       <label><i>*</i>Portal：</label>
+                       <span class="veright"><div class="verify"><input type="text" class="matchVerify" name="portal" /></div></span>
+                     </li>
+                     <li>
+                       <label>AppId：</label>
+                       <span class="veright"><input type="text" name="appid" /></span>
+                     </li>
+                     <li>
+                       <label>ShopId：</label>
+                       <span class="veright"><input type="text" name="shopid" /></span>
+                     </li>
+                     <li>
+                       <label>Secret：</label>
+                       <span class="veright"><input type="text" name="secret" /></span>
+                     </li>
+                   </ul>
+                   <div class="btngroups"><button type="button" class="btnBlue" id="add">确定</button></div>
+                   <i class="msg"></i>
+                   <span class="closed">X</span>
+                   <input type="hidden" id="pid" />
+                   <input type="hidden" id="idx" />
+                   <input type="hidden" id="iidx" />
+                 </div>
+               </div>
+               </%block>

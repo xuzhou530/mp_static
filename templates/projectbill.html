@@ -60,7 +60,11 @@
                 <div class="bill_tab">
                     % for wt in web_types:
                     % if loop.first:
-                    <span class="on" data-user-type-id="${wt.id}">类型${loop.index + 1}：${wt.name}<i></i></span>
+                    <span class="on" data-user-type-id="${wt.id}">类型${loop.index + 1}：${wt.name}
+                        % if loop.index > 0:
+                        <i></i>
+                        % endif
+                    </span>
                     % else:
                     <span data-user-type-id="${wt.id}">类型${loop.index + 1}：${wt.name}<i></i></span>
                     % endif
@@ -74,7 +78,7 @@
                 <div class="btngroups"><button type="button" class="btnGraySmall addbtn">新增</button></div>
                 <div class="bill_tab">
                     % for policy in pay_policys:
-                    <span data-pay-id="${policy.id}">${policy.price}元 = ${policy.time}小时<i></i></span>
+                    <span data-pay-id="${policy.id}">${policy.label}<i></i></span>
                     % endfor
                 </div>
             </div>
@@ -178,13 +182,12 @@
                     <span class="veright">
                         <ul class="adsnav">
                             <li class="on">小时</li>
-                            <li>包月</li>
-                            <li>包年</li>
+                            <li>天</li>
                         </ul>
                     </span>
                 </li>
                 <li class="vtime">
-                    <label><i>*</i>时间<em>（小时）</em>：</label>
+                    <label><i>*</i>时间<em>（小时/天数）</em>：</label>
                     <span class="veright"><div class="verify"><input type="text" class="matchVerify shouldVerify checkFloat" name="time" placeholder="支持两位小数，例如：1.52" /></div></span>
                 </li>
                 <li>

@@ -1285,50 +1285,6 @@ select.sel {
   top: 0;
   right: 0;
 }
-.content .projects .ns_table .tabnav {
-  overflow: hidden;
-  width: 880px;
-  margin: 0 auto 20px;
-}
-.content .projects .ns_table .tabnav li {
-  font-size: 14px;
-  background: #e1e9ea;
-  width: 90px;
-  height: 36px;
-  line-height: 36px;
-  text-align: center;
-  float: left;
-}
-.content .projects .ns_table .tabnav li:first-child {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-.content .projects .ns_table .tabnav li:nth-last-child(2) {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-.content .projects .ns_table .tabnav li.line {
-  width: 1px;
-}
-.content .projects .ns_table .tabnav li.line span {
-  display: block;
-  background: #ced6d7;
-  height: 26px;
-  margin-top: 5px;
-}
-.content .projects .ns_table .tabnav li.pro {
-  cursor: pointer;
-}
-.content .projects .ns_table .tabnav li.pro:hover {
-  background: #d4f2f8;
-}
-.content .projects .ns_table .tabnav li.on {
-  background: #07afcd;
-  color: #fff;
-}
-.content .projects .ns_table .tabnav li.on:hover {
-  background: #07afcd;
-}
 .content .projects .ns_table .areabox .moDetail {
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
   margin: 14px 0;

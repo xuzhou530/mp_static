@@ -38,7 +38,7 @@
                     <tr>
                         <td data-value="${ap.get('mac', '')}">${ap.get('mac', '')}</td>
                         % if ap['resource']:
-                        <td data-value="${ap['resource']['_location']}" data-title="${ap['resource']['name']}">
+                        <td data-value="${ap['resource']._location}" data-title="${ap['resource'].name}">
                         % else:
                         <td data-value="" data-title="">
                         % endif
