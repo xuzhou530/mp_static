@@ -1,11 +1,18 @@
 <tr>
   % for h in headers:
     % if h['is_profile']:
-    <th column="${h['column']}" sort="${sort.get(h['column'], -1)}">${h['title']}</th>
+      % if h['column'] in sort and sort[h['column']] < 0:
+      <th column="${h['column']}" sort="${sort.get(h['column'], -1)}" class="sortOn sortDown"><span><em>${h['title']}</em><i></i></span></th>
+      % elif h['column'] in sort and sort[h['column']] > 0:
+      <th column="${h['column']}" sort="${sort.get(h['column'], -1)}" class="sortOn sortUp"><span><em>${h['title']}</em><i></i></span></th>
+      % else:
+      <th column="${h['column']}" sort="${sort.get(h['column'], -1)}" class="sortOn"><span><em>${h['title']}</em><i></i></span></th>
+      % endif
     % endif
   % endfor
   % if mask == 8:
   <th>手机号</th>
+  <th>流量</th>
   % endif
   <th>操作</th>
 </tr>
@@ -60,6 +67,7 @@
       % endif
     % endfor
     <td>${bd_account.mobile}</td>
+    <td>${online.traffic}M</td>
     <td>
       % if bd_account.mask & (1 << 30) <= 0:
       <span class="unforbin" style="display: none;">启用</span><span class="forbin">停用</span>

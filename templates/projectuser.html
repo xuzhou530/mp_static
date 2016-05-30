@@ -15,7 +15,7 @@
                 <%include file="bread_nav.html" />
                 <div class="widget">
                     <span class="widinfo bg_green">总人数：${count}</span>
-                    <span class="widinfo bg_red">总流量：${0}</span>
+                    <span class="widinfo bg_red">总流量：${total_traffic}M</span>
                 </div>
             </div>
         </div>
@@ -49,10 +49,11 @@
                     <tr>
                         % for h in online_headers:
                           % if h['is_profile']:
-                          <th column="${h['column']}" sort="-1">${h['title']}</th>
+                          <th column="${h['column']}" sort="-1"><span><em>${h['title']}</em><i></i></span></th>
                           % endif
                         % endfor
-                        <th>手机号</th>
+                        <th column="mobile" sort="-1" class="sortOn"><span><em>手机号</em><i></i></span></th>
+                        <th column="traffic" sort="-1" class="sortOn"><span><em>流量</em><i></i></span></th>
                         <th>操作</th>
                     </tr>
                     % for online, bd_account in rows:
@@ -71,6 +72,7 @@
                           % endif
                         % endfor
                         <td>${bd_account.mobile}</td>
+                        <td>${online.traffic}M</td>
                         <td>
                             % if bd_account.mask & (1 << 30) <= 0:
                             <span class="unforbin" style="display: none;">启用</span><span class="forbin">停用</span>

@@ -15,21 +15,20 @@
             </div>
         </div>
         <div class="tabbox ns_table" id="fiberlist">
-            <input type="hidden" value="${type_id}" id="typeId" />
             <div class="toolnav">
                 <h3>宽带信息</h3>
                 <div class="toolbox">
                     % if ins.is_allowed('create', 'fiber'):
-                    <button type="button" class="btnGraySmall addbtn">新增</button>
+                    <button type="button" class="btnGraySmall add">新增</button>
                     % endif
                 </div>
             </div>
             <ul class="adsnav ns_fiber">
                 % for fibertype in fiber_types:
                     % if fibertype.id==type_id:
-                    <li class="on">${fibertype.name}<input type="hidden" value="${fibertype.id}" /></li>
+                    <li data-id="${fibertype.id}" class="on">${fibertype.name}</li>
                     % else:
-                    <li>${fibertype.name}<input type="hidden" value="${fibertype.id}" /></li>
+                    <li data-id="${fibertype.id}">${fibertype.name}</li>
                     % endif
                 % endfor
             </ul>
@@ -46,12 +45,12 @@
                     </tr>
                     % for fiber in fibers:
                     <tr>
-                        <td>${fiber.line}</td>
-                        <td>${fiber.start.strftime('%Y-%m-%d')}</td>
-                        <td>${fiber.end.strftime('%Y-%m-%d')}</td>
-                        <td>${fiber.telecom}</td>
+                        <td data-value="${fiber.line}">${fiber.line}</td>
+                        <td data-value="${fiber.start.strftime('%Y-%m-%d')}">${fiber.start.strftime('%Y-%m-%d')}</td>
+                        <td data-value="${fiber.end.strftime('%Y-%m-%d')}">${fiber.end.strftime('%Y-%m-%d')}</td>
+                        <td data-value="${fiber.telecom}">${fiber.telecom}</td>
                         % if ins.is_allowed('update', 'fiber') or ins.is_allowed('delete', 'fiber'):
-                        <td><span class="edit">编辑</span><span class="delete">删除</span><button type="button" class="btnGrayAutoMin save">保存</button><button type="button" class="btnGrayAutoMin cancel">取消</button><input type="hidden" value="${fiber.id}" /></td>
+                        <td><span class="edit">编辑</span><span class="delete">删除</span><input type="hidden" value="${fiber.id}" /></td>
                         % endif
                     </tr>
                     % endfor
@@ -63,5 +62,23 @@
 
 <%block name="jscode">
     <script src="/static/js/lib/jqueryui.min.js"></script>
-    <script src="/static/js/lib/chart/echarts-all.js"></script>
+</%block>
+
+<%block name="aside">
+    <div class="modal fade" id="modalFiber">
+        <div class="modal_fiber modal_body">
+            <h3>新增宽带</h3>
+            <ul class="vertical">
+                <li><label>线路：</label><span class="veright"><div class="verify"><input type="text" name="line" class="matchVerify shouldVerify" /></div></span></li>
+                <li><label>开通时间：</label><span class="veright"><div class="verify"><input type="text" name="start" class="datepicker" /></div></span></li>
+                <li><label>到期时间：</label><span class="veright"><div class="verify"><input type="text" name="end" class="datepicker" /></div></span></li>
+                <li><label>所属电信单位：</label><span class="veright"><div class="verify"><input type="text" name="telecom" /></div></span></li>
+            </ul>
+            <div class="btngroups"><button type="button" class="btnBlue add">确定</button></div>
+            <i class="msg"></i>
+            <span class="closed">X</span>
+            <input type="hidden" id="idx" />
+            <input type="hidden" id="pid" />
+        </div>
+    </div>
 </%block>
