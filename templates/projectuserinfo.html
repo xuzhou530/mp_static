@@ -97,7 +97,9 @@
                     </li>
                     % endif
                 </ul>
+                % if ins.is_allowed('list', 'project'):
                 <p class="btnSub pdg60"><button type="button" class="btnGraySmall quit" style="display: none;">取消</button><button type="button" class="btnGraySmall edit">编辑</button><button type="button" class="btnBlueSmall save">保存</button></p>
+                % endif
             </div>
         </div>
     </div>

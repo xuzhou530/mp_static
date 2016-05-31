@@ -188,7 +188,7 @@ select.sel {
 .btnBlue:hover,
 .btnBlueSmall:hover,
 .btnBlueAutoMin:hover {
-  background: #07afcd;
+  background: #0faee5;
 }
 .btnGreen,
 .btnGreenAutoMin {
@@ -878,7 +878,7 @@ select.sel {
   float: left;
 }
 .content .ns_form .horizon li span {
-  color: #07afcd;
+  color: #0faee5;
 }
 .content .ns_form .btnSub {
   text-align: center;
@@ -1047,13 +1047,13 @@ select.sel {
   font-size: 16px;
 }
 .content .projects .bread h2 span {
-  color: #07afcd;
+  color: #0faee5;
 }
 .content .projects .bread h2 a {
   color: #333;
 }
 .content .projects .bread h2 a:hover {
-  color: #07afcd;
+  color: #0faee5;
 }
 .content .projects .widget {
   position: absolute;
@@ -1363,7 +1363,7 @@ select.sel {
 }
 .content .projects .ns_table table tr td span {
   margin-right: 10px;
-  color: #07afcd;
+  color: #0faee5;
 }
 .content .projects .ns_table table tr td span.hadpay {
   color: #999;
@@ -2303,7 +2303,7 @@ select.sel {
   padding: 0 16px;
 }
 .ns_subtab .magnet .ap {
-  color: #07afcd;
+  color: #0faee5;
   width: 39%;
   text-align: center;
   vertical-align: middle;
@@ -2320,8 +2320,8 @@ select.sel {
   margin-left: 2px;
 }
 .ns_subtab .more:hover {
-  color: #07afcd;
-  border-bottom: 1px solid #07afcd;
+  color: #0faee5;
+  border-bottom: 1px solid #0faee5;
 }
 .toolnav {
   position: relative;
@@ -2355,8 +2355,11 @@ select.sel {
   float: right;
 }
 .toolnav .toolbox button {
-  float: right;
   margin-left: 10px;
+}
+.toolnav .toolbox select {
+  margin-left: 10px;
+  width: 90px;
 }
 .toolnav .toolbox a {
   color: #08c3e5;
@@ -2364,10 +2367,10 @@ select.sel {
   text-decoration: underline;
   line-height: 32px;
   font-size: 14px;
-  float: right;
+  display: inline-block;
 }
 .toolnav .toolbox a:hover {
-  color: #07afcd;
+  color: #0faee5;
 }
 .toolnav .toolbox a.btnGraySmall {
   display: inline-block;
@@ -2391,7 +2394,6 @@ select.sel {
   color: #929292;
   margin-top: 5px;
   font-weight: normal;
-  float: right;
 }
 .toolnav .toolbox .ns_sort a {
   color: #929292;
@@ -2418,8 +2420,8 @@ select.sel {
   border-radius: 16px;
   position: relative;
   overflow: hidden;
-  float: right;
-  margin-left: 20px;
+  float: left;
+  margin-left: 10px;
 }
 .toolnav .toolbox .search input {
   border: none;
@@ -2562,7 +2564,7 @@ select.sel {
   margin-right: 30px;
 }
 .ns_ads li span em {
-  color: #07afcd;
+  color: #0faee5;
   font-size: 16px;
 }
 .ns_ads li a {
@@ -2690,7 +2692,7 @@ select.sel {
 }
 .customAside h3 {
   font-size: 18px;
-  color: #07afcd;
+  color: #0faee5;
   text-align: center;
   margin: 50px 0;
 }

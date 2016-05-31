@@ -20,9 +20,19 @@
         <div class="tabbox ns_table" id="aplist">
             <div class="toolnav">
                 <h3>AP列表</h3>
+                <div class="toolbox">
+                    <div class="search"><input type="text" placeholder="输入MAC/位置" data-search="" /><button type="button"><i class="searchIcoGray"></i></button></div>
+                    <select data-name="online"><option value="">状态</option><option value="1">在线</option><option value="0">离线</option></select>
+                    <select data-name="vendor"><option value="">品牌</option>
+                      % for k, v in vendors.iteritems():
+                      <option value="${k}">${v}</option>
+                      % endfor
+                    </select>
+                    <select data-name="isbind"><option value="">绑定</option><option value="1">已绑定</option><option value="0">未绑定</option></select>
+                </div>
             </div>
             <div class="areabox">
-                <table>
+                <table data-sort="">
                     <tr>
                         <th>MAC地址</th>
                         <th>所属</th>

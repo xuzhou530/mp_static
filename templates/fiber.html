@@ -62,6 +62,27 @@
 
 <%block name="jscode">
     <script src="/static/js/lib/jqueryui.min.js"></script>
+    <script type="text/javascript" src="/static/js/lib/jqueryui.min.js"></script>
+    <script type="text/javascript" src="/static/js/lib/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 日期
+            $("#dateStart").datepicker({
+                dateFormat: 'yy-mm-dd',
+                stepMinute: 10,
+                onClose: function(selectedDate) {
+                    $("#dateEnd").datepicker("option", "minDate", selectedDate);
+                }
+            });
+            $("#dateEnd").datepicker({
+                dateFormat: 'yy-mm-dd',
+                stepMinute: 10,
+                onClose: function(selectedDate) {
+                    $("#dateStart").datepicker("option", "maxDate", selectedDate);
+                }
+            });
+        });
+    </script>
 </%block>
 
 <%block name="aside">
@@ -70,8 +91,8 @@
             <h3>新增宽带</h3>
             <ul class="vertical">
                 <li><label>线路：</label><span class="veright"><div class="verify"><input type="text" name="line" class="matchVerify shouldVerify" /></div></span></li>
-                <li><label>开通时间：</label><span class="veright"><div class="verify"><input type="text" name="start" class="datepicker" /></div></span></li>
-                <li><label>到期时间：</label><span class="veright"><div class="verify"><input type="text" name="end" class="datepicker" /></div></span></li>
+                <li><label>开通时间：</label><span class="veright"><div class="verify"><input type="text" name="start" id="dateStart" /></div></span></li>
+                <li><label>到期时间：</label><span class="veright"><div class="verify"><input type="text" name="end" id="dateEnd" /></div></span></li>
                 <li><label>所属电信单位：</label><span class="veright"><div class="verify"><input type="text" name="telecom" /></div></span></li>
             </ul>
             <div class="btngroups"><button type="button" class="btnBlue add">确定</button></div>

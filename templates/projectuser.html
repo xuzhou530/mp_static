@@ -32,20 +32,20 @@
             <div class="toolnav">
                 <div class="toolLeft">
                     <input type="hidden" value="${datetime.now().strftime('%Y-%m-%d')}" />
-                    <div class="time">日期：<input type="text" value="${datetime.now().strftime('%Y-%m-%d')}" id="dateStart" />--<input type="text" value="${datetime.now().strftime('%Y-%m-%d')}" id="dateEnd" /></div>
+                    <div class="time">日期：<input type="text" value="${datetime.now().strftime('%Y-%m-%d')}" id="dateStart" data-start="${datetime.now().strftime('%Y-%m-%d')}" />--<input type="text" value="${datetime.now().strftime('%Y-%m-%d')}" id="dateEnd" data-end="${datetime.now().strftime('%Y-%m-%d')}" /></div>
                     <button type="buton" class="btnGraySmall timeSearch">查询</button>
                 </div>
                 <div class="toolbox">
+                    <div class="search"><input type="text" placeholder="输入搜索内容" data-search="" /><button type="button"><i class="searchIcoGray"></i></button></div>
                     <button type="button" class="btnGraySmall add" style="display: none;">新增</button>
                     <a href="/user_template.xls?location=${location}" class="btnGraySmall" id="downloadTmp" style="display: none;">下载模板</a>
                     <button type="button" class="btnGraySmall" id="uploadfile" style="display: none;">导入用户</button>
                     <input type="file" class="xlsfile" id="xlsfile" name="uploadfile" />
                     <a href="javascript:;" class="btnGraySmall" id="export">导出报表</a>
-                    <div class="search"><input type="text" placeholder="输入搜索内容" /><button type="button"><i class="searchIcoGray"></i></button></div>
                 </div>
             </div>
             <div class="areabox">
-                <table>
+                <table data-sort="">
                     <tr>
                         % for h in online_headers:
                           % if h['is_profile']:
@@ -54,7 +54,9 @@
                         % endfor
                         <th column="mobile" sort="-1" class="sortOn"><span><em>手机号</em><i></i></span></th>
                         <th column="traffic" sort="-1" class="sortOn"><span><em>流量</em><i></i></span></th>
+                        % if ins.is_allowed('list', 'project'):
                         <th>操作</th>
+                        % endif
                     </tr>
                     % for online, bd_account in rows:
                     % if bd_account.mask & (1 << 30) <= 0:
@@ -73,6 +75,7 @@
                         % endfor
                         <td>${bd_account.mobile}</td>
                         <td>${online.traffic}M</td>
+                        % if ins.is_allowed('list', 'project'):
                         <td>
                             % if bd_account.mask & (1 << 30) <= 0:
                             <span class="unforbin" style="display: none;">启用</span><span class="forbin">停用</span>
@@ -81,6 +84,7 @@
                             % endif
                             <input type="hidden" value="${bd_account.user}"/>
                         </td>
+                        % endif
                     </tr>
                     % endfor
                 </table>
