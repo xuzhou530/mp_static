@@ -44,7 +44,7 @@
                 </ul>
             </div>
         </div>
-        % if resources:
+        % if resource.type_id == 9:
         <div class="tabbox ns_subtab">
             <div class="toolnav">
                 <h3>子项目列表</h3>
@@ -53,20 +53,22 @@
                     <div class="search"><input type="text" placeholder="输入搜索内容" /><button type="button"><i class="searchIcoGray"></i></button></div>
                 </div>
             </div>
-            <div class="areabox">
-                % for r in resources:
-                % if r.offlines > 0:
-                <a href="/projectcard.html?location=${r._location}" class="magnet error">
-                % else:
-                <a href="/projectcard.html?location=${r._location}" class="magnet">
-                % endif
-                <div class="name">${r.name}</div><div class="ap">AP：${r.ap_count}</div></a>
-                 % endfor
-            </div>
-            % if len(resources) > 4:
-            <div class="mw880" style="overflow: hidden;">
-                <span class="more">更多<i class="aDwn"></i></span>
-            </div>
+            % if resources:
+              <div class="areabox">
+                  % for r in resources:
+                  % if r.offlines > 0:
+                  <a href="/projectcard.html?location=${r._location}" class="magnet error">
+                  % else:
+                  <a href="/projectcard.html?location=${r._location}" class="magnet">
+                  % endif
+                  <div class="name">${r.name}</div><div class="ap">AP：${r.ap_count}</div></a>
+                   % endfor
+              </div>
+              % if len(resources) > 4:
+              <div class="mw880" style="overflow: hidden;">
+                  <span class="more">更多<i class="aDwn"></i></span>
+              </div>
+              % endif
             % endif
         </div>
         % endif

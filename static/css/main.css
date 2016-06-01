@@ -2361,6 +2361,18 @@ select.sel {
   margin-left: 10px;
   width: 90px;
 }
+.toolnav .toolbox .autoInput {
+  float: left;
+  margin-left: 10px;
+}
+.toolnav .toolbox .autoInput em {
+  font-size: 14px;
+  position: absolute;
+  left: 5px;
+  bottom: auto;
+  color: black;
+  text-indent: 0;
+}
 .toolnav .toolbox a {
   color: #08c3e5;
   margin-left: 10px;
@@ -2506,13 +2518,17 @@ select.sel {
 .vendor.Xinrui {
   background-position: 0 -120px;
 }
+.vendor.shenxinfu,
+.vendor.Shenxinfu {
+  background-position: 0 -150px;
+}
 .adsnav {
   overflow: hidden;
   width: 880px;
   margin: 0 auto 20px;
 }
 .adsnav li {
-  width: 14%;
+  width: 20%;
   height: 40px;
   line-height: 40px;
   border: 1px solid #d5d5d5;
@@ -2524,7 +2540,7 @@ select.sel {
   background: #f4f4f4;
 }
 .adsnav li:last-child {
-  width: 15%;
+  width: 19%;
 }
 .adsnav li:hover {
   background: #d4f2f8;
