@@ -56,7 +56,7 @@
                         <th>操作</th>
                         % endif
                     </tr>
-                    % for online, bd_account, pn_bind in rows:
+                    % for online, bd_account in rows:
                     % if bd_account.mask & (1 << 30) <= 0:
                     <tr>
                     % else:
@@ -71,7 +71,7 @@
                             % endif
                           % endif
                         % endfor
-                        <td>${pn_bind.mobile}</td>
+                        <td>${bd_account.mobile}</td>
                         <td>${online.traffic}M</td>
                         % if ins.is_allowed('list', 'project'):
                         <td>
