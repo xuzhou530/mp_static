@@ -14,7 +14,7 @@
   <th>手机号</th>
   <th>流量</th>
   % endif
-  % if ins.is_allowed('list', 'project'):
+  % if ins.is_allowed('update', 'user'):
   <th>操作</th>
   % endif
 </tr>
@@ -35,7 +35,7 @@
       % endif
     % endfor
     <td>
-      % if ins.is_allowed('list', 'project'):
+      % if ins.is_allowed('update', 'user'):
       <span class="edit">编辑</span>
       % endif
       % if mask == 1:
@@ -44,7 +44,7 @@
       % if mask in [2, 4]:
       <input type="hidden" value="${row.user}" holder/>
       % endif
-      % if ins.is_allowed('list', 'project'):
+      % if ins.is_allowed('update', 'user'):
         % if row.mask & (1 << 30) <= 0:
         <span class="unforbin" style="display: none;">启用</span><span class="forbin">停用</span>
         % else:
@@ -75,7 +75,7 @@
     % endfor
     <td>${bd_account.mobile}</td>
     <td>${online.traffic}M</td>
-    % if ins.is_allowed('list', 'project'):
+    % if ins.is_allowed('update', 'user'):
     <td>
       % if bd_account.mask & (1 << 30) <= 0:
       <span class="unforbin" style="display: none;">启用</span><span class="forbin">停用</span>
