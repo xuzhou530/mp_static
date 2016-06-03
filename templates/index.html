@@ -107,7 +107,7 @@
                 <!--</div>-->
             <!--</div>-->
         <!--</div>-->
-        <div class="tabbox ns_prolist" id="apsxx">
+        <div class="tabbox ns_prolist">
             <div class="toolnav">
                 <h3>项目列表</h3>
                 <!--<div class="toolbox">-->
@@ -122,13 +122,58 @@
                     <div class="tabinfo">
                         <h6>${r.name}</h6>
                         <ul>
-                            <li><span><label>运行：</label><em>${r.onlines}</em></span><span><label>在线：</label><em>${r.conns}</em></span></li>
-                            <li><span><label>故障：</label><em class="ns_red">${r.offlines}</em></span><span><label>管理员：</label><em title="${r.owner}">${r.owner}</em></span></li>
+                            <li><span><label>运行：</label><em class="green">${r.onlines}</em></span><span><label>在线：</label><em>${r.conns}</em></span></li>
+                            <li><span><label>故障：</label><em class="red">${r.offlines}</em></span><span><label>管理员：</label><em title="${r.owner}">${r.owner}</em></span></li>
                         </ul>
                         <p>开通日期：${r.ctime.strftime('%Y-%m-%d')}</p>
                     </div>
                 </a>
                 % endfor
+            </div>
+        </div>
+        <div class="tabbox ns_device">
+            <div class="areabox">
+                <ul class="deviceNav">
+                    <li>设备图</li>
+                    <li class="on">一层平面图</li>
+                    <li>二层平面图</li>
+                    <li>三层平面图</li>
+                    <li>四层平面图</li>
+                    <li>五层平面图</li>
+                    <li>六层平面图</li>
+                </ul>
+                <div class="ns_xy">
+                    <div class="axy">
+                        <dl>
+                            <dd>AC名称：<span><input type="text" name="name" class="matchVerify shouldVerify" /></span></dd>
+                            <dd>AC品牌：<span><input type="text" name="vendor" /></span></dd>
+                            <dd class="mm">MAC地址：<span><input type="text" name="mac" class="matchVerify shouldVerify checkMac" /></span></dd>
+                            <dd style="float: right;"><button type="button" class="btnGraySmall quit">取消</button><button type="button" class="btnBlueSmall add">确定</button><button type="button" class="btnBlueSmall save" style="display: none;">保存</button></dd>
+                        </dl>
+                        <p>提示：填写AP信息前，请先点击施工图片上的AP指示点捕捉位置信息。（x：<em id="ix"></em> , y：<em id="iy"></em>）</p>
+                    </div>
+                    <button type="button" class="btnBlueSmall addap">新增AP</button>
+                </div>
+                <div class="ns_deCtx">
+                    <div class="ns_dedo">
+                        <img src="../static/images/deviceImg/1L.png" width="880" height="517" />
+                    </div>
+                    <div class="ns_dedo">
+                        <img src="../static/images/deviceImg/2L.png" width="880" height="310" />
+                    </div>
+                    <div class="ns_dedo">
+                        <img src="../static/images/deviceImg/3L.png" width="880" height="362" />
+                    </div>
+                    <div class="ns_dedo">
+                        <img src="../static/images/deviceImg/4L.png" width="880" height="332" />
+                    </div>
+                    <div class="ns_dedo">
+                        <img src="../static/images/deviceImg/5L.png" width="880" height="389" />
+                    </div>
+                    <div class="ns_dedo">
+                        <img src="../static/images/deviceImg/6L.png" width="880" height="384" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>

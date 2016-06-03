@@ -28,11 +28,6 @@
                 <li>下级代理</li>
             </ul>
             <div class="toolnav">
-                <div class="toolLeft">
-                    <input type="hidden" value="${datetime.now().strftime('%Y-%m-%d')}" />
-                    <div class="time">日期：<input type="text" value="${datetime.now().strftime('%Y-%m-%d')}" id="dateStart" data-start="${datetime.now().strftime('%Y-%m-%d')}" />--<input type="text" value="${datetime.now().strftime('%Y-%m-%d')}" id="dateEnd" data-end="${datetime.now().strftime('%Y-%m-%d')}" /></div>
-                    <button type="buton" class="btnGraySmall timeSearch">查询</button>
-                </div>
                 <div class="toolbox">
                     <div class="search"><input type="text" placeholder="输入搜索内容" data-search="" /><button type="button"><i class="searchIcoGray"></i></button></div>
                     <button type="button" class="btnGraySmall add" style="display: none;">新增</button>
@@ -40,6 +35,7 @@
                     <button type="button" class="btnGraySmall" id="uploadfile" style="display: none;">导入用户</button>
                     <input type="file" class="xlsfile" id="xlsfile" name="uploadfile" />
                     <a href="javascript:;" class="btnGraySmall" id="export">导出报表</a>
+                    <button type="button" class="btnGraySmall" id="reflow" style="width: 112px;">重新统计流量</button>
                 </div>
             </div>
             <div class="areabox">
@@ -50,14 +46,13 @@
                           <th column="${h['column']}" sort="-1"><span><em>${h['title']}</em><i></i></span></th>
                           % endif
                         % endfor
-                        <th column="mobile" sort="-1" class="sortOn"><span><em>手机号</em><i></i></span></th>
                         <th column="traffic" sort="-1" class="sortOn"><span><em>流量</em><i></i></span></th>
                         % if ins.is_allowed('update', 'user'):
                         <th>操作</th>
                         % endif
                     </tr>
-                    % for online, bd_account in rows:
-                    % if bd_account.mask & (1 << 30) <= 0:
+                    % for online in onlines:
+                    % if online.mask & (1 << 30) <= 0:
                     <tr>
                     % else:
                     <tr class="dab">
@@ -71,16 +66,15 @@
                             % endif
                           % endif
                         % endfor
-                        <td>${bd_account.mobile}</td>
-                        <td>${online.traffic}M</td>
+                        <td>${_t(online.traffic)}M</td>
                         % if ins.is_allowed('update', 'user'):
                         <td>
-                            % if bd_account.mask & (1 << 30) <= 0:
+                            % if online.mask & (1 << 30) <= 0:
                             <span class="unforbin" style="display: none;">启用</span><span class="forbin">停用</span>
                             % else:
                             <span class="unforbin">启用</span><span class="forbin" style="display: none;">停用</span>
                             % endif
-                            <input type="hidden" value="${bd_account.user}"/>
+                            <input type="hidden" value="${online.user}"/>
                         </td>
                         % endif
                     </tr>
