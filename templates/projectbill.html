@@ -45,7 +45,9 @@
                   <span>总计：<em class="red">${receipt['total']}</em>元</span>
                 </p>
             </div>
+            % if ins.is_allowed('create', 'pay'):
             <div class="btngroups"><button type="button" class="btnGraySmall mouthExport">按月财务统计表导出</button><button type="button" class="btnGraySmall">导出报表</button></div>
+            % endif
         </div>
         <div class="tabbox ns_bill">
             <div class="toolnav">
@@ -55,7 +57,9 @@
                 <h4>上网类型</h4>
             </div>
             <div class="bill_settings userType">
+                % if ins.is_allowed('create', 'pay'):
                 <div class="btngroups"><button type="button" class="btnGraySmall addbtn">新增</button></div>
+                % endif
                 <input type="hidden" id="userTypeLen" value="${len(web_types)}" />
                 <div class="bill_tab">
                     % for wt in web_types:
@@ -75,7 +79,9 @@
                 <h4>可用套餐类型选择</h4>
             </div>
             <div class="bill_settings packageType">
+                % if ins.is_allowed('create', 'pay'):
                 <div class="btngroups"><button type="button" class="btnGraySmall addbtn">新增</button></div>
+                % endif
                 <div class="bill_tab">
                     % for policy in pay_policys:
                     <span data-pay-id="${policy.id}">${policy.label}<i></i></span>
@@ -90,16 +96,21 @@
                     <li>
                         <h4><i class="wx"></i>微信支付</h4>
                         <p>请输入微信账号</p>
+                        % if ins.is_allowed('update', 'pay'):
                         <div data-platform="wechat"><input type="text" style="width: 280px; margin-right: 5px;" /><button type="button" class="btnBlueSmall" style="width: 64px;">保存</button></div>
+                        % endif
                     </li>
                     <li id="alipay">
                         <h4><i class="ali"></i>支付宝支付</h4>
                         <p>支付宝账号</p>
-                        % if alipay_account:
-                        <div><span>${alipay_account['seller_id']}</span><button type="button" class="btnBlueSmall">编辑</button></div>
-                        % else:
-                        <div><span></span><button type="button" class="btnBlueSmall">编辑</button></div>
-                        % endif
+                        <div>
+                          % if alipay_account:
+                          <span>${alipay_account['seller_id']}</span>
+                          % endif
+                          % if ins.is_allowed('update', 'pay'):
+                          <button type="button" class="btnBlueSmall">编辑</button>
+                          % endif
+                        </div>
                     </li>
                 </ul>
             </div>

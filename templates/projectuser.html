@@ -30,9 +30,11 @@
             <div class="toolnav">
                 <div class="toolbox">
                     <div class="search"><input type="text" placeholder="输入搜索内容" data-search="" /><button type="button"><i class="searchIcoGray"></i></button></div>
+                    % if ins.is_allowed('create', 'user'):
                     <button type="button" class="btnGraySmall add" style="display: none;">新增</button>
                     <a href="/user_template.xls?location=${location}" class="btnGraySmall" id="downloadTmp" style="display: none;">下载模板</a>
                     <button type="button" class="btnGraySmall" id="uploadfile" style="display: none;">导入用户</button>
+                    % endif
                     <input type="file" class="xlsfile" id="xlsfile" name="uploadfile" />
                     <a href="javascript:;" class="btnGraySmall" id="export">导出报表</a>
                     <button type="button" class="btnGraySmall" id="reflow" style="width: 112px;">重新统计流量</button>
@@ -60,9 +62,9 @@
                         % for h in online_headers:
                           % if h['is_profile']:
                             % if h['type']=='password':
-                            <td type="${h['type']}" data-value="${getattr(online, h['column'])}" data-tip="${getattr(online, h['column'])}" class="pwdtip">***</td>
+                            <td type="${h['type']}" data-value="${getattr(online, h['column'], '')}" data-tip="${getattr(online, h['column'], '')}" class="pwdtip">***</td>
                             % else:
-                            <td type="${h['type']}" data-value="${getattr(online, h['column'])}">${getattr(online, h['column'])}</td>
+                            <td type="${h['type']}" data-value="${getattr(online, h['column'], '')}">${getattr(online, h['column'], '')}</td>
                             % endif
                           % endif
                         % endfor

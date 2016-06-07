@@ -30,7 +30,9 @@
                         <th>账户</th>
                         <th>密码</th>
                         <th>授权</th>
+                        % if ins.is_allowed('create', 'ac') and ins.is_allowed('update', 'ac'):
                         <th>操作</th>
+                        % endif
                     </tr>
                     % for ac in acs:
                     <tr>
@@ -67,7 +69,9 @@
                             否<input type="hidden" value="0" />
                             % endif
                         </td>
+                        % if ins.is_allowed('create', 'ac') and ins.is_allowed('update', 'ac'):
                         <td><span class="edit">编辑</span><span class="delete">删除</span><input type="hidden" value="${ac.id}" name="id" /><input type="hidden" value="${ac.mask}" name="mask" /><input type="hidden" value="${ac.secret}" name="secret" /></td>
+                        % endif
                     </tr>
                     % endfor
                 </table>

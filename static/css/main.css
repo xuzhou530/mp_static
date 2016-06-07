@@ -236,6 +236,28 @@ select.sel {
   float: left;
 }
 /**styles.css**/
+.wrapLoad {
+  width: 300px;
+  height: 90px;
+  margin-left: -150px;
+  margin-top: -45px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 20;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+  color: #555;
+  background: #fff;
+}
+.wrapLoad i {
+  background: url("../images/wrapload.gif") no-repeat;
+  width: 32px;
+  height: 32px;
+  margin: 18px auto 10px;
+  display: block;
+}
 .mw880 {
   width: 880px;
   margin: 0 auto;
@@ -320,7 +342,7 @@ select.sel {
 }
 .header .search button:hover,
 .header .search button:focus {
-  background: #fff;
+  background: #1ca1d8;
 }
 .header .admin {
   float: right;
@@ -885,29 +907,26 @@ select.sel {
   text-align: center;
 }
 .content .ns_prolist .protab {
-  width: 280px;
-  height: 176px;
   border: 1px solid #e1e1e1;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  display: block;
   background: #fff;
-  float: left;
-  overflow: hidden;
+  display: block;
   cursor: pointer;
-  margin-right: 16px;
   margin-bottom: 16px;
+  overflow: hidden;
+}
+.content .ns_prolist .protab .tabimg {
+  height: 6px;
+  opacity: 0.6;
 }
 .content .ns_prolist .protab:hover {
   box-shadow: 0 2px 2px #e1e1e1;
 }
 .content .ns_prolist .protab:hover .tabimg {
   opacity: 1;
-}
-.content .ns_prolist .protab:nth-child(3n) {
-  margin-right: 0;
 }
 .content .ns_prolist .protab:nth-child(3n) .tabimg {
   background: #f6aa96;
@@ -918,14 +937,81 @@ select.sel {
 .content .ns_prolist .protab:nth-child(3n-2) .tabimg {
   background: #5ccff5;
 }
-.content .ns_prolist .protab .tabimg {
-  height: 6px;
-  opacity: 0.6;
+.content .ns_prolist .protabL {
+  height: 140px;
 }
-.content .ns_prolist .protab .tabinfo {
+.content .ns_prolist .protabL .tabimg {
+  margin-bottom: 9px;
+}
+.content .ns_prolist .protabL .proL {
+  width: 230px;
+  float: left;
+}
+.content .ns_prolist .protabL .proL h6 {
+  color: #333;
+  font-size: 16px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+}
+.content .ns_prolist .protabL .proL p {
+  font-size: 12px;
+  color: #999;
+  margin: 3px 0 3px 48px;
+}
+.content .ns_prolist .protabL .proL p label {
+  display: inline-block;
+  width: 62px;
+}
+.content .ns_prolist .protabL .proM {
+  background: url("../images/xm_line.png") no-repeat;
+  width: 1px;
+  height: 110px;
+  float: left;
+}
+.content .ns_prolist .protabL .proR {
+  width: 580px;
+  float: right;
+  padding-top: 28px;
+}
+.content .ns_prolist .protabL .proR li {
+  float: left;
+  width: 33%;
+  color: #666;
+}
+.content .ns_prolist .protabL .proR li .black {
+  color: #222;
+}
+.content .ns_prolist .protabL .proR li .green,
+.content .ns_prolist .protabL .proR li .black,
+.content .ns_prolist .protabL .proR li .red {
+  font-size: 24px;
+}
+.content .ns_prolist .protabL .proR li i {
+  float: left;
+  margin-right: 24px;
+  margin-top: 9px;
+}
+.content .ns_prolist .protabL .proR li div {
+  float: left;
+}
+.content .ns_prolist .protabL .proR li div span {
+  display: block;
+  margin-bottom: 5px;
+}
+.content .ns_prolist .protabM {
+  width: 280px;
+  height: 176px;
+  float: left;
+  margin-right: 16px;
+}
+.content .ns_prolist .protabM:nth-child(3n) {
+  margin-right: 0;
+}
+.content .ns_prolist .protabM .tabinfo {
   padding: 0 16px;
 }
-.content .ns_prolist .protab .tabinfo h6 {
+.content .ns_prolist .protabM .tabinfo h6 {
   font-size: 16px;
   height: 60px;
   line-height: 60px;
@@ -933,23 +1019,23 @@ select.sel {
   visibility: visible;
   margin-bottom: 0;
 }
-.content .ns_prolist .protab .tabinfo ul li {
+.content .ns_prolist .protabM .tabinfo ul li {
   height: 36px;
   line-height: 36px;
   border-bottom: 1px dotted #bababa;
 }
-.content .ns_prolist .protab .tabinfo ul li span {
+.content .ns_prolist .protabM .tabinfo ul li span {
   font-size: 14px;
   display: inline-block;
   color: #666;
 }
-.content .ns_prolist .protab .tabinfo ul li span:first-child {
+.content .ns_prolist .protabM .tabinfo ul li span:first-child {
   width: 130px;
 }
-.content .ns_prolist .protab .tabinfo ul li span label {
+.content .ns_prolist .protabM .tabinfo ul li span label {
   float: left;
 }
-.content .ns_prolist .protab .tabinfo ul li span em {
+.content .ns_prolist .protabM .tabinfo ul li span em {
   font-size: 14px;
   width: 50px;
   text-overflow: ellipsis;
@@ -958,7 +1044,7 @@ select.sel {
   display: inline-block;
   float: left;
 }
-.content .ns_prolist .protab .tabinfo p {
+.content .ns_prolist .protabM .tabinfo p {
   font-size: 12px;
   color: #999;
   margin-top: 10px;
@@ -1390,6 +1476,9 @@ select.sel {
 .content .projects .ns_table table tr td span.forbin,
 .content .projects .ns_table table tr td span.delete {
   color: #f36144;
+  cursor: pointer;
+}
+.content .projects .ns_table table tr td span.smore {
   cursor: pointer;
 }
 .content .projects .ns_table table tr td span.smore i {
@@ -3371,64 +3460,62 @@ select.sel {
 button:hover .searchIcoGray,
 button:focus .searchIcoGray {
   background: no-repeat;
-  background-position: 0 -434px;
+  background-position: 0 -510px;
   width: 22px;
   height: 22px;
 }
 .searchIcoGray {
   background: no-repeat;
-  background-position: 0 -578px;
+  background-position: 0 -534px;
   width: 22px;
   height: 22px;
 }
-button:hover .searchIco,
-button:focus .searchIco {
-  background: no-repeat;
-  background-position: 0 -554px;
-  width: 22px;
-  height: 22px;
-}
+/*button:hover .searchIco, button:focus .searchIco{*/
+/*background: url("../img/sprites/ico_search_blue.png") no-repeat;*/
+/*width: 22px;*/
+/*height: 22px;*/
+/*}*/
 .addIco,
 button:hover .addGrayIco,
 .simbtn:hover i {
   background: no-repeat;
-  background-position: 0 -327px;
+  background-position: 0 -331px;
   width: 18px;
   height: 18px;
 }
 .customIco {
   background: no-repeat;
-  background-position: 0 -627px;
+  background-position: 0 -607px;
   width: 24px;
   height: 23px;
 }
 .custom:hover .customIco {
   background: no-repeat;
-  background-position: 0 -602px;
+  background-position: 0 -582px;
   width: 24px;
   height: 23px;
 }
 .forkIco {
   background: no-repeat;
-  background-position: 0 -48px;
+  background-position: 0 -63px;
   width: 13px;
   height: 13px;
 }
 .forkIco:hover {
   background: no-repeat;
-  background-position: 0 -63px;
+  background-position: 0 -78px;
   width: 13px;
   height: 13px;
 }
 .tipsIco {
   background: no-repeat;
-  background-position: 0 -213px;
+  background-position: 0 -181px;
   width: 16px;
   height: 16px;
 }
 .userIco {
   background: no-repeat;
-  background-position: 0 -678px;
+  background-position: 0 -658px;
   width: 22px;
   height: 24px;
 }
@@ -3436,13 +3523,13 @@ button:hover .addGrayIco,
 button:hover .userIco,
 button.on .userIco {
   background: no-repeat;
-  background-position: 0 -704px;
+  background-position: 0 -684px;
   width: 22px;
   height: 24px;
 }
 .appsIco {
   background: no-repeat;
-  background-position: 0 -652px;
+  background-position: 0 -632px;
   width: 24px;
   height: 24px;
 }
@@ -3450,147 +3537,147 @@ button.on .userIco {
 button:hover .appsIco,
 button.on .appsIco {
   background: no-repeat;
-  background-position: 0 -730px;
+  background-position: 0 -710px;
   width: 24px;
   height: 24px;
 }
 .navH5pageIco {
   background: no-repeat;
-  background-position: 0 -1140px;
+  background-position: 0 -1120px;
   width: 32px;
   height: 27px;
 }
 .navProjectIco {
   background: no-repeat;
-  background-position: 0 -1028px;
+  background-position: 0 -1008px;
   width: 32px;
   height: 26px;
 }
 .on .navProjectIco {
   background: no-repeat;
-  background-position: 0 -1056px;
+  background-position: 0 -1036px;
   width: 32px;
   height: 26px;
 }
 .navPolicyIco {
   background: no-repeat;
-  background-position: 0 -1329px;
+  background-position: 0 -1309px;
   width: 32px;
   height: 30px;
 }
 .on .navPolicyIco {
   background: no-repeat;
-  background-position: 0 -1233px;
+  background-position: 0 -1149px;
   width: 32px;
   height: 30px;
 }
 .navWareIco {
   background: no-repeat;
-  background-position: 0 -347px;
+  background-position: 0 -351px;
   width: 32px;
   height: 18px;
 }
 .on .navWareIco {
   background: no-repeat;
-  background-position: 0 -267px;
+  background-position: 0 -271px;
   width: 32px;
   height: 18px;
 }
 .navACIco {
   background: no-repeat;
-  background-position: 0 -1084px;
+  background-position: 0 -1092px;
   width: 32px;
   height: 26px;
 }
 .on .navACIco {
   background: no-repeat;
-  background-position: 0 -860px;
+  background-position: 0 -840px;
   width: 32px;
   height: 26px;
 }
 .navAPIco {
   background: no-repeat;
-  background-position: 0 -506px;
+  background-position: 0 -558px;
   width: 32px;
   height: 22px;
 }
 .on .navAPIco {
   background: no-repeat;
-  background-position: 0 -530px;
+  background-position: 0 -486px;
   width: 32px;
   height: 22px;
 }
 .navFiberIco {
   background: no-repeat;
-  background-position: 0 -1395px;
+  background-position: 0 -1341px;
   width: 32px;
   height: 32px;
 }
 .on .navFiberIco {
   background: no-repeat;
-  background-position: 0 -1429px;
+  background-position: 0 -1409px;
   width: 32px;
   height: 32px;
 }
 .navUsersIco {
   background: no-repeat;
-  background-position: 0 -458px;
+  background-position: 0 -438px;
   width: 32px;
   height: 22px;
 }
 .on .navUsersIco {
   background: no-repeat;
-  background-position: 0 -482px;
+  background-position: 0 -462px;
   width: 32px;
   height: 22px;
 }
 .navManagerIco {
   background: no-repeat;
-  background-position: 0 -1463px;
+  background-position: 0 -1479px;
   width: 32px;
   height: 34px;
 }
 .on .navManagerIco {
   background: no-repeat;
-  background-position: 0 -1499px;
+  background-position: 0 -1443px;
   width: 32px;
   height: 34px;
 }
 .navBedataIco {
   background: no-repeat;
-  background-position: 0 -1297px;
+  background-position: 0 -1277px;
   width: 32px;
   height: 30px;
 }
 .on .navBedataIco {
   background: no-repeat;
-  background-position: 0 -1169px;
+  background-position: 0 -1213px;
   width: 32px;
   height: 30px;
 }
 .navUserdataIco {
   background: no-repeat;
-  background-position: 0 -944px;
+  background-position: 0 -924px;
   width: 32px;
   height: 26px;
 }
 .on .navUserdataIco {
   background: no-repeat;
-  background-position: 0 -1112px;
+  background-position: 0 -1064px;
   width: 32px;
   height: 26px;
 }
 .arrowDownIco,
 .ico_arrowDown:after {
   background: no-repeat;
-  background-position: 0 0;
+  background-position: 0 -10px;
   width: 16px;
   height: 8px;
 }
 .arrowGrayIco,
 .autoInput:after {
   background: no-repeat;
-  background-position: 0 -10px;
+  background-position: 0 0;
   width: 16px;
   height: 8px;
 }
@@ -3610,107 +3697,107 @@ button.on .appsIco {
 }
 .deluploadImg {
   background: no-repeat;
-  background-position: 0 -411px;
+  background-position: 0 -415px;
   width: 21px;
   height: 21px;
 }
 .allUserIco {
   background: no-repeat;
-  background-position: 0 -756px;
+  background-position: 0 -736px;
   width: 32px;
   height: 24px;
 }
 button:hover .allUserIco,
 button.on .allUserIco {
   background: no-repeat;
-  background-position: 0 -782px;
+  background-position: 0 -762px;
   width: 32px;
   height: 24px;
 }
 .mobileIco {
   background: no-repeat;
-  background-position: 0 -972px;
+  background-position: 0 -952px;
   width: 18px;
   height: 26px;
 }
 button:hover .mobileIco,
 button.on .mobileIco {
   background: no-repeat;
-  background-position: 0 -1000px;
+  background-position: 0 -980px;
   width: 18px;
   height: 26px;
 }
 .uncheck {
   background: no-repeat;
-  background-position: 0 -888px;
+  background-position: 0 -868px;
   width: 26px;
   height: 26px;
 }
 .check {
   background: no-repeat;
-  background-position: 0 -916px;
+  background-position: 0 -896px;
   width: 26px;
   height: 26px;
 }
 .uncheck_s {
   background: no-repeat;
-  background-position: 0 -808px;
+  background-position: 0 -788px;
   width: 24px;
   height: 24px;
 }
 .uncheck_s.on {
   background: no-repeat;
-  background-position: 0 -834px;
+  background-position: 0 -814px;
   width: 24px;
   height: 24px;
 }
 .modalClose {
   background: no-repeat;
-  background-position: 0 -1265px;
+  background-position: 0 -1245px;
   width: 30px;
   height: 30px;
 }
 .modalClose:hover {
   background: no-repeat;
-  background-position: 0 -1201px;
+  background-position: 0 -1181px;
   width: 30px;
   height: 30px;
 }
 .addGrayIco {
   background: no-repeat;
-  background-position: 0 -231px;
+  background-position: 0 -235px;
   width: 16px;
   height: 16px;
   margin-right: 8px;
 }
 .delIco {
   background: no-repeat;
-  background-position: 0 -367px;
+  background-position: 0 -393px;
   width: 24px;
   height: 20px;
 }
 a:hover .delIco {
   background: no-repeat;
-  background-position: 0 -389px;
+  background-position: 0 -371px;
   width: 24px;
   height: 20px;
 }
 .editIco {
   background: no-repeat;
-  background-position: 0 -287px;
+  background-position: 0 -291px;
   width: 18px;
   height: 18px;
 }
 a:hover .editIco {
   background: no-repeat;
-  background-position: 0 -307px;
+  background-position: 0 -311px;
   width: 18px;
   height: 18px;
 }
 .bill_tab span i,
 .ns_card a i {
   background: no-repeat;
-  background-position: 0 -78px;
+  background-position: 0 -48px;
   width: 13px;
   height: 13px;
 }
@@ -3723,69 +3810,87 @@ a:hover .editIco {
 }
 .aDwn {
   background: no-repeat;
-  background-position: 0 -143px;
+  background-position: 0 -163px;
   width: 14px;
-  height: 15px;
+  height: 16px;
 }
 .aUp {
   background: no-repeat;
-  background-position: 0 -126px;
-  width: 16px;
-  height: 15px;
+  background-position: 0 -145px;
+  width: 14px;
+  height: 16px;
 }
 span.on .aDwn,
 span:hover .aDwn,
 .smore .aDwn {
   background: no-repeat;
-  background-position: 0 -160px;
+  background-position: 0 -253px;
   width: 14px;
-  height: 15px;
+  height: 16px;
 }
 span.on .aUp,
 span:hover .aUp,
 .smore .aUp {
   background: no-repeat;
   background-position: 0 -109px;
-  width: 16px;
-  height: 15px;
+  width: 14px;
+  height: 16px;
 }
 .dataTotalIco {
   background: no-repeat;
-  background-position: 0 -1535px;
+  background-position: 0 -1553px;
   width: 44px;
   height: 36px;
 }
 .dataHotsIco {
   background: no-repeat;
-  background-position: 0 -1361px;
+  background-position: 0 -1375px;
   width: 44px;
   height: 32px;
 }
 .dataAppIco {
   background: no-repeat;
-  background-position: 0 -1573px;
+  background-position: 0 -1515px;
   width: 44px;
   height: 36px;
 }
 .sortOn:hover i {
   background: no-repeat;
-  background-position: 0 -195px;
+  background-position: 0 -217px;
   width: 12px;
   height: 16px;
 }
 .sortUp i,
 .sortUp:hover i {
   background: no-repeat;
-  background-position: 0 -177px;
+  background-position: 0 -199px;
   width: 12px;
   height: 16px;
 }
 .sortDown i,
 .sortDown:hover i {
   background: no-repeat;
-  background-position: 0 -249px;
+  background-position: 0 -127px;
   width: 12px;
   height: 16px;
+}
+.xm_work {
+  background: no-repeat;
+  background-position: 0 -1591px;
+  width: 42px;
+  height: 42px;
+}
+.xm_online {
+  background: no-repeat;
+  background-position: 0 -1635px;
+  width: 42px;
+  height: 42px;
+}
+.xm_unwork {
+  background: no-repeat;
+  background-position: 0 -1679px;
+  width: 42px;
+  height: 42px;
 }
 .searchIco,
 .addIco,
@@ -3839,7 +3944,10 @@ span:hover .aUp,
 .dataAppIco,
 .sortUp i,
 .sortDown i,
-.sortOn:hover i {
+.sortOn:hover i,
+.xm_work,
+.xm_online,
+.xm_unwork {
   display: inline-block;
   vertical-align: middle;
   margin-top: -2px;
@@ -3879,13 +3987,11 @@ span:hover .aUp,
   right: -15px;
   margin-top: -8px;
 }
-/* ../images/sprites.png?20160530110459 */
+/* ../images/sprites.png?20160607140822 */
 .searchIco,
 button:hover .searchIcoGray,
 button:focus .searchIcoGray,
 .searchIcoGray,
-button:hover .searchIco,
-button:focus .searchIco,
 .addIco,
 button:hover .addGrayIco,
 .simbtn:hover i,
@@ -3968,9 +4074,12 @@ span:hover .aUp,
 .sortUp i,
 .sortUp:hover i,
 .sortDown i,
-.sortDown:hover i {
-  background-image: url(../images/sprites.png?20160530110459);
+.sortDown:hover i,
+.xm_work,
+.xm_online,
+.xm_unwork {
+  background-image: url(../images/sprites.png?20160607140822);
 }
 .css_stamp {
-  content: "20160530110459";
+  content: "20160607140822";
 }

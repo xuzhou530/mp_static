@@ -27,9 +27,9 @@
     % for h in headers:
       % if h['is_profile']:
         % if h['type']=='password':
-        <td type="${h['type']}" data-value="${getattr(row, h['column'])}" data-tip="${getattr(row, h['column'])}" class="pwdtip">***</td>
+        <td type="${h['type']}" data-value="${getattr(row, h['column'], '')}" data-tip="${getattr(row, h['column'], '')}" class="pwdtip">***</td>
         % else:
-        <td type="${h['type']}" data-value="${getattr(row, h['column'])}">${getattr(row, h['column'])}</td>
+        <td type="${h['type']}" data-value="${getattr(row, h['column'], '')}">${getattr(row, h['column'], '')}</td>
         % endif
       % endif
     % endfor
@@ -66,9 +66,9 @@
     % for h in headers:
       % if h['is_profile']:
         % if h['type']=='password':
-        <td type="${h['type']}" data-value="${getattr(online, h['column'])}" data-tip="${getattr(online, h['column'])}" class="pwdtip">***</td>
+        <td type="${h['type']}" data-value="${getattr(online, h['column'], '')}" data-tip="${getattr(online, h['column'], '')}" class="pwdtip">***</td>
         % else:
-        <td type="${h['type']}" data-value="${getattr(online, h['column'])}">${getattr(online, h['column'])}</td>
+        <td type="${h['type']}" data-value="${getattr(online, h['column'], '')}">${getattr(online, h['column'], '')}</td>
         % endif
       % endif
     % endfor

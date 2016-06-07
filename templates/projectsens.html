@@ -19,7 +19,9 @@
             <div class="toolnav">
                 <h3>监视组列表</h3>
                 <div class="toolbox">
+                    % if ins.is_allowed('create', 'sens'):
                     <button type="button" class="btnGraySmall addbtn">新增监视</button>
+                    % endif
                     <div class="search"><input type="text" placeholder="输入AP地址/AP名/MAC" /><button type="button"><i class="searchIcoGray"></i></button></div>
                 </div>
             </div>
