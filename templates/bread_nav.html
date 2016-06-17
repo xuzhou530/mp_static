@@ -1,8 +1,9 @@
 <h2>
-% for k, v in ins.navigate[:-1]:
-<a href="${k}">${v}</a> >
+<a href="/index.html">项目列表</a>
+% for k, v in ins.navigate:
+> <a href="/projectcard.html?location=${k}">${v.name}</a>
 % endfor
-<span>${ins.navigate[-1][1]}</span>
+<span></span>
 </h2>
 
 

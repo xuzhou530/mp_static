@@ -192,7 +192,7 @@ select.sel {
 }
 .btnGreen,
 .btnGreenAutoMin {
-  background: #26a515;
+  background: #68d68f;
 }
 .btnGreen:hover,
 .btnGreenAutoMin:hover {
@@ -250,9 +250,16 @@ select.sel {
   font-size: 14px;
   color: #555;
   background: #fff;
+  display: none;
 }
 .wrapLoad i {
   background: url("../images/wrapload.gif") no-repeat;
+  width: 32px;
+  height: 32px;
+  margin: 18px auto 10px;
+  display: block;
+}
+.wrapLoad img {
   width: 32px;
   height: 32px;
   margin: 18px auto 10px;
@@ -634,6 +641,34 @@ select.sel {
 .vertical li .veright table tr td .errormsg {
   right: 24px;
 }
+.vertical li .veright .sgt tr {
+  text-align: left;
+}
+.vertical li .veright .sgt tr th:first-child,
+.vertical li .veright .sgt tr td:first-child {
+  width: 100px;
+  padding-left: 5px;
+}
+.vertical li .veright .sgt tr .btnGreen {
+  height: 34px;
+  line-height: 34px;
+  top: 4px;
+}
+.vertical li .veright .sgt tr em {
+  width: 225px;
+  float: left;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.vertical li .veright .sgt tr .delsgt {
+  cursor: pointer;
+  margin-left: 10px;
+  display: none;
+  float: left;
+  margin-top: 9px;
+}
 .vertical li .veright select {
   width: 400px;
 }
@@ -797,82 +832,65 @@ select.sel {
   width: 160px;
   height: 26px;
 }
+.content .ns_card .areabox {
+  border-top: 1px solid #f3f3f3;
+  border-left: 1px solid #f3f3f3;
+}
 .content .ns_card a {
-  width: 280px;
-  height: 212px;
+  border-right: 1px solid #f3f3f3;
+  border-bottom: 1px solid #f3f3f3;
+  width: 175px;
+  height: 148px;
   display: block;
   float: left;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
   overflow: hidden;
-  font-size: 14px;
   color: #333;
-  border: 1px solid #eaeaea;
-  position: relative;
-  margin-right: 16px;
-  margin-bottom: 16px;
-}
-.content .ns_card a:nth-child(3n) {
-  margin-right: 0;
-}
-.content .ns_card a:hover {
-  box-shadow: 0 2px 2px #e1e1e1;
-}
-.content .ns_card a h6 {
-  font-size: 16px;
-  background: #08c3e5;
-  color: #fff;
-  height: 50px;
-  line-height: 50px;
-  font-weight: bold;
   text-align: center;
 }
-.content .ns_card a h6.blue {
-  background: #25bff2;
+.content .ns_card a:hover {
+  background: #f4f4f4;
 }
-.content .ns_card a h6.green {
-  background: #6ce092;
+.content .ns_card a.secUser i {
+  background-position: 0 0;
 }
-.content .ns_card a h6.yellow {
-  background: #ebbf24;
+.content .ns_card a.secAP i {
+  background-position: 0 -48px;
 }
-.content .ns_card a h6.orange {
-  background: #ea9039;
+.content .ns_card a.secDevice i {
+  background-position: 0 -96px;
 }
-.content .ns_card a h6.red {
-  background: #e56969;
+.content .ns_card a.secBill i {
+  background-position: 0 -144px;
 }
-.content .ns_card a h6.purple {
-  background: #6f93e5;
+.content .ns_card a.secNews i {
+  background-position: 0 -192px;
 }
-.content .ns_card a p {
-  background: url("../images/card_line.png") 0 7px no-repeat;
-  text-align: right;
-  padding-right: 25px;
-  margin-top: 10px;
-  font-size: 12px;
+.content .ns_card a.secSens i {
+  background-position: 0 -240px;
 }
-.content .ns_card a ul {
-  padding: 0 25px;
+.content .ns_card a.secH5 i {
+  background-position: 0 -288px;
 }
-.content .ns_card a ul li {
-  line-height: 20px;
-  margin-bottom: 8px;
-  text-align: justify;
+.content .ns_card a.secAD i {
+  background-position: 0 -336px;
 }
-.content .ns_card a ul li label {
-  width: 75px;
-  display: inline-block;
+.content .ns_card a.secAgent i {
+  background-position: 0 -384px;
 }
-.content .ns_card a ul li span {
-  line-height: 20px;
+.content .ns_card a.secService i {
+  background-position: 0 -432px;
 }
 .content .ns_card a i {
-  position: absolute;
-  right: 7px;
-  top: 7px;
+  background: url("../images/card.png") no-repeat;
+  width: 48px;
+  height: 48px;
+  margin: 35px auto 10px;
+  display: block;
+}
+.content .ns_card a h6 {
+  color: #333;
+  font-size: 14px;
+  font-weight: normal;
 }
 .content .ns_form h2 {
   text-align: center;
@@ -887,18 +905,15 @@ select.sel {
 }
 .content .ns_form .horizon {
   overflow: hidden;
-  margin-left: 33px;
-  margin-top: -15px;
+  background: #f4f4f4;
+  line-height: 40px;
+  padding: 0 14px;
+  margin-bottom: 10px;
 }
 .content .ns_form .horizon li {
   float: left;
   font-size: 14px;
-  margin-top: 15px;
-  width: 33%;
-}
-.content .ns_form .horizon li label {
-  width: 106px;
-  float: left;
+  margin-right: 46px;
 }
 .content .ns_form .horizon li span {
   color: #0faee5;
@@ -1606,32 +1621,6 @@ select.sel {
 }
 .content .projects .ns_table table.notrbg tr.insideTable {
   background: #e0f6fd;
-}
-.content .projects .ns_table .moTable {
-  font-size: 14px;
-  overflow: hidden;
-}
-.content .projects .ns_table .moTable li {
-  float: left;
-  width: 20%;
-  height: 44px;
-  line-height: 44px;
-  text-indent: 50px;
-}
-.content .projects .ns_table .moTable li:first-child {
-  color: #333;
-  font-weight: bold;
-}
-.content .projects .ns_table .moTable li a:hover,
-.content .projects .ns_table .moTable li a.on {
-  text-decoration: underline;
-}
-.content .projects .ns_table .table_th {
-  font-weight: bold;
-  border-bottom: 1px solid #e7e7e7;
-}
-.content .projects .ns_table .table_td:last-child {
-  border-bottom: 1px solid #e7e7e7;
 }
 .content .projects .ns_table .mo_today a {
   color: #08c3e5;
@@ -2457,10 +2446,13 @@ select.sel {
   display: none;
   position: absolute;
   top: 50%;
-  left: 0;
+  left: 50%;
+  margin-left: -440px;
   margin-top: -258px;
 }
 .content .projects .ns_device .areabox .ns_deCtx .ns_dedo img {
+  max-width: 880px;
+  max-height: 530px;
   cursor: pointer;
   position: relative;
   display: block;
@@ -3695,7 +3687,8 @@ button.on .appsIco {
   width: 12px;
   height: 12px;
 }
-.deluploadImg {
+.deluploadImg,
+.delsgt {
   background: no-repeat;
   background-position: 0 -415px;
   width: 21px;
@@ -3915,6 +3908,7 @@ span:hover .aUp,
 .hadpayIco,
 .waitpayIco,
 .deluploadImg,
+.delsgt,
 .allUserIco,
 .userIco,
 .mobileIco,
@@ -3987,7 +3981,7 @@ span:hover .aUp,
   right: -15px;
   margin-top: -8px;
 }
-/* ../images/sprites.png?20160607140822 */
+/* ../images/sprites.png?20160608151447 */
 .searchIco,
 button:hover .searchIcoGray,
 button:focus .searchIcoGray,
@@ -4038,6 +4032,7 @@ button.on .appsIco,
 .waitpayIco,
 .ico_waitpay:before,
 .deluploadImg,
+.delsgt,
 .allUserIco,
 button:hover .allUserIco,
 button.on .allUserIco,
@@ -4078,8 +4073,8 @@ span:hover .aUp,
 .xm_work,
 .xm_online,
 .xm_unwork {
-  background-image: url(../images/sprites.png?20160607140822);
+  background-image: url(../images/sprites.png?20160608151447);
 }
 .css_stamp {
-  content: "20160607140822";
+  content: "20160608151447";
 }

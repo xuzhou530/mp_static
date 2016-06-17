@@ -148,6 +148,46 @@
                             </div>
                         </span>
                     </li>
+                    <li>
+                        <label>施工图：<div><button type="button" class="btnGrayMin" id="addsgt">新增</button></div></label>
+                        <span class="veright">
+                            <div class="innerTable">
+                                <table class="sgt">
+                                    <tr>
+                                        <th>名称</th>
+                                        <th>图片</th>
+                                    </tr>
+                                    % if not resource.plans:
+                                    <tr>
+                                        <td><input type="text" class="sgtName" /></td>
+                                        <td class="file">
+                                            <input type="hidden" value="" />     <!--隐藏的图片返回值-->
+                                            <input type="file" class="uploadImg sgtImg" id="sgtImg" name="uploadImg" />   <!--id值随便指定一个，不重复-->
+                                            <button type="button" class="btnGreen">上传施工图</button>
+                                            <div class="loading"></div>
+                                            <em></em>    <!--前端显示的图片返回值-->
+                                            <div class="delsgt" style="display: block;"></div>
+                                        </td>
+                                    </tr>
+                                    % else:
+                                    % for p in json.loads(resource.plans):
+                                    <tr>
+                                        <td><input type="text" class="sgtName" value="${p['name']}"/></td>
+                                        <td class="file">
+                                            <input type="hidden" value="${p['imgurl']}" />     <!--隐藏的图片返回值-->
+                                            <input type="file" class="uploadImg sgtImg" id="sgtImg${loop.index}" name="uploadImg" />   <!--id值随便指定一个，不重复-->
+                                            <button type="button" class="btnGreen">上传施工图</button>
+                                            <div class="loading"></div>
+                                            <em>${p['imgurl']}</em>    <!--前端显示的图片返回值-->
+                                            <div class="delsgt" style="display: block;"></div>
+                                        </td>
+                                    </tr>
+                                    % endfor
+                                    % endif
+                                </table>
+                            </div>
+                        </span>
+                    </li>
                 </ul>
                 <p class="btnSub pdg60"><button type="button" class="btnBlue" id="editRes">保存</button></p>
             </div>

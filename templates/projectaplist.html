@@ -12,45 +12,45 @@
                 <%include file="bread_nav.html" />
             </div>
         </div>
-        % if not nav:
-        <div class="tabbox ns_table">
-            <div class="toolnav">
-                <h3>统计</h3>
-            </div>
-            <div class="areabox">
-                <table>
-                    <tr>
-                        <th>&nbsp;&nbsp;</th>
-                        <th>AP数</th>
-                        <th>正在运行数</th>
-                        <th>历史总客户端数</th>
-                        <th>当前接入数</th>
-                    </tr>
-                    <tr>
-                        <td>今天</td>
-                        <td>${today_stat.get('total', '')}</td>
-                        <td>${today_stat.get('onlines', '')}</td>
-                        <td></td>
-                        <td>${today_stat.get('conns', '')}</td>
-                    </tr>
-                    <tr>
-                        <td>昨天</td>
-                        <td>${yesterday_stat.get('total', '')}</td>
-                        <td>${yesterday_stat.get('onlines', '')}</td>
-                        <td></td>
-                        <td>${yesterday_stat.get('conns', '')}</td>
-                    </tr>
-                    <tr>
-                        <td>近15日平均</td>
-                        <td>${day_15_stat.get('total', '')}</td>
-                        <td>${day_15_stat.get('onlines', '')}</td>
-                        <td></td>
-                        <td>${day_15_stat.get('conns', '')}</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        % endif
+        ##% if not nav:
+        ##<div class="tabbox ns_table">
+        ##    <div class="toolnav">
+        ##        <h3>统计</h3>
+        ##    </div>
+        ##    <div class="areabox">
+        ##        <table>
+        ##            <tr>
+        ##                <th>&nbsp;&nbsp;</th>
+        ##                <th>AP数</th>
+        ##                <th>正在运行数</th>
+        ##                <th>历史总客户端数</th>
+        ##                <th>当前接入数</th>
+        ##            </tr>
+        ##            <tr>
+        ##                <td>今天</td>
+        ##                <td>${today_stat.get('total', '')}</td>
+        ##                <td>${today_stat.get('onlines', '')}</td>
+        ##                <td></td>
+        ##                <td>${today_stat.get('conns', '')}</td>
+        ##            </tr>
+        ##            <tr>
+        ##                <td>昨天</td>
+        ##                <td>${yesterday_stat.get('total', '')}</td>
+        ##                <td>${yesterday_stat.get('onlines', '')}</td>
+        ##                <td></td>
+        ##                <td>${yesterday_stat.get('conns', '')}</td>
+        ##            </tr>
+        ##            <tr>
+        ##                <td>近15日平均</td>
+        ##                <td>${day_15_stat.get('total', '')}</td>
+        ##                <td>${day_15_stat.get('onlines', '')}</td>
+        ##                <td></td>
+        ##                <td>${day_15_stat.get('conns', '')}</td>
+        ##            </tr>
+        ##        </table>
+        ##    </div>
+        ##</div>
+        ##% endif
         <div class="tabbox ns_table" id="apslist">
             <div class="toolnav">
                 <h3>AP列表</h3>
