@@ -1,10 +1,13 @@
 <h2>
-<a href="/index.html">项目列表</a>
-% for k, v in ins.navigate:
-> <a href="/projectcard.html?location=${k}">${v.name}</a>
+% for k, v in ins.nav:
+% if loop.index == 0:
+<a href="${k}">${v}</a>
+% else:
+  % if loop.last:
+  > <span style="color:#0faee5">${v}</span>
+  % else:
+  > <a href="${k}">${v}</a>
+  % endif
+% endif
 % endfor
-<span></span>
 </h2>
-
-
-

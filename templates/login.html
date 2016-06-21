@@ -51,10 +51,20 @@
                     % endif</i>
                 </h2>
                 <ul>
-                    <li><label><i class="userIco"></i>账号：</label><input type="text" name="name" /></li>
+                    % if ins.get_secure_cookie('name'):
+                    <li><label><i class="userIco"></i>账号：</label><input type="text" name="name" value="${ins.get_secure_cookie('name')}"/></li>
+                    % else:
+                    <li><label><i class="userIco"></i>账号：</label><input type="text" name="name" value=""/></li>
+                    % endif
                     <li><label><i class="pwdIco"></i>密码：</label><input type="password" name="password" /></li>
                 </ul>
-                <p><label><input type="checkbox" />记住密码</label><a href="javascript:;">无法登录？</a></p>
+                <p><label>
+                    % if ins.get_secure_cookie('remember', None):
+                    <input type="checkbox" name="remember" checked/>记住账号</label>
+                    % else:
+                    <input type="checkbox" name="remember"/>记住账号</label>
+                    % endif
+                  <a href="javascript:;">无法登录？</a></p>
                 <div>
                     <button type="submit" class="lg_submit">登录</button>
                     <button type="button" class="lg_free">试用</button>

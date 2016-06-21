@@ -10,7 +10,10 @@
     <div class="projects">
         <div class="tabbox">
             <div class="bread">
-                <h2>所有项目</h2>
+                <%
+                ins.append_nav(('/index.html', '所有项目'))
+                %>
+                <%include file="bread_nav.html" />
                 <div class="widget">
                     <%include file="button.html" />
                     <a href="javascript:;" class="btnBlueSmall" id="custom">自定义</a>

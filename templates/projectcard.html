@@ -9,6 +9,9 @@
     <div class="projects">
         <div class="tabbox">
             <div class="bread">
+                <%
+                ins.append_nav(('/projectcard.html?location={}'.format(location), resource.name))
+                %>
                 <%include file="bread_nav.html" />
                 <div class="widget">
                     <a href="/projectinfo.html?location=${location}" class="btnBlueSmall simbtn">查看项目信息</a>
