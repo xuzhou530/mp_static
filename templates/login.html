@@ -51,11 +51,7 @@
                     % endif</i>
                 </h2>
                 <ul>
-                    % if ins.get_secure_cookie('name'):
                     <li><label><i class="userIco"></i>账号：</label><input type="text" name="name" value="${ins.get_secure_cookie('name')}"/></li>
-                    % else:
-                    <li><label><i class="userIco"></i>账号：</label><input type="text" name="name" value=""/></li>
-                    % endif
                     <li><label><i class="pwdIco"></i>密码：</label><input type="password" name="password" /></li>
                 </ul>
                 <p><label>

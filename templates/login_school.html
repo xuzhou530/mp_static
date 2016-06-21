@@ -38,7 +38,7 @@
                     % endif</i>
                 </h2>
                 <ul>
-                    <li><label><i class="userIco"></i>账号：</label><input type="text" name="name" /></li>
+                    <li><label><i class="userIco"></i>账号：</label><input type="text" name="name" value="${ins.get_secure_cookie('name')}"/></li>
                     <li><label><i class="pwdIco"></i>密码：</label><input type="password" name="password" /></li>
                 </ul>
                 <p><label><input type="checkbox" />记住密码</label><a href="javascript:;">无法登录？</a></p>
