@@ -55,7 +55,7 @@
                     <li><label><i class="pwdIco"></i>密码：</label><input type="password" name="password" /></li>
                 </ul>
                 <p><label>
-                    % if ins.get_secure_cookie('remember', None):
+                    % if ins.get_secure_cookie('remember'):
                     <input type="checkbox" name="remember" checked/>记住账号</label>
                     % else:
                     <input type="checkbox" name="remember"/>记住账号</label>
