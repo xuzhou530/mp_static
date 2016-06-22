@@ -840,7 +840,7 @@ select.sel {
   border-right: 1px solid #f3f3f3;
   border-bottom: 1px solid #f3f3f3;
   width: 175px;
-  height: 148px;
+  height: 126px;
   display: block;
   float: left;
   overflow: hidden;
@@ -884,7 +884,7 @@ select.sel {
   background: url("../images/card.png") no-repeat;
   width: 48px;
   height: 48px;
-  margin: 35px auto 10px;
+  margin: 24px auto 10px;
   display: block;
 }
 .content .ns_card a h6 {
@@ -2572,12 +2572,12 @@ select.sel {
   border-radius: 5px;
 }
 .ns_subtab .areabox {
-  height: 63px;
+  height: 53px;
   transition: all 0.5s ease;
 }
 .ns_subtab .magnet {
   width: 208px;
-  height: 48px;
+  height: 38px;
   border: 1px solid #25bff2;
   background: #e5fbff;
   -webkit-border-radius: 5px;
@@ -2611,7 +2611,7 @@ select.sel {
   font-size: 14px;
   width: 60%;
   border-right: 1px dashed #25bff2;
-  height: 50px;
+  height: 40px;
   vertical-align: middle;
   display: table-cell;
   padding: 0 16px;

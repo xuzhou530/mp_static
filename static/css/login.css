@@ -31,17 +31,41 @@ button:focus {
   margin: 0 auto;
 }
 .lg_header {
+  color: #fff;
+  width: 100%;
   height: 88px;
+  line-height: 88px;
   background: rgba(22, 194, 245, 0.5);
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  line-height: 88px;
 }
 .lg_header h1 {
   background: url("../images/login_logo.png") 0 19px no-repeat;
   text-indent: -9999px;
+  font-size: 28px;
+  font-weight: normal;
+}
+.lg_header h1 i {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -6px;
+  margin-right: 8px;
+}
+.lg_otr {
+  height: 80px;
+  line-height: 80px;
+  background: none;
+}
+.lg_otr h1 {
+  background: none;
+  text-indent: 0;
+  margin-left: 190px;
+}
+.lg_otr h1 i {
+  background: url("../images/logo_school.png") no-repeat;
+  width: 30px;
+  height: 45px;
 }
 .lg_banner {
   background: url("../images/login_banner.jpg") top center no-repeat;
