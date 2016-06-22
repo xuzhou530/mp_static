@@ -35,7 +35,7 @@
     % endfor
     <td>
       % if ins.is_allowed('update', 'user'):
-      <span class="edit">编辑</span>
+      <a href="/projectuserinfo.html?location=${location}&mask=${mask}&user_id=${row.id}">编辑</a>
       % endif
       % if mask == 1:
       <input type="hidden" value="${row.id}"/>

@@ -236,6 +236,24 @@ select.sel {
   float: left;
 }
 /**styles.css**/
+.uptotop {
+  width: 70px;
+  height: 48px;
+  background: #fff;
+  text-align: center;
+  font-size: 14px;
+  color: #a0a0a0;
+  cursor: pointer;
+  padding-top: 8px;
+  position: fixed;
+  left: 50%;
+  margin-left: 600px;
+  bottom: 230px;
+  display: none;
+}
+.uptotop:hover {
+  color: #0faee5;
+}
 .wrapLoad {
   width: 300px;
   height: 90px;
@@ -287,27 +305,34 @@ select.sel {
   height: 81px;
 }
 .header .logo {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  margin-top: -24px;
-  display: block;
-  font-size: 26px;
   color: #fff;
+  font-size: 26px;
   font-weight: bold;
   background: url("../images/logo.png") no-repeat;
   width: 348px;
   height: 48px;
+  line-height: 48px;
   text-indent: -9999px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -24px;
 }
 .header .logo.school {
   background: url("../images/logo_school.png") no-repeat;
-  width: 448px;
-  height: 58px;
-  margin-top: -29px;
+  width: auto;
+  height: 45px;
+  line-height: 45px;
+  margin-top: -23px;
+  text-indent: 40px;
 }
-.header .logo span {
-  font-size: 20px;
+.header .logo.zttec {
+  background: url("../images/logo_zttec.png") no-repeat;
+  width: auto;
+  height: 47px;
+  line-height: 47px;
+  margin-top: -23px;
+  text-indent: 162px;
 }
 .header .search {
   font-size: 12px;
@@ -1181,6 +1206,11 @@ select.sel {
   width: auto;
   padding: 0 10px;
 }
+.content .projects .widget button {
+  margin-left: 10px;
+  display: block;
+  float: left;
+}
 .content .projects .widget .widinfo {
   width: 200px;
   height: 30px;
@@ -1502,6 +1532,13 @@ select.sel {
 .content .projects .ns_table table tr td span.smore:hover {
   text-decoration: underline;
 }
+.content .projects .ns_table table tr td a {
+  margin-right: 10px;
+  color: #0faee5;
+}
+.content .projects .ns_table table tr td a:hover {
+  text-decoration: underline;
+}
 .content .projects .ns_table table tr td button {
   margin: 0 2px;
   display: none;
@@ -1628,38 +1665,41 @@ select.sel {
 .content .projects .ns_table .mo_yesterday a {
   color: #12ba39;
 }
+.content .projects .ns_infouser .areabox {
+  border: 1px solid #dfdfdf;
+}
 .content .projects .ns_infouser .vertical {
-  margin-top: 10px;
+  color: #000;
 }
 .content .projects .ns_infouser .vertical li {
-  padding-bottom: 10px;
+  padding: 10px 0;
+}
+.content .projects .ns_infouser .vertical li:nth-child(2n-1) {
+  background: #f6f6f6;
 }
 .content .projects .ns_infouser .vertical li label {
   padding-right: 8px;
-  width: 100px;
-  color: #666;
+  width: 110px;
 }
 .content .projects .ns_infouser .vertical li .veright {
-  width: 87%;
+  width: 86%;
   font-size: 16px;
-  color: #222;
 }
 .content .projects .ns_infouser .vertical li .veright .account {
   display: inline-block;
   min-width: 122px;
 }
 .content .projects .ns_infouser .vertical li .veright .premission {
-  border: 1px solid #5ac1d7;
   display: inline-block;
-  padding: 2px 11px;
-  margin-right: 10px;
+  margin-right: 40px;
   cursor: default;
 }
 .content .projects .ns_infouser .vertical li .veright .vertical li {
-  padding-bottom: 8px;
+  padding: 0 0 10px 0;
+  background: none;
 }
 .content .projects .ns_infouser .vertical li .veright .vertical li label {
-  width: 100px;
+  width: 114px;
   font-weight: normal;
   text-align: left;
 }
@@ -3453,13 +3493,13 @@ select.sel {
 button:hover .searchIcoGray,
 button:focus .searchIcoGray {
   background: no-repeat;
-  background-position: 0 -510px;
+  background-position: 0 -596px;
   width: 22px;
   height: 22px;
 }
 .searchIcoGray {
   background: no-repeat;
-  background-position: 0 -534px;
+  background-position: 0 -548px;
   width: 22px;
   height: 22px;
 }
@@ -3472,43 +3512,43 @@ button:focus .searchIcoGray {
 button:hover .addGrayIco,
 .simbtn:hover i {
   background: no-repeat;
-  background-position: 0 -331px;
+  background-position: 0 -329px;
   width: 18px;
   height: 18px;
 }
 .customIco {
   background: no-repeat;
-  background-position: 0 -607px;
+  background-position: 0 -645px;
   width: 24px;
   height: 23px;
 }
 .custom:hover .customIco {
   background: no-repeat;
-  background-position: 0 -582px;
+  background-position: 0 -620px;
   width: 24px;
   height: 23px;
 }
 .forkIco {
   background: no-repeat;
-  background-position: 0 -63px;
+  background-position: 0 -78px;
   width: 13px;
   height: 13px;
 }
 .forkIco:hover {
   background: no-repeat;
-  background-position: 0 -78px;
+  background-position: 0 -48px;
   width: 13px;
   height: 13px;
 }
 .tipsIco {
   background: no-repeat;
-  background-position: 0 -181px;
+  background-position: 0 -145px;
   width: 16px;
   height: 16px;
 }
 .userIco {
   background: no-repeat;
-  background-position: 0 -658px;
+  background-position: 0 -800px;
   width: 22px;
   height: 24px;
 }
@@ -3516,13 +3556,13 @@ button:hover .addGrayIco,
 button:hover .userIco,
 button.on .userIco {
   background: no-repeat;
-  background-position: 0 -684px;
+  background-position: 0 -826px;
   width: 22px;
   height: 24px;
 }
 .appsIco {
   background: no-repeat;
-  background-position: 0 -632px;
+  background-position: 0 -670px;
   width: 24px;
   height: 24px;
 }
@@ -3530,147 +3570,147 @@ button.on .userIco {
 button:hover .appsIco,
 button.on .appsIco {
   background: no-repeat;
-  background-position: 0 -710px;
+  background-position: 0 -696px;
   width: 24px;
   height: 24px;
 }
 .navH5pageIco {
   background: no-repeat;
-  background-position: 0 -1120px;
+  background-position: 0 -1158px;
   width: 32px;
   height: 27px;
 }
 .navProjectIco {
   background: no-repeat;
-  background-position: 0 -1008px;
+  background-position: 0 -990px;
   width: 32px;
   height: 26px;
 }
 .on .navProjectIco {
   background: no-repeat;
-  background-position: 0 -1036px;
+  background-position: 0 -1018px;
   width: 32px;
   height: 26px;
 }
 .navPolicyIco {
   background: no-repeat;
-  background-position: 0 -1309px;
+  background-position: 0 -1347px;
   width: 32px;
   height: 30px;
 }
 .on .navPolicyIco {
   background: no-repeat;
-  background-position: 0 -1149px;
+  background-position: 0 -1219px;
   width: 32px;
   height: 30px;
 }
 .navWareIco {
   background: no-repeat;
-  background-position: 0 -351px;
+  background-position: 0 -369px;
   width: 32px;
   height: 18px;
 }
 .on .navWareIco {
   background: no-repeat;
-  background-position: 0 -271px;
+  background-position: 0 -389px;
   width: 32px;
   height: 18px;
 }
 .navACIco {
   background: no-repeat;
-  background-position: 0 -1092px;
+  background-position: 0 -1130px;
   width: 32px;
   height: 26px;
 }
 .on .navACIco {
   background: no-repeat;
-  background-position: 0 -840px;
+  background-position: 0 -962px;
   width: 32px;
   height: 26px;
 }
 .navAPIco {
   background: no-repeat;
-  background-position: 0 -558px;
+  background-position: 0 -476px;
   width: 32px;
   height: 22px;
 }
 .on .navAPIco {
   background: no-repeat;
-  background-position: 0 -486px;
+  background-position: 0 -572px;
   width: 32px;
   height: 22px;
 }
 .navFiberIco {
   background: no-repeat;
-  background-position: 0 -1341px;
+  background-position: 0 -1447px;
   width: 32px;
   height: 32px;
 }
 .on .navFiberIco {
   background: no-repeat;
-  background-position: 0 -1409px;
+  background-position: 0 -1413px;
   width: 32px;
   height: 32px;
 }
 .navUsersIco {
   background: no-repeat;
-  background-position: 0 -438px;
+  background-position: 0 -524px;
   width: 32px;
   height: 22px;
 }
 .on .navUsersIco {
   background: no-repeat;
-  background-position: 0 -462px;
+  background-position: 0 -500px;
   width: 32px;
   height: 22px;
 }
 .navManagerIco {
   background: no-repeat;
-  background-position: 0 -1479px;
+  background-position: 0 -1517px;
   width: 32px;
   height: 34px;
 }
 .on .navManagerIco {
   background: no-repeat;
-  background-position: 0 -1443px;
+  background-position: 0 -1481px;
   width: 32px;
   height: 34px;
 }
 .navBedataIco {
   background: no-repeat;
-  background-position: 0 -1277px;
+  background-position: 0 -1315px;
   width: 32px;
   height: 30px;
 }
 .on .navBedataIco {
   background: no-repeat;
-  background-position: 0 -1213px;
+  background-position: 0 -1283px;
   width: 32px;
   height: 30px;
 }
 .navUserdataIco {
   background: no-repeat;
-  background-position: 0 -924px;
+  background-position: 0 -878px;
   width: 32px;
   height: 26px;
 }
 .on .navUserdataIco {
   background: no-repeat;
-  background-position: 0 -1064px;
+  background-position: 0 -1102px;
   width: 32px;
   height: 26px;
 }
 .arrowDownIco,
 .ico_arrowDown:after {
   background: no-repeat;
-  background-position: 0 -10px;
+  background-position: 0 0;
   width: 16px;
   height: 8px;
 }
 .arrowGrayIco,
 .autoInput:after {
   background: no-repeat;
-  background-position: 0 0;
+  background-position: 0 -10px;
   width: 16px;
   height: 8px;
 }
@@ -3691,107 +3731,107 @@ button.on .appsIco {
 .deluploadImg,
 .delsgt {
   background: no-repeat;
-  background-position: 0 -415px;
+  background-position: 0 -453px;
   width: 21px;
   height: 21px;
 }
 .allUserIco {
   background: no-repeat;
-  background-position: 0 -736px;
+  background-position: 0 -748px;
   width: 32px;
   height: 24px;
 }
 button:hover .allUserIco,
 button.on .allUserIco {
   background: no-repeat;
-  background-position: 0 -762px;
+  background-position: 0 -774px;
   width: 32px;
   height: 24px;
 }
 .mobileIco {
   background: no-repeat;
-  background-position: 0 -952px;
+  background-position: 0 -1074px;
   width: 18px;
   height: 26px;
 }
 button:hover .mobileIco,
 button.on .mobileIco {
   background: no-repeat;
-  background-position: 0 -980px;
+  background-position: 0 -1046px;
   width: 18px;
   height: 26px;
 }
 .uncheck {
   background: no-repeat;
-  background-position: 0 -868px;
+  background-position: 0 -934px;
   width: 26px;
   height: 26px;
 }
 .check {
   background: no-repeat;
-  background-position: 0 -896px;
+  background-position: 0 -906px;
   width: 26px;
   height: 26px;
 }
 .uncheck_s {
   background: no-repeat;
-  background-position: 0 -788px;
+  background-position: 0 -722px;
   width: 24px;
   height: 24px;
 }
 .uncheck_s.on {
   background: no-repeat;
-  background-position: 0 -814px;
+  background-position: 0 -852px;
   width: 24px;
   height: 24px;
 }
 .modalClose {
   background: no-repeat;
-  background-position: 0 -1245px;
+  background-position: 0 -1251px;
   width: 30px;
   height: 30px;
 }
 .modalClose:hover {
   background: no-repeat;
-  background-position: 0 -1181px;
+  background-position: 0 -1187px;
   width: 30px;
   height: 30px;
 }
 .addGrayIco {
   background: no-repeat;
-  background-position: 0 -235px;
+  background-position: 0 -199px;
   width: 16px;
   height: 16px;
   margin-right: 8px;
 }
 .delIco {
   background: no-repeat;
-  background-position: 0 -393px;
+  background-position: 0 -409px;
   width: 24px;
   height: 20px;
 }
 a:hover .delIco {
   background: no-repeat;
-  background-position: 0 -371px;
+  background-position: 0 -431px;
   width: 24px;
   height: 20px;
 }
 .editIco {
   background: no-repeat;
-  background-position: 0 -291px;
+  background-position: 0 -349px;
   width: 18px;
   height: 18px;
 }
 a:hover .editIco {
   background: no-repeat;
-  background-position: 0 -311px;
+  background-position: 0 -309px;
   width: 18px;
   height: 18px;
 }
 .bill_tab span i,
 .ns_card a i {
   background: no-repeat;
-  background-position: 0 -48px;
+  background-position: 0 -63px;
   width: 13px;
   height: 13px;
 }
@@ -3804,13 +3844,13 @@ a:hover .editIco {
 }
 .aDwn {
   background: no-repeat;
-  background-position: 0 -163px;
+  background-position: 0 -253px;
   width: 14px;
   height: 16px;
 }
 .aUp {
   background: no-repeat;
-  background-position: 0 -145px;
+  background-position: 0 -127px;
   width: 14px;
   height: 16px;
 }
@@ -3818,7 +3858,7 @@ span.on .aDwn,
 span:hover .aDwn,
 .smore .aDwn {
   background: no-repeat;
-  background-position: 0 -253px;
+  background-position: 0 -163px;
   width: 14px;
   height: 16px;
 }
@@ -3826,7 +3866,7 @@ span.on .aUp,
 span:hover .aUp,
 .smore .aUp {
   background: no-repeat;
-  background-position: 0 -109px;
+  background-position: 0 -217px;
   width: 14px;
   height: 16px;
 }
@@ -3838,53 +3878,65 @@ span:hover .aUp,
 }
 .dataHotsIco {
   background: no-repeat;
-  background-position: 0 -1375px;
+  background-position: 0 -1379px;
   width: 44px;
   height: 32px;
 }
 .dataAppIco {
   background: no-repeat;
-  background-position: 0 -1515px;
+  background-position: 0 -1591px;
   width: 44px;
   height: 36px;
 }
 .sortOn:hover i {
   background: no-repeat;
-  background-position: 0 -217px;
+  background-position: 0 -181px;
   width: 12px;
   height: 16px;
 }
 .sortUp i,
 .sortUp:hover i {
   background: no-repeat;
-  background-position: 0 -199px;
+  background-position: 0 -235px;
   width: 12px;
   height: 16px;
 }
 .sortDown i,
 .sortDown:hover i {
   background: no-repeat;
-  background-position: 0 -127px;
+  background-position: 0 -109px;
   width: 12px;
   height: 16px;
 }
 .xm_work {
   background: no-repeat;
-  background-position: 0 -1591px;
+  background-position: 0 -1629px;
   width: 42px;
   height: 42px;
 }
 .xm_online {
   background: no-repeat;
-  background-position: 0 -1635px;
+  background-position: 0 -1673px;
   width: 42px;
   height: 42px;
 }
 .xm_unwork {
   background: no-repeat;
-  background-position: 0 -1679px;
+  background-position: 0 -1717px;
   width: 42px;
   height: 42px;
+}
+.uptotop i {
+  background: no-repeat;
+  background-position: 0 -290px;
+  width: 18px;
+  height: 17px;
+}
+.uptotop:hover i {
+  background: no-repeat;
+  background-position: 0 -271px;
+  width: 18px;
+  height: 17px;
 }
 .searchIco,
 .addIco,
@@ -3982,7 +4034,11 @@ span:hover .aUp,
   right: -15px;
   margin-top: -8px;
 }
-/* ../images/sprites.png?20160608151447 */
+.uptotop i {
+  margin: 0 auto 5px;
+  display: block;
+}
+/* ../images/sprites.png?20160622132625 */
 .searchIco,
 button:hover .searchIcoGray,
 button:focus .searchIcoGray,
@@ -4073,9 +4129,11 @@ span:hover .aUp,
 .sortDown:hover i,
 .xm_work,
 .xm_online,
-.xm_unwork {
-  background-image: url(../images/sprites.png?20160608151447);
+.xm_unwork,
+.uptotop i,
+.uptotop:hover i {
+  background-image: url(../images/sprites.png?20160622132625);
 }
 .css_stamp {
-  content: "20160608151447";
+  content: "20160622132625";
 }

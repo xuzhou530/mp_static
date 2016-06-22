@@ -13,11 +13,44 @@
             <div class="bread">
                 <%ins.append_nav(('/projectuserinfo.html?mask={}&location={}&user_id={}'.format(mask, location, user_id), '用户详情'))%>
                 <%include file="bread_nav.html" />
+                % if ins.is_allowed('update', 'user'):
+                <div class="widget">
+                    <button type="button" class="btnGraySmall" id="userinfoEdit">编辑</button>
+                    <button type="button" class="btnBlueSmall" id="userinfoSave" style="display: none;">保存</button>
+                    <button type="button" class="btnGraySmall" id="userinfoQuit" style="display: none;">取消</button>
+                </div>
+                % endif
             </div>
         </div>
         <div class="tabbox ns_infouser" id="userinfo">
             <div class="areabox">
                 <ul class="vertical">
+                    % if mask == 1:
+                      % for h in headers:
+                        % if h['is_profile'] == 1:
+                        <li>
+                            <label>${h['title']}：</label>
+                            <span class="veright sue" data-value="${getattr(account, h['column'])}" data-type="${h['type']}" name="${h['column']}">
+                            % if h['type'] == 'img':
+                            <img src="${getattr(account, h['column'])}" class="imginfo" />
+                            <div class="file" style="display: none;">
+                                <input type="hidden" />
+                                <input type="file" class="uploadImg proImg" id="${h['column']}" imgElementId="img${h['column']}" name="uploadImg" />
+                                <button type="button" class="btnGreen">选择图片</button>
+                                <div class="loading"></div>
+                            </div>
+                            <div class="showImg" style="display: none;">
+                                <img src="" id="img${h['column']}" />
+                                <i class="deluploadImg"></i>
+                            </div>
+                            % else:
+                            ${getattr(account, h['column'])}
+                            % endif
+                            </span>
+                        </li>
+                        % endif
+                      % endfor
+                    % endif
                     <li>
                         <label>关联账号：</label>
                         <span class="veright">
@@ -72,35 +105,34 @@
                         <span class="veright">
                             <ul class="vertical">
                                 % for h in headers:
-                                <li>
-                                    <label>${h['title']}：</label>
-                                    <span class="veright sue" data-value="${getattr(account, h['column'])}" data-type="${h['type']}" name="${h['column']}">
-                                    % if h['type'] == 'img':
-                                    <img src="${getattr(account, h['column'])}" class="imginfo" />
-                                    <div class="file" style="display: none;">
-                                        <input type="hidden" />
-                                        <input type="file" class="uploadImg proImg" id="${h['column']}" imgElementId="img${h['column']}" name="uploadImg" />
-                                        <button type="button" class="btnGreen">选择图片</button>
-                                        <div class="loading"></div>
-                                    </div>
-                                    <div class="showImg" style="display: none;">
-                                        <img src="" id="img${h['column']}" />
-                                        <i class="deluploadImg"></i>
-                                    </div>
-                                    % else:
-                                    ${getattr(account, h['column'])}
-                                    % endif
-                                    </span>
-                                </li>
+                                  % if h['is_profile'] == 0:
+                                  <li>
+                                      <label>${h['title']}：</label>
+                                      <span class="veright sue" data-value="${getattr(account, h['column'])}" data-type="${h['type']}" name="${h['column']}">
+                                      % if h['type'] == 'img':
+                                      <img src="${getattr(account, h['column'])}" class="imginfo" />
+                                      <div class="file" style="display: none;">
+                                          <input type="hidden" />
+                                          <input type="file" class="uploadImg proImg" id="${h['column']}" imgElementId="img${h['column']}" name="uploadImg" />
+                                          <button type="button" class="btnGreen">选择图片</button>
+                                          <div class="loading"></div>
+                                      </div>
+                                      <div class="showImg" style="display: none;">
+                                          <img src="" id="img${h['column']}" />
+                                          <i class="deluploadImg"></i>
+                                      </div>
+                                      % else:
+                                      ${getattr(account, h['column'])}
+                                      % endif
+                                      </span>
+                                  </li>
+                                  % endif
                                 % endfor
                             </ul>
                         </span>
                     </li>
                     % endif
                 </ul>
-                % if ins.is_allowed('update', 'user'):
-                <p class="btnSub pdg60"><button type="button" class="btnGraySmall quit" style="display: none;">取消</button><button type="button" class="btnGraySmall edit">编辑</button><button type="button" class="btnBlueSmall save">保存</button></p>
-                % endif
             </div>
         </div>
     </div>

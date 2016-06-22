@@ -22,7 +22,9 @@
     <div class="header">
         <div class="wrapper">
             % if ins.get_session('_location').startswith('59484'):
-            <a href="/index.html" title="广州女子职业技术学院办公楼后台管理系统" class="logo school">广州女子职业技术学院办公楼后台管理系统</a>
+            <a href="/index.html" title="广州女子学院办公网络管理后台" class="logo school">广州女子学院办公网络管理后台</a>
+            % elif ins.get_session('_location').startswith('59922'):
+            <a href="/index.html" title="众拓科技网络管理后台" class="logo zttec">众拓科技网络管理后台</a>
             % else:
             <a href="/index.html" title="${ins.get_session('project_name')}分布式认证系统" class="logo">${ins.get_session('project_name')}分布式认证系统</a>
             % endif
@@ -48,5 +50,6 @@
         </div>
     </div>
     <%block name="aside"></%block>
+    <div class="uptotop"><i></i>返回顶部</div>
 </body>
 </html>
