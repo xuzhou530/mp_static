@@ -73,9 +73,9 @@
                         % if ins.is_allowed('update', 'user'):
                         <td>
                             % if online.mask & (1 << 30) <= 0:
-                            <span class="unforbin" style="display: none;">启用</span><span class="forbin">停用</span>
+                            <span class="forbin">停用</span>
                             % else:
-                            <span class="unforbin">启用</span><span class="forbin" style="display: none;">停用</span>
+                            <span class="unforbin">启用</span>
                             % endif
                             <input type="hidden" value="${online.user}"/>
                         </td>
@@ -112,74 +112,74 @@
             <ul class="vertical" style="display: none;"></ul>
             <ul class="vertical" style="display: none;">
                 % for h in pn_headers:
-                  % if h['is_profile']:
-                  <li><label>${h['title']}：</label><span class="veright">
-                      % if h['type'] == 'datetime':
-                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}" class="datepicker"/></div>
-                      % elif h['type'] == 'password':
-                      <div class="verify"><input type="password" name="${h['column']}" data-type="${h['type']}"/></div>
-                      % else:
-                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
-                      % endif
-                  </span></li>
-                  % endif
+                % if h['is_profile']:
+                <li><label>${h['title']}：</label><span class="veright">
+                    % if h['type'] == 'datetime':
+                    <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}" class="datepicker"/></div>
+                    % elif h['type'] == 'password':
+                    <div class="verify"><input type="password" name="${h['column']}" data-type="${h['type']}"/></div>
+                    % else:
+                    <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
+                    % endif
+                </span></li>
+                % endif
                 % endfor
             </ul>
             <ul class="vertical" style="display: none;">
                 % for h in bd_headers:
-                  % if h['is_profile']:
-                  <li><label>${h['title']}：</label><span class="veright">
-                      % if h['column'] == 'ends':
-                      <div class="amount">
-                          <button type="button" class="btnWhiteSmall reduceOne">-</button>
-                          <input type="text" name="ends" value="2" data-type="int" />
-                          <button type="button" class="btnWhiteSmall addOne">+</button>
-                      </div>
-                      % elif h['column'] == 'mobile':
-                      <div class="verify"><input type="text" name="${h['column']}" class="matchVerify checkPhone" data-type="${h['type']}" /></div>
-                      % elif h['column'] == 'user':
-                      <em style="float: left; line-height: 32px;">${location.split(',')[-1]}</em><div class="verify normalVerify" style="width: 158px; float: left;"><input type="text" name="${h['column']}" class="matchVerify shouldVerify" data-type="${h['type']}" style="width: 158px; margin-right: 0;" /></div>
-                      % elif h['type'] == 'datetime':
-                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}" class="datepicker"/></div>
-                      % elif h['type'] == 'password':
-                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
-                      % else:
-                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
-                      % endif
-                  </span></li>
-                  % endif
+                % if h['is_profile']:
+                <li><label>${h['title']}：</label><span class="veright">
+                    % if h['column'] == 'ends':
+                    <div class="amount">
+                        <button type="button" class="btnWhiteSmall reduceOne">-</button>
+                        <input type="text" name="ends" value="2" data-type="int" />
+                        <button type="button" class="btnWhiteSmall addOne">+</button>
+                    </div>
+                    % elif h['column'] == 'mobile':
+                    <div class="verify"><input type="text" name="${h['column']}" class="matchVerify checkPhone" data-type="${h['type']}" /></div>
+                    % elif h['column'] == 'user':
+                    <em style="float: left; line-height: 32px;">${location.split(',')[-1]}</em><div class="verify normalVerify" style="width: 158px; float: left;"><input type="text" name="${h['column']}" class="matchVerify shouldVerify" data-type="${h['type']}" style="width: 158px; margin-right: 0;" /></div>
+                    % elif h['type'] == 'datetime':
+                    <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}" class="datepicker"/></div>
+                    % elif h['type'] == 'password':
+                    <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
+                    % else:
+                    <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
+                    % endif
+                </span></li>
+                % endif
                 % endfor
             </ul>
             <ul class="vertical" style="display: none;">
                 % for h in bd_headers:
-                  % if h['is_profile']:
-                  <li><label>${h['title']}：</label><span class="veright">
-                      % if h['column'] == 'ends':
-                      <div class="amount">
-                          <button type="button" class="btnWhiteSmall reduceOne">-</button>
-                          <input type="text" name="ends" value="2" data-type="int" />
-                          <button type="button" class="btnWhiteSmall addOne">+</button>
-                      </div>
-                      % elif h['column'] == 'mobile':
-                      <div class="verify"><input type="text" name="${h['column']}" class="matchVerify checkPhone" data-type="${h['type']}" /></div>
-                      % elif h['column'] == 'user':
-                      <em style="float: left; line-height: 32px;">${location.split(',')[-1]}</em><div class="verify normalVerify" style="width: 158px; float: left;"><input type="text" name="${h['column']}" class="matchVerify shouldVerify" data-type="${h['type']}" style="width: 158px; margin-right: 0;" /></div>
-                      % elif h['type'] == 'datetime':
-                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}" class="datepicker"/></div>
-                      % elif h['type'] == 'password':
-                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
-                      % else:
-                      <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
-                      % endif
-                  </span></li>
-                  % endif
+                % if h['is_profile']:
+                <li><label>${h['title']}：</label><span class="veright">
+                    % if h['column'] == 'ends':
+                    <div class="amount">
+                        <button type="button" class="btnWhiteSmall reduceOne">-</button>
+                        <input type="text" name="ends" value="2" data-type="int" />
+                        <button type="button" class="btnWhiteSmall addOne">+</button>
+                    </div>
+                    % elif h['column'] == 'mobile':
+                    <div class="verify"><input type="text" name="${h['column']}" class="matchVerify checkPhone" data-type="${h['type']}" /></div>
+                    % elif h['column'] == 'user':
+                    <em style="float: left; line-height: 32px;">${location.split(',')[-1]}</em><div class="verify normalVerify" style="width: 158px; float: left;"><input type="text" name="${h['column']}" class="matchVerify shouldVerify" data-type="${h['type']}" style="width: 158px; margin-right: 0;" /></div>
+                    % elif h['type'] == 'datetime':
+                    <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}" class="datepicker"/></div>
+                    % elif h['type'] == 'password':
+                    <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
+                    % else:
+                    <div class="verify"><input type="text" name="${h['column']}" data-type="${h['type']}"/></div>
+                    % endif
+                </span></li>
+                % endif
                 % endfor
             </ul>
             <div class="btngroups"><button type="button" class="btnBlue add">确定</button></div>
             <i class="msg"></i>
             <span class="closed">X</span>
-            <input type="hidden" id="idx" />
-            <input type="hidden" id="pid" />
+            <input type="hidden" name="idx" />
+            <input type="hidden" name="id" />
         </div>
     </div>
 </%block>

@@ -49,9 +49,9 @@
       % endif
       % if ins.is_allowed('update', 'user'):
         % if row.mask & (1 << 30) <= 0:
-        <span class="unforbin" style="display: none;">启用</span><span class="forbin">停用</span>
+        <span class="forbin">停用</span>
         % else:
-        <span class="unforbin">启用</span><span class="forbin" style="display: none;">停用</span>
+        <span class="unforbin">启用</span>
         % endif
         % if not (mask in [2, 4] and row.user == str(row.holder)):
         <span class="delete">删除</span>
@@ -80,9 +80,9 @@
     % if ins.is_allowed('update', 'user'):
     <td>
       % if online.mask & (1 << 30) <= 0:
-      <span class="unforbin" style="display: none;">启用</span><span class="forbin">停用</span>
+      <span class="forbin">停用</span>
       % else:
-      <span class="unforbin">启用</span><span class="forbin" style="display: none;">停用</span>
+      <span class="unforbin">启用</span>
       % endif
       <input type="hidden" value="${online.user}"/>
     </td>

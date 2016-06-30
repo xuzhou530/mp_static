@@ -40,23 +40,20 @@
                     % for user in users:
                     <tr>
                         <td>${user.user}</td>
-                        <td data-tip="${user.password}" class="pwdtip">***</td>
+                        <td data-value="${user.password}" data-tip="${user.password}" class="pwdtip">***</td>
                         <td>
                             <span>
-                              % if user.resource:
-                              ${user.resource.name}
-                              % endif
+                                % if user.resource:
+                                ${user.resource.name}
+                                % endif
                             </span>
                         </td>
-                        <td>
-                        </td>
+                        <td></td>
                         <td>${user.expired}</td>
-                        <td>
-                        </td>
-                        <td>
-                        </td>
+                        <td></td>
+                        <td></td>
                         % if ins.is_allowed('update', 'user') or ins.is_allowed('delete', 'user'):
-                        <td><span class="changePwd">修改密码</span><span class="forbin">禁用</span><span class="delete">删除</span><button type="button" class="btnGrayAutoMin save">保存</button><button type="button" class="btnGrayAutoMin cancel">取消</button><input type="hidden" value="${user.user}" /></td>
+                        <td><span class="changePwd">修改密码</span><span class="forbin">停用</span><span class="delete">删除</span><button type="button" class="btnGrayAutoMin save">保存</button><button type="button" class="btnGrayAutoMin cancel">取消</button><input type="hidden" value="${user.user}" /></td>
                         % endif
                     </tr>
                     % endfor

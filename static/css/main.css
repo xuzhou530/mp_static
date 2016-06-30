@@ -564,6 +564,7 @@ select.sel {
 .vertical li .veright .verify {
   width: 452px;
   position: relative;
+  line-height: 30px;
 }
 .vertical li .veright .verify input {
   width: 100%;
@@ -1665,6 +1666,60 @@ select.sel {
 .content .projects .ns_table .mo_yesterday a {
   color: #12ba39;
 }
+.content .projects .accountInfo ul {
+  float: left;
+}
+.content .projects .accountInfo ul li {
+  float: left;
+  text-align: center;
+  margin-right: 80px;
+}
+.content .projects .accountInfo ul li:first-child {
+  text-align: left;
+}
+.content .projects .accountInfo ul li:nth-last-child(2) {
+  margin-right: 40px;
+}
+.content .projects .accountInfo ul li:last-child {
+  width: 130px;
+  margin: 0;
+}
+.content .projects .accountInfo ul li p {
+  font-size: 16px;
+  color: #111;
+  margin-bottom: 5px;
+  height: 32px;
+  line-height: 32px;
+}
+.content .projects .accountInfo ul li p input {
+  width: 120px;
+  height: 32px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  background: #fff;
+  display: none;
+}
+.content .projects .accountInfo ul li h4 {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  font-weight: normal;
+}
+.content .projects .accountInfo .btns {
+  float: right;
+  margin-top: 15px;
+}
+.content .projects .accountInfo .btns button {
+  float: right;
+}
+.content .projects .accountInfo .btns button.save,
+.content .projects .accountInfo .btns button.quit {
+  width: 50px;
+  margin-left: 5px;
+  display: none;
+}
 .content .projects .ns_infouser .areabox {
   border: 1px solid #dfdfdf;
 }
@@ -2689,7 +2744,7 @@ select.sel {
   float: none;
 }
 .toolnav h3 {
-  color: #111;
+  color: #666;
   font-size: 16px;
   font-weight: normal;
   position: relative;
@@ -3169,7 +3224,8 @@ select.sel {
 .modal_room,
 .modal_ac,
 .modal_pay,
-.modal_fiber {
+.modal_fiber,
+.modal_account {
   background: #fff;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -3195,7 +3251,8 @@ select.sel {
 .modal_room .adsnav,
 .modal_ac .adsnav,
 .modal_pay .adsnav,
-.modal_fiber .adsnav {
+.modal_fiber .adsnav,
+.modal_account .adsnav {
   margin: 0;
 }
 .modal_project .adsnav li,
@@ -3209,7 +3266,8 @@ select.sel {
 .modal_room .adsnav li,
 .modal_ac .adsnav li,
 .modal_pay .adsnav li,
-.modal_fiber .adsnav li {
+.modal_fiber .adsnav li,
+.modal_account .adsnav li {
   padding: 0;
   height: 30px;
   line-height: 30px;
@@ -3226,7 +3284,8 @@ select.sel {
 .modal_room h3,
 .modal_ac h3,
 .modal_pay h3,
-.modal_fiber h3 {
+.modal_fiber h3,
+.modal_account h3 {
   background: url("../images/modal_h_bg.png") no-repeat;
   height: 82px;
   line-height: 82px;
@@ -3245,7 +3304,8 @@ select.sel {
 .modal_room .notice,
 .modal_ac .notice,
 .modal_pay .notice,
-.modal_fiber .notice {
+.modal_fiber .notice,
+.modal_account .notice {
   margin-bottom: -20px;
 }
 .modal_project ul,
@@ -3259,7 +3319,8 @@ select.sel {
 .modal_room ul,
 .modal_ac ul,
 .modal_pay ul,
-.modal_fiber ul {
+.modal_fiber ul,
+.modal_account ul {
   margin-top: 40px;
 }
 .modal_project ul label,
@@ -3273,7 +3334,8 @@ select.sel {
 .modal_room ul label,
 .modal_ac ul label,
 .modal_pay ul label,
-.modal_fiber ul label {
+.modal_fiber ul label,
+.modal_account ul label {
   width: 25%;
   padding-right: 10px;
 }
@@ -3288,7 +3350,8 @@ select.sel {
 .modal_room ul .veright select,
 .modal_ac ul .veright select,
 .modal_pay ul .veright select,
-.modal_fiber ul .veright select {
+.modal_fiber ul .veright select,
+.modal_account ul .veright select {
   width: 100px;
   text-indent: 5px;
 }
@@ -3303,7 +3366,8 @@ select.sel {
 .modal_room ul .veright .verify,
 .modal_ac ul .veright .verify,
 .modal_pay ul .veright .verify,
-.modal_fiber ul .veright .verify {
+.modal_fiber ul .veright .verify,
+.modal_account ul .veright .verify {
   width: 400px;
 }
 .modal_project .btngroups,
@@ -3317,7 +3381,8 @@ select.sel {
 .modal_room .btngroups,
 .modal_ac .btngroups,
 .modal_pay .btngroups,
-.modal_fiber .btngroups {
+.modal_fiber .btngroups,
+.modal_account .btngroups {
   margin: 20px 0 10px;
   text-align: center;
 }
@@ -3332,7 +3397,8 @@ select.sel {
 .modal_room .msg,
 .modal_ac .msg,
 .modal_pay .msg,
-.modal_fiber .msg {
+.modal_fiber .msg,
+.modal_account .msg {
   color: #d9534f;
   font-size: 14px;
   display: block;
@@ -3453,7 +3519,7 @@ select.sel {
   -o-border-radius: 5px;
   border-radius: 5px;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.15), 0 10px 16px 0 rgba(0, 0, 0, 0.2);
-  z-index: 999;
+  z-index: 1000;
   /*999*/
   width: 200px;
   font-size: 14px;
