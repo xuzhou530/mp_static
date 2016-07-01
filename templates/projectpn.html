@@ -9,8 +9,7 @@
     <div class="projects">
         <div class="tabbox">
             <div class="bread">
-                <%ins.append_nav(('/projectpn.html?location={}'.format(location), '网络配置'))%>
-                <%include file="bread_nav.html" />
+                <%include file="bread_nav.html" args="location=location,ins=ins,suffix='网络配置'"/>
             </div>
         </div>
         <div class="tabbox ns_table" id="pnlist">

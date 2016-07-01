@@ -9,8 +9,7 @@
     <div class="projects">
         <div class="tabbox">
             <div class="bread">
-                <%ins.append_nav(('/projectbill.html?location={}'.format(location), '计费模块'))%>
-                <%include file="bread_nav.html" />
+                <%include file="bread_nav.html" args="location=location,ins=ins,suffix='计费模块'"/>
             </div>
         </div>
         <div class="tabbox ns_bill">

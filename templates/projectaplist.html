@@ -9,8 +9,7 @@
     <div class="projects">
         <div class="tabbox">
             <div class="bread">
-                <%ins.append_nav(('/projectaplist.html?location={}'.format(location), 'AP列表'))%>
-                <%include file="bread_nav.html" />
+                <%include file="bread_nav.html" args="location=location,ins=ins,suffix='AP列表'"/>
             </div>
         </div>
         <div class="tabbox ns_table" id="apslist">
