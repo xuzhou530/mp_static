@@ -17,9 +17,7 @@
             <div class="toolnav">
                 <h3>网络配置</h3>
                 <div class="toolbox">
-                    % if ins.is_allowed('create', 'policy'):
                     <button class="btnGraySmall addbtn">新增</button>
-                    % endif
                 </div>
             </div>
             <div class="areabox">
@@ -34,9 +32,7 @@
                         <th>Appid</th>
                         <th>Shopid</th>
                         <th>Secret</th>
-                        % if ins.is_allowed('update', 'policy') or ins.is_allowed('delete', 'policy'):
                         <th>操作</th>
-                        % endif
                     </tr>
                     % for p in pns:
                     <tr>
@@ -61,9 +57,7 @@
                         <td class="wb">${p.appid}</td>
                         <td class="wb">${p.shopid}</td>
                         <td class="wb">${p.secret}</td>
-                        % if ins.is_allowed('update', 'policy') or ins.is_allowed('delete', 'policy'):
                         <td><span class="edit">编辑</span><span class="delete">删除</span><input type="hidden" value="${p.id}" /></td>
-                        % endif
                     </tr>
                     % endfor
                 </table>
