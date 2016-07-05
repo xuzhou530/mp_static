@@ -1488,11 +1488,6 @@ select.sel {
 .content .projects .ns_table table tr td:first-child {
   padding-left: 20px;
 }
-.content .projects .ns_table table tr td:first-child i {
-  position: absolute;
-  top: 16px;
-  left: 28px;
-}
 .content .projects .ns_table table tr td:last-child {
   padding-right: 5px;
 }
@@ -1705,7 +1700,7 @@ select.sel {
 }
 .content .projects .ns_portal .pt_h5 .ptD .ns_box {
   padding: 15px 21px;
-  border-bottom: 2px solid #f5f5f5;
+  border-top: 1px solid #f5f5f5;
   position: relative;
 }
 .content .projects .ns_portal .pt_h5 .ptD .ns_box h3 {
@@ -2872,6 +2867,40 @@ select.sel {
   color: #0faee5;
   border-bottom: 1px solid #0faee5;
 }
+.midCtx {
+  width: 880px;
+  margin: 0 auto 10px;
+  font-size: 14px;
+  overflow: hidden;
+}
+.midCtx .apbindbox {
+  line-height: 26px;
+}
+.midCtx .apbindbox span {
+  float: left;
+  display: inline-block;
+  color: #000;
+  margin-right: 5px;
+}
+.midCtx .apbindbox .autoInput {
+  float: left;
+  margin-right: 5px;
+  height: 24px;
+  line-height: 24px;
+}
+.midCtx .apbindbox #apbind {
+  float: left;
+  margin-right: 5px;
+  height: 26px;
+  line-height: 26px;
+  width: 64px;
+}
+.midCtx .apbindbox i {
+  float: left;
+  display: inline-block;
+  color: #f2350f;
+  display: none;
+}
 .toolnav {
   position: relative;
   padding-bottom: 15px;
@@ -3721,13 +3750,13 @@ select.sel {
 button:hover .searchIcoGray,
 button:focus .searchIcoGray {
   background: no-repeat;
-  background-position: 0 -596px;
+  background-position: 0 -568px;
   width: 22px;
   height: 22px;
 }
 .searchIcoGray {
   background: no-repeat;
-  background-position: 0 -548px;
+  background-position: 0 -592px;
   width: 22px;
   height: 22px;
 }
@@ -3740,25 +3769,25 @@ button:focus .searchIcoGray {
 button:hover .addGrayIco,
 .simbtn:hover i {
   background: no-repeat;
-  background-position: 0 -329px;
+  background-position: 0 -369px;
   width: 18px;
   height: 18px;
 }
 .customIco {
   background: no-repeat;
-  background-position: 0 -645px;
+  background-position: 0 -689px;
   width: 24px;
   height: 23px;
 }
 .custom:hover .customIco {
   background: no-repeat;
-  background-position: 0 -620px;
+  background-position: 0 -664px;
   width: 24px;
   height: 23px;
 }
 .forkIco {
   background: no-repeat;
-  background-position: 0 -78px;
+  background-position: 0 -63px;
   width: 13px;
   height: 13px;
 }
@@ -3770,13 +3799,13 @@ button:hover .addGrayIco,
 }
 .tipsIco {
   background: no-repeat;
-  background-position: 0 -145px;
+  background-position: 0 -217px;
   width: 16px;
   height: 16px;
 }
 .userIco {
   background: no-repeat;
-  background-position: 0 -800px;
+  background-position: 0 -714px;
   width: 22px;
   height: 24px;
 }
@@ -3784,13 +3813,13 @@ button:hover .addGrayIco,
 button:hover .userIco,
 button.on .userIco {
   background: no-repeat;
-  background-position: 0 -826px;
+  background-position: 0 -844px;
   width: 22px;
   height: 24px;
 }
 .appsIco {
   background: no-repeat;
-  background-position: 0 -670px;
+  background-position: 0 -870px;
   width: 24px;
   height: 24px;
 }
@@ -3798,43 +3827,43 @@ button.on .userIco {
 button:hover .appsIco,
 button.on .appsIco {
   background: no-repeat;
-  background-position: 0 -696px;
+  background-position: 0 -896px;
   width: 24px;
   height: 24px;
 }
 .navH5pageIco {
   background: no-repeat;
-  background-position: 0 -1158px;
+  background-position: 0 -1202px;
   width: 32px;
   height: 27px;
 }
 .navProjectIco {
   background: no-repeat;
-  background-position: 0 -990px;
+  background-position: 0 -1146px;
   width: 32px;
   height: 26px;
 }
 .on .navProjectIco {
   background: no-repeat;
-  background-position: 0 -1018px;
+  background-position: 0 -1174px;
   width: 32px;
   height: 26px;
 }
 .navPolicyIco {
   background: no-repeat;
-  background-position: 0 -1347px;
+  background-position: 0 -1231px;
   width: 32px;
   height: 30px;
 }
 .on .navPolicyIco {
   background: no-repeat;
-  background-position: 0 -1219px;
+  background-position: 0 -1263px;
   width: 32px;
   height: 30px;
 }
 .navWareIco {
   background: no-repeat;
-  background-position: 0 -369px;
+  background-position: 0 -309px;
   width: 32px;
   height: 18px;
 }
@@ -3846,85 +3875,85 @@ button.on .appsIco {
 }
 .navACIco {
   background: no-repeat;
-  background-position: 0 -1130px;
+  background-position: 0 -1006px;
   width: 32px;
   height: 26px;
 }
 .on .navACIco {
   background: no-repeat;
-  background-position: 0 -962px;
+  background-position: 0 -1090px;
   width: 32px;
   height: 26px;
 }
 .navAPIco {
   background: no-repeat;
-  background-position: 0 -476px;
+  background-position: 0 -544px;
   width: 32px;
   height: 22px;
 }
 .on .navAPIco {
   background: no-repeat;
-  background-position: 0 -572px;
+  background-position: 0 -520px;
   width: 32px;
   height: 22px;
 }
 .navFiberIco {
   background: no-repeat;
-  background-position: 0 -1447px;
+  background-position: 0 -1457px;
   width: 32px;
   height: 32px;
 }
 .on .navFiberIco {
   background: no-repeat;
-  background-position: 0 -1413px;
+  background-position: 0 -1491px;
   width: 32px;
   height: 32px;
 }
 .navUsersIco {
   background: no-repeat;
-  background-position: 0 -524px;
+  background-position: 0 -616px;
   width: 32px;
   height: 22px;
 }
 .on .navUsersIco {
   background: no-repeat;
-  background-position: 0 -500px;
+  background-position: 0 -640px;
   width: 32px;
   height: 22px;
 }
 .navManagerIco {
   background: no-repeat;
-  background-position: 0 -1517px;
+  background-position: 0 -1525px;
   width: 32px;
   height: 34px;
 }
 .on .navManagerIco {
   background: no-repeat;
-  background-position: 0 -1481px;
+  background-position: 0 -1561px;
   width: 32px;
   height: 34px;
 }
 .navBedataIco {
   background: no-repeat;
-  background-position: 0 -1315px;
+  background-position: 0 -1295px;
   width: 32px;
   height: 30px;
 }
 .on .navBedataIco {
   background: no-repeat;
-  background-position: 0 -1283px;
+  background-position: 0 -1391px;
   width: 32px;
   height: 30px;
 }
 .navUserdataIco {
   background: no-repeat;
-  background-position: 0 -878px;
+  background-position: 0 -1062px;
   width: 32px;
   height: 26px;
 }
 .on .navUserdataIco {
   background: no-repeat;
-  background-position: 0 -1102px;
+  background-position: 0 -1118px;
   width: 32px;
   height: 26px;
 }
@@ -3945,102 +3974,102 @@ button.on .appsIco {
 .hadpayIco,
 .ico_hadpay:before {
   background: no-repeat;
-  background-position: 0 -20px;
+  background-position: 0 -34px;
   width: 12px;
   height: 12px;
 }
 .waitpayIco,
 .ico_waitpay:before {
   background: no-repeat;
-  background-position: 0 -34px;
+  background-position: 0 -20px;
   width: 12px;
   height: 12px;
 }
 .deluploadImg,
 .delsgt {
   background: no-repeat;
-  background-position: 0 -453px;
+  background-position: 0 -497px;
   width: 21px;
   height: 21px;
 }
 .allUserIco {
   background: no-repeat;
-  background-position: 0 -748px;
+  background-position: 0 -740px;
   width: 32px;
   height: 24px;
 }
 button:hover .allUserIco,
 button.on .allUserIco {
   background: no-repeat;
-  background-position: 0 -774px;
+  background-position: 0 -766px;
   width: 32px;
   height: 24px;
 }
 .mobileIco {
   background: no-repeat;
-  background-position: 0 -1074px;
+  background-position: 0 -1034px;
   width: 18px;
   height: 26px;
 }
 button:hover .mobileIco,
 button.on .mobileIco {
   background: no-repeat;
-  background-position: 0 -1046px;
+  background-position: 0 -922px;
   width: 18px;
   height: 26px;
 }
 .uncheck {
   background: no-repeat;
-  background-position: 0 -934px;
+  background-position: 0 -950px;
   width: 26px;
   height: 26px;
 }
 .check {
   background: no-repeat;
-  background-position: 0 -906px;
+  background-position: 0 -978px;
   width: 26px;
   height: 26px;
 }
 .uncheck_s {
   background: no-repeat;
-  background-position: 0 -722px;
+  background-position: 0 -792px;
   width: 24px;
   height: 24px;
 }
 .uncheck_s.on {
   background: no-repeat;
-  background-position: 0 -852px;
+  background-position: 0 -818px;
   width: 24px;
   height: 24px;
 }
 .modalClose {
   background: no-repeat;
-  background-position: 0 -1251px;
+  background-position: 0 -1359px;
   width: 30px;
   height: 30px;
 }
 .modalClose:hover {
   background: no-repeat;
-  background-position: 0 -1187px;
+  background-position: 0 -1327px;
   width: 30px;
   height: 30px;
 }
 .addGrayIco {
   background: no-repeat;
-  background-position: 0 -199px;
+  background-position: 0 -181px;
   width: 16px;
   height: 16px;
   margin-right: 8px;
 }
 .delIco {
   background: no-repeat;
-  background-position: 0 -409px;
+  background-position: 0 -475px;
   width: 24px;
   height: 20px;
 }
 a:hover .delIco {
   background: no-repeat;
-  background-position: 0 -431px;
+  background-position: 0 -453px;
   width: 24px;
   height: 20px;
 }
@@ -4052,14 +4081,14 @@ a:hover .delIco {
 }
 a:hover .editIco {
   background: no-repeat;
-  background-position: 0 -309px;
+  background-position: 0 -329px;
   width: 18px;
   height: 18px;
 }
 .bill_tab span i,
 .ns_card a i {
   background: no-repeat;
-  background-position: 0 -63px;
+  background-position: 0 -78px;
   width: 13px;
   height: 13px;
 }
@@ -4072,7 +4101,7 @@ a:hover .editIco {
 }
 .aDwn {
   background: no-repeat;
-  background-position: 0 -253px;
+  background-position: 0 -199px;
   width: 14px;
   height: 16px;
 }
@@ -4094,51 +4123,51 @@ span.on .aUp,
 span:hover .aUp,
 .smore .aUp {
   background: no-repeat;
-  background-position: 0 -217px;
+  background-position: 0 -145px;
   width: 14px;
   height: 16px;
 }
 .dataTotalIco {
   background: no-repeat;
-  background-position: 0 -1553px;
+  background-position: 0 -1635px;
   width: 44px;
   height: 36px;
 }
 .dataHotsIco {
   background: no-repeat;
-  background-position: 0 -1379px;
+  background-position: 0 -1423px;
   width: 44px;
   height: 32px;
 }
 .dataAppIco {
   background: no-repeat;
-  background-position: 0 -1591px;
+  background-position: 0 -1597px;
   width: 44px;
   height: 36px;
 }
 .sortOn:hover i {
   background: no-repeat;
-  background-position: 0 -181px;
+  background-position: 0 -253px;
   width: 12px;
   height: 16px;
 }
 .sortUp i,
 .sortUp:hover i {
   background: no-repeat;
-  background-position: 0 -235px;
+  background-position: 0 -109px;
   width: 12px;
   height: 16px;
 }
 .sortDown i,
 .sortDown:hover i {
   background: no-repeat;
-  background-position: 0 -109px;
+  background-position: 0 -235px;
   width: 12px;
   height: 16px;
 }
 .xm_work {
   background: no-repeat;
-  background-position: 0 -1629px;
+  background-position: 0 -1761px;
   width: 42px;
   height: 42px;
 }
@@ -4156,15 +4185,29 @@ span:hover .aUp,
 }
 .uptotop i {
   background: no-repeat;
-  background-position: 0 -290px;
+  background-position: 0 -271px;
   width: 18px;
   height: 17px;
 }
 .uptotop:hover i {
   background: no-repeat;
-  background-position: 0 -271px;
+  background-position: 0 -290px;
   width: 18px;
   height: 17px;
+}
+i.unchk {
+  background: no-repeat;
+  background-position: 0 -431px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+i.chk {
+  background: no-repeat;
+  background-position: 0 -409px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 .searchIco,
 .addIco,
@@ -4222,7 +4265,9 @@ span:hover .aUp,
 .sortOn:hover i,
 .xm_work,
 .xm_online,
-.xm_unwork {
+.xm_unwork,
+i.unchk,
+i.chk {
   display: inline-block;
   vertical-align: middle;
   margin-top: -2px;
@@ -4266,7 +4311,7 @@ span:hover .aUp,
   margin: 0 auto 5px;
   display: block;
 }
-/* ../images/sprites.png?20160622132625 */
+/* ../images/sprites.png?20160705095025 */
 .searchIco,
 button:hover .searchIcoGray,
 button:focus .searchIcoGray,
@@ -4359,9 +4404,11 @@ span:hover .aUp,
 .xm_online,
 .xm_unwork,
 .uptotop i,
-.uptotop:hover i {
-  background-image: url(../images/sprites.png?20160622132625);
+.uptotop:hover i,
+i.unchk,
+i.chk {
+  background-image: url(../images/sprites.png?20160705095025);
 }
 .css_stamp {
-  content: "20160622132625";
+  content: "20160705095025";
 }

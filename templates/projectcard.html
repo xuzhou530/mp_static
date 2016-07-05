@@ -59,8 +59,14 @@
                   % else:
                   <a href="/projectcard.html?location=${r._location}" class="magnet">
                   % endif
-                  <div class="name">${r.name}</div><div class="ap">AP：${r.ap_count}</div></a>
-                   % endfor
+                  <div class="name">
+                    % if len(r.name) > 10:
+                    ${''.join(list(r.name)[:10] + ['...'])}
+                    % else:
+                    ${r.name}
+                    % endif
+                  </div><div class="ap">AP：${r.ap_count}</div></a>
+                  % endfor
               </div>
               % if len(resources) > 4:
               <div class="mw880" style="overflow: hidden;">

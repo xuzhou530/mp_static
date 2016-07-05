@@ -1,4 +1,7 @@
 <tr>
+  % if ins.is_allowed('update', 'ap'):
+  <th><i class="unchk allchk"></i></th>
+  % endif
   <th>MAC地址</th>
   <th>所属</th>
   <th>状态</th>
@@ -11,6 +14,9 @@
 </tr>
 % for ap in aps:
 <tr>
+  % if ins.is_allowed('update', 'ap'):
+  <td><i class="unchk"></i></td>
+  % endif
   <td data-value="${ap.get('mac', '')}">${ap.get('mac', '')}</td>
   % if ap['resource']:
   <td data-value="${ap['resource']._location}" data-title="${ap['resource'].name}">
