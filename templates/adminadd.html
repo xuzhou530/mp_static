@@ -1,0 +1,42 @@
+## adminadd.html
+<%inherit file="base.html" />
+
+<div class="wrapper">
+    <!--导航-->
+    <%include file="nav.html" />
+    <!--右侧功能栏-->
+    <div class="projects">
+        <div class="tabbox">
+            <div class="bread">
+                <h2>账户管理</h2>
+                <div class="widget">
+                    <button class="btnBlue">确定</button>
+                </div>
+            </div>
+        </div>
+        <div class="tabbox ns_role">
+            <div class="toolnav">
+                <h3>角色名称：<input type="text" class="role_ipu" placeholder="请输入角色名称" /></h3>
+            </div>
+            <div class="toolnav">
+                <h3>功能选择：</h3>
+            </div>
+            <div class="areabox">
+                <p><label><i class="headunchk"></i>AC管理</label></p>
+                <div>
+                    <label><i class="unchk"></i>查看</label>
+                    <label><i class="unchk"></i>新增</label>
+                    <label><i class="unchk"></i>编辑</label>
+                    <label><i class="unchk"></i>删除</label>
+                </div>
+                <p><label><i class="headunchk"></i>计费模块</label></p>
+                <div>
+                    <label><i class="unchk"></i>查看</label>
+                    <label><i class="unchk"></i>报表导出</label>
+                    <label><i class="unchk"></i>新增上网</label>
+                    <label><i class="unchk"></i>新增套餐</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
