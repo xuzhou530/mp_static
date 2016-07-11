@@ -25,12 +25,26 @@
             <div class="toolnav">
                 <h3>功能选择：</h3>
             </div>
+            <%
+              r = ins.mdb.role.find_one({'role': role[0]['_id']}, {'_id': 0})
+              def check_allowed(operate, resource):
+                  for a in r['acl']:
+                      if a['resource'] == resource and operation in a['operation']:
+                          return True
+                  return False
+            %>
             <div class="areabox" id="roleOpra">
                 % for p in permission:
                 <p><label data-resource="${p['resource']}"><i class="headunchk"></i>${p['label']}</label></p>
                 <div>
                     % for op in p['operation']:
-                    <label data-operation="${op['name']}"><i class="unchk"></i>${op['label']}</label>
+                    <label data-operation="${op['name']}">
+                      % if check_allowed(op['name'], p['resource']):
+                      <i class="unchk chk"></i>
+                      % else:
+                      <i class="unchk"></i>
+                      % endif
+                      ${op['label']}</label>
                     % endfor
                 </div>
                 % endfor
