@@ -29,13 +29,25 @@
               r = ins.mdb.role.find_one({'role': role[0]['_id']}, {'_id': 0})
               def check_allowed(operate, resource):
                   for a in r['acl']:
-                      if a['resource'] == resource and operation in a['operation']:
+                      if a['resource'] == resource and operate in a['operation']:
                           return True
+                  return False
+
+              def check_resource(resource):
+                  for a in r['acl']:
+                      if a['resource'] == resource and len(a['operation']) > 0:
+                              return True
                   return False
             %>
             <div class="areabox" id="roleOpra">
                 % for p in permission:
-                <p><label data-resource="${p['resource']}"><i class="headunchk"></i>${p['label']}</label></p>
+                <p><label data-resource="${p['resource']}">
+                    % if check_resource(p['resource']):
+                    <i class="headunchk headchk"></i>
+                    % else:
+                    <i class="headunchk"></i>
+                    % endif
+                    ${p['label']}</label></p>
                 <div>
                     % for op in p['operation']:
                     <label data-operation="${op['name']}">
