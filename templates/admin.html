@@ -31,7 +31,7 @@
                     %>
                     <li><p>${projectname}</p><h4>所属项目</h4></li>
                     % endif
-                    <li><p>${trans.get(current_user.role, '')}</p><h4>角色</h4></li>
+                    <li><p>${current_user.role}</p><h4>角色</h4></li>
                     <li><p>${current_user.ctime.strftime('%Y-%m-%d')}</p><h4>创建时间</h4></li>
                     <li class="accountPwd">
                         <p data-value="123456">
@@ -50,7 +50,7 @@
         </div>
         <div class="tabbox ns_table" id="accountlist">
             <div class="toolnav">
-                % if ins.is_allowed('list', 'admin'):
+                % if ins.is_allowed('view', 'admin'):
                 <h3>项目账户管理</h3>
                 <div class="toolbox">
                     <button type="button" class="btnGraySmall addbtn">新增</button>
@@ -59,7 +59,7 @@
                 % endif
             </div>
             <div class="areabox">
-              % if ins.is_allowed('list', 'admin'):
+              % if ins.is_allowed('view', 'admin'):
                 <table class="centerAlign">
                     <tr>
                         <th>账户</th>
@@ -88,7 +88,7 @@
                         % else:
                         <td data-value="${user._location}"></td>
                         % endif
-                        <td data-value="${user.role}">${trans.get(user.role, '')}</td>
+                        <td data-value="${user._role}">${user._role}</td>
                         <td data-value="${user.ctime.strftime('%Y-%m-%d')}">${user.ctime.strftime('%Y-%m-%d')}</td>
                         <td>
                           % if user.mask == 0:
@@ -131,13 +131,8 @@
             <li><label><i>*</i>所属项目：</label><span class="veright"><div class="autoInput autoDom" title="" data-locate=""><em>所属</em></div></span></li>
             <li><label><i>*</i>角色：</label>
               <span class="veright"><select id="role">
-                  <%
-                  if 'super' not in current_user.role:
-                    trans.pop('super')
-                    trans.pop('demo')
-                  %>
-                  % for k, v in trans.iteritems():
-                  <option value="${k}">${v}</option>
+                  % for r in roles:
+                  <option value="${r['role']}">${r['role']}</option>
                   % endfor
             </select></span></li>
             <li><label><i>*</i>密码：</label><span class="veright"><div class="verify"><input type="text" name="password" class="matchVerify shouldVerify checkEng" /></div></span></li>
