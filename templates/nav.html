@@ -8,7 +8,7 @@
         <!--<li><a href="/projectwifi.html?type.id=4" data-target="project">无线专网&lt;!&ndash;<span>150</span>&ndash;&gt;</a></li>-->
     <!--</ul>-->
     <h3><a href="/policy.html" data-target="policy"><i class="navPolicyIco"></i>网络管理</a></h3>
-    % if ins.is_allowed('list', 'ac'):
+    % if ins.is_allowed('view', 'ac'):
     <h3><a href="/ac.html" data-target="ac"><i class="navACIco"></i>AC管理</a></h3>
     % endif
     <h3><a href="/ap.html" data-target="ap"><i class="navAPIco"></i>AP管理</a></h3>
