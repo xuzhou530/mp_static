@@ -33,7 +33,7 @@
                         <th>Appid</th>
                         <th>Shopid</th>
                         <th>Secret</th>
-                        % if ins.is_allowed('edit', 'policy') and ins.is_allowed('edit', 'policy'):
+                        % if ins.is_allowed('update', 'policy') and ins.is_allowed('delete', 'policy'):
                         <th>操作</th>
                         % endif
                     </tr>
@@ -60,7 +60,7 @@
                         <td class="wb">${p.appid}</td>
                         <td class="wb">${p.shopid}</td>
                         <td class="wb">${p.secret}</td>
-                        % if ins.is_allowed('edit', 'policy') and ins.is_allowed('edit', 'policy'):
+                        % if ins.is_allowed('delete', 'policy') and ins.is_allowed('update', 'policy'):
                         <td><span class="edit">编辑</span><span class="delete">删除</span><input type="hidden" value="${p.id}" /></td>
                         % endif
                     </tr>
