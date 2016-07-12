@@ -15,9 +15,11 @@
         <div class="tabbox ns_table" id="pnlist">
             <div class="toolnav">
                 <h3>网络配置</h3>
+                % if ins.is_allowed('create', 'policy'):
                 <div class="toolbox">
                     <button class="btnGraySmall addbtn">新增</button>
                 </div>
+                % endif
             </div>
             <div class="areabox">
                 <table class="centerAlign topTdAlign">
@@ -31,7 +33,9 @@
                         <th>Appid</th>
                         <th>Shopid</th>
                         <th>Secret</th>
+                        % if ins.is_allowed('edit', 'policy') and ins.is_allowed('edit', 'policy'):
                         <th>操作</th>
+                        % endif
                     </tr>
                     % for p in pns:
                     <tr>
@@ -56,7 +60,9 @@
                         <td class="wb">${p.appid}</td>
                         <td class="wb">${p.shopid}</td>
                         <td class="wb">${p.secret}</td>
+                        % if ins.is_allowed('edit', 'policy') and ins.is_allowed('edit', 'policy'):
                         <td><span class="edit">编辑</span><span class="delete">删除</span><input type="hidden" value="${p.id}" /></td>
+                        % endif
                     </tr>
                     % endfor
                 </table>

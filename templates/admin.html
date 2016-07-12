@@ -10,8 +10,12 @@
             <div class="bread">
                 <h2>账户管理</h2>
                 <div class="widget">
+                    % if ins.is_allowed('update', 'admin'):
                     <a href="adminedit.html" class="btnBlue">编辑角色</a>
+                    % endif
+                    % if ins.is_allowed('create', 'admin'):
                     <a href="adminadd.html" class="btnBlue">新增角色</a>
+                    % endif
                 </div>
             </div>
         </div>
@@ -53,7 +57,9 @@
                 % if ins.is_allowed('view', 'admin'):
                 <h3>项目账户管理</h3>
                 <div class="toolbox">
+                    % if ins.is_allowed('create', 'admin'):
                     <button type="button" class="btnGraySmall addbtn">新增</button>
+                    % endif
                     <div class="search"><input type="text" placeholder="搜索账号" /><button type="button"><i class="searchIcoGray"></i></button></div>
                 </div>
                 % endif
@@ -67,7 +73,9 @@
                         <th>所属项目</th>
                         <th>角色</th>
                         <th>创建时间</th>
+                        % if ins.is_allowed('update', 'admin'):
                         <th>操作</th>
+                        % endif
                     </tr>
                     % for user in sub_users:
                     % if user.mask == 0:
@@ -90,6 +98,7 @@
                         % endif
                         <td data-value="${user.role}">${user.role}</td>
                         <td data-value="${user.ctime.strftime('%Y-%m-%d')}">${user.ctime.strftime('%Y-%m-%d')}</td>
+                        % if ins.is_allowed('update', 'admin'):
                         <td>
                           % if user.mask == 0:
                           <span class="unforbin">启用</span>
@@ -97,6 +106,7 @@
                           <span class="forbin">停用</span>
                           % endif
                           <span class="edit">编辑</span></td>
+                        % endif
                     </tr>
                     % endfor
                 </table>

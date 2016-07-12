@@ -108,16 +108,17 @@
             <div class="areabox">
                 <ul class="deviceNav">
                     <li>设备图</li>
-                    % if resource.plans:
-                    % for p in json.loads(resource.plans):
-                    % if loop.index == 0:
-                    <li class="on">${p['name']}</li>
-                    % else:
-                    <li>${p['name']}</li>
-                    % endif
-                    % endfor
+                    % if resource.plans and ins.is_allowed('view', 'plan'):
+                      % for p in json.loads(resource.plans):
+                      % if loop.index == 0:
+                      <li class="on">${p['name']}</li>
+                      % else:
+                      <li>${p['name']}</li>
+                      % endif
+                      % endfor
                     % endif
                 </ul>
+                % if ins.is_allowed('create', 'plan'):
                 <div class="ns_xy">
                     <div class="axy">
                         <dl>
@@ -130,8 +131,9 @@
                     </div>
                     <button type="button" class="btnBlueSmall addap">新增AP</button>
                 </div>
+                % endif
                 <div class="ns_deCtx">
-                    % if resource.plans:
+                    % if resource.plans and ins.is_allowed('view', 'plan'):
                     % for p in json.loads(resource.plans):
                     <div class="ns_dedo">
                         <img src="${p['imgurl']}" />
