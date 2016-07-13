@@ -67,6 +67,9 @@ button:focus {
   width: 30px;
   height: 45px;
 }
+.nansha h1 {
+  background: url("../images/logo_nansha.png") 0 19px no-repeat;
+}
 .lg_banner {
   background: url("../images/login_banner.jpg") top center no-repeat;
   height: 538px;

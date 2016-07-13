@@ -334,6 +334,9 @@ select.sel {
   margin-top: -23px;
   text-indent: 162px;
 }
+.header .logo.nansha {
+  background: url("../images/logo_nansha.png") no-repeat;
+}
 .header .search {
   font-size: 12px;
   color: #fff;
@@ -1840,21 +1843,21 @@ select.sel {
 }
 .content .projects .ns_portal .pt_h5 .ptD .ptBody .ns_box {
   box-sizing: border-box;
-  opacity: 0.9;
+  opacity: 0.8;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
   position: absolute;
-  top: 40%;
+  bottom: 10%;
   left: 0;
   width: 100%;
   z-index: 3;
-  height: 318px;
+  height: 280px;
 }
 .content .projects .ns_portal .pt_h5 .ptD .ptBody .ns_box button,
 .content .projects .ns_portal .pt_h5 .ptD .ptBody .ns_box a {
   width: 100%;
   color: #fff;
   font-size: 16px;
-  padding: 10px 0;
+  padding: 11px 0;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   -o-border-radius: 7px;
@@ -1862,20 +1865,23 @@ select.sel {
   border: none;
   cursor: default;
 }
-.content .projects .ns_portal .pt_h5 .ptD .ptBody .ns_box .zw {
-  margin: auto;
+.content .projects .ns_portal .pt_h5 .ptD .ptBody .ns_box #zw {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
-  right: 0;
-  bottom: 0;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: -140px;
 }
 .content .projects .ns_portal .pt_h5 .ptD .ptBody .ns_box .zz {
   padding: 0 21px 15px;
   position: relative;
 }
+.content .projects .ns_portal .pt_h5 .ptD .ptBody .ns_box .zz:last-child {
+  padding-bottom: 0;
+}
 .content .projects .ns_portal .pt_h5 .ptD .ptBody .ns_box .wx {
-  padding: 7px 0;
+  padding: 8px 0;
   background: #2fe033;
   border-bottom: 2px solid #40c243;
 }
@@ -1898,21 +1904,20 @@ select.sel {
   position: relative;
 }
 .content .projects .ns_portal .pt_h5 .ptD .ptBody .ns_box #portal_zone div input {
+  font-size: 13px;
   background: #efefef;
   border: 1px solid #d9d9d9;
   width: 100%;
   padding: 12px 0;
-  font-size: 13px;
   text-indent: 18px;
-  margin-bottom: 7px;
-  height: auto;
+  margin-bottom: 10px;
   box-sizing: border-box;
   cursor: default;
+  height: auto;
 }
 .content .projects .ns_portal .pt_h5 .ptD .ptBody .ns_box #portal_login {
   background: #fea520;
   border-bottom: 2px solid #d38b1f;
-  margin: 6px 0;
 }
 .content .projects .ns_portal .pt_h5 .ptD .ptBody .ns_box #portal_yzm {
   position: absolute;
