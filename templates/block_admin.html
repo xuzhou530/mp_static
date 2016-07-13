@@ -25,7 +25,7 @@
     % else:
     <td data-value="${user._location}"></td>
     % endif
-    <td data-value="${user.role}">${trans.get(user.role, '')}</td>
+    <td data-value="${user.role}">${user.role}</td>
     <td data-value="${user.ctime.strftime('%Y-%m-%d')}">${user.ctime.strftime('%Y-%m-%d')}</td>
     <td>
       % if user.mask == 0:

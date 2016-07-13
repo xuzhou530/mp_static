@@ -435,6 +435,25 @@ select.sel {
 .notice em.f20 {
   font-size: 20px;
 }
+.file {
+  position: relative;
+  overflow: hidden;
+  line-height: 40px;
+}
+.file .uploadImg {
+  width: 100px;
+  height: 40px;
+  opacity: 0;
+  float: left;
+}
+.file .btnGreen {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.file .loading {
+  display: none;
+}
 .vertical li {
   padding-bottom: 20px;
   overflow: hidden;
@@ -573,11 +592,13 @@ select.sel {
   width: 142px;
   float: left;
 }
-.vertical li .veright input {
+.vertical li .veright input[type=text],
+.vertical li .veright input[type=password] {
   margin-right: 10px;
   width: 450px;
 }
-.vertical li .veright input.error {
+.vertical li .veright input[type=text].error,
+.vertical li .veright input[type=password].error {
   border: 1px solid #f36144;
 }
 .vertical li .veright textarea {
@@ -593,25 +614,6 @@ select.sel {
   border-radius: 5px;
   cursor: pointer;
   margin-right: 8px;
-}
-.vertical li .veright .file {
-  position: relative;
-  overflow: hidden;
-  line-height: 40px;
-}
-.vertical li .veright .file .uploadImg {
-  width: 100px;
-  height: 40px;
-  opacity: 0;
-  float: left;
-}
-.vertical li .veright .file .btnGreen {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.vertical li .veright .file .loading {
-  display: none;
 }
 .vertical li .veright .showImg {
   margin-top: 10px;
@@ -1691,17 +1693,84 @@ select.sel {
   width: 124px;
   display: inline-block;
 }
-.content .projects .ns_portal .pt_h5 .ptM li {
+.content .projects .ns_portal .pt_zz {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(252, 229, 219, 0.7);
+  text-align: center;
+  display: none;
+  z-index: 4;
+}
+.content .projects .ns_portal .pt_zz .pt_del {
+  background: url("../images/ns_closed.png") 0 0 no-repeat;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+.content .projects .ns_portal .pt_zz .pt_del:hover {
+  background-position: 0 -30px;
+}
+.content .projects .ns_portal .pt_zz .pt_upimg {
+  margin-top: 40px;
+  color: #fe4847;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #fe4847;
+  background: none;
+}
+.content .projects .ns_portal .pt_tip {
+  background: #fff;
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  color: #333;
+  font-size: 14px;
+  text-shadow: none;
+  width: 100px;
+  height: 20px;
+  margin-left: -50px;
+  display: none;
+}
+.content .projects .ns_portal .pt_tip:before {
+  content: '';
+  background: url("../images/deviceImg/taiangle-2.png") 0 -11px no-repeat;
+  width: 22px;
+  height: 10px;
+  display: block;
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  margin-left: -11px;
+  z-index: -1;
+}
+.content .projects .ns_portal .ptM li {
   margin-bottom: 10px;
+  overflow: hidden;
 }
-.content .projects .ns_portal .pt_h5 .ptM label {
+.content .projects .ns_portal .ptM label {
   display: inline-block;
-  width: 120px;
+  width: 90px;
+  vertical-align: middle;
+  float: left;
 }
-.content .projects .ns_portal .pt_h5 .ptM div {
+.content .projects .ns_portal .ptM div {
   display: inline-block;
+  float: left;
 }
-.content .projects .ns_portal .pt_h5 .ptM span {
+.content .projects .ns_portal .ptM select {
+  width: 100px;
+}
+.content .projects .ns_portal .ptM input[type=text] {
+  width: 300px;
+}
+.content .projects .ns_portal .ptM .case span {
   background: #68d68f;
   color: #fff;
   display: inline-block;
@@ -1709,11 +1778,24 @@ select.sel {
   padding: 2px 5px;
   margin-right: 5px;
 }
-.content .projects .ns_portal .pt_h5 .ptM span:hover {
+.content .projects .ns_portal .ptM .case span:hover {
   background: #61c786;
 }
-.content .projects .ns_portal .pt_h5 .ptM span.undo {
+.content .projects .ns_portal .ptM .case span.undo {
   background: #ddd;
+}
+.content .projects .ns_portal .ptG {
+  text-align: center;
+  margin: 30px 0;
+}
+.content .projects .ns_portal .ptG button {
+  margin: 0 25px;
+}
+.content .projects .ns_portal .ptL a:hover {
+  text-decoration: underline;
+}
+.content .projects .ns_portal .pt_h5 {
+  display: none;
 }
 .content .projects .ns_portal .pt_h5 .ptD {
   width: 375px;
@@ -1724,7 +1806,7 @@ select.sel {
   -moz-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  margin: 10px auto 0;
+  margin: 20px auto 0;
 }
 .content .projects .ns_portal .pt_h5 .ptD .ptBody {
   position: relative;
@@ -1829,69 +1911,194 @@ select.sel {
   right: 0;
   top: 0;
 }
-.content .projects .ns_portal .pt_h5 .ptD .pt_zz {
+.content .projects .ns_portal .pt_pc {
+  display: none;
+}
+.content .projects .ns_portal .pt_pc .ptD {
+  margin: 20px auto 0;
+  /* ../images/portal.png?20160707153309 */
+}
+.content .projects .ns_portal .pt_pc .ptD .ptBody {
+  background: url("../images/bg.jpg") top center no-repeat;
+  height: 400px;
+  overflow-x: auto;
+  position: relative;
+}
+.content .projects .ns_portal .pt_pc .ptD .pBar {
+  width: 1200px;
   position: absolute;
-  top: 0;
+  /*top: 0;*/
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(252, 229, 219, 0.7);
-  text-align: center;
+  height: 60px;
+  background: #1ba0d8;
+  background: -webkit-linear-gradient(left, #00c8b3, #2196f3);
+  background: -o-linear-gradient(right, #00c8b3, #2196f3);
+  background: -moz-linear-gradient(right, #00c8b3, #2196f3);
+  background: linear-gradient(to right, #00c8b3, #2196f3);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+.content .projects .ns_portal .pt_pc .ptD .pWrapper {
+  width: 1000px;
+  margin: 0 auto;
+}
+.content .projects .ns_portal .pt_pc .ptD .pTitle {
+  color: #fff;
+  float: left;
+}
+.content .projects .ns_portal .pt_pc .ptD .pTitle h1 {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: normal;
+  position: relative;
+}
+.content .projects .ns_portal .pt_pc .ptD .pTitle h1 input {
+  width: 260px;
   display: none;
-  z-index: 4;
 }
-.content .projects .ns_portal .pt_h5 .ptD .pt_zz .pt_del {
-  background: url("../images/ns_closed.png") 0 0 no-repeat;
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  cursor: pointer;
+.content .projects .ns_portal .pt_pc .ptD .pTitle h1 .pt_tip {
+  top: 32px;
+  left: 10px;
+  line-height: normal;
+  margin-left: 0;
+  text-align: center;
 }
-.content .projects .ns_portal .pt_h5 .ptD .pt_zz .pt_del:hover {
-  background-position: 0 -30px;
+.content .projects .ns_portal .pt_pc .ptD .pTitle h1 .pt_tip:before {
+  background-position: 0 0;
+  bottom: 18px;
 }
-.content .projects .ns_portal .pt_h5 .ptD .pt_zz .pt_upimg {
-  margin-top: 40px;
-  color: #fe4847;
-  font-weight: bold;
-  font-size: 16px;
-  border: none;
-  border-bottom: 1px solid #fe4847;
-  background: none;
-}
-.content .projects .ns_portal .pt_h5 .ptD .pt_tip {
-  background: #fff;
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  color: #333;
+.content .projects .ns_portal .pt_pc .ptD .pTitle a {
   font-size: 14px;
-  text-shadow: none;
-  width: 100px;
-  height: 20px;
-  margin-left: -50px;
-  display: none;
+  cursor: default;
+  color: #fff;
 }
-.content .projects .ns_portal .pt_h5 .ptD .pt_tip:before {
-  content: '';
-  background: url("../images/deviceImg/taiangle-2.png") 0 -11px no-repeat;
-  width: 22px;
-  height: 10px;
-  display: block;
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  margin-left: -11px;
-  z-index: -1;
+.content .projects .ns_portal .pt_pc .ptD .pAuthor {
+  float: right;
+  font-weight: bold;
+  color: #fff;
+  position: relative;
 }
-.content .projects .ns_portal .pt_h5 .ptG {
+.content .projects .ns_portal .pt_pc .ptD .pAuthor:after {
+  content: " ";
+  background: url("/static/images/portal.png") -130px 0 no-repeat;
+  width: 2px;
+  height: 60px;
+  display: inline-block;
+  float: right;
+}
+.content .projects .ns_portal .pt_pc .ptD .pAuto,
+.content .projects .ns_portal .pt_pc .ptD .pApp,
+.content .projects .ns_portal .pt_pc .ptD .pLogin,
+.content .projects .ns_portal .pt_pc .ptD .pQrcode {
+  float: left;
+  line-height: 60px;
+  cursor: default;
+  position: relative;
+}
+.content .projects .ns_portal .pt_pc .ptD .pAuto:before,
+.content .projects .ns_portal .pt_pc .ptD .pApp:before,
+.content .projects .ns_portal .pt_pc .ptD .pLogin:before,
+.content .projects .ns_portal .pt_pc .ptD .pQrcode:before {
+  content: " ";
+  background: url("/static/images/portal.png") -130px 0 no-repeat;
+  width: 2px;
+  height: 60px;
+  display: inline-block;
+  float: left;
+}
+.content .projects .ns_portal .pt_pc .ptD .pAuto button {
+  color: #ff7c0d;
+  background: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+.content .projects .ns_portal .pt_pc .ptD .pApp a {
+  color: #009cff;
+  display: inline-block;
   text-align: center;
-  margin-top: 30px;
+  line-height: 40px;
+  font-size: 16px;
 }
-.content .projects .ns_portal .pt_h5 .ptG button {
-  margin: 0 25px;
+.content .projects .ns_portal .pt_pc .ptD .pLogin h2,
+.content .projects .ns_portal .pt_pc .ptD .pQrcode h2 {
+  color: #fff;
+  padding: 19px 0;
+  text-align: center;
+  width: 180px;
+  line-height: normal;
+  float: left;
+  font-size: 16px;
+  font-weight: normal;
+}
+.content .projects .ns_portal .pt_pc .ptD .pbtm {
+  bottom: 0;
+}
+.content .projects .ns_portal .pt_pc .ptD .pbtm .pLogin h2.on,
+.content .projects .ns_portal .pt_pc .ptD .pbtm .pQrcode h2.on {
+  margin-top: 0;
+  padding: 19px 0 11px;
+}
+.content .projects .ns_portal .pt_pc .ptD .pbtm .pForm {
+  top: -216px;
+}
+.content .projects .ns_portal .pt_pc .ptD .pbtm .pEwm {
+  top: -172px;
+}
+.content .projects .ns_portal .pt_pc .ptD .logo {
+  background-position: 0 -88px;
+  width: 22px;
+  height: 22px;
+  margin-right: 5px;
+}
+.content .projects .ns_portal .pt_pc .ptD .aDwn {
+  background: no-repeat;
+  background-position: 0 0;
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+.content .projects .ns_portal .pt_pc .ptD .aUp {
+  background: no-repeat;
+  background-position: 0 -22px;
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+}
+.content .projects .ns_portal .pt_pc .ptD h2.on .aDwn {
+  background-position: 0 -44px;
+}
+.content .projects .ns_portal .pt_pc .ptD h2.on .aUp {
+  background-position: 0 -66px;
+}
+.content .projects .ns_portal .pt_pc .ptD #autoAuthor {
+  background-position: 0 -112px;
+  width: 132px;
+  height: 40px;
+  margin: 0 20px;
+}
+.content .projects .ns_portal .pt_pc .ptD #appDL {
+  background-position: 0 -196px;
+  width: 132px;
+  height: 40px;
+  margin: 0 20px;
+}
+.content .projects .ns_portal .pt_pc .ptD .logo,
+.content .projects .ns_portal .pt_pc .ptD .aDwn,
+.content .projects .ns_portal .pt_pc .ptD .aUp {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -2px;
+}
+.content .projects .ns_portal .pt_pc .ptD .logo,
+.content .projects .ns_portal .pt_pc .ptD .aDwn,
+.content .projects .ns_portal .pt_pc .ptD .aUp,
+.content .projects .ns_portal .pt_pc .ptD h2.on .aDwn,
+.content .projects .ns_portal .pt_pc .ptD h2.on .aUp,
+.content .projects .ns_portal .pt_pc .ptD #autoAuthor,
+.content .projects .ns_portal .pt_pc .ptD #autoAuthor:hover,
+.content .projects .ns_portal .pt_pc .ptD #appDL,
+.content .projects .ns_portal .pt_pc .ptD #appDL:hover {
+  background-image: url(/static/images/portal.png?20160707153309);
 }
 .content .projects .accountInfo ul {
   float: left;
