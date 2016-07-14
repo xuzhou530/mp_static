@@ -7,14 +7,9 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>${title}</title>
-    % if wxscanFlag:
-    <link rel="stylesheet" href="/wx/css/style-pcdemo.css" />
-    <script type="text/javascript" src="/wx/js/pcauth.js"></script>
-    <script type="text/javascript" src="/wx/js/pollpcresult.js"></script>
-    % endif
     <style type="text/css">
         *{margin:0;padding:0}
-        body{background:url("/images/nsimgs/${pic}") top center no-repeat;font-family:"microsoft yahei","Helvetica Neue Light","HelveticaNeue-Light","Helvetica Neue",Calibri,Helvetica,Arial;font-size:16px;
+        body{background:url("/static/images/nsimgs/${pic}") top center no-repeat;font-family:"microsoft yahei","Helvetica Neue Light","HelveticaNeue-Light","Helvetica Neue",Calibri,Helvetica,Arial;font-size:16px;
             min-width: 1000px;
         }
         button,input{font-family:"microsoft yahei","Helvetica Neue Light","HelveticaNeue-Light","Helvetica Neue",Calibri,Helvetica,Arial;font-size:16px;outline:none}
@@ -40,7 +35,7 @@
         .pAuthor{float:right;font-weight:bold;color:#fff;position:relative}
         .pAuthor:after{
             content:" ";
-            background: url("/images/nsimgs/portal.png") -130px 0 no-repeat;
+            background: url("/static/images/nsimgs/portal.png") -130px 0 no-repeat;
             width: 2px;
             height: 60px;
             display: inline-block;
@@ -49,7 +44,7 @@
         .pAuto,.pApp,.pLogin,.pQrcode{float:left;line-height:60px}
         .pAuto:before,.pApp:before,.pLogin:before,.pQrcode:before{
             content:" ";
-            background: url("/images/nsimgs/portal.png") -130px 0 no-repeat;
+            background: url("/static/images/nsimgs/portal.png") -130px 0 no-repeat;
             width: 2px;
             height: 60px;
             display: inline-block;
@@ -67,6 +62,7 @@
             line-height: normal;
             cursor: pointer;
             float: left;
+            font-size: 16px;
         }
         .pLogin h2.on,.pQrcode h2.on{
             margin-top: 8px;
@@ -139,7 +135,7 @@
         }
         #portal_zone div span:before{
             content: " ";
-            background: url("/images/nsimgs/portal.png") -131px -78px no-repeat;
+            background: url("/static/images/nsimgs/portal.png") -131px -78px no-repeat;
             height: 40px;
             width: 1px;
             display: inline-block;
@@ -174,7 +170,7 @@
         #appDL:hover{background-position:0 -238px}
         .logo,.aDwn,.aUp{display:inline-block;vertical-align:middle;margin-top:-2px}
         /* ../images/portal.png?20160707153309 */
-        .logo,.aDwn,.aUp,h2.on .aDwn,h2.on .aUp,#autoAuthor,#autoAuthor:hover,#appDL,#appDL:hover{background-image:url(/images/nsimgs/portal.png?20160707153309);}
+        .logo,.aDwn,.aUp,h2.on .aDwn,h2.on .aUp,#autoAuthor,#autoAuthor:hover,#appDL,#appDL:hover{background-image:url("/static/images/nsimgs/portal.png?20160707153309");}
     </style>
 </head>
 
@@ -200,16 +196,15 @@
                 <div class="pLogin">
                     <h2 class="" id="pLogin">短信/账户上网<i class="aDwn"></i></h2>
                     <div class="pForm" id="pForm">
-                        <!--<div id="portal_zone">-->
-                            <!--<div>-->
-                                <!--<input type="text" id="portal_user" name="portal_user" placeholder="账号/手机号" />-->
-                                <!--<span><button type="button" id="portal_yzm">获取验证码</button></span>-->
-                            <!--</div>-->
-                            <!--<div>-->
-                                <!--<input type="text" id="portal_pwd" name="portal_pwd" placeholder="密码/验证码" />-->
-                            <!--</div>-->
-                            <!--<button type="button" id="portal_login">登录</button>-->
-                        <!--</div>-->
+                        <div id="portal_zone">
+                            <div>
+                                <input type="text" placeholder="账号/手机号" />
+                            </div>
+                            <div>
+                                <input type="text" placeholder="密码/验证码" />
+                            </div>
+                            <button type="button" id="portal_login">登录</button>
+                        </div>
                     </div>
                 </div>
                 % endif
@@ -218,9 +213,9 @@
                     <h2 class="" id="pQrcode">微信扫一扫上网<i class="aDwn"></i></h2>
                     <div class="pEwm" id="pEwm">
                         <div class="main__content">
-                            <input type="hidden" value="${logo}" id="wxImg" style="width:28px" />
-                            <div class="main__content-qrcode" id="qrcode_zone" style="text-align:center;margin:0 auto;width:128px;position:relative"></div>
-                            <!--<div class="main__content-info">使用微信扫描二维码</div>-->
+                            <div class="main__content-qrcode" id="qrcode_zone" style="text-align:center;margin:0 auto;width:128px;position:relative">
+                                <img src="/static/images/nsimgs/qrcode_258.jpg" width="128" height="128" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -230,18 +225,6 @@
     </div>
     % if wxscanFlag:
     <script type="text/javascript">
-        function weixinScan(appId, shopId, extend, authUrl){
-            JSAPI.auth({
-                target : document.getElementById('qrcode_zone'),
-                appId : appId,
-                shopId : shopId,
-                extend : extend,
-                //authUrl : 'http://wifi.weixin.qq.com/mbl/default.xhtml'
-                authUrl : authUrl
-            });
-        }
-        weixinScan('${appid}', '${shopid}', '${extend}', '${authUrl}');
-
         document.getElementById('pQrcode').onclick=function(){
             if(this.className=='on'){
                 this.className='';
@@ -256,20 +239,6 @@
     % if accountFlag:
     <script type="text/javascript" src="/js/portal.js"></script>
     <script>
-        Portal.auth({
-            target: document.getElementById('pForm'),
-            openid: '${openid}',
-            ac_ip: '${ac_ip}',
-            vlanId: '${vlan}',
-            ssid: '${ssid}',
-            user_ip: '${user_ip}',
-            user_mac: '${user_mac}',
-            ap_mac: '${ap_mac}',
-            firsturl: '${firsturl}',
-            urlparam: '${urlparam}',
-            appid: '${appid}',
-            shopid: '${shopid}'
-        });
         document.getElementById('pLogin').onclick=function(){
             if(this.className=='on'){
                 this.className='';

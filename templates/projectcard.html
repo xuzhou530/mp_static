@@ -100,7 +100,7 @@
                 <a href="/projectsens.html?location=${location}" class="secSens"><i></i><h6>感知分析</h6></a>
                 ##<a href="/projectaccess.html?location=${location}" class="preventUrl"><i></i><h6>访问数据</h6></a>
                 ##<a href="/projectads.html?location=${location}" class="secAD"><i></i><h6>广告推送</h6></a>
-                <a href="/projecth5page.html?location=${location}" class="secH5"><i></i><h6>H5页面管理</h6></a>
+                <a href="/projecth5list.html?location=${location}" class="secH5"><i></i><h6>H5页面管理</h6></a>
             </div>
         </div>
 
@@ -135,11 +135,11 @@
                     % for p in json.loads(resource.plans):
                     <div class="ns_dedo">
                         <img src="${p['imgurl']}" />
-                        % for pnt in ins.mdb.plan.find({'location': resource._location, 'imgurl': p['imgurl']}):
+                        % for pnt in ins.mdb.plan.find({'_location': resource._location, 'imgurl': p['imgurl']}):
                         % if aps.get(pnt['mac'].upper()) == '1':
-                        <i class="doGreen" data-left="${pnt['left']}" data-top="${pnt['top']}" style="left: ${pnt['left']}px; top:${pnt['top']}px;"><em data-mac="${pnt['mac']}" data-name="${pnt['name']}" data-vendor="${pnt['vendor']}" data-x="${pnt['pos_x']}" data-y="${pnt['pos_y']}" data-id="${str(pnt['_id'])}"></em></i>
+                        <i class="doGreen" data-left="${pnt['left']}" data-top="${pnt['top']}" style="left: ${pnt['left']}px; top:${pnt['top']}px;"><em data-mac="${pnt['mac']}" data-x="${pnt['pos_x']}" data-y="${pnt['pos_y']}" data-id="${str(pnt['_id'])}"></em></i>
                         % else:
-                        <i class="doRed" data-left="${pnt['left']}" data-top="${pnt['top']}" style="left: ${pnt['left']}px; top:${pnt['top']}px;"><em data-mac="${pnt['mac']}" data-name="${pnt['name']}" data-vendor="${pnt['vendor']}" data-x="${pnt['pos_x']}" data-y="${pnt['pos_y']}" data-id="${str(pnt['_id'])}"></em></i>
+                        <i class="doRed" data-left="${pnt['left']}" data-top="${pnt['top']}" style="left: ${pnt['left']}px; top:${pnt['top']}px;"><em data-mac="${pnt['mac']}" data-x="${pnt['pos_x']}" data-y="${pnt['pos_y']}" data-id="${str(pnt['_id'])}"></em></i>
                         % endif
                         % endfor
                     </div>

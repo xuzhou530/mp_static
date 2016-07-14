@@ -1795,9 +1795,6 @@ select.sel {
 .content .projects .ns_portal .ptG button {
   margin: 0 25px;
 }
-.content .projects .ns_portal .ptL a:hover {
-  text-decoration: underline;
-}
 .content .projects .ns_portal .pt_h5 {
   display: none;
 }
@@ -1837,6 +1834,11 @@ select.sel {
   left: 0;
   width: 100%;
   z-index: 3;
+}
+.content .projects .ns_portal .pt_h5 .ptD .ptBody h1 p {
+  color: #eee;
+  opacity: 0.5;
+  display: none;
 }
 .content .projects .ns_portal .pt_h5 .ptD .ptBody h1 input {
   width: 100%;
@@ -2112,7 +2114,7 @@ select.sel {
 .content .projects .ns_portal .pt_pc .ptD #autoAuthor:hover,
 .content .projects .ns_portal .pt_pc .ptD #appDL,
 .content .projects .ns_portal .pt_pc .ptD #appDL:hover {
-  background-image: url('../images/portal.png?20160707153309');
+  background-image: url('../images/nsimgs/portal.png?20160707153309');
 }
 .content .projects .accountInfo ul {
   float: left;
@@ -3726,6 +3728,11 @@ select.sel {
   font-size: 20px;
   font-weight: normal;
   margin: 50px 0 10px;
+}
+.modal_qrcode div {
+  width: 200px;
+  height: 200px;
+  margin: 20px auto;
 }
 .modal_project,
 .modal_user,
