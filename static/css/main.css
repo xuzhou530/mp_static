@@ -588,7 +588,8 @@ select.sel {
   position: relative;
   line-height: 30px;
 }
-.vertical li .veright .verify input {
+.vertical li .veright .verify input[type=text],
+.vertical li .veright .verify input[type=password] {
   width: 100%;
 }
 .vertical li .veright .verify.ipu140 {
@@ -1932,7 +1933,7 @@ select.sel {
   /* ../images/portal.png?20160707153309 */
 }
 .content .projects .ns_portal .pt_pc .ptD .ptBody {
-  background: url("../images/bg.jpg") top center no-repeat;
+  background: url("../images/nsimgs/banner_tpl.jpg") top center no-repeat;
   height: 400px;
   overflow-x: auto;
   position: relative;
@@ -1993,7 +1994,7 @@ select.sel {
 }
 .content .projects .ns_portal .pt_pc .ptD .pAuthor:after {
   content: " ";
-  background: url("/static/images/portal.png") -130px 0 no-repeat;
+  background: url("../images/nsimgs/portal.png") -130px 0 no-repeat;
   width: 2px;
   height: 60px;
   display: inline-block;
@@ -2013,7 +2014,7 @@ select.sel {
 .content .projects .ns_portal .pt_pc .ptD .pLogin:before,
 .content .projects .ns_portal .pt_pc .ptD .pQrcode:before {
   content: " ";
-  background: url("/static/images/portal.png") -130px 0 no-repeat;
+  background: url("../images/nsimgs/portal.png") -130px 0 no-repeat;
   width: 2px;
   height: 60px;
   display: inline-block;
@@ -2111,7 +2112,7 @@ select.sel {
 .content .projects .ns_portal .pt_pc .ptD #autoAuthor:hover,
 .content .projects .ns_portal .pt_pc .ptD #appDL,
 .content .projects .ns_portal .pt_pc .ptD #appDL:hover {
-  background-image: url(/static/images/portal.png?20160707153309);
+  background-image: url('../images/portal.png?20160707153309');
 }
 .content .projects .accountInfo ul {
   float: left;
@@ -3003,8 +3004,8 @@ select.sel {
   position: absolute;
   top: 0;
   left: 0;
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   display: block;
   z-index: 10;
   background: url("../images/deviceImg/ap.png") no-repeat;
@@ -3016,7 +3017,7 @@ select.sel {
   left: 30px;
 }
 .content .projects .ns_device .areabox .ns_deCtx .ns_dedo i.doRed {
-  background-position: 0 -42px;
+  background-position: 0 -34px;
 }
 .content .projects .ns_device .areabox .ns_deCtx .ns_dedo i em {
   position: absolute;
@@ -3692,8 +3693,6 @@ select.sel {
   display: block;
 }
 .modal_img {
-  width: 800px;
-  margin-left: -400px;
   -webkit-transform: scale(0.5, 0.5);
   -moz-transform: scale(0.5, 0.5);
   -o-transform: scale(0.5, 0.5);
@@ -3701,7 +3700,6 @@ select.sel {
   text-align: center;
 }
 .modal_img img {
-  max-width: 800px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -o-border-radius: 5px;
@@ -3741,7 +3739,8 @@ select.sel {
 .modal_ac,
 .modal_pay,
 .modal_fiber,
-.modal_account {
+.modal_account,
+.modal_portal {
   background: #fff;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -3768,7 +3767,8 @@ select.sel {
 .modal_ac .adsnav,
 .modal_pay .adsnav,
 .modal_fiber .adsnav,
-.modal_account .adsnav {
+.modal_account .adsnav,
+.modal_portal .adsnav {
   margin: 0;
 }
 .modal_project .adsnav li,
@@ -3783,7 +3783,8 @@ select.sel {
 .modal_ac .adsnav li,
 .modal_pay .adsnav li,
 .modal_fiber .adsnav li,
-.modal_account .adsnav li {
+.modal_account .adsnav li,
+.modal_portal .adsnav li {
   padding: 0;
   height: 30px;
   line-height: 30px;
@@ -3801,7 +3802,8 @@ select.sel {
 .modal_ac h3,
 .modal_pay h3,
 .modal_fiber h3,
-.modal_account h3 {
+.modal_account h3,
+.modal_portal h3 {
   background: url("../images/modal_h_bg.png") no-repeat;
   height: 82px;
   line-height: 82px;
@@ -3821,7 +3823,8 @@ select.sel {
 .modal_ac .notice,
 .modal_pay .notice,
 .modal_fiber .notice,
-.modal_account .notice {
+.modal_account .notice,
+.modal_portal .notice {
   margin-bottom: -20px;
 }
 .modal_project ul,
@@ -3836,7 +3839,8 @@ select.sel {
 .modal_ac ul,
 .modal_pay ul,
 .modal_fiber ul,
-.modal_account ul {
+.modal_account ul,
+.modal_portal ul {
   margin-top: 40px;
 }
 .modal_project ul label,
@@ -3851,7 +3855,8 @@ select.sel {
 .modal_ac ul label,
 .modal_pay ul label,
 .modal_fiber ul label,
-.modal_account ul label {
+.modal_account ul label,
+.modal_portal ul label {
   width: 25%;
   padding-right: 10px;
 }
@@ -3867,7 +3872,8 @@ select.sel {
 .modal_ac ul .veright select,
 .modal_pay ul .veright select,
 .modal_fiber ul .veright select,
-.modal_account ul .veright select {
+.modal_account ul .veright select,
+.modal_portal ul .veright select {
   width: 100px;
   text-indent: 5px;
 }
@@ -3883,7 +3889,8 @@ select.sel {
 .modal_ac ul .veright .verify,
 .modal_pay ul .veright .verify,
 .modal_fiber ul .veright .verify,
-.modal_account ul .veright .verify {
+.modal_account ul .veright .verify,
+.modal_portal ul .veright .verify {
   width: 400px;
 }
 .modal_project .btngroups,
@@ -3898,7 +3905,8 @@ select.sel {
 .modal_ac .btngroups,
 .modal_pay .btngroups,
 .modal_fiber .btngroups,
-.modal_account .btngroups {
+.modal_account .btngroups,
+.modal_portal .btngroups {
   margin: 20px 0 10px;
   text-align: center;
 }
@@ -3914,7 +3922,8 @@ select.sel {
 .modal_ac .msg,
 .modal_pay .msg,
 .modal_fiber .msg,
-.modal_account .msg {
+.modal_account .msg,
+.modal_portal .msg {
   color: #d9534f;
   font-size: 14px;
   display: block;
@@ -3954,7 +3963,7 @@ select.sel {
 .modal .modal_body,
 .modal .modal_ele {
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 50%;
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
@@ -4001,7 +4010,7 @@ select.sel {
   overflow: hidden;
 }
 .modal_open .modal {
-  overflow-x: hidden;
+  overflow-x: auto;
   overflow-y: auto;
 }
 /**==========modal-end============**/
