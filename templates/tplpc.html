@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="format-detection" content="telephone=no"/>
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>${title}</title>
+    <title>${config['title']}</title>
     <style type="text/css">
         *{margin:0;padding:0}
-        body{background:url("${portal['pc']['pic']}") top center no-repeat;font-family:"microsoft yahei","Helvetica Neue Light","HelveticaNeue-Light","Helvetica Neue",Calibri,Helvetica,Arial;font-size:16px;
+        body{background:url("${config['pic']}") top center no-repeat;font-family:"microsoft yahei","Helvetica Neue Light","HelveticaNeue-Light","Helvetica Neue",Calibri,Helvetica,Arial;font-size:16px;
             min-width: 1000px;
         }
         button,input{font-family:"microsoft yahei","Helvetica Neue Light","HelveticaNeue-Light","Helvetica Neue",Calibri,Helvetica,Arial;font-size:16px;outline:none}
@@ -175,24 +175,28 @@
 </head>
 
 <body>
+    % if config['nav'] == 'top':
     <div class="pBar">
+    % else:
+    <div class="pBar pbtm">
+    % endif
         <div class="pWrapper">
             <div class="pTitle">
-                <h1>${name}</h1>
+                <h1>${config['title']}</h1>
                 <a href="http://mbd.cniotroot.cn/"><i class="logo"></i>壁咚分布式认证系统</a>
             </div>
             <div class="pAuthor">
-                % if autoFlag:
+                % if 'auto' in config['way']:
                 <div class="pAuto">
                     <button type="button" id="autoAuthor">一键认证</button>
                 </div>
                 % endif
-                % if appFlag:
+                % if 'app' in config['way']:
                 <div class="pApp">
                     <a href="javascript:;" id="appDL" target="_blank">APP认证上网</a>
                 </div>
                 % endif
-                % if accountFlag:
+                % if 'account' in config['way']:
                 <div class="pLogin">
                     <h2 class="" id="pLogin">短信/账户上网<i class="aDwn"></i></h2>
                     <div class="pForm" id="pForm">
@@ -208,7 +212,7 @@
                     </div>
                 </div>
                 % endif
-                % if wxscanFlag:
+                % if 'wxscan' in config['way']:
                 <div class="pQrcode">
                     <h2 class="" id="pQrcode">微信扫一扫上网<i class="aDwn"></i></h2>
                     <div class="pEwm" id="pEwm">
@@ -223,7 +227,7 @@
             </div>
         </div>
     </div>
-    % if wxscanFlag:
+    % if 'wxscan' in config['way']:
     <script type="text/javascript">
         document.getElementById('pQrcode').onclick=function(){
             if(this.className=='on'){
@@ -236,7 +240,7 @@
         };
     </script>
     % endif
-    % if accountFlag:
+    % if 'account' in config['way']:
     <script type="text/javascript" src="/js/portal.js"></script>
     <script>
         document.getElementById('pLogin').onclick=function(){

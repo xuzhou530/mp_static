@@ -10,7 +10,7 @@
     <div class="projects">
         <div class="tabbox">
             <div class="bread">
-                <h2>Portal验证</h2>
+                <%include file="bread_nav.html" args="location=location,ins=ins,suffix='编辑'"/>
             </div>
         </div>
         <div class="tabbox ns_portal">
@@ -81,18 +81,27 @@
                             <div class="ns_box">
                                 % if 'wechat' in portal['h5']['way']:
                                 <div class="zz">
+                                % else:
+                                <div class="zz" style="display:none">
+                                % endif
                                     <button type="button" class="wx"><i></i>微信认证</button>
                                     <div class="pt_zz"><i class="pt_del"></i></div>
                                 </div>
-                                % endif
+
                                 % if 'app' in portal['h5']['way']:
                                 <div class="zz">
+                                % else:
+                                <div class="zz" style="display:none;">
+                                % endif
                                     <a href="javascript:;" class="dld">APP认证下载</a>
                                     <div class="pt_zz"><i class="pt_del"></i></div>
                                 </div>
-                                % endif
+
                                 % if 'account' in portal['h5']['way']:
                                 <div class="zz" id="login">
+                                % else:
+                                <div class="zz" id="login" style="display:none;">
+                                % endif
                                     <div id="portal_zone">
                                         <div>
                                             <input type="text" id="portal_user" placeholder="账户/手机号:" />
@@ -104,7 +113,6 @@
                                     </div>
                                     <div class="pt_zz"><i class="pt_del"></i></div>
                                 </div>
-                                % endif
                             </div>
                         </div>
                     </div>
@@ -119,15 +127,26 @@
                             <label>导航位置：</label>
                             <div>
                                 <select id="direction">
-                                    <option value="top">顶部</option>
-                                    <option value="bottom">底部</option>
+                                    % if portal['pc']['nav'] == 'top':
+                                    <option value="top" selected>
+                                    % else:
+                                    <option value="top">
+                                    % endif
+                                    顶部</option>
+
+                                    % if portal['pc']['nav'] == 'bottom':
+                                    <option value="bottom" selected>
+                                    % else:
+                                    <option value="bottom">
+                                    % endif
+                                    底部</option>
                                 </select>
                             </div>
                         </li>
                         <li>
                             <label>背景图片：</label>
                             <div class="file">
-                                <input type="hidden" name="pcbg" value="${portal['pc']['title']}" />
+                                <input type="hidden" name="pcbg" value="${portal['pc']['pic']}" />
                                 <input type="file" class="uploadImg" id="pcbg" name="uploadImg" />
                                 <button type="button" class="btnGreen">图片上传</button>
                                 <i class="loading"></i>
@@ -155,9 +174,9 @@
                                 % endif
                                 账户认证</span>
                                 % if 'wxscan' in portal['pc']['way']:
-                                <span data-way="wechat">
+                                <span data-way="wxscan">
                                 % else:
-                                <span data-way="wechat" class="undo">
+                                <span data-way="wxscan" class="undo">
                                 % endif
                                 微信扫一扫</span>
                             </div>
@@ -165,30 +184,53 @@
                     </ul>
                     <div class="ptD">
                         <div class="ptBody">
+                            % if portal['pc']['nav'] == 'top':
                             <div class="pBar">
+                            % else:
+                            <div class="pBar pbtm">
+                            % endif
                                 <div class="pWrapper">
                                     <div class="pTitle">
                                         <h1>
-                                            <span>南沙无线城市</span>
+                                            <span>${portal['pc']['title']}</span>
                                             <input type="text" name="title" />
                                             <div class="pt_tip">点击文字编辑</div>
                                         </h1>
-                                        <a href="javascript:;"><i class="logo"></i>壁咚分布式认证系统</a>
+                                        <a href="http://mbd.cniotroot.cn/"><i class="logo"></i>壁咚分布式认证系统</a>
                                     </div>
                                     <div class="pAuthor">
+                                        % if 'auto' in portal['pc']['way']:
                                         <div class="pAuto zz">
+                                        % else:
+                                        <div class="pAuto zz" style="display:none;">
+                                        % endif
                                             <button type="button" id="autoAuthor">一键认证</button>
                                             <div class="pt_zz"><i class="pt_del"></i></div>
                                         </div>
+
+                                        % if 'app' in portal['pc']['way']:
                                         <div class="pApp zz">
+                                        % else:
+                                        <div class="pApp zz" style="display:none;">
+                                        % endif
                                             <a href="javascript:;" id="appDL" target="_blank">APP认证上网</a>
                                             <div class="pt_zz"><i class="pt_del"></i></div>
                                         </div>
+
+                                        % if 'account' in portal['pc']['way']:
                                         <div class="pLogin zz">
+                                        % else:
+                                        <div class="pLogin zz" style="display:none;">
+                                        % endif
                                             <h2 class="" id="pLogin">短信/账户上网<i class="aDwn"></i></h2>
                                             <div class="pt_zz"><i class="pt_del"></i></div>
                                         </div>
+
+                                        % if 'wxscan' in portal['pc']['way']:
                                         <div class="pQrcode zz">
+                                        % else:
+                                        <div class="pQrcode zz" style="display:none;">
+                                        % endif
                                             <h2 class="" id="pQrcode">微信扫一扫上网<i class="aDwn"></i></h2>
                                             <div class="pt_zz"><i class="pt_del"></i></div>
                                         </div>

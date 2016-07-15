@@ -9,7 +9,7 @@
     <div class="projects">
         <div class="tabbox">
             <div class="bread">
-                <h2>Portal自定义</h2>
+                <%include file="bread_nav.html" args="location=location,ins=ins,suffix='H5页面管理'"/>
             </div>
         </div>
         <div class="tabbox ns_table" id="portallist">
@@ -26,10 +26,14 @@
                         <th>操作</th>
                     </tr>
                     % for p in portals:
-                    <tr>
-                        <td>${p['name']}</td>
-                        <td><span class="edit">模板名称</span><a href="/projecth5page.html?location=${location}&id=${p['_id']}">编辑</a><span class="forbin">停用</span><span class="delete">删除</span><input type="hidden" value="${p['_id']}" /></td>
-                    </tr>
+                      % if p['mask'] == 1:
+                      <tr>
+                      % else:
+                      <tr class="dab">
+                      % endif
+                          <td>${p['name']}</td>
+                          <td><span class="edit">模板名称</span><a href="/projecth5page.html?location=${location}&id=${p['_id']}">编辑</a><span class="forbin">停用</span><span class="delete">删除</span><input type="hidden" value="${p['_id']}" /></td>
+                      </tr>
                     % endfor
                 </table>
             </div>
