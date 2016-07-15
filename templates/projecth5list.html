@@ -25,7 +25,7 @@
                         <th>名称</th>
                         <th>操作</th>
                     </tr>
-                    % for p in portals:
+                    % for p in sorted(portals, key=lambda x: -x['mask']):
                       % if p['mask'] == 1:
                       <tr>
                       % else:
