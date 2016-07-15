@@ -1935,7 +1935,9 @@ select.sel {
   /* ../images/portal.png?20160707153309 */
 }
 .content .projects .ns_portal .pt_pc .ptD .ptBody {
-  background: url("../images/nsimgs/banner_tpl.jpg") top center no-repeat;
+  background-image: url("../images/nsimgs/banner_tpl.jpg");
+  background-position: top center;
+  background-repeat: no-repeat;
   height: 400px;
   overflow-x: auto;
   position: relative;

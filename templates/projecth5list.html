@@ -32,7 +32,13 @@
                       <tr class="dab">
                       % endif
                           <td>${p['name']}</td>
-                          <td><span class="edit">模板名称</span><a href="/projecth5page.html?location=${location}&id=${p['_id']}">编辑</a><span class="forbin">停用</span><span class="delete">删除</span><input type="hidden" value="${p['_id']}" /></td>
+                          <td><span class="edit">模板名称</span><a href="/projecth5page.html?location=${location}&id=${p['_id']}">编辑</a>
+                          % if p['mask'] == 1:
+                          <span class="forbin">停用</span>
+                          % else:
+                          <span class="unforbin">启用</span>
+                          % endif
+                          <span class="delete">删除</span><input type="hidden" value="${p['_id']}" /></td>
                       </tr>
                     % endfor
                 </table>
