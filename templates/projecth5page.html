@@ -78,39 +78,41 @@
                                 <div class="pt_tip">点击文字编辑</div>
                             </h1>
                             <div class="ns_box">
-                                % if 'wechat' in portal['h5']['way']:
-                                <div class="zz">
-                                % else:
-                                <div class="zz" style="display:none">
-                                % endif
-                                    <button type="button" class="wx"><i></i>微信认证</button>
-                                    <div class="pt_zz"><i class="pt_del"></i></div>
-                                </div>
-
-                                % if 'app' in portal['h5']['way']:
-                                <div class="zz">
-                                % else:
-                                <div class="zz" style="display:none;">
-                                % endif
-                                    <a href="javascript:;" class="dld">APP认证下载</a>
-                                    <div class="pt_zz"><i class="pt_del"></i></div>
-                                </div>
-
-                                % if 'account' in portal['h5']['way']:
-                                <div class="zz" id="login">
-                                % else:
-                                <div class="zz" id="login" style="display:none;">
-                                % endif
-                                    <div id="portal_zone">
-                                        <div>
-                                            <input type="text" id="portal_user" placeholder="账户/手机号:" />
-                                        </div>
-                                        <div>
-                                            <input type="text" id="portal_pwd" placeholder="密码/验证码:" />
-                                        </div>
-                                        <button type="button" id="portal_login">登录</button>
+                                <div id="zw">
+                                    % if 'wechat' in portal['h5']['way']:
+                                    <div class="zz">
+                                    % else:
+                                    <div class="zz" style="display:none">
+                                    % endif
+                                        <button type="button" class="wx"><i></i>微信认证</button>
+                                        <div class="pt_zz"><i class="pt_del"></i></div>
                                     </div>
-                                    <div class="pt_zz"><i class="pt_del"></i></div>
+
+                                    % if 'app' in portal['h5']['way']:
+                                    <div class="zz">
+                                    % else:
+                                    <div class="zz" style="display:none;">
+                                    % endif
+                                        <a href="javascript:;" class="dld">APP认证下载</a>
+                                        <div class="pt_zz"><i class="pt_del"></i></div>
+                                    </div>
+
+                                    % if 'account' in portal['h5']['way']:
+                                    <div class="zz" id="login">
+                                    % else:
+                                    <div class="zz" id="login" style="display:none;">
+                                    % endif
+                                        <div id="portal_zone">
+                                            <div>
+                                                <input type="text" id="portal_user" placeholder="账户/手机号:" />
+                                            </div>
+                                            <div>
+                                                <input type="text" id="portal_pwd" placeholder="密码/验证码:" />
+                                            </div>
+                                            <button type="button" id="portal_login">登录</button>
+                                        </div>
+                                        <div class="pt_zz"><i class="pt_del"></i></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
