@@ -7,7 +7,6 @@
     <!--导航-->
     <%include file="nav.html" />
     <!--右侧功能栏-->
-    <% print portal %>
     <div class="projects">
         <div class="tabbox">
             <div class="bread">
@@ -67,7 +66,7 @@
                     </ul>
                     <div class="ptD">
                         <div class="ptBody">
-                            <img src="../static/images/nsimgs/IMG_1008.JPG" class="bg" />
+                            <img src="${portal['h5']['pic']}" class="bg" />
                             <h1>
                                 <span>${portal['h5']['title']}</span>
                                 <input type="text" />
@@ -199,7 +198,7 @@
                         </div>
                     </div>
                     <div class="ptG">
-                        <a href="javascript:;" class="btnGraySmall" id="PCpreview">预览</a>
+                        <button type="button" class="btnGraySmall" id="PCpreview">预览</button>
                         <button type="button" class="btnGraySmall" id="PCsave">保存</button>
                     </div>
                 </div>
