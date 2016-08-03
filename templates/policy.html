@@ -72,7 +72,7 @@
                                             % if ins.is_allowed('delete', 'policy'):
                                             <span class="delete">删除</span>
                                             % endif
-                                            <input type="hidden" value="${coll.appid}" class="appid" /><input type="hidden" value="${coll.shopid}" class="shopid" /><input type="hidden" value="${coll.secret}" class="secret" /><input type="hidden" value="${coll.id}" class="id" />
+                                            <input type="hidden" value="${coll.appid}" class="appid" /><input type="hidden" value="${coll.shopid}" class="shopid" /><input type="hidden" value="${coll.secret}" class="secret" /><input type="hidden" value="${coll.duration}" class="duration" /><input type="hidden" value="${coll.id}" class="id" />
                                         </td>
                                     </tr>
                                     % endfor
@@ -135,13 +135,16 @@
                 <label>Secret：</label>
                 <span class="veright"><div class="verify"><input type="text" name="secret" /></div></span>
             </li>
+            <li>
+                <label><i>*</i>免认证：</label>
+                <span class="veright"><div class="verify"><input type="text" name="duration" placeholder="输入天数，例如：5" class="matchVerify shouldVerify checkInt" /></div></span>
+            </li>
         </ul>
         <div class="btngroups"><button type="button" class="btnBlue add">确定</button></div>
         <i class="msg"></i>
         <span class="closed">X</span>
         <input type="hidden" name="id" />
         <input type="hidden" name="idx" />
-        <input type="hidden" name="iidx" />
     </div>
 </div>
 </%block>
