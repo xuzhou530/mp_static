@@ -57,9 +57,9 @@
                                         </td>
                                         <td>
                                             % if coll.policy & 1 > 0:
-                                            免费<input type="hidden" value="1" />
+                                            收费<input type="hidden" value="1" />
                                             % else:
-                                            收费<input type="hidden" value="0" />
+                                            免费<input type="hidden" value="0" />
                                             % endif
                                         </td>
                                         <td>${coll.ssid}</td>

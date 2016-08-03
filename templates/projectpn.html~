@@ -92,8 +92,8 @@
                     <label><i>*</i>收费方式：</label>
                     <span class="veright">
                         <select id="policy">
-                            <option value="0">收费</option>
-                            <option value="1">免费</option>
+                            <option value="1">收费</option>
+                            <option value="0">免费</option>
                         </select>
                     </span>
                 </li>
