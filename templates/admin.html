@@ -8,7 +8,7 @@
     <div class="projects">
         <div class="tabbox">
             <div class="bread">
-                <h2>账户管理</h2>
+                <%include file="bread_nav.html" args="location=location,ins=ins,suffix='账户管理'"/>
                 <div class="widget">
                     % if ins.is_allowed('update', 'admin'):
                     <a href="adminedit.html" class="btnBlue">编辑角色</a>
