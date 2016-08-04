@@ -1430,9 +1430,6 @@ select.sel {
   top: 0;
   right: 0;
 }
-.content .projects .ns_table .areabox {
-  border: 1px solid #dfdfdf;
-}
 .content .projects .ns_table .areabox .moDetail {
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
   margin: 14px 0;
@@ -1446,6 +1443,9 @@ select.sel {
   position: absolute;
   top: -16px;
   left: 237px;
+}
+.content .projects .ns_table table {
+  border: 1px solid #dfdfdf;
 }
 .content .projects .ns_table table tr {
   font-size: 14px;
@@ -1574,12 +1574,14 @@ select.sel {
 }
 .content .projects .ns_table table tr.insideTable td {
   padding: 0;
-  height: 0;
+  height: 1px;
 }
 .content .projects .ns_table table tr.insideTable td div {
   display: none;
   border-bottom: 1px solid #e7e7e7;
   position: relative;
+  background: #e0f6fd;
+  margin-bottom: 1px;
 }
 .content .projects .ns_table table tr.insideTable td div:before {
   content: " ";
@@ -1595,9 +1597,6 @@ select.sel {
   text-align: left;
   border: none;
   margin-bottom: 20px;
-}
-.content .projects .ns_table table tr.insideTable td table tr {
-  background: #e0f6fd;
 }
 .content .projects .ns_table table tr.insideTable td table tr:first-child {
   border-bottom: none;
@@ -1675,9 +1674,6 @@ select.sel {
 }
 .content .projects .ns_table table.notrbg tr:first-child:hover {
   background: none;
-}
-.content .projects .ns_table table.notrbg tr.insideTable {
-  background: #e0f6fd;
 }
 .content .projects .ns_table .mo_today a {
   color: #08c3e5;

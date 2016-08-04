@@ -38,7 +38,7 @@
                                 <table>
                                     <tr>
                                         <th width="15%">ID</th>
-                                        <th width="10%">专网</th>
+                                        ##<th width="10%">专网</th>
                                         <th width="10%">计费方式</th>
                                         <th width="15%">SSID</th>
                                         <th width="20%">备注</th>
@@ -57,9 +57,9 @@
                                         </td>
                                         <td>
                                             % if coll.policy & 1 > 0:
-                                            收费<input type="hidden" value="1" />
+                                            免费<input type="hidden" value="1" />
                                             % else:
-                                            免费<input type="hidden" value="0" />
+                                            收费<input type="hidden" value="0" />
                                             % endif
                                         </td>
                                         <td>${coll.ssid}</td>

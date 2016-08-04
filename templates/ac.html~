@@ -29,6 +29,7 @@
                         <th>型号</th>
                         <th>账户</th>
                         <th>密码</th>
+                        ##<th>授权</th>
                         % if ins.is_allowed('create', 'ac') and ins.is_allowed('update', 'ac'):
                         <th>操作</th>
                         % endif
@@ -61,6 +62,13 @@
                         % else:
                         <td data-value="${ac.password}" data-tip="${ac.password}" class="pwdtip">***</td>
                         % endif
+                        ##<td data-value="${ac.pri}">
+                        ##    % if ac.pri==1:
+                        ##    是<input type="hidden" value="1" />
+                        ##    % else:
+                        ##    否<input type="hidden" value="0" />
+                        ##    % endif
+                        ##</td>
                         % if ins.is_allowed('create', 'ac') and ins.is_allowed('update', 'ac'):
                         <td><span class="edit">编辑</span><span class="delete">删除</span><input type="hidden" value="${ac.id}" name="id" /><input type="hidden" value="${ac.mask}" name="mask" /><input type="hidden" value="${ac.secret}" name="secret" /></td>
                         % endif
@@ -71,6 +79,10 @@
         </div>
     </div>
 </div>
+
+<%block name="jscode">
+    <script src="/static/js/lib/chart/echarts-all.js"></script>
+</%block>
 
 <%block name="aside">
 <div class="modal fade" id="modalAC">
@@ -113,15 +125,6 @@
                 </span>
             </li>
             <li>
-                <label>自动认证：</label>
-                <span class="veright">
-                    <select id="auto">
-                        <option value="0">未开启</option>
-                        <option value="1">开启</option>
-                    </select>
-                </span>
-            </li>
-            <li>
                 <label>型号：</label>
                 <span class="veright">
                     <div class="verify"><input type="text" name="model" class="matchVerify shouldVerify fill" /></div>
@@ -140,6 +143,15 @@
                 </span>
             </li>
             <li>
+                <label>授权：</label>
+                <span class="veright">
+                    <select id="pri" class="fill">
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </span>
+            </li>
+            <li>
                 <label>secret：</label>
                 <span class="veright">
                     <div class="verify"><input type="text" name="secret" /></div>
@@ -149,6 +161,7 @@
         <div class="btngroups"><button type="button" class="btnBlue add">确定</button></div>
         <i class="msg"></i>
         <span class="closed">X</span>
+        <input type="hidden" name="idx" />
         <input type="hidden" name="id" />
     </div>
 </div>
