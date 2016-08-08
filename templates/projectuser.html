@@ -7,7 +7,7 @@
     <input type="hidden" name="" id="pms-delete-policy" value="${ins.is_allowed('delete', 'policy')}">
     <input type="hidden" value="${location}" id="location" />
     <!--导航-->
-    <%include file="nav.html" />
+    <%include file="nav.html" args="on={'user': 'on'}"/>
     <!--右侧功能栏-->
     <div class="projects">
         <div class="tabbox">

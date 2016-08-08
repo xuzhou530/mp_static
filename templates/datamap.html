@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>统计检视</title>
+    <link rel="stylesheet" href="/static/css/datamap.css" />
+    <script type="text/javascript" src="/static/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/lib/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="/static/js/lib/highcharts/highcharts.js"></script>
+    <script type="text/javascript" src="/static/js/lib/highcharts/highcharts-3d.js"></script>
+    <script type="text/javascript" src="/static/js/lib/highcharts/themes/dark-unica.js"></script>
+    <script type="text/javascript" src="/static/js/lib/taffy.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>统计检视</h1>
+        <span>
+            <button type="button"><i class="dataIco"></i>数据统计</button>
+            <a href="/">南沙无线城市后台</a>
+        </span>
+    </header>
+    <section class="block">
+        <div class="blockNav">
+            <button type="button" id="dataDevice" class="on"><i class="deviceIco"></i>设备统计</button>
+            <button type="button" id="dataOnline"><i class="wifiIco"></i>上网人数统计</button>
+            <button type="button" id="dataSens"><i class="sensIco"></i>感应统计</button>
+            <button type="button" id="dataCenter"><i class="dataCenterIco"></i>大数据中心</button>
+        </div>
+        <div class="blockChart">
+            <h2><i class="deviceIcoBig"></i>设备统计</h2>
+            <div class="blockInfo">
+                <span class="errInfo"><i class="errIco"></i>故障数：<em></em></span>
+                <span class="onlineInfo"><i class="onlineIco"></i>在线人数：<em></em></span>
+                <button type="button" id="changeChart" class="btn">切换坐标</button>
+            </div>
+            <div class="chartBar">
+                <ul>
+                    <li id="chartA"></li>
+                    <li id="chartB"></li>
+                    <li id="chartC"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="blockRank">
+            <h2><i class="rankIco"></i>排行榜</h2>
+            <div class="btngroups" id="townVillage"><button type="button" class="btn">镇街</button><button type="button" class="btn on">村</button></div>
+            <div class="ranklist">
+                <ul class="rankTitle"><li>地点</li><li>AP数</li></ul>
+                <div id="slimScroll">
+                    <ul></ul>
+                    <ul style="display: block;"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="map">
+        <ul id="mapNav">
+            <li data-lnglat="113.515011,22.821834" class="on">黄阁镇</li>
+            <li data-lnglat="113.551862,22.704594">万顷沙镇</li>
+            <li data-lnglat="113.532869,22.726493">珠江街</li>
+            <li data-lnglat="113.673374,22.641442">龙穴街</li>
+            <li data-lnglat="113.333699,22.844638">榄核镇</li>
+            <li data-lnglat="113.49894,22.741872">横沥镇</li>
+            <li data-lnglat="113.440592,22.882995">东涌镇</li>
+            <li data-lnglat="113.566451,22.797626">南沙街</li>
+            <li data-lnglat="113.398784,22.805322">大岗镇</li>
+        </ul>
+        <div id="map"></div>
+        <script type="text/javascript" src="/static/js/nsmapajax.js"></script>
+        <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=8754f668e26aea7c10f33b220e1713ae&&plugin=AMap.Scale,AMap.ToolBar,AMap.Geocoder"></script>
+        <script type="text/javascript" src="/static/js/datamap.min.js"></script>
+        <script type="text/javascript" src="/static/js/nsmap.js"></script>
+    </section>
+</body>
+</html>

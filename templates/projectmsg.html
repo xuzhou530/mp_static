@@ -7,7 +7,7 @@
     <input type="hidden" name="" id="pms-update-message" value="${ins.is_allowed('update', 'ap')}">
     <input type="hidden" value="${location}" id="location" />
     <!--导航-->
-    <%include file="nav.html" />
+    <%include file="nav.html" args="on={'message': 'on'}"/>
     <!--右侧功能栏-->
     <div class="projects">
         <div class="tabbox">
