@@ -3,7 +3,7 @@
 
 <div class="wrapper">
     <!--导航-->
-    <%include file="nav.html" args="on={'admin': 'on'}"/>
+    <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
         <div class="tabbox">

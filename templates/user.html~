@@ -6,7 +6,7 @@
     <input type="hidden" name="" id="pms-update-user" value="${ins.is_allowed('update', 'user')}">
     <input type="hidden" name="" id="pms-delete-user" value="${ins.is_allowed('delete', 'user')}">
     <!--导航-->
-    <%include file="nav.html" args="on={'user': 'on'}"/>
+    <%include file="nav.html" />
     <!--右侧功能栏-->
     <div class="projects">
         <div class="tabbox">

@@ -12,7 +12,7 @@
     <div class="projects">
         <div class="tabbox">
             <div class="bread">
-                <%include file="bread_nav.html" args="location=location,ins=ins,suffix='AP管理'"/>
+                <h2>AP管理</h2>
                 <div class="widget">
                     <a href="javascript:;" class="btnBlueSmall">一键报修</a>
                 </div>

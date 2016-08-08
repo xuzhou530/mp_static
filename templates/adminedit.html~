@@ -8,7 +8,7 @@
     <div class="projects">
         <div class="tabbox">
             <div class="bread">
-                <%include file="bread_nav.html" args="location=location,ins=ins,suffix='编辑角色',remain=[('帐号管理', '/admin.html?location={}'.format(location)),]"/>
+                <%include file="bread_nav.html" args="location=location,ins=ins,suffix='编辑角色',remain=[(),]"/>
                 <div class="widget">
                     <button class="btnBlueSmall" id="roleSave">保存</button>
                     <a href="/admin.html?location=${location}" class="btnGraySmall">取消</a>
