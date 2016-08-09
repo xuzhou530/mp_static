@@ -62,7 +62,7 @@
                         <td data-value="${ac.password}" data-tip="${ac.password}" class="pwdtip">***</td>
                         % endif
                         % if ins.is_allowed('create', 'ac') and ins.is_allowed('update', 'ac'):
-                        <td><span class="edit">编辑</span><span class="delete">删除</span><input type="hidden" value="${ac.id}" name="id" /><input type="hidden" value="${ac.mask}" name="mask" /><input type="hidden" value="${ac.secret}" name="secret" /></td>
+                        <td><span class="edit">编辑</span><span class="delete">删除</span><input type="hidden" value="${ac.id}" name="id" /><input type="hidden" value="${ac.mask}" name="mask" /><input type="hidden" value="${ac.secret}" name="secret" /><input type="hidden" name="locate" data-locate="" data-name="" /></td>
                         % endif
                     </tr>
                     % endfor
@@ -110,6 +110,12 @@
                         <option value="0">AC</option>
                         <option value="1">网关设备</option>
                     </select>
+                </span>
+            </li>
+            <li style="display: none;">
+                <label>设备绑定：</label>
+                <span class="veright">
+                    <div class="autoInput" title="" data-locate=""><em>请选择</em></div>
                 </span>
             </li>
             <li>
