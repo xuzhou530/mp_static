@@ -66,7 +66,7 @@
                         _location = gw_binds.get(ac.id, '')
                         name = resources.get(_location, '')
                         %>
-                        <td><span class="edit">编辑</span><span class="delete">删除</span><input type="hidden" value="${ac.id}" name="id" /><input type="hidden" value="${ac.mask}" name="mask" /><input type="hidden" value="${ac.secret}" name="secret" /><input type="hidden" name="locate" data-locate="${_location}" data-name="${name}" /></td>
+                        <td><span class="edit">编辑</span><span class="delete">删除</span><input type="hidden" value="${ac.id}" name="id" /><input type="hidden" value="${ac.mask}" name="mask" /><input type="hidden" value="${ac.secret}" name="secret" /><input type="hidden" name="locate" data-locate="${_location}" title="${name}" /></td>
                         % endif
                     </tr>
                     % endfor
