@@ -62,7 +62,11 @@
                         <td data-value="${ac.password}" data-tip="${ac.password}" class="pwdtip">***</td>
                         % endif
                         % if ins.is_allowed('create', 'ac') and ins.is_allowed('update', 'ac'):
-                        <td><span class="edit">编辑</span><span class="delete">删除</span><input type="hidden" value="${ac.id}" name="id" /><input type="hidden" value="${ac.mask}" name="mask" /><input type="hidden" value="${ac.secret}" name="secret" /><input type="hidden" name="locate" data-locate="" data-name="" /></td>
+                        <%
+                        _location = gw_binds.get(ac.id, '')
+                        name = resources.get(_location, '')
+                        %>
+                        <td><span class="edit">编辑</span><span class="delete">删除</span><input type="hidden" value="${ac.id}" name="id" /><input type="hidden" value="${ac.mask}" name="mask" /><input type="hidden" value="${ac.secret}" name="secret" /><input type="hidden" name="locate" data-locate="${_location}" data-name="${name}" /></td>
                         % endif
                     </tr>
                     % endfor
