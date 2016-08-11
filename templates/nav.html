@@ -5,7 +5,11 @@
     % else:
     <h3 class="${on.pop('project', '')}"><a href="/index.html"><i class="navProjectIco"></i>项目管理</a></h3>
     % endif
+    % if location:
+    <h3 class="${on.pop('policy', '')}"><a href="/projectpn.html?location=${location}"><i class="navPolicyIco"></i>网络管理</a></h3>
+    % else:
     <h3 class="${on.pop('policy', '')}"><a href="/policy.html?location=${location}"><i class="navPolicyIco"></i>网络管理</a></h3>
+    % endif
     % if ins.is_allowed('view', 'ac') and location == '':
     <h3 class="${on.pop('ac', '')}"><a href="/ac.html?location=${location}"><i class="navACIco"></i>AC管理</a></h3>
     % endif
