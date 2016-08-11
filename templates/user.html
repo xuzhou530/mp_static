@@ -24,21 +24,29 @@
                 ##</div>
             </div>
             <div class="areabox">
+                <%
+                is_allowed_update_user = ins.is_allowed('update', 'user');
+                is_allowed_delete_user = ins.is_allowed('delete', 'user')
+                %>
                 <table class="centerAlign">
                     <tr>
                         <th>账户</th>
                         <th>密码</th>
                         <th>所属</th>
-                        <th>缴纳经费</th>
                         <th>到期时间</th>
+                        <th>缴纳经费</th>
                         <th>积分</th>
                         <th>在线充值</th>
-                        % if ins.is_allowed('update', 'user') or ins.is_allowed('delete', 'user'):
+                        % if is_allowed_update_user and is_allowed_delete_user:
                         <th>操作</th>
                         % endif
                     </tr>
                     % for user in users:
-                    <tr>
+                        % if user.mask & (1 << 30) <= 0:
+                        <tr>
+                        % else:
+                        <tr class="dab">
+                        % endif
                         <td>${user.user}</td>
                         <td data-value="${user.password}" data-tip="${user.password}" class="pwdtip">***</td>
                         <td>
@@ -48,11 +56,11 @@
                                 % endif
                             </span>
                         </td>
-                        <td></td>
                         <td>${user.expired}</td>
                         <td></td>
                         <td></td>
-                        % if ins.is_allowed('update', 'user') or ins.is_allowed('delete', 'user'):
+                        <td></td>
+                        % if is_allowed_update_user and is_allowed_delete_user:
                         <td><span class="changePwd">修改密码</span><span class="forbin">停用</span><span class="delete">删除</span><button type="button" class="btnGrayAutoMin save">保存</button><button type="button" class="btnGrayAutoMin cancel">取消</button><input type="hidden" value="${user.user}" /></td>
                         % endif
                     </tr>
