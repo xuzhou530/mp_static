@@ -11,7 +11,7 @@
 </tr>
 % for ap in aps:
 <tr>
-  <td>${ap.get('mac', '')}</td>
+  <td data-value="${ap.get('mac', '')}">${ap.get('mac', '')}</td>
   <td data-value="${ap.get('rtime', '')}">${ap.get('rtime', '')}</td>
   <td>
     % if ap['online'] == '1':
