@@ -25,38 +25,111 @@
         </span>
     </header>
     <section class="block">
-        <div class="blockNav">
-            <button type="button" id="dataDevice" class="on"><i class="deviceIco"></i>设备统计</button>
-            <button type="button" id="dataOnline"><i class="wifiIco"></i>上网人数统计</button>
-            <button type="button" id="dataSens"><i class="sensIco"></i>感应统计</button>
-            <button type="button" id="dataCenter"><i class="dataCenterIco"></i>大数据中心</button>
-        </div>
-        <div class="blockChart">
-            <h2><i class="deviceIcoBig"></i>设备统计</h2>
-            <div class="blockInfo">
-                <span class="errInfo"><i class="errIco"></i>故障数：<em></em></span>
-                <span class="onlineInfo"><i class="onlineIco"></i>在线人数：<em></em></span>
-                <button type="button" id="changeChart" class="btn">切换坐标</button>
+        <div class="blockTab">
+            <h2><i class="wifiIco"></i>上网人数统计</h2>
+            <div class="blockNavBtns">
+                <button type="button" class="on"><i class="wifiIco"></i>上网人数统计</button>
+                <button type="button"><i class="deviceIco"></i>设备统计</button>
+                <button type="button"><i class="sensIco"></i>感应统计</button>
+                <button type="button"><i class="dataCenterIco"></i>大数据中心</button>
             </div>
-            <div class="chartBar">
-                <ul>
-                    <li id="chartA"></li>
-                    <li id="chartB"></li>
-                    <li id="chartC"></li>
-                </ul>
+            <div class="blockCtx online" style="display: block;">
+                <div class="blockNav">
+                    <div></div>
+                    <ul class="blockInfo">
+                        <li><em>124100</em><span>连接人数</span></li>
+                        <li><em>60</em><span>在线人数</span></li>
+                        <li><em>1089</em><span>上网总流量</span></li>
+                        <li><em>1240</em><span>历史在线峰值</span></li>
+                    </ul>
+                </div>
+                <div class="blockChart">
+                    <div class="blockChartTop">
+                        <div class="asidebtns">
+                            <button type="button" class="changeChart btn">切换坐标</button>
+                        </div>
+                        <ul class="chartBar">
+                            <li id="onlinePieA"></li>
+                            <li id="onlinePieB"></li>
+                            <li id="onlinePieC"></li>
+                        </ul>
+                        <!--<ul class="chartBar">-->
+                            <!--<li id="onlineLineA"></li>-->
+                            <!--<li id="onlineLineB"></li>-->
+                            <!--<li id="onlineLineC"></li>-->
+                        <!--</ul>-->
+                    </div>
+                    <div class="blockChartBottom">
+                        <div class="asidebtns">
+                            <button type="button" class="last30 btn">最近30天</button>
+                            <button type="button" class="last24 btn on">最近24小时</button>
+                        </div>
+                        <div class="htq" id="Xline"></div>
+                    </div>
+                </div>
+                <div class="blockRank">
+                    <h3>上网人数排行榜</h3>
+                    <div class="btngroups townVillage"><button type="button" class="btn">镇街</button><button type="button" class="btn on">村</button></div>
+                    <div class="ranklist">
+                        <ul class="rankTitle"><li>地点</li><li>AP数</li></ul>
+                        <div class="slimScroll" id="onlineSlimScroll">
+                            <ul></ul>
+                            <ul style="display: block;"></ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="blockRank">
-            <h2><i class="rankIco"></i>排行榜</h2>
-            <div class="btngroups" id="townVillage"><button type="button" class="btn">镇街</button><button type="button" class="btn on">村</button></div>
-            <div class="ranklist">
-                <ul class="rankTitle"><li>地点</li><li>AP数</li></ul>
-                <div id="slimScroll">
-                    <ul></ul>
-                    <ul style="display: block;"></ul>
+            <div class="blockCtx device">
+                <div class="blockNav">
+                    <div></div>
+                    <ul class="blockInfo">
+                        <li><em>124100</em><span>热点总数</span></li>
+                        <li><em>60</em><span>热点故障数</span></li>
+                        <li><em>1089</em><span>连接人数</span></li>
+                        <li><em>1240</em><span>在线人数</span></li>
+                    </ul>
+                </div>
+                <div class="blockChart">
+                    <div class="blockChartTop">
+                        <div class="asidebtns">
+                            <button type="button" class="changeChart btn">切换坐标</button>
+                        </div>
+                        <ul class="chartBar">
+                            <li id="devicePieA"></li>
+                            <li id="devicePieB"></li>
+                            <li id="devicePieC"></li>
+                        </ul>
+                        <!--<ul class="chartBar">-->
+                            <!--<li id="deviceLineA"></li>-->
+                            <!--<li id="deviceLineB"></li>-->
+                            <!--<li id="deviceLineC"></li>-->
+                        <!--</ul>-->
+                    </div>
+                    <div class="blockChartBottom">
+                        <div class="asidebtns">
+                            <button type="button" class="last30 btn">最近30天</button>
+                            <button type="button" class="last24 btn on">最近24小时</button>
+                        </div>
+                        <div class="htq" id="Xarea"></div>
+                    </div>
+                </div>
+                <div class="blockRank">
+                    <h3>排行榜</h3>
+                    <div class="btngroups townVillage"><button type="button" class="btn">镇街</button><button type="button" class="btn on">村</button></div>
+                    <div class="ranklist">
+                        <ul class="rankTitle"><li>地点</li><li>AP数</li></ul>
+                        <div class="slimScroll" id="deviceSlimScroll">
+                            <ul></ul>
+                            <ul style="display: block;"></ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <i class="bgLeftTop"></i>
+        <i class="bgRightTop"></i>
+        <i class="bgLeftBottom"></i>
+        <i class="bgRightBottom"></i>
     </section>
     <section class="map">
         <ul id="mapNav">

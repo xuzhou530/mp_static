@@ -44,6 +44,14 @@ a {
 .btn.on {
   background-position: 0 -306px;
 }
+header,
+.map,
+.block {
+  min-width: 1600px;
+}
+.map {
+  min-height: 826px;
+}
 header {
   height: 61px;
   background: url("../images/datamap/headerbg.jpg") top center no-repeat;
@@ -138,44 +146,72 @@ header span a:hover {
 .block {
   padding-top: 10px;
   box-sizing: border-box;
-  height: 414px;
   background: rgba(27, 57, 106, 0.9);
   position: absolute;
   top: 61px;
   left: 0;
+  bottom: 0;
   width: 100%;
   z-index: 171;
   display: none;
 }
-.block:before {
-  content: " ";
+.block .bgLeftTop,
+.block .bgRightTop,
+.block .bgLeftBottom,
+.block .bgRightBottom {
   position: absolute;
+  width: 776px;
+  height: 400px;
+  z-index: -1;
+  display: block;
+}
+.block .bgLeftTop {
   left: 24px;
   top: 10px;
-  display: block;
-  background: url("../images/datamap/corner_left.png") no-repeat;
-  width: 715px;
-  height: 339px;
-  z-index: -1;
+  background: url("../images/datamap/corner_left_top.png") no-repeat;
 }
-.block:after {
-  content: " ";
-  position: absolute;
+.block .bgRightTop {
   right: 24px;
-  bottom: 24px;
-  display: block;
-  background: url("../images/datamap/corner_right.png") no-repeat;
-  width: 845px;
-  height: 325px;
-  z-index: -1;
+  top: 10px;
+  background: url("../images/datamap/corner_right_top.png") no-repeat;
 }
-.block .blockNav {
-  width: 178px;
-  margin-left: 64px;
-  margin-top: 100px;
-  float: left;
+.block .bgLeftBottom {
+  left: 24px;
+  bottom: 10px;
+  background: url("../images/datamap/corner_left_bottom.png") no-repeat;
 }
-.block .blockNav button {
+.block .bgRightBottom {
+  right: 24px;
+  bottom: 10px;
+  background: url("../images/datamap/corner_right_bottom.png") no-repeat;
+}
+.block .blockTab h2 {
+  font-size: 18px;
+  background: url("../images/datamap/blockHeader.png") top center no-repeat;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.block .blockTab h2 i {
+  margin-right: 8px;
+}
+.block .blockCtx {
+  position: absolute;
+  top: 70px;
+  left: 57px;
+  right: 57px;
+  bottom: 44px;
+  display: none;
+}
+.block .blockNavBtns {
+  position: absolute;
+  top: 100px;
+  left: 57px;
+  z-index: 171;
+  width: 254px;
+}
+.block .blockNavBtns button {
   width: 168px;
   height: 46px;
   display: block;
@@ -183,43 +219,70 @@ header span a:hover {
   text-align: left;
   background: url("../images/datamap/button.png") 0 -88px no-repeat;
 }
-.block .blockNav button:hover,
-.block .blockNav button.on {
+.block .blockNavBtns button:hover,
+.block .blockNavBtns button.on {
   background-position: 0 -136px;
   box-shadow: 0 3px 8px #334b70;
 }
-.block .blockNav button i {
+.block .blockNavBtns button i {
   margin: 0 15px;
 }
+.block .blockNav,
+.block .blockRank,
+.block .blockChartTop,
+.block .blockChartBottom {
+  background: rgba(195, 241, 247, 0.06);
+}
+.block .blockNav {
+  width: 254px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+}
+.block .blockNav div {
+  height: 270px;
+}
+.block .blockNav .blockInfo {
+  margin-left: 40px;
+  padding-top: 35px;
+}
+.block .blockNav .blockInfo li {
+  margin-bottom: 25px;
+}
+.block .blockNav .blockInfo li em {
+  font-size: 26px;
+  display: block;
+}
+.block .blockNav .blockInfo li span {
+  font-size: 16px;
+  color: #dffeff;
+  display: block;
+}
 .block .blockRank {
-  float: right;
-  margin-right: 74px;
-  width: 290px;
+  width: 358px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
 }
-.block .blockRank h2 {
-  font-size: 18px;
-  background: url("../images/datamap/blockHeader.png") 0 -50px no-repeat;
-  width: 256px;
-  height: 50px;
-  line-height: 50px;
+.block .blockRank h3 {
+  color: #c3f1f7;
+  font-size: 14px;
   text-align: center;
-  margin-left: 44px;
-}
-.block .blockRank h2 i {
-  margin-right: 8px;
+  margin: 12px 0 25px;
 }
 .block .blockRank .btngroups {
   text-align: center;
-  margin-top: 28px;
-  margin-left: 44px;
 }
 .block .blockRank .ranklist {
   color: #dffeff;
   margin-top: 20px;
-  margin-left: 10px;
+  margin-left: 30px;
 }
 .block .blockRank .ranklist .rankTitle {
   overflow: hidden;
+  width: 260px;
 }
 .block .blockRank .ranklist .rankTitle li {
   float: left;
@@ -234,25 +297,26 @@ header span a:hover {
 .block .blockRank .ranklist div {
   overflow-y: auto;
   box-sizing: border-box;
-  width: 280px;
+  width: 260px;
 }
 .block .blockRank .ranklist div ul {
   display: none;
   width: 100%;
 }
 .block .blockRank .ranklist div ul li {
+  cursor: default;
   color: #dffeff;
   line-height: 34px;
   font-size: 18px;
   position: relative;
 }
 .block .blockRank .ranklist div ul li span {
-  width: 75%;
+  width: 70%;
   display: inline-block;
   text-indent: 40px;
 }
 .block .blockRank .ranklist div ul li em {
-  width: 25%;
+  width: 30%;
   color: #00e4ff;
   text-align: right;
   display: inline-block;
@@ -264,53 +328,45 @@ header span a:hover {
 }
 .block .blockChart {
   position: absolute;
-  top: 10px;
-  left: 242px;
-  right: 364px;
+  left: 264px;
+  right: 368px;
 }
-.block .blockChart h2 {
-  background: url("../images/datamap/blockHeader.png") 0 0 no-repeat;
-  width: 349px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  font-size: 20px;
-  margin-left: -127px;
+.block .blockChart .blockChartTop {
+  margin-bottom: 10px;
+  position: relative;
 }
-.block .blockChart h2 i {
-  margin-right: 12px;
-}
-.block .blockChart .blockInfo {
-  color: #dffeff;
-  text-align: center;
-  margin-top: 75px;
-}
-.block .blockChart .blockInfo span i {
-  margin-right: 10px;
-}
-.block .blockChart .blockInfo span em {
-  font-size: 22px;
-}
-.block .blockChart .blockInfo .errInfo em {
-  color: #ea503a;
-}
-.block .blockChart .blockInfo .onlineInfo {
-  margin: 0 80px;
-}
-.block .blockChart .blockInfo .onlineInfo em {
-  color: #7dffa5;
-}
-.block .blockChart ul {
+.block .blockChart .blockChartTop .chartBar {
   width: 100%;
-  margin-top: 24px;
+  overflow: hidden;
+  padding-top: 70px;
 }
-.block .blockChart ul li {
+.block .blockChart .blockChartTop .chartBar li {
   width: 33%;
-  height: 240px;
+  height: 260px;
   float: left;
+}
+.block .blockChart .blockChartBottom {
+  position: relative;
+}
+.block .blockChart .blockChartBottom #Xarea {
+  width: 100%;
+  height: 320px;
+  box-sizing: border-box;
+}
+.block .blockChart .blockChartBottom #Xline {
+  width: 100%;
+  height: 320px;
+  box-sizing: border-box;
+}
+.block .blockChart .asidebtns {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 171;
+}
+.block .blockChart .asidebtns button {
+  display: inline-block;
+  margin-left: 5px;
 }
 .dataIco {
   background: no-repeat;
@@ -386,7 +442,7 @@ header span a:hover {
   vertical-align: middle;
   margin-top: -2px;
 }
-/* ../images/datamap/datamapsprite.png?20160723111145 */
+/* ../images/datamap/datamapsprite.png?20160811140643 */
 .dataIco,
 .deviceIco,
 .wifiIco,
@@ -397,8 +453,8 @@ header span a:hover {
 .errIco,
 .onlineIco,
 .clickIco {
-  background-image: url(../images/datamap/datamapsprite.png?20160723111145);
+  background-image: url(../images/datamap/datamapsprite.png?20160811140643);
 }
 .css_stamp {
-  content: "20160723111145";
+  content: "20160811140643";
 }
